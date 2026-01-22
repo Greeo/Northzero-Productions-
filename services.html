@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Services | Northzero Productions</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #f0f0f0;
+            --text-muted: #aaaaaa;
+            --accent-color: #d4af37; /* Gold/Cinematic accent */
+            --secondary-bg: #141414;
+            --card-bg: #111;
+            --font-main: 'Helvetica Neue', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(10, 10, 10, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-color);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .cta-btn {
+            border: 1px solid var(--accent-color);
+            padding: 10px 25px;
+            color: var(--accent-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* Header */
+        .page-header {
+            height: 50vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--bg-color)), url('https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            max-width: 600px;
+            margin-top: 10px;
+        }
+
+        /* Services Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px auto;
+        }
+
+        .intro-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Service Blocks */
+        .service-category {
+            margin-bottom: 100px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .category-header h2 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-right: 20px;
+        }
+
+        .line {
+            flex-grow: 1;
+            height: 1px;
+            background: #333;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border: 1px solid #222;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .card h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card h3::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Aerial Section specific styling */
+        .aerial-section {
+            background: url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .aerial-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .aerial-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Additional Services Grid (Bottom) */
+        .additional-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .add-item {
+            background: #111;
+            padding: 30px 10px;
+            border-top: 2px solid var(--accent-color);
+        }
+
+        .add-item h4 {
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .add-item p {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+            border-top: 1px solid #222;
+        }
+
+        @media (max-width: 900px) {
+            .additional-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 600px) {
+            .additional-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">NorthZero <span>Productions</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="#" style="color: var(--accent-color);">Services</a>
+            <a href="#work">Work</a>
+            <a href="#contact" class="cta-btn">Contact Us</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Visual Transformation</h1>
+        <p>Video Production Services for Small Business & Brands</p>
+    </header>
+
+    <div class="container">
+        <div class="intro-text">
+            <p>Experience our expertise. We are involved in every step of the process. Northzero Productions is a leading catalyst for visual transformation, creating content that enriches the world around you and delivers your message with impact.</p>
+        </div>
+
+        <div class="service-category">
+            <div class="category-header">
+                <h2>Connecting With Audiences</h2>
+                <div class="line"></div>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Short-form Videos</h3>
+                    <p>Designed for Instagram Reels and YouTube Shorts to maximize engagement and reach through quick, punchy content.</p>
+                </div>
+                <div class="card">
+                    <h3>Platform-Specific Ads</h3>
+                    <p>Optimized creative assets for Facebook, Instagram, LinkedIn, and other social ad formats to drive conversion.</p>
+                </div>
+                <div class="card">
+                    <h3>Live Streams & Q&A</h3>
+                    <p>Real-time interaction setups to build communities, answer questions, and generate buzz for your brand.</p>
+                </div>
+                <div class="card">
+                    <h3>Animated Stories & GIFs</h3>
+                    <p>Eye-catching motion graphics and visuals that enhance your brand's personality and stand out in the feed.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-category">
+            <div class="category-header">
+                <h2>Building Presence</h2>
+                <div class="line"></div>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Company Story Videos</h3>
+                    <p>Authentic narratives that introduce your brand history and build deep emotional connections with your audience.</p>
+                </div>
+                <div class="card">
+                    <h3>Mission & Vision</h3>
+                    <p>Inspirational content that clearly communicates your purpose, future goals, and inspires action from your stakeholders.</p>
+                </div>
+                <div class="card">
+                    <h3>Culture Videos</h3>
+                    <p>Authentic glimpses into your workplace and values, perfect for attracting top talent and fostering brand loyalty.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-category">
+            <div class="category-header">
+                <h2>Training & Education</h2>
+                <div class="line"></div>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Onboarding & Orientation</h3>
+                    <p>Welcoming new employees and introducing them to your company culture efficiently and consistently.</p>
+                </div>
+                <div class="card">
+                    <h3>Product Demonstrations</h3>
+                    <p>Showcasing the features and benefits of your products in an easy-to-understand format for users.</p>
+                </div>
+                <div class="card">
+                    <h3>Compliance & Safety</h3>
+                    <p>Ensuring your team adheres to regulations and best practices with clear, engaging instructional video.</p>
+                </div>
+                <div class="card">
+                    <h3>Customer Education</h3>
+                    <p>Empowering customers with the knowledge they need to succeed with your products or services.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="aerial-section">
+        <div class="aerial-overlay"></div>
+        <div class="aerial-content">
+            <h2 style="font-size: 2.5rem; text-transform: uppercase; margin-bottom: 20px;">Aerial Cinematography</h2>
+            <p style="color: #ccc; margin-bottom: 40px; font-size: 1.1rem;">Stunning footage that adds a new dimension to your portfolio.</p>
+            
+            <div class="cards-grid" style="text-align: left;">
+                <div class="card" style="background: rgba(20,20,20,0.8);">
+                    <h3>Real Estate & Events</h3>
+                    <p>Showcasing properties, construction sites, and live events from a unique bird's-eye perspective.</p>
+                </div>
+                <div class="card" style="background: rgba(20,20,20,0.8);">
+                    <h3>Promotional Aerials</h3>
+                    <p>Creating cinematic visuals that elevate your brand's image with high-production value drone shots.</p>
+                </div>
+                <div class="card" style="background: rgba(20,20,20,0.8);">
+                    <h3>Landscape & Travel</h3>
+                    <p>Showcasing the beauty of natural landscapes and destinations with sweeping, epic movements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="category-header">
+            <h2>Driving Conversions & Innovation</h2>
+            <div class="line"></div>
+        </div>
+        <p style="color: #888; max-width: 800px;">We create visually compelling product videos that drive sales, from Unboxing videos to complex Explainers.</p>
+
+        <div class="additional-grid">
+            <div class="add-item">
+                <h4>Consulting</h4>
+                <p>Digital innovation strategy to foster community.</p>
+            </div>
+            <div class="add-item">
+                <h4>Project Management</h4>
+                <p>Streamlining the process to reach the right audiences.</p>
+            </div>
+            <div class="add-item">
+                <h4>Design</h4>
+                <p>Digital landscape design to strengthen your brand.</p>
+            </div>
+            <div class="add-item">
+                <h4>Maintenance</h4>
+                <p>Exclusive retainer packages for ongoing content needs.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 100px;">
+            <h2 style="margin-bottom: 20px; font-size: 2rem;">Ready to Start?</h2>
+            <a href="mailto:admin@northzeroproductions.com" class="cta-btn" style="padding: 15px 40px; font-size: 1rem;">Contact Us Today</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Northzero Productions. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

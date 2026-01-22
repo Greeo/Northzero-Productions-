@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policies & Terms | Northzero Productions</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #f0f0f0;
+            --text-muted: #aaaaaa;
+            --accent-color: #d4af37; /* Gold/Cinematic accent */
+            --secondary-bg: #141414;
+            --card-bg: #111;
+            --font-main: 'Helvetica Neue', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(10, 10, 10, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-color);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .cta-btn {
+            border: 1px solid var(--accent-color);
+            padding: 10px 25px;
+            color: var(--accent-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* Header */
+        .page-header {
+            height: 40vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--bg-color)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            max-width: 600px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Policy Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .policy-section {
+            margin-bottom: 60px;
+            background: var(--secondary-bg);
+            padding: 40px;
+            border-left: 3px solid var(--accent-color);
+            transition: background 0.3s ease;
+        }
+
+        .policy-section:hover {
+            background: #1a1a1a;
+        }
+
+        .policy-section h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .policy-section h3 {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .policy-section p, .policy-section ul {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .policy-section ul {
+            list-style-position: inside;
+            padding-left: 20px;
+        }
+
+        .policy-section li {
+            margin-bottom: 8px;
+        }
+
+        .contact-box {
+            background: #111;
+            border: 1px solid #333;
+            padding: 40px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+            border-top: 1px solid #222;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .page-header h1 { font-size: 2rem; }
+            .policy-section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">NorthZero <span>Productions</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="all-services.html">Services</a>
+            <a href="work.html">Work</a>
+            <a href="policies.html" style="color: var(--accent-color);">Policies</a>
+            <a href="contact.html" class="cta-btn">Contact Us</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Policies & Terms</h1>
+        <p>Transparency. Professionalism. Trust.</p>
+    </header>
+
+    <div class="container">
+        
+        <p style="text-align: center; color: #888; margin-bottom: 60px;">
+            Please review our company policies below. These terms ensure a smooth production process and clear communication for all parties involved.
+        </p>
+
+        <div class="policy-section">
+            <h2>Payment Terms & Conditions</h2>
+            <p>To secure our services and book your production dates, we adhere to the following payment structure:</p>
+            
+            <h3>Deposit</h3>
+            <p>A non-refundable deposit of <strong>50%</strong> is required upon signing the agreement to secure the project start date. Production planning will not commence until this deposit is received.</p>
+            
+            <h3>Final Balance</h3>
+            <p>The remaining <strong>50%</strong> balance is due upon delivery of the final draft, before the release of the final high-resolution files without watermarks.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Cancellation & Rescheduling</h2>
+            <p>We understand that unforeseen circumstances arise. Our cancellation policy is designed to protect the time of our crew and resources.</p>
+            
+            <ul>
+                <li><strong>7 Days Notice:</strong> Cancellations made more than 7 days before the shoot will result in a refund of the deposit, minus any incurred pre-production costs.</li>
+                <li><strong>Less than 7 Days:</strong> Cancellations made within 7 days of the scheduled shoot are subject to a forfeiture of the deposit.</li>
+                <li><strong>Rescheduling:</strong> Projects may be rescheduled once without penalty if notice is given at least 72 hours in advance. Subsequent rescheduling may incur a fee.</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>Revisions & Edits</h2>
+            <p>We want to ensure you are thrilled with the final product. Our standard agreement includes:</p>
+            
+            <h3>Two Rounds of Revisions</h3>
+            <p>Every project includes two standard rounds of revisions at no extra cost. We encourage clients to consolidate feedback into concise lists to maximize these rounds.</p>
+            
+            <h3>Additional Changes</h3>
+            <p>Any revisions requested beyond the included rounds, or changes that contradict previously approved storyboards/scripts, will be billed at our standard hourly editing rate.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Intellectual Property & Usage</h2>
+            <p>Understanding who owns the footage is crucial for your brand's security.</p>
+            
+            <h3>Client Ownership</h3>
+            <p>Upon final payment, the client is granted a perpetual, worldwide license to use the final video product for the purposes agreed upon (e.g., web, broadcast, social media).</p>
+            
+            <h3>Northzero Productions Rights</h3>
+            <p>Northzero Productions retains the right to use the final content for promotional purposes (portfolio, showreel, social media) unless a Non-Disclosure Agreement (NDA) has been signed prior to production.</p>
+            
+            <h3>Raw Footage</h3>
+            <p>Raw footage (unedited camera files) is not included in standard packages but can be purchased for an additional fee if requested.</p>
+        </div>
+
+        <div class="contact-box">
+            <h3 style="color: #fff; margin-bottom: 10px;">Have questions about our policies?</h3>
+            <p>If you have specific requirements or need clarification, please reach out to our administration team.</p>
+            <a href="contact.html" class="cta-btn" style="margin-top: 20px; display: inline-block;">Contact Admin</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Northzero Productions. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
