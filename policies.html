@@ -183,6 +183,88 @@
             .page-header h1 { font-size: 2rem; }
             .policy-section { padding: 20px; }
         }
+
+                /* --- UNIVERSAL RESPONSIVENESS --- */
+        
+        /* 1. Large Desktops & TV (Screens wider than 1400px) */
+        @media (min-width: 1401px) {
+            .gallery-container {
+                grid-template-columns: repeat(3, 1fr); /* Stay at 3 columns */
+                gap: 30px;
+            }
+        }
+        
+        /* 2. Standard Desktops & Laptops (1025px to 1400px) */
+        @media (max-width: 1400px) {
+            .gallery-container {
+                grid-template-columns: repeat(3, 1fr); /* 3 columns, slightly tighter */
+                padding: 0 30px 100px;
+            }
+            .page-header h1 { font-size: 3rem; }
+        }
+        
+        /* 3. Tablets, iPads, and Small Laptops (769px to 1024px) */
+        @media (max-width: 1024px) {
+            nav { padding: 15px 30px; }
+            
+            .hero-showreel { height: 50vh; } /* Adjust hero height for better proportion */
+            
+            .gallery-container {
+                grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns */
+                gap: 15px;
+            }
+            
+            .page-header h1 { font-size: 2.5rem; }
+            .title-box { padding: 20px 40px; }
+            .title-box h1 { font-size: 2.5rem; letter-spacing: 10px; }
+        }
+        
+        /* 4. Large Phones & Small Tablets (481px to 768px) */
+        @media (max-width: 768px) {
+            nav { padding: 10px 20px; }
+            .nav-links { display: none; } /* Optional: Hide desktop links for a burger menu */
+            
+            .page-header { height: 35vh; }
+            .hero-showreel { height: 40vh; }
+            
+            .gallery-container {
+                grid-template-columns: 1fr; /* 1 column for easier scrolling */
+            }
+            
+            .gallery-item { height: 250px; } /* Slightly shorter items for mobile */
+        }
+        
+        /* 5. Smartphones & iPods (Up to 480px) */
+        @media (max-width: 480px) {
+            .page-header h1 { font-size: 1.8rem; letter-spacing: 2px; }
+            
+            .title-box { 
+                padding: 15px 20px; 
+                border-width: 1px; /* Thinner border for small screens */
+            }
+            .title-box h1 { 
+                font-size: 1.5rem; 
+                letter-spacing: 5px; 
+            }
+            
+            .gallery-item { height: 200px; }
+            
+            .logo { font-size: 1.2rem; }
+        }
+        
+        /* --- BROWSER COMPATIBILITY FIXES --- */
+        
+        /* Fix for Safari on iPhone (prevents video zooming) */
+        video {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+        
+        /* Ensure the gold shimmer works on all Webkit browsers */
+        .main-title, .title-box h1 {
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
 <body>
@@ -270,4 +352,5 @@
     </footer>
 
 </body>
+
 </html>
