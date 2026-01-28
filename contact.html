@@ -212,6 +212,81 @@
             .form-wrapper { padding: 30px 20px; }
             .page-header h1 { font-size: 2rem; }
         }
+
+
+                /* --- MOBILE NAVIGATION LOGIC --- */
+        
+        /* 1. Default Desktop View (Hiding the Burger) */
+        .menu-toggle, .hamburger-icon {
+            display: none;
+        }
+        
+        /* 2. Mobile & Tablet View (Below 1024px) */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 15px 5%;
+                justify-content: space-between; /* Pins Logo left, Burger right */
+            }
+        
+            /* Hide the standard text links */
+            .nav-links {
+                display: none;
+            }
+        
+            /* Show the Hamburger Widget */
+            .hamburger-icon {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 21px;
+                cursor: pointer;
+                z-index: 1001;
+            }
+        
+            /* The Three Lines (Gold to match your brand) */
+            .hamburger-icon span {
+                display: block;
+                width: 100%;
+                height: 3px;
+                background-color: var(--nz-gold);
+                border-radius: 3px;
+                transition: all 0.3s ease;
+            }
+        
+            /* Mobile Menu Drawer (Hidden by default) */
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                right: -100%; /* Off-screen */
+                width: 250px;
+                height: 100vh;
+                background: var(--nz-black);
+                border-left: 1px solid #222;
+                padding: 80px 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                transition: right 0.4s ease;
+                z-index: 1000;
+            }
+        
+            /* Logic to show menu when the hidden checkbox is checked */
+            #menu-checkbox:checked ~ .mobile-menu {
+                right: 0;
+            }
+        
+            /* Animate Hamburger into an 'X' when open */
+            #menu-checkbox:checked ~ .hamburger-icon span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            #menu-checkbox:checked ~ .hamburger-icon span:nth-child(2) {
+                opacity: 0;
+            }
+            #menu-checkbox:checked ~ .hamburger-icon span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+        }
         
                 /* --- UNIVERSAL RESPONSIVENESS --- */
         
@@ -370,3 +445,4 @@
 </body>
 
 </html>
+
