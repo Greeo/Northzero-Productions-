@@ -28,6 +28,284 @@
             overflow-x: hidden;
         }
 
+         /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center; padding: 20px 50px;
+            background: rgba(10, 10, 10, 0.95); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #222;
+        }
+         
+        /* Desktop Links (Visible by default) */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Hide Mobile Elements on Desktop by default */
+        .hamburger-icon, .mobile-dropdown {
+            display: none;
+        }
+
+        /* --- MOBILE & TABLET ADAPTATION --- */
+        @media (max-width: 1024px) {
+            /* Hide the horizontal desktop links */
+            .nav-links {
+                display: none;
+            }
+
+            /* Show the White Hamburger Widget */
+            .hamburger-icon {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 20px;
+                cursor: pointer;
+                z-index: 2000;
+            }
+
+            .hamburger-icon span {
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: #ffffff; /* White icon as requested */
+                transition: 0.4s ease;
+            }
+
+            /* Mobile Dropdown Styling */
+            .mobile-dropdown {
+                display: flex; /* Now part of the layout for JS to toggle */
+                position: fixed;
+                top: 0;
+                right: -100%; /* Hidden off-screen to the right */
+                width: 100%;
+                height: 100vh;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 35px;
+                transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+                z-index: 1500;
+            }
+
+            /* State when active (triggered by JS) */
+            .mobile-dropdown.active {
+                right: 0;
+            }
+        }
+
+        /* Navigation Ends */
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center; padding: 20px 5%;
+            background: rgba(10, 10, 10, 0.95); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #222;
+        }
+
+        :root {
+            --nz-blue: #0047ab;
+            --nz-gold: #d4af37;
+            --nz-black: #0a0a0a;
+            --nz-white: #ffffff;
+        }
+
+        .logo-link {
+            display: inline-flex;
+            align-items: center;
+            background: var(--nz-black);
+            padding: 15px 25px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-decoration: none;
+        }
+
+        /* --- THE COMPASS --- */
+        .compass-box {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border: 2px solid #333;
+            border-radius: 50%;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s ease;
+        }
+
+        .needle {
+            position: relative;
+            width: 4px;
+            height: 36px;
+            transform: rotate(-45deg);
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Blue North Tip */
+        .needle::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 0; height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 18px solid var(--nz-blue);
+            transform: translateX(-2px);
+        }
+
+        /* Gold South Tip */
+        .needle::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 18px solid var(--nz-gold);
+            transform: translateX(-2px);
+        }
+
+        /* --- THE ANIMATED NAME --- */
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            text-transform: uppercase;
+        }
+
+        .main-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--nz-white);
+            letter-spacing: 3px;
+            line-height: 1;
+            position: relative;
+            
+            /* Text Shimmer Effect */
+            background: linear-gradient(120deg, 
+                rgba(255,255,255,1) 40%, 
+                rgba(255,255,255,0.4) 50%, 
+                rgba(255,255,255,1) 60%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 4s linear infinite;
+        }
+
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+
+        .sub-title {
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: var(--nz-gold);
+            letter-spacing: 6.5px;
+            margin-top: 4px;
+        }
+
+        /* --- HOVER INTERACTIONS --- */
+        .logo-link:hover .needle {
+            transform: rotate(0deg);
+        }
+
+        .logo-link:hover .compass-box {
+            border-color: var(--nz-blue);
+            box-shadow: 0 0 15px rgba(0, 71, 171, 0.3);
+        }
+
+        .logo-link:hover .main-title {
+            animation: shimmer 1.5s linear infinite; /* Speed up shimmer on hover */
+        }
+
+        /* --- TEXT STYLING --- */
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            text-transform: uppercase;
+        }
+
+        .main-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--nz-white);
+            letter-spacing: 3px;
+            line-height: 1;
+        }
+
+        .main-title span.blue-zero {
+            color: var(--nz-blue);
+            transition: color 0.3s;
+        }
+
+        .sub-title {
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: var(--nz-gold);
+            letter-spacing: 6.5px;
+            margin-top: 4px;
+        }
+
+        /* --- ANIMATION --- */
+        .logo-link:hover .needle {
+            /* Points straight up towards "Zero" */
+            transform: rotate(0deg);
+        }
+
+        .logo-link:hover .compass-box {
+            border-color: var(--nz-gold);
+        }
+    
+
+
+
+        /* Animated Compass Logo */
+        .logo-link { display: flex; align-items: center; text-decoration: none; cursor: pointer; }
+        .compass-box { width: 40px; height: 40px; border: 2px solid #333; border-radius: 50%; margin-right: 15px; display: flex; align-items: center; justify-content: center; position: relative; transition: 0.4s; }
+        .needle { width: 3px; height: 30px; transform: rotate(-45deg); transition: 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; }
+        .needle::before { content: ''; position: absolute; top: 0; left: -2.5px; border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 15px solid var(--nz-blue); }
+        .needle::after { content: ''; position: absolute; bottom: 0; left: -2.5px; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 15px solid var(--nz-gold); }
+        .logo-link:hover .needle { transform: rotate(0deg); }
+        .logo-text { color: white; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; }
+
+        /* Desktop Nav - Hidden on Mobile */
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
+
+        /* Mobile Burger - Hidden on Desktop */
+        .hamburger-icon { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 20px; cursor: pointer; z-index: 2000; }
+        .hamburger-icon span { display: block; width: 100%; height: 2px; background-color: #fff; transition: 0.4s; }
+
+        /* Mobile Dropdown Menu */
+        .mobile-dropdown { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 40px; transition: 0.5s; z-index: 1500; }
+        .mobile-dropdown.active { right: 0; }
+        .mobile-dropdown a { color: white; font-size: 1.8rem; text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 4px; }
+
+        /* --- HERO SHOWREEL (MISTY DARK GREY) --- */
+        .hero-container { position: relative; height: 60vh; margin-top: 80px; overflow: hidden; background: var(--misty-grey); }
+        .hero-video { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+        .hero-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; border: 2px solid var(--nz-gold); padding: 30px 60px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); }
+        .hero-overlay h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 12px; font-weight: 800; color: white; }
+
+        /* --- GALLERY GRID (3x2) --- */
+        .gallery-container { max-width: 1400px; margin: 0 auto; padding: 60px 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .gallery-item { position: relative; aspect-ratio: 16/9; background: #000; overflow: hidden; border: 1px solid #222; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
+        .gallery-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; transition: 0.3s; z-index: 5; }
+        .gallery-item:hover .gallery-overlay { opacity: 1; background: rgba(0,0,0,0.6); }
+        .gallery-item:hover img { transform: scale(1.05); opacity: 0.3; }
+
+        /* --- RESPONSIVENESS --- */
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .hamburger-icon { display: flex; }
+            .gallery-container { grid-template-columns: repeat(2, 1fr); }
+            .hero-overlay h1 { font-size: 2rem; letter-spacing: 6px; }
+        }
+        @media (max-width: 768px) {
+            .gallery-container { grid-template-columns: 1fr; }
+        }
+
+
         /* Navigation (Consistent with Homepage) */
         nav {
             display: flex;
@@ -247,7 +525,7 @@
 
         .team-img {
             width: 40%;
-            background: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80') no-repeat center center/cover;
+            background: url('https://images.unsplash.com/photo-1769138774223-1aa5f0301c8c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
             min-height: 300px;
             filter: grayscale(100%);
         }
@@ -289,26 +567,25 @@
             .nav-links { display: none; }
         }
 
-        
                 /* --- MOBILE NAVIGATION LOGIC --- */
-        
+
         /* 1. Default Desktop View (Hiding the Burger) */
         .menu-toggle, .hamburger-icon {
             display: none;
         }
-        
+
         /* 2. Mobile & Tablet View (Below 1024px) */
         @media (max-width: 1024px) {
             nav {
                 padding: 15px 5%;
                 justify-content: space-between; /* Pins Logo left, Burger right */
             }
-        
+
             /* Hide the standard text links */
             .nav-links {
                 display: none;
             }
-        
+
             /* Show the Hamburger Widget */
             .hamburger-icon {
                 display: flex;
@@ -319,7 +596,7 @@
                 cursor: pointer;
                 z-index: 1001;
             }
-        
+
             /* The Three Lines (Gold to match your brand) */
             .hamburger-icon span {
                 display: block;
@@ -329,7 +606,7 @@
                 border-radius: 3px;
                 transition: all 0.3s ease;
             }
-        
+
             /* Mobile Menu Drawer (Hidden by default) */
             .mobile-menu {
                 position: fixed;
@@ -346,12 +623,12 @@
                 transition: right 0.4s ease;
                 z-index: 1000;
             }
-        
+
             /* Logic to show menu when the hidden checkbox is checked */
             #menu-checkbox:checked ~ .mobile-menu {
                 right: 0;
             }
-        
+
             /* Animate Hamburger into an 'X' when open */
             #menu-checkbox:checked ~ .hamburger-icon span:nth-child(1) {
                 transform: translateY(9px) rotate(45deg);
@@ -363,105 +640,45 @@
                 transform: translateY(-9px) rotate(-45deg);
             }
         }
-
-        
-
-                /* --- UNIVERSAL RESPONSIVENESS --- */
-        
-        /* 1. Large Desktops & TV (Screens wider than 1400px) */
-        @media (min-width: 1401px) {
-            .gallery-container {
-                grid-template-columns: repeat(3, 1fr); /* Stay at 3 columns */
-                gap: 30px;
-            }
-        }
-        
-        /* 2. Standard Desktops & Laptops (1025px to 1400px) */
-        @media (max-width: 1400px) {
-            .gallery-container {
-                grid-template-columns: repeat(3, 1fr); /* 3 columns, slightly tighter */
-                padding: 0 30px 100px;
-            }
-            .page-header h1 { font-size: 3rem; }
-        }
-        
-        /* 3. Tablets, iPads, and Small Laptops (769px to 1024px) */
-        @media (max-width: 1024px) {
-            nav { padding: 15px 30px; }
-            
-            .hero-showreel { height: 50vh; } /* Adjust hero height for better proportion */
-            
-            .gallery-container {
-                grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns */
-                gap: 15px;
-            }
-            
-            .page-header h1 { font-size: 2.5rem; }
-            .title-box { padding: 20px 40px; }
-            .title-box h1 { font-size: 2.5rem; letter-spacing: 10px; }
-        }
-        
-        /* 4. Large Phones & Small Tablets (481px to 768px) */
-        @media (max-width: 768px) {
-            nav { padding: 10px 20px; }
-            .nav-links { display: none; } /* Optional: Hide desktop links for a burger menu */
-            
-            .page-header { height: 35vh; }
-            .hero-showreel { height: 40vh; }
-            
-            .gallery-container {
-                grid-template-columns: 1fr; /* 1 column for easier scrolling */
-            }
-            
-            .gallery-item { height: 250px; } /* Slightly shorter items for mobile */
-        }
-        
-        /* 5. Smartphones & iPods (Up to 480px) */
-        @media (max-width: 480px) {
-            .page-header h1 { font-size: 1.8rem; letter-spacing: 2px; }
-            
-            .title-box { 
-                padding: 15px 20px; 
-                border-width: 1px; /* Thinner border for small screens */
-            }
-            .title-box h1 { 
-                font-size: 1.5rem; 
-                letter-spacing: 5px; 
-            }
-            
-            .gallery-item { height: 200px; }
-            
-            .logo { font-size: 1.2rem; }
-        }
-        
-        /* --- BROWSER COMPATIBILITY FIXES --- */
-        
-        /* Fix for Safari on iPhone (prevents video zooming) */
-        video {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-        }
-        
-        /* Ensure the gold shimmer works on all Webkit browsers */
-        .main-title, .title-box h1 {
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">NorthZero <span>Productions</span></div>
+     <nav>
+        <a href="#" class="logo-link">
+        <div class="compass-box">
+               <div class="needle"></div>
+           </div>
+           <div class="logo-text">
+               <div class="main-title">North<span class="blue-zero">Zero</span></div>
+               <div class="sub-title">Productions</div>
+           </div>
+        </a>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="about.html" style="color: var(--accent-color);">About</a>
+            <a href="about.html">About</a>
             <a href="all-services.html">Services</a>
-            <a href="work.html">Work</a>
+            <a href="work.html" style="color: var(--accent-color);">Work</a>
             <a href="policies.html">Policies</a>
             <a href="contact.html" class="cta-btn">Contact Us</a>
         </div>
-    </nav>
+
+        <div class="hamburger-icon" id="burgerBtn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+        </div>
+
+        <div class="mobile-dropdown" id="mobileMenu">
+            <a href="index.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Home</a>
+            <a href="about.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">About</a>
+            <a href="all-services.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Services</a>
+            <a href="work.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Work</a>
+            <a href="policies.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Policies</a>
+            <a href="contact.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Contact</a>
+        </div> 
+
+    </nav> 
 
     <header class="page-header">
         <h1>Who We Are</h1>
@@ -555,7 +772,57 @@
         <p>&copy; 2024 Northzero Productions. All Rights Reserved.</p>
     </footer>
 
+    <script>
+
+        // Function to play video inside the box (No black screen)
+        function playNow(element, url) {
+            element.innerHTML = `<iframe src="${url}" allow="autoplay; fullscreen" allowfullscreen style="width:100%; height:100%; border:none;"></iframe>`;
+            element.onclick = null; // Disable additional clicks
+        }
+
+
+        // Your provided function fixed for functionality
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const burger = document.getElementById('burgerBtn');
+            menu.classList.toggle('active');
+            
+            // Handle body scroll locking
+            if (menu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+
+        // Ensure video starts immediately on load
+        window.addEventListener('load', function() {
+            const video = document.getElementById('heroVideo');
+            video.play().catch(error => {
+                console.log("Autoplay was prevented by browser. User interaction required.");
+            });
+        });
+
+        // Add a parallax effect on scroll for the title
+        window.addEventListener('scroll', function() {
+            const scroll = window.pageYOffset;
+            const title = document.querySelector('.hero-content');
+            title.style.transform = 'translateY(' + scroll * 0.4 + 'px)';
+            title.style.opacity = 1 - (scroll / 600);
+        });
+
+        
+        // Adding a subtle click reaction
+        const logo = document.getElementById('mainLogo');
+        logo.addEventListener('mousedown', () => {
+            logo.style.transform = 'scale(0.96)';
+        });
+        logo.addEventListener('mouseup', () => {
+            logo.style.transform = 'scale(1)';
+        });
+
+    </script>
+
 </body>
-
 </html>
-
