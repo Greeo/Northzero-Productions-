@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Work | Northzero Productions</title>
+    <title>Core Services | Northzero Productions</title>
     <style>
         :root {
             --bg-color: #0a0a0a;
@@ -29,7 +29,317 @@
             overflow-x: hidden;
         }
 
-        /* Navigation */
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center; padding: 20px 5%;
+            background: rgba(10, 10, 10, 0.95); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #222;
+        }
+
+        /* Desktop Links (Visible by default) */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Hide Mobile Elements on Desktop by default */
+        .hamburger-icon, .mobile-dropdown {
+            display: none;
+        }
+
+        /* --- MOBILE & TABLET ADAPTATION --- */
+        @media (max-width: 1024px) {
+            /* Hide the horizontal desktop links */
+            .nav-links {
+                display: none;
+            }
+
+            /* Show the White Hamburger Widget */
+            .hamburger-icon {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 20px;
+                cursor: pointer;
+                z-index: 2000;
+            }
+
+            .hamburger-icon span {
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: #ffffff; /* White icon as requested */
+                transition: 0.4s ease;
+            }
+
+            /* Mobile Dropdown Styling */
+            .mobile-dropdown {
+                display: flex; /* Now part of the layout for JS to toggle */
+                position: fixed;
+                top: 0;
+                right: -100%; /* Hidden off-screen to the right */
+                width: 100%;
+                height: 100vh;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 35px;
+                transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+                z-index: 1500;
+            }
+
+            /* State when active (triggered by JS) */
+            .mobile-dropdown.active {
+                right: 0;
+            }
+        }
+
+        /* Navigation Ends */
+        
+        :root {
+            --nz-blue: #0047ab;
+            --nz-gold: #d4af37;
+            --nz-black: #0a0a0a;
+            --nz-white: #ffffff;
+        }
+
+        .logo-link {
+            display: inline-flex;
+            align-items: center;
+            background: var(--nz-black);
+            padding: 15px 25px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-decoration: none;
+        }
+
+        /* --- THE COMPASS --- */
+        .compass-box {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border: 2px solid #333;
+            border-radius: 50%;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s ease;
+        }
+
+        .needle {
+            position: relative;
+            width: 4px;
+            height: 36px;
+            transform: rotate(-45deg);
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Blue North Tip */
+        .needle::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 0; height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 18px solid var(--nz-blue);
+            transform: translateX(-2px);
+        }
+
+        /* Gold South Tip */
+        .needle::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 18px solid var(--nz-gold);
+            transform: translateX(-2px);
+        }
+
+        /* --- THE ANIMATED NAME --- */
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            text-transform: uppercase;
+        }
+
+        .main-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--nz-white);
+            letter-spacing: 3px;
+            line-height: 1;
+            position: relative;
+            
+            /* Text Shimmer Effect */
+            background: linear-gradient(120deg, 
+                rgba(255,255,255,1) 40%, 
+                rgba(255,255,255,0.4) 50%, 
+                rgba(255,255,255,1) 60%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 4s linear infinite;
+        }
+
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+
+        .sub-title {
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: var(--nz-gold);
+            letter-spacing: 6.5px;
+            margin-top: 4px;
+        }
+
+        /* --- HOVER INTERACTIONS --- */
+        .logo-link:hover .needle {
+            transform: rotate(0deg);
+        }
+
+        .logo-link:hover .compass-box {
+            border-color: var(--nz-blue);
+            box-shadow: 0 0 15px rgba(0, 71, 171, 0.3);
+        }
+
+        .logo-link:hover .main-title {
+            animation: shimmer 1.5s linear infinite; /* Speed up shimmer on hover */
+        }
+
+        /* --- TEXT STYLING --- */
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            text-transform: uppercase;
+        }
+
+        .main-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--nz-white);
+            letter-spacing: 3px;
+            line-height: 1;
+        }
+
+        .main-title span.blue-zero {
+            color: var(--nz-blue);
+            transition: color 0.3s;
+        }
+
+        .sub-title {
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: var(--nz-gold);
+            letter-spacing: 6.5px;
+            margin-top: 4px;
+        }
+
+        /* --- ANIMATION --- */
+        .logo-link:hover .needle {
+            /* Points straight up towards "Zero" */
+            transform: rotate(0deg);
+        }
+
+        .logo-link:hover .compass-box {
+            border-color: var(--nz-gold);
+        }
+
+        /* Animated Compass Logo */
+        .logo-link { display: flex; align-items: center; text-decoration: none; cursor: pointer; }
+        .compass-box { width: 40px; height: 40px; border: 2px solid #333; border-radius: 50%; margin-right: 15px; display: flex; align-items: center; justify-content: center; position: relative; transition: 0.4s; }
+        .needle { width: 3px; height: 30px; transform: rotate(-45deg); transition: 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; }
+        .needle::before { content: ''; position: absolute; top: 0; left: -2.5px; border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 15px solid var(--nz-blue); }
+        .needle::after { content: ''; position: absolute; bottom: 0; left: -2.5px; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 15px solid var(--nz-gold); }
+        .logo-link:hover .needle { transform: rotate(0deg); }
+        .logo-text { color: white; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; }
+
+
+        /* Header */
+        .page-header {
+            height: 75vh; background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--bg-color)), url('https://images.unsplash.com/photo-1604537466158-719b1972feb8?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding-top: 80px;
+        }
+        .page-header h1 { font-size: 3.5rem; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px; }
+
+         /* Header */
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+     
+         /* Filter Section */
+        .filter-container {
+            padding: 50px 20px 20px;
+            text-align: center;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #333;
+            color: #888;
+            padding: 10px 25px;
+            margin: 0 5px 10px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+
+        /* Desktop Nav - Hidden on Mobile */
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
+
+        /* Mobile Burger - Hidden on Desktop */
+        .hamburger-icon { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 20px; cursor: pointer; z-index: 2000; }
+        .hamburger-icon span { display: block; width: 100%; height: 2px; background-color: #fff; transition: 0.4s; }
+
+        /* Mobile Dropdown Menu */
+        .mobile-dropdown { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 40px; transition: 0.5s; z-index: 1500; }
+        .mobile-dropdown.active { right: 0; }
+        .mobile-dropdown a { color: white; font-size: 1.8rem; text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 4px; }
+
+        /* --- HERO SHOWREEL (MISTY DARK GREY) --- */
+        .hero-container { position: relative; height: 60vh; margin-top: 80px; overflow: hidden; background: var(--misty-grey); }
+        .hero-video { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+        .hero-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; border: 2px solid var(--nz-gold); padding: 30px 60px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); }
+        .hero-overlay h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 12px; font-weight: 800; color: white; }
+
+        /* --- GALLERY GRID (3x2) --- */
+        .gallery-container { max-width: 1400px; margin: 0 auto; padding: 60px 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .gallery-item { position: relative; aspect-ratio: 16/9; background: #000; overflow: hidden; border: 1px solid #222; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
+        .gallery-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; transition: 0.3s; z-index: 5; }
+        .gallery-item:hover .gallery-overlay { opacity: 1; background: rgba(0,0,0,0.6); }
+        .gallery-item:hover img { transform: scale(1.05); opacity: 0.3; }
+
+        /* --- RESPONSIVENESS --- */
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .hamburger-icon { display: flex; }
+            .gallery-container { grid-template-columns: repeat(2, 1fr); }
+            .hero-overlay h1 { font-size: 2rem; letter-spacing: 6px; }
+        }
+        @media (max-width: 768px) {
+            .gallery-container { grid-template-columns: 1fr; }
+        }
+
+        Navigation
         nav {
             display: flex;
             justify-content: space-between;
@@ -58,7 +368,7 @@
         .nav-links a {
             color: var(--text-color);
             text-decoration: none;
-            margin-left: 25px;
+            margin-left: 30px;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -87,8 +397,8 @@
 
         /* Header */
         .page-header {
-            height: 45vh;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--bg-color)), url('https://images.unsplash.com/photo-1604537466158-719b1972feb8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            height: 50vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--bg-color)), url('https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -98,7 +408,7 @@
         }
 
         .page-header h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             text-transform: uppercase;
             letter-spacing: 4px;
             margin-bottom: 10px;
@@ -107,121 +417,137 @@
         .page-header p {
             font-size: 1.1rem;
             color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            max-width: 600px;
+            margin-top: 10px;
         }
 
-        /* Filter Section */
-        .filter-container {
-            padding: 50px 20px 20px;
-            text-align: center;
-        }
-
-        .filter-btn {
-            background: transparent;
-            border: 1px solid #333;
-            color: #888;
-            padding: 10px 25px;
-            margin: 0 5px 10px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.8rem;
-            transition: all 0.3s;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-        }
-
-        /* Gallery Grid */
-        .gallery-container {
-            max-width: 1400px;
+        /* Services Container */
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px 100px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 20px;
+            padding: 80px 20px;
         }
 
-        .gallery-item {
-            position: relative;
-            height: 300px;
-            background: #222;
-            overflow: hidden;
-            cursor: pointer;
-            border: 1px solid #222;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease, opacity 0.3s;
-            opacity: 0.7;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-            opacity: 0.4;
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .intro-text {
             text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            width: 100%;
-            pointer-events: none; /* Let clicks pass to item */
+            max-width: 800px;
+            margin: 0 auto 80px auto;
         }
 
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
+        .intro-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
         }
 
-        .play-icon {
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            border: 2px solid var(--accent-color);
-            border-radius: 50%;
-            position: relative;
-            margin-bottom: 20px;
-            transition: transform 0.2s;
+        /* Service Blocks */
+        .service-category {
+            margin-bottom: 100px;
         }
 
-        .play-icon::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 55%;
-            transform: translate(-50%, -50%);
-            border-left: 15px solid var(--accent-color);
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
         }
 
-        .gallery-item:hover .play-icon {
-            transform: scale(1.1);
-        }
-
-        .project-info h3 {
-            font-size: 1.5rem;
+        .category-header h2 {
+            font-size: 2rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 5px;
-            color: #fff;
+            margin-right: 20px;
         }
 
-        .project-info p {
-            color: var(--accent-color);
-            font-size: 0.9rem;
+        .line {
+            flex-grow: 1;
+            height: 1px;
+            background: #333;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border: 1px solid #222;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .card h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card h3::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Aerial Section specific styling */
+        .aerial-section {
+            background: url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .aerial-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .aerial-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Additional Services Grid (Bottom) */
+        .additional-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .add-item {
+            background: #111;
+            padding: 30px 10px;
+            border-top: 2px solid var(--accent-color);
+        }
+
+        .add-item h4 {
+            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+        }
+
+        .add-item p {
+            font-size: 0.9rem;
+            color: #888;
         }
 
         /* Footer */
@@ -234,32 +560,33 @@
             border-top: 1px solid #222;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+            .additional-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 600px) {
+            .additional-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
-            .gallery-container { grid-template-columns: 1fr; }
-            .page-header h1 { font-size: 2.5rem; }
         }
 
-
                 /* --- MOBILE NAVIGATION LOGIC --- */
-        
+
         /* 1. Default Desktop View (Hiding the Burger) */
         .menu-toggle, .hamburger-icon {
             display: none;
         }
-        
+
         /* 2. Mobile & Tablet View (Below 1024px) */
         @media (max-width: 1024px) {
             nav {
                 padding: 15px 5%;
                 justify-content: space-between; /* Pins Logo left, Burger right */
             }
-        
+
             /* Hide the standard text links */
             .nav-links {
                 display: none;
             }
-        
+
             /* Show the Hamburger Widget */
             .hamburger-icon {
                 display: flex;
@@ -270,7 +597,7 @@
                 cursor: pointer;
                 z-index: 1001;
             }
-        
+
             /* The Three Lines (Gold to match your brand) */
             .hamburger-icon span {
                 display: block;
@@ -280,7 +607,7 @@
                 border-radius: 3px;
                 transition: all 0.3s ease;
             }
-        
+
             /* Mobile Menu Drawer (Hidden by default) */
             .mobile-menu {
                 position: fixed;
@@ -297,12 +624,12 @@
                 transition: right 0.4s ease;
                 z-index: 1000;
             }
-        
+
             /* Logic to show menu when the hidden checkbox is checked */
             #menu-checkbox:checked ~ .mobile-menu {
                 right: 0;
             }
-        
+
             /* Animate Hamburger into an 'X' when open */
             #menu-checkbox:checked ~ .hamburger-icon span:nth-child(1) {
                 transform: translateY(9px) rotate(45deg);
@@ -314,94 +641,20 @@
                 transform: translateY(-9px) rotate(-45deg);
             }
         }
-        
-                /* --- UNIVERSAL RESPONSIVENESS --- */
-        
-        /* 1. Large Desktops & TV (Screens wider than 1400px) */
-        @media (min-width: 1401px) {
-            .gallery-container {
-                grid-template-columns: repeat(3, 1fr); /* Stay at 3 columns */
-                gap: 30px;
-            }
-        }
-        
-        /* 2. Standard Desktops & Laptops (1025px to 1400px) */
-        @media (max-width: 1400px) {
-            .gallery-container {
-                grid-template-columns: repeat(3, 1fr); /* 3 columns, slightly tighter */
-                padding: 0 30px 100px;
-            }
-            .page-header h1 { font-size: 3rem; }
-        }
-        
-        /* 3. Tablets, iPads, and Small Laptops (769px to 1024px) */
-        @media (max-width: 1024px) {
-            nav { padding: 15px 30px; }
-            
-            .hero-showreel { height: 50vh; } /* Adjust hero height for better proportion */
-            
-            .gallery-container {
-                grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns */
-                gap: 15px;
-            }
-            
-            .page-header h1 { font-size: 2.5rem; }
-            .title-box { padding: 20px 40px; }
-            .title-box h1 { font-size: 2.5rem; letter-spacing: 10px; }
-        }
-        
-        /* 4. Large Phones & Small Tablets (481px to 768px) */
-        @media (max-width: 768px) {
-            nav { padding: 10px 20px; }
-            .nav-links { display: none; } /* Optional: Hide desktop links for a burger menu */
-            
-            .page-header { height: 35vh; }
-            .hero-showreel { height: 40vh; }
-            
-            .gallery-container {
-                grid-template-columns: 1fr; /* 1 column for easier scrolling */
-            }
-            
-            .gallery-item { height: 250px; } /* Slightly shorter items for mobile */
-        }
-        
-        /* 5. Smartphones & iPods (Up to 480px) */
-        @media (max-width: 480px) {
-            .page-header h1 { font-size: 1.8rem; letter-spacing: 2px; }
-            
-            .title-box { 
-                padding: 15px 20px; 
-                border-width: 1px; /* Thinner border for small screens */
-            }
-            .title-box h1 { 
-                font-size: 1.5rem; 
-                letter-spacing: 5px; 
-            }
-            
-            .gallery-item { height: 200px; }
-            
-            .logo { font-size: 1.2rem; }
-        }
-        
-        /* --- BROWSER COMPATIBILITY FIXES --- */
-        
-        /* Fix for Safari on iPhone (prevents video zooming) */
-        video {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-        }
-        
-        /* Ensure the gold shimmer works on all Webkit browsers */
-        .main-title, .title-box h1 {
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">NorthZero <span>Productions</span></div>
+     <nav>
+        <a href="#" class="logo-link">
+        <div class="compass-box">
+               <div class="needle"></div>
+           </div>
+           <div class="logo-text">
+               <div class="main-title">North<span class="blue-zero">Zero</span></div>
+               <div class="sub-title">Productions</div>
+           </div>
+        </a>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -410,95 +663,215 @@
             <a href="policies.html">Policies</a>
             <a href="contact.html" class="cta-btn">Contact Us</a>
         </div>
-    </nav>
+
+        <div class="hamburger-icon" id="burgerBtn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+        </div>
+
+        <div class="mobile-dropdown" id="mobileMenu">
+            <a href="index.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Home</a>
+            <a href="about.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">About</a>
+            <a href="all-services.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Services</a>
+            <a href="work.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Work</a>
+            <a href="policies.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Policies</a>
+            <a href="contact.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Contact</a>
+        </div> 
+
+    </nav> 
 
     <header class="page-header">
-        <h1>Selected Works</h1>
-        <p>Where Brand & Video Production Live</p>
+        <h1>Visual Transformation</h1>
+        <p>Video Production Services for Small Business & Brands</p>
     </header>
 
-    <div class="filter-container">
-        <button class="filter-btn active">All</button>
-        <button class="filter-btn">Narrative</button>
-        <button class="filter-btn">Commercial</button>
-        <button class="filter-btn">Documentary</button>
+    <div class="container">
+        <div class="intro-text">
+            <p>Experience our expertise. We are involved in every step of the process. Northzero Productions is a leading catalyst for visual transformation, creating content that enriches the world around you and delivers your message with impact.</p>
+        </div>
+
+        <div class="service-category">
+            <div class="category-header">
+                <h2>Connecting With Audiences</h2>
+                <div class="line"></div>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Short-form Videos</h3>
+                    <p>Designed for Instagram Reels and YouTube Shorts to maximize engagement and reach through quick, punchy content.</p>
+                </div>
+                <div class="card">
+                    <h3>Platform-Specific Ads</h3>
+                    <p>Optimized creative assets for Facebook, Instagram, LinkedIn, and other social ad formats to drive conversion.</p>
+                </div>
+                <div class="card">
+                    <h3>Live Streams & Q&A</h3>
+                    <p>Real-time interaction setups to build communities, answer questions, and generate buzz for your brand.</p>
+                </div>
+                <div class="card">
+                    <h3>Animated Stories & GIFs</h3>
+                    <p>Eye-catching motion graphics and visuals that enhance your brand's personality and stand out in the feed.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-category">
+            <div class="category-header">
+                <h2>Building Presence</h2>
+                <div class="line"></div>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Company Story Videos</h3>
+                    <p>Authentic narratives that introduce your brand history and build deep emotional connections with your audience.</p>
+                </div>
+                <div class="card">
+                    <h3>Mission & Vision</h3>
+                    <p>Inspirational content that clearly communicates your purpose, future goals, and inspires action from your stakeholders.</p>
+                </div>
+                <div class="card">
+                    <h3>Culture Videos</h3>
+                    <p>Authentic glimpses into your workplace and values, perfect for attracting top talent and fostering brand loyalty.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-category">
+            <div class="category-header">
+                <h2>Training & Education</h2>
+                <div class="line"></div>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Onboarding & Orientation</h3>
+                    <p>Welcoming new employees and introducing them to your company culture efficiently and consistently.</p>
+                </div>
+                <div class="card">
+                    <h3>Product Demonstrations</h3>
+                    <p>Showcasing the features and benefits of your products in an easy-to-understand format for users.</p>
+                </div>
+                <div class="card">
+                    <h3>Compliance & Safety</h3>
+                    <p>Ensuring your team adheres to regulations and best practices with clear, engaging instructional video.</p>
+                </div>
+                <div class="card">
+                    <h3>Customer Education</h3>
+                    <p>Empowering customers with the knowledge they need to succeed with your products or services.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="gallery-container">
-        
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1604088316303-425d5e181de4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Artificially Yours">
-            <div class="gallery-overlay">
-                <div class="play-icon"></div>
-                <div class="project-info">
-                    <h3>Artificially Yours</h3>
-                    <p>Narrative / Sci-Fi</p>
+    <section class="aerial-section">
+        <div class="aerial-overlay"></div>
+        <div class="aerial-content">
+            <h2 style="font-size: 2.5rem; text-transform: uppercase; margin-bottom: 20px;">Aerial Cinematography</h2>
+            <p style="color: #ccc; margin-bottom: 40px; font-size: 1.1rem;">Stunning footage that adds a new dimension to your portfolio.</p>
+            
+            <div class="cards-grid" style="text-align: left;">
+                <div class="card" style="background: rgba(20,20,20,0.8);">
+                    <h3>Real Estate & Events</h3>
+                    <p>Showcasing properties, construction sites, and live events from a unique bird's-eye perspective.</p>
+                </div>
+                <div class="card" style="background: rgba(20,20,20,0.8);">
+                    <h3>Promotional Aerials</h3>
+                    <p>Creating cinematic visuals that elevate your brand's image with high-production value drone shots.</p>
+                </div>
+                <div class="card" style="background: rgba(20,20,20,0.8);">
+                    <h3>Landscape & Travel</h3>
+                    <p>Showcasing the beauty of natural landscapes and destinations with sweeping, epic movements.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1769141775486-4be69e095f75?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Time Reckoning">
-            <div class="gallery-overlay">
-                <div class="play-icon"></div>
-                <div class="project-info">
-                    <h3>Time Reckoning</h3>
-                    <p>Documentary</p>
-                </div>
+    <div class="container">
+        <div class="category-header">
+            <h2>Driving Conversions & Innovation</h2>
+            <div class="line"></div>
+        </div>
+        <p style="color: #888; max-width: 800px;">We create visually compelling product videos that drive sales, from Unboxing videos to complex Explainers.</p>
+
+        <div class="additional-grid">
+            <div class="add-item">
+                <h4>Consulting</h4>
+                <p>Digital innovation strategy to foster community.</p>
+            </div>
+            <div class="add-item">
+                <h4>Project Management</h4>
+                <p>Streamlining the process to reach the right audiences.</p>
+            </div>
+            <div class="add-item">
+                <h4>Design</h4>
+                <p>Digital landscape design to strengthen your brand.</p>
+            </div>
+            <div class="add-item">
+                <h4>Maintenance</h4>
+                <p>Exclusive retainer packages for ongoing content needs.</p>
             </div>
         </div>
 
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Kindred">
-            <div class="gallery-overlay">
-                <div class="play-icon"></div>
-                <div class="project-info">
-                    <h3>Kindred</h3>
-                    <p>Short Film</p>
-                </div>
-            </div>
+        <div style="text-align: center; margin-top: 100px;">
+            <h2 style="margin-bottom: 20px; font-size: 2rem;">Ready to Start?</h2>
+            <a href="mailto:admin@northzeroproductions.com" class="cta-btn" style="padding: 15px 40px; font-size: 1rem;">Contact Us Today</a>
         </div>
-
-        <div class="gallery-item">
-            <img src="https://plus.unsplash.com/premium_photo-1682146717223-874ac7dcc607?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Drexel University">
-            <div class="gallery-overlay">
-                <div class="play-icon"></div>
-                <div class="project-info">
-                    <h3>Drexel University</h3>
-                    <p>Education / Promo</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="World On Fire">
-            <div class="gallery-overlay">
-                <div class="play-icon"></div>
-                <div class="project-info">
-                    <h3>World On Fire</h3>
-                    <p>Music Video / Creative</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Commercial Reel">
-            <div class="gallery-overlay">
-                <div class="play-icon"></div>
-                <div class="project-info">
-                    <h3>Commercial Reel</h3>
-                    <p>Showcase 2024</p>
-                </div>
-            </div>
-        </div>
-
     </div>
 
     <footer>
         <p>&copy; 2024 Northzero Productions. All Rights Reserved.</p>
     </footer>
 
+    <script>
+
+        // Function to play video inside the box (No black screen)
+        function playNow(element, url) {
+            element.innerHTML = `<iframe src="${url}" allow="autoplay; fullscreen" allowfullscreen style="width:100%; height:100%; border:none;"></iframe>`;
+            element.onclick = null; // Disable additional clicks
+        }
+
+       
+        // Your provided function fixed for functionality
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const burger = document.getElementById('burgerBtn');
+            menu.classList.toggle('active');
+            
+            // Handle body scroll locking
+            if (menu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Ensure video starts immediately on load
+        window.addEventListener('load', function() {
+            const video = document.getElementById('heroVideo');
+            video.play().catch(error => {
+                console.log("Autoplay was prevented by browser. User interaction required.");
+            });
+        });
+
+        // Add a parallax effect on scroll for the title
+        window.addEventListener('scroll', function() {
+            const scroll = window.pageYOffset;
+            const title = document.querySelector('.hero-content');
+            title.style.transform = 'translateY(' + scroll * 0.4 + 'px)';
+            title.style.opacity = 1 - (scroll / 600);
+        });
+
+        
+        // Adding a subtle click reaction
+        const logo = document.getElementById('mainLogo');
+        logo.addEventListener('mousedown', () => {
+            logo.style.transform = 'scale(0.96)';
+        });
+        logo.addEventListener('mouseup', () => {
+            logo.style.transform = 'scale(1)';
+        });
+
+    </script>
+
 </body>
 </html>
-
-
