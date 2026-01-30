@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Work | Northzero Productions</title>
+    <title>Full Service Production | Northzero Productions</title>
     <style>
         :root {
             --bg-color: #0a0a0a;
@@ -15,15 +15,27 @@
             --font-main: 'Helvetica Neue', sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-main); line-height: 1.8; overflow-x: hidden; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-        /* Navigation */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
         nav {
-            display: flex; justify-content: space-between; align-items: center; padding: 20px 50px;
+            display: flex; justify-content: space-between; align-items: center; padding: 20px 5%;
             background: rgba(10, 10, 10, 0.95); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #222;
         }
-         
+
         /* Desktop Links (Visible by default) */
         .nav-links {
             display: flex;
@@ -238,7 +250,80 @@
         .logo-link:hover .compass-box {
             border-color: var(--nz-gold);
         }
-    
+
+
+        /* Animated Compass Logo */
+        .logo-link { display: flex; align-items: center; text-decoration: none; cursor: pointer; }
+        .compass-box { width: 50px; height: 50px; border: 2px solid #333; border-radius: 50%; margin-right: 15px; display: flex; align-items: center; justify-content: center; position: relative; transition: 0.4s; }
+        .needle { width: 3px; height: 30px; transform: rotate(-45deg); transition: 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; }
+        .needle::before { content: ''; position: absolute; top: 0; left: -2.5px; border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 15px solid var(--nz-blue); }
+        .needle::after { content: ''; position: absolute; bottom: 0; left: -2.5px; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 15px solid var(--nz-gold); }
+        .logo-link:hover .needle { transform: rotate(0deg); }
+        .logo-text { color: white; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; }
+
+        /* Desktop Nav - Hidden on Mobile */
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
+
+        /* Mobile Burger - Hidden on Desktop */
+        .hamburger-icon { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 20px; cursor: pointer; z-index: 2000; }
+        .hamburger-icon span { display: block; width: 100%; height: 2px; background-color: #fff; transition: 0.4s; }
+
+        /* Mobile Dropdown Menu */
+        .mobile-dropdown { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 40px; transition: 0.5s; z-index: 1500; }
+        .mobile-dropdown.active { right: 0; }
+        .mobile-dropdown a { color: white; font-size: 1.8rem; text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 4px; }
+
+        /* --- HERO SHOWREEL (MISTY DARK GREY) --- */
+        .hero-container { position: relative; height: 60vh; margin-top: 80px; overflow: hidden; background: var(--misty-grey); }
+        .hero-video { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+        .hero-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; border: 2px solid var(--nz-gold); padding: 30px 60px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); }
+        .hero-overlay h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 12px; font-weight: 800; color: white; }
+
+        /* --- GALLERY GRID (3x2) --- */
+        .gallery-container { max-width: 1400px; margin: 0 auto; padding: 60px 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .gallery-item { position: relative; aspect-ratio: 16/9; background: #000; overflow: hidden; border: 1px solid #222; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
+        .gallery-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; transition: 0.3s; z-index: 5; }
+        .gallery-item:hover .gallery-overlay { opacity: 1; background: rgba(0,0,0,0.6); }
+        .gallery-item:hover img { transform: scale(1.05); opacity: 0.3; }
+
+        /* --- RESPONSIVENESS --- */
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .hamburger-icon { display: flex; }
+            .gallery-container { grid-template-columns: repeat(2, 1fr); }
+            .hero-overlay h1 { font-size: 2rem; letter-spacing: 6px; }
+        }
+        @media (max-width: 768px) {
+            .gallery-container { grid-template-columns: 1fr; }
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(10, 10, 10, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-color);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
 
 
         .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
@@ -248,293 +333,303 @@
         .cta-btn { border: 1px solid var(--accent-color); padding: 10px 25px; color: var(--accent-color); text-decoration: none; text-transform: uppercase; transition: all 0.3s; }
         .cta-btn:hover { background: var(--accent-color); color: var(--bg-color); }
 
-        /* Header */
-        .page-header {
-            height: 75vh; background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--bg-color)), url('https://images.unsplash.com/photo-1604537466158-719b1972feb8?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
-            display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding-top: 80px;
-        }
-        .page-header h1 { font-size: 3.5rem; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px; }
 
-         /* Header */
-
-        .page-header p {
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Filter Section */
-        .filter-container {
-            padding: 50px 20px 20px;
-            text-align: center;
-        }
-
-        .filter-btn {
-            background: transparent;
-            border: 1px solid #333;
-            color: #888;
-            padding: 10px 25px;
-            margin: 0 5px 10px;
-            cursor: pointer;
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.8rem;
-            transition: all 0.3s;
+            transition: color 0.3s;
         }
 
-        .filter-btn.active, .filter-btn:hover {
-            border-color: var(--accent-color);
+        .nav-links a:hover {
             color: var(--accent-color);
         }
 
+        .cta-btn {
+            border: 1px solid var(--accent-color);
+            padding: 10px 25px;
+            color: var(--accent-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
 
-        /* Hero Video Section*/
-       
-      
+        .cta-btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
 
-        /* --- HERO SECTION --- */
-        .hero-section {
-            position: relative;
-            width: 100%;
-            height: 10vh; /* Full Screen Hero */
+        /* Hero Header */
+        .page-header {
+            height: 60vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), var(--bg-color)), url('https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            background: #090909;
-            margin-bottom: 12%;
-        }
-
-        /* Background Video */
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 25%;
-            width: auto;
-            height: auto;
-            z-index: 1;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            filter: brightness(0.6); /* Darken video to make title pop */
-        }
-
-        /* Hero Content Overlay */
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            margin-bottom: 09%;
-        }
-
-        /* The Gold Title Box */
-        .title-box {
-            padding: 30px 60px;
-            border: 2px solid var(--nz-gold);
-            display: inline-block;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(5px);
-            animation: fadeInBox 1.5s ease-out forwards;
-        }
-
-        .title-box h1 {
-            color: var(--nz-white);
-            font-size: 4rem;
-            text-transform: uppercase;
-            letter-spacing: 15px;
-            font-weight: 900;
-            margin: 0;
-            /* Shimmer effect for the text */
-            background: linear-gradient(120deg, #fff 40%, var(--nz-gold) 50%, #fff 60%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 6s linear infinite;
-        }
-
-        /* Animation for the Box appearance */
-        @keyframes fadeInBox {
-            0% { opacity: 0; transform: scale(0.9); border-color: transparent; }
-            100% { opacity: 1; transform: scale(1); border-color: var(--nz-gold); }
-        }
-
-        @keyframes shimmer {
-            to { background-position: 200% center; }
-        }
-
-        /* Scroll Down Indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            color: var(--nz-gold);
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            animation: bounce 2s infinite;
-            display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            /* Smooth transition for the fade */
-            transition: opacity 0.5s ease, visibility 0.5s;
-            opacity: 1;
-            visibility: visible;
+            text-align: center;
+            padding-top: 80px;
         }
 
-        /* Hidden state triggered by JS */
-        .scroll-indicator.fade-out {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        /* Arrow Tip */
-        .scroll-indicator::after {
-            content: '';
-            width: 10px;
-            height: 10px;
-            border-right: 2px solid var(--nz-gold);
-            border-bottom: 2px solid var(--nz-gold);
-            transform: rotate(45deg);
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
-            40% {transform: translateY(-10px) translateX(-50%);}
-            60% {transform: translateY(-5px) translateX(-50%);}
-        }
-
-        /*Hero Video Section Ends*/
-
-
-
-
-
-        /* Gallery Grid: 2 Rows, 3 Columns */
-        /* Ensure the grid is 3 columns on desktop */
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 40px 0;
-        }
-
-        /* Base style for the items */
-        .gallery-item {
-            transition: all 0.4s ease-in-out;
-        }
-
-        /* Hiding logic */
-        .gallery-item.hidden {
-            display: none; /* Removes from flow so other items slide into place */
-        }
-
-        /* Active Button State (Gold) */
-        .filter-btn.active {
-            background-color: var(--nz-gold);
-            color: var(--nz-black);
-            border-color: var(--nz-gold);
-        }
-
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            padding: 40px 0;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        /* Base style for video items */
-        .gallery-item {
-            position: relative;
-            aspect-ratio: 16/9;
-            background: #000;
-            overflow: hidden;
-            border: 1px solid #222;
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.7;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Filter Button Styling */
-        .filter-btn {
-            padding: 10px 25px;
-            margin: 5px;
-            background: transparent;
-            color: white;
-            border: 1px solid #444;
-            cursor: pointer;
+        .page-header h1 {
+            font-size: 3.5rem;
             text-transform: uppercase;
-            transition: 0.3s;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
         }
 
-        .filter-btn.active {
-            background: var(--nz-gold, #d4af37);
-            color: black;
-            border-color: var(--nz-gold, #d4af37);
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            max-width: 700px;
         }
 
-        .gallery-container {
+        /* Sticky Sub-Nav for Sections */
+        .sub-nav {
+            background: #111;
+            padding: 15px 0;
+            position: sticky;
+            top: 80px; /* Below main nav */
+            z-index: 900;
+            border-bottom: 1px solid #333;
+            text-align: center;
+        }
+
+        .sub-nav a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .sub-nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Section Styling */
+        .service-section {
+            padding: 100px 50px;
+            border-bottom: 1px solid #222;
+        }
+
+        .section-intro {
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+            text-align: center;
+        }
+
+        .section-intro h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .section-intro h2 span {
+            color: var(--accent-color);
+        }
+
+        .section-intro p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Grid Layouts */
+        .service-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
-            gap: 25px;
-            padding: 60px 20px;
-            max-width: 1400px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Base fade-in for injected items */
-        .gallery-item {
-            opacity: 0;
-            animation: fadeIn 0.8s forwards;
+        .service-card {
+            background: var(--secondary-bg);
+            padding: 40px;
+            border: 1px solid #333;
+            transition: transform 0.3s, border-color 0.3s;
         }
 
-        @keyframes fadeIn {
-            to { opacity: 1; }
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
         }
 
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-card li {
+            color: #aaa;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 15px;
+            font-size: 0.95rem;
+        }
+
+        .service-card li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Feature Row (Alternating Images) */
+        .feature-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 80px;
+            gap: 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+
+        .feature-text p {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .feature-img {
+            flex: 1;
+            height: 350px;
+            background-color: #222;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #333;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #222;
+            color: #666;
+            margin-top: 0;
+        }
+
+        @media (max-width: 900px) {
+            .feature-row { flex-direction: column; }
+            .feature-row:nth-child(even) { flex-direction: column; }
+            .feature-img { width: 100%; height: 250px; }
+            .page-header h1 { font-size: 2.5rem; }
+            .sub-nav { display: none; } /* Hide sub-nav on mobile for simplicity */
+            .nav-links { display: none; }
+        }
+
+                /* --- MOBILE NAVIGATION LOGIC --- */
+
+        /* 1. Default Desktop View (Hiding the Burger) */
+        .menu-toggle, .hamburger-icon {
+            display: none;
+        }
+
+        /* 2. Mobile & Tablet View (Below 1024px) */
         @media (max-width: 1024px) {
-            .gallery-container { grid-template-columns: repeat(2, 1fr); }
+            nav {
+                padding: 15px 5%;
+                justify-content: space-between; /* Pins Logo left, Burger right */
+            }
+
+            /* Hide the standard text links */
+            .nav-links {
+                display: none;
+            }
+
+            /* Show the Hamburger Widget */
+            .hamburger-icon {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 21px;
+                cursor: pointer;
+                z-index: 1001;
+            }
+
+            /* The Three Lines (Gold to match your brand) */
+            .hamburger-icon span {
+                display: block;
+                width: 100%;
+                height: 3px;
+                background-color: var(--nz-gold);
+                border-radius: 3px;
+                transition: all 0.3s ease;
+            }
+
+            /* Mobile Menu Drawer (Hidden by default) */
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                right: -100%; /* Off-screen */
+                width: 250px;
+                height: 100vh;
+                background: var(--nz-black);
+                border-left: 1px solid #222;
+                padding: 80px 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                transition: right 0.4s ease;
+                z-index: 1000;
+            }
+
+            /* Logic to show menu when the hidden checkbox is checked */
+            #menu-checkbox:checked ~ .mobile-menu {
+                right: 0;
+            }
+
+            /* Animate Hamburger into an 'X' when open */
+            #menu-checkbox:checked ~ .hamburger-icon span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            #menu-checkbox:checked ~ .hamburger-icon span:nth-child(2) {
+                opacity: 0;
+            }
+            #menu-checkbox:checked ~ .hamburger-icon span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
         }
-
-        @media (max-width: 768px) {
-            .gallery-container { grid-template-columns: 1fr; }
-        }
-        
-        /* The Cover Image & Text Overlay */
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
-        .gallery-item:hover img { transform: scale(1.05); opacity: 0.4; }
-        .gallery-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; transition: 0.3s; width: 100%; z-index: 5; }
-        .gallery-item:hover .gallery-overlay { opacity: 1; }
-        
-        .play-icon { display: inline-block; width: 60px; height: 60px; border: 2px solid var(--accent-color); border-radius: 50%; position: relative; margin-bottom: 20px; }
-        .play-icon::after { content: ''; position: absolute; top: 50%; left: 55%; transform: translate(-50%, -50%); border-left: 15px solid var(--accent-color); border-top: 10px solid transparent; border-bottom: 10px solid transparent; }
-        .project-info h3 { font-size: 1.5rem; text-transform: uppercase; color: #fff; }
-
-        footer { background: #000; padding: 20px; text-align: center; font-size: 0.8rem; color: #666; border-top: 1px solid #222; }
-
-        @media (max-width: 1024px) { .gallery-container { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 768px) { .gallery-container { grid-template-columns: 1fr; } .page-header h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
 
-    <nav>
+     <nav>
         <a href="#" class="logo-link">
         <div class="compass-box">
                <div class="needle"></div>
@@ -568,118 +663,203 @@
             <a href="contact.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Contact</a>
         </div> 
 
-    </nav>
+    </nav> 
 
     <header class="page-header">
-        <h1>Selected Works</h1>
-        <p>Where Brand & Video Production Live</p>
+        <h1>Comprehensive Creative Services</h1>
+        <p>From Script to Screen & Beyond</p>
     </header>
 
+    <div class="sub-nav">
+        <a href="#pre-production">Pre-Production</a>
+        <a href="#storytelling">Storytelling</a>
+        <a href="#post-production">Post-Production</a>
+        <a href="#web-design">Web Design</a>
+    </div>
 
-    <section class="hero-section">
-        <div class="scroll-indicator">Scroll to Explore</div>
+    <section id="pre-production" class="service-section">
+        <div class="section-intro">
+            <h2>Pre-Production <span>Strategy</span></h2>
+            <p>The blueprint for success. We specialize in bringing your vision to life through rigorous planning and creative consultation.</p>
+        </div>
+
+        <div class="feature-row">
+            <div class="feature-text">
+                <h3>Marketing Strategy & Planning</h3>
+                <p>Our pre-production services ensure your content reaches the right audience. We don't just plan a shoot; we plan for results.</p>
+                <ul>
+                    <li>Concept Development & Scriptwriting</li>
+                    <li>Storyboarding & Visual Styles</li>
+                    <li>Budgeting & Scheduling</li>
+                    <li>Video Distribution Strategy</li>
+                </ul>
+            </div>
+            <div class="feature-img" style="background-image: url('https://images.unsplash.com/photo-1598550476439-6847785fcea6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');"></div>
+        </div>
+
+        <div class="feature-row">
+            <div class="feature-text">
+                <h3>Live Action & Commercials</h3>
+                <p>From casting to location scouting, we handle every logistical detail to ensure a seamless production day.</p>
+                <ul>
+                    <li>Casting & Talent Management</li>
+                    <li>Location Scouting & Permits</li>
+                    <li>Production Crew Staffing</li>
+                    <li>On-Set Direction</li>
+                </ul>
+            </div>
+            <div class="feature-img" style="background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');"></div>
+        </div>
     </section>
 
-    <div class="hero-content">
-        <div class="title-box">
-            <h1>Showreels</h1>
-        </div>
-    </div>
-
-    <div class="filter-container">
-        <button class="filter-btn active">All</button>
-        <button class="filter-btn">Narrative</button>
-        <button class="filter-btn">Commercial</button>
-        <button class="filter-btn">Documentary</button>
-    </div>
-    <div class="gallery-container" id="videoGallery">
-        <div class="gallery-item" onclick="playInline(this, 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
-            <img src="https://images.unsplash.com/photo-1604088316303-425d5e181de4?w=800" alt="Work">
-            <div class="gallery-overlay"><div class="play-icon"></div><div class="project-info"><h3>Artificially Yours</h3><p>Narrative / YouTube</p></div></div>
+    <section id="storytelling" class="service-section" style="background: #0f0f0f;">
+        <div class="section-intro">
+            <h2>Storytelling <span>& Production</span></h2>
+            <p>We believe every brand has a story worth telling. We use narrative to connect with your audience emotionally.</p>
         </div>
 
-        <div class="gallery-item" onclick="playInline(this, 'https://www.w3schools.com/html/mov_bbb.mp4', true)">
-            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800" alt="Work">
-            <div class="gallery-overlay"><div class="play-icon"></div><div class="project-info"><h3>Time Reckoning</h3><p>Direct File / MP4</p></div></div>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Testimonials</h3>
+                <p>Go beyond mere endorsements. We craft narrative-driven testimonials that build trust and showcase authenticity.</p>
+                <ul>
+                    <li>Authenticity & Emotion</li>
+                    <li>Customer Success Stories</li>
+                    <li>Visually Engaging Production</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Social Media Ads</h3>
+                <p>Scroll-stopping content designed to convert. We weave your brand's narrative into short-form ads.</p>
+                <ul>
+                    <li>Platform-Specific Storytelling</li>
+                    <li>Character-Driven Ads</li>
+                    <li>Music & Sound Design</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Branding Content</h3>
+                <p>Deep dive into your brand's values. We create "About Us" films and culture videos that leave a lasting impression.</p>
+                <ul>
+                    <li>Brand Origin Stories</li>
+                    <li>Mission & Values Videos</li>
+                    <li>Company Culture</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Virtual Tours</h3>
+                <p>Immersive experiences for Real Estate and Business. Allow clients to explore spaces from anywhere.</p>
+                <ul>
+                    <li>360° Property Tours</li>
+                    <li>Aerial Drone Footage</li>
+                    <li>Interactive Floor Plans</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="post-production" class="service-section">
+        <div class="section-intro">
+            <h2>Post-Production <span>& Design</span></h2>
+            <p>Where the magic happens. We transform raw footage into polished, cinematic masterpieces.</p>
         </div>
 
-        <div class="gallery-item" onclick="playInline(this, 'https://player.vimeo.com/video/76979871?autoplay=1')">
-            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800" alt="Work">
-            <div class="gallery-overlay"><div class="play-icon"></div><div class="project-info"><h3>Kindred</h3><p>Vimeo</p></div></div>
+        <div class="feature-row">
+            <div class="feature-text">
+                <h3>Video Editing & Color</h3>
+                <p>Our expert editors bring rhythm and pacing to your story, while our colorists enhance the mood and visual appeal.</p>
+                <ul>
+                    <li>Offline & Online Editing</li>
+                    <li>Advanced Color Grading</li>
+                    <li>Visual Effects (VFX)</li>
+                    <li>Green Screen Keying</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="gallery-item" onclick="playInline(this, 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
-            <img src="https://images.unsplash.com/photo-1604537466158-719b1972feb8?w=800" alt="Work">
-            <div class="gallery-overlay"><div class="play-icon"></div><div class="project-info"><h3>Commercial Reel</h3><p>Showcase</p></div></div>
+        <div class="feature-row">
+            <div class="feature-text">
+                <h3>Sound Design & Animation</h3>
+                <p>Sound is half the picture. We provide immersive audio mixing and cutting-edge motion graphics.</p>
+                <ul>
+                    <li>Sound Mixing & Foley</li>
+                    <li>2D & 3D Animation</li>
+                    <li>Motion Graphics & Titles</li>
+                    <li>Voiceover & Subtitling</li>
+                </ul>
+            </div>
+            <div class="feature-img" style="background-image: url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');"></div>
+        </div>
+    </section>
+
+    <section id="web-design" class="service-section" style="background: #0f0f0f;">
+        <div class="section-intro">
+            <h2>Web Design <span>& Development</span></h2>
+            <p>Your Story. Designed for the Screen. We build digital homes for your content.</p>
         </div>
 
-        <div class="gallery-item" onclick="playInline(this, 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
-            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800" alt="Work">
-            <div class="gallery-overlay"><div class="play-icon"></div><div class="project-info"><h3>World On Fire</h3><p>Music Video</p></div></div>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Custom Designs</h3>
+                <p>Tailored to your brand's voice and visuals. We don't use cookie-cutter templates; we design for your identity.</p>
+            </div>
+            <div class="service-card">
+                <h3>Responsive Builds</h3>
+                <p>Optimized for every screen and device, ensuring your site looks stunning on mobile, tablet, and desktop.</p>
+            </div>
+            <div class="service-card">
+                <h3>Video Integration</h3>
+                <p>Bring your story to life with embedded films, background reels, and seamless multimedia playback.</p>
+            </div>
         </div>
 
-        <div class="gallery-item" onclick="playInline(this, 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
-            <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800" alt="Work">
-            <div class="gallery-overlay"><div class="play-icon"></div><div class="project-info"><h3>Drexel Promo</h3><p>Commercial</p></div></div>
+        <div style="margin-top: 60px; text-align: center;">
+            <h3 style="color: var(--accent-color); text-transform: uppercase; margin-bottom: 30px;">Our Web Process</h3>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; color: #888;">
+                <div style="background: #111; padding: 20px 40px; border: 1px solid #333;">01. Discovery</div>
+                <div style="background: #111; padding: 20px 40px; border: 1px solid #333;">02. Design Direction</div>
+                <div style="background: #111; padding: 20px 40px; border: 1px solid #333;">03. Development</div>
+                <div style="background: #111; padding: 20px 40px; border: 1px solid #333;">04. Launch & Support</div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <footer><p>&copy; 2026 Northzero Productions. All Rights Reserved.</p></footer>
+    <section class="service-section" style="text-align: center; padding: 120px 20px;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; text-transform: uppercase;">Ready to Start Your Project?</h2>
+        <p style="color: #aaa; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Whether you need a full-scale commercial production, a brand film, or a new website, we are ready to bring your vision to life.
+        </p>
+        <a href="contact.html" class="cta-btn" style="padding: 15px 40px; font-size: 1rem;">Get a Quote</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Northzero Productions. All Rights Reserved.</p>
+    </footer>
 
     <script>
-        function playInline(element, url, isDirectFile = false) {
-            // Nuke the internal HTML of the clicked box to replace it with the player
-            if (isDirectFile) {
-                element.innerHTML = `<video src="${url}" controls autoplay style="width:100%; height:100%; object-fit:cover;"></video>`;
-            } else {
-                element.innerHTML = `<iframe src="${url}" allow="autoplay; fullscreen" allowfullscreen style="width:100%; height:100%; border:none;"></iframe>`;
-            }
-            // Remove the pointer cursor so it doesn't look clickable anymore
-            element.style.cursor = 'default';
-        }
         
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // 1. Remove 'active' from all and add to clicked
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-
-                    const filterValue = button.getAttribute('data-filter');
-
-                    // 2. Hide/Show items based on category
-                    galleryItems.forEach(item => {
-                        const itemCategory = item.getAttribute('data-category');
-
-                        if (filterValue === 'all' || filterValue === itemCategory) {
-                            item.classList.remove('hidden');
-                        } else {
-                            item.classList.add('hidden');
-                        }
-                    });
-                });
-            });
-        });
-
+        // Your provided function fixed for functionality
         function toggleMenu() {
             const menu = document.getElementById('mobileMenu');
             const burger = document.getElementById('burgerBtn');
-            
-            // Toggle 'active' class to slide menu in/out
             menu.classList.toggle('active');
             
-            // Prevent background scroll when menu is open
+            // Handle body scroll locking
             if (menu.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
             } else {
                 document.body.style.overflow = 'auto';
             }
         }
-        
+
+        // Function to play video inside the box (No black screen)
+        function playNow(element, url) {
+            element.innerHTML = `<iframe src="${url}" allow="autoplay; fullscreen" allowfullscreen style="width:100%; height:100%; border:none;"></iframe>`;
+            element.onclick = null; // Disable additional clicks
+        }
+
+       
+
 
         // Ensure video starts immediately on load
         window.addEventListener('load', function() {
@@ -696,19 +876,6 @@
             title.style.transform = 'translateY(' + scroll * 0.4 + 'px)';
             title.style.opacity = 1 - (scroll / 600);
         });
-        
-        window.addEventListener('scroll', function() {
-            const scrollIndicator = document.querySelector('.scroll-indicator');
-            
-            // If user scrolls down more than 50px, fade out the indicator
-            if (window.scrollY > 50) {
-                scrollIndicator.classList.add('fade-out');
-            } else {
-                // Optional: Bring it back if they scroll all the way back to the top
-                scrollIndicator.classList.remove('fade-out');
-            }
-        });
-        
 
         
         // Adding a subtle click reaction
@@ -720,84 +887,9 @@
             logo.style.transform = 'scale(1)';
         });
 
-
-        const videoData = {
-    narrative: [
-        { title: "Artificially Yours", thumb: "https://images.unsplash.com/photo-1604088316303-425d5e181de4?w=800", type: "Narrative / Sci-Fi" },
-        { title: "Kindred", thumb: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800", type: "Short Film" },
-        { title: "The Silent Sky", thumb: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800", type: "Narrative" },
-        { title: "Shadow Play", thumb: "https://images.unsplash.com/photo-1604537466158-719b1972feb8?w=800", type: "Narrative" },
-        { title: "Echoes", thumb: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800", type: "Narrative" },
-        { title: "First Light", thumb: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800", type: "Narrative" }
-    ],
-    commercial: [
-        { title: "Drexel University", thumb: "https://plus.unsplash.com/premium_photo-1682146717223-874ac7dcc607?w=800", type: "Education / Promo" },
-        { title: "Croc Fashion", thumb: "https://images.unsplash.com/photo-1604088316303-425d5e181de4?w=800", type: "Fashion" },
-        { title: "Global Tech", thumb: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800", type: "Tech" },
-        { title: "Lifestyle X", thumb: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800", type: "Lifestyle" },
-        { title: "Brand Story", thumb: "https://images.unsplash.com/photo-1604537466158-719b1972feb8?w=800", type: "Corporate" },
-        { title: "Commercial Reel", thumb: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800", type: "Showcase" }
-    ],
-    documentary: [
-        { title: "Time Reckoning", thumb: "https://images.unsplash.com/photo-1769141775486-4be69e095f75?w=800", type: "Documentary" },
-        { title: "The Founder", thumb: "https://images.unsplash.com/photo-1604088316303-425d5e181de4?w=800", type: "Documentary" },
-        { title: "Urban Pulse", thumb: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800", type: "Documentary" },
-        { title: "Nature's Edge", thumb: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800", type: "Documentary" },
-        { title: "History Unfolded", thumb: "https://images.unsplash.com/photo-1604537466158-719b1972feb8?w=800", type: "Documentary" },
-        { title: "The Craftsman", thumb: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800", type: "Documentary" }
-    ]
-};
-
-function renderGallery(filter) {
-    const display = document.getElementById('videoDisplay');
-    display.innerHTML = ''; // Wipe current view
-    let itemsToDisplay = [];
-
-    if (filter === 'all') {
-        // Logic: Pick exactly ONE random item from each category array
-        Object.keys(videoData).forEach(cat => {
-            const randomIndex = Math.floor(Math.random() * videoData[cat].length);
-            itemsToDisplay.push(videoData[cat][randomIndex]);
-        });
-    } else {
-        // Display all 6 items from the selected category
-        itemsToDisplay = videoData[filter];
-    }
-
-    // Append items to the grid
-    itemsToDisplay.forEach(item => {
-        const itemHtml = `
-            <div class="gallery-item">
-                <img src="${item.thumb}" alt="${item.title}">
-                <div class="gallery-overlay">
-                    <div class="play-icon"></div>
-                    <div class="project-info">
-                        <h3>${item.title}</h3>
-                        <p>${item.type}</p>
-                    </div>
-                </div>
-            </div>`;
-        display.insertAdjacentHTML('beforeend', itemHtml);
-    });
-}
-
-// Event Listeners for Filter Buttons
-document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        // Class management: remove from All, add to clicked
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        
-        const filter = this.getAttribute('data-filter');
-        renderGallery(filter);
-    });
-});
-
-// Initial Page Load
-window.onload = () => renderGallery('all');
-
-    
     </script>
+
 </body>
 </html>
+
 
