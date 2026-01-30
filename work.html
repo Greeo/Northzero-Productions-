@@ -440,19 +440,81 @@
             border-color: var(--nz-gold);
         }
 
-        /* Mobile adjustments */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 40px 0;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Base style for video items */
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: #000;
+            overflow: hidden;
+            border: 1px solid #222;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Filter Button Styling */
+        .filter-btn {
+            padding: 10px 25px;
+            margin: 5px;
+            background: transparent;
+            color: white;
+            border: 1px solid #444;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .filter-btn.active {
+            background: var(--nz-gold, #d4af37);
+            color: black;
+            border-color: var(--nz-gold, #d4af37);
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
+            gap: 25px;
+            padding: 60px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Base fade-in for injected items */
+        .gallery-item {
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
         @media (max-width: 1024px) {
             .gallery-container { grid-template-columns: repeat(2, 1fr); }
         }
+
         @media (max-width: 768px) {
             .gallery-container { grid-template-columns: 1fr; }
         }
-        
-        .gallery-container {
-            max-width: 1400px; margin: 0 auto; margin-bottom: 15%; padding: 60px 20px 100px;
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-        }
-        .gallery-item { position: relative; height: 300px; background: #000; overflow: hidden; cursor: pointer; border: 1px solid #222; }
         
         /* The Cover Image & Text Overlay */
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
@@ -530,11 +592,7 @@
         <button class="filter-btn">Commercial</button>
         <button class="filter-btn">Documentary</button>
     </div>
-    <div class="gallery-container">
-      
-
-        
-
+    <div class="gallery-container" id="videoGallery">
         <div class="gallery-item" onclick="playInline(this, 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
             <img src="https://images.unsplash.com/photo-1604088316303-425d5e181de4?w=800" alt="Work">
             <div class="gallery-overlay"><div class="play-icon"></div><div class="project-info"><h3>Artificially Yours</h3><p>Narrative / YouTube</p></div></div>
@@ -579,6 +637,7 @@
             // Remove the pointer cursor so it doesn't look clickable anymore
             element.style.cursor = 'default';
         }
+        
 
         document.addEventListener('DOMContentLoaded', () => {
             const filterButtons = document.querySelectorAll('.filter-btn');
@@ -620,6 +679,7 @@
                 document.body.style.overflow = 'auto';
             }
         }
+        
 
         // Ensure video starts immediately on load
         window.addEventListener('load', function() {
@@ -648,7 +708,7 @@
                 scrollIndicator.classList.remove('fade-out');
             }
         });
-
+        
 
         
         // Adding a subtle click reaction
@@ -659,6 +719,83 @@
         logo.addEventListener('mouseup', () => {
             logo.style.transform = 'scale(1)';
         });
+
+
+        const videoData = {
+    narrative: [
+        { title: "Artificially Yours", thumb: "https://images.unsplash.com/photo-1604088316303-425d5e181de4?w=800", type: "Narrative / Sci-Fi" },
+        { title: "Kindred", thumb: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800", type: "Short Film" },
+        { title: "The Silent Sky", thumb: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800", type: "Narrative" },
+        { title: "Shadow Play", thumb: "https://images.unsplash.com/photo-1604537466158-719b1972feb8?w=800", type: "Narrative" },
+        { title: "Echoes", thumb: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800", type: "Narrative" },
+        { title: "First Light", thumb: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800", type: "Narrative" }
+    ],
+    commercial: [
+        { title: "Drexel University", thumb: "https://plus.unsplash.com/premium_photo-1682146717223-874ac7dcc607?w=800", type: "Education / Promo" },
+        { title: "Croc Fashion", thumb: "https://images.unsplash.com/photo-1604088316303-425d5e181de4?w=800", type: "Fashion" },
+        { title: "Global Tech", thumb: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800", type: "Tech" },
+        { title: "Lifestyle X", thumb: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800", type: "Lifestyle" },
+        { title: "Brand Story", thumb: "https://images.unsplash.com/photo-1604537466158-719b1972feb8?w=800", type: "Corporate" },
+        { title: "Commercial Reel", thumb: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800", type: "Showcase" }
+    ],
+    documentary: [
+        { title: "Time Reckoning", thumb: "https://images.unsplash.com/photo-1769141775486-4be69e095f75?w=800", type: "Documentary" },
+        { title: "The Founder", thumb: "https://images.unsplash.com/photo-1604088316303-425d5e181de4?w=800", type: "Documentary" },
+        { title: "Urban Pulse", thumb: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800", type: "Documentary" },
+        { title: "Nature's Edge", thumb: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800", type: "Documentary" },
+        { title: "History Unfolded", thumb: "https://images.unsplash.com/photo-1604537466158-719b1972feb8?w=800", type: "Documentary" },
+        { title: "The Craftsman", thumb: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800", type: "Documentary" }
+    ]
+};
+
+function renderGallery(filter) {
+    const display = document.getElementById('videoDisplay');
+    display.innerHTML = ''; // Wipe current view
+    let itemsToDisplay = [];
+
+    if (filter === 'all') {
+        // Logic: Pick exactly ONE random item from each category array
+        Object.keys(videoData).forEach(cat => {
+            const randomIndex = Math.floor(Math.random() * videoData[cat].length);
+            itemsToDisplay.push(videoData[cat][randomIndex]);
+        });
+    } else {
+        // Display all 6 items from the selected category
+        itemsToDisplay = videoData[filter];
+    }
+
+    // Append items to the grid
+    itemsToDisplay.forEach(item => {
+        const itemHtml = `
+            <div class="gallery-item">
+                <img src="${item.thumb}" alt="${item.title}">
+                <div class="gallery-overlay">
+                    <div class="play-icon"></div>
+                    <div class="project-info">
+                        <h3>${item.title}</h3>
+                        <p>${item.type}</p>
+                    </div>
+                </div>
+            </div>`;
+        display.insertAdjacentHTML('beforeend', itemHtml);
+    });
+}
+
+// Event Listeners for Filter Buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        // Class management: remove from All, add to clicked
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        const filter = this.getAttribute('data-filter');
+        renderGallery(filter);
+    });
+});
+
+// Initial Page Load
+window.onload = () => renderGallery('all');
+
     
     </script>
 </body>
