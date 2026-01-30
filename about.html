@@ -640,6 +640,81 @@
                 transform: translateY(-9px) rotate(-45deg);
             }
         }
+
+        /* --- RESPONSIVE HERO CONTENT --- */
+        
+        /* 1. Large Screens & Desktops (Default is already set, but we refine it) */
+        @media (min-width: 1200px) {
+            .hero-content {
+                margin-bottom: 5%; /* Tighten up the bottom margin */
+            }
+        }
+        
+        /* 2. Tablets & Small Laptops (769px to 1024px) */
+        @media (max-width: 1024px) {
+            .hero-section {
+                height: 25vh; /* Increase height slightly for better aspect ratio */
+                margin-bottom: 80px;
+            }
+            
+            .title-box {
+                padding: 20px 40px; /* Reduce padding */
+            }
+        
+            .title-box h1 {
+                font-size: 3rem; /* Scale down text */
+                letter-spacing: 10px; /* Tighten tracking */
+            }
+        }
+        
+        /* 3. Mobile Devices & Small Tablets (Up to 768px) */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 20vh; /* Adjust for mobile aspect ratio */
+                margin-bottom: 60px;
+            }
+        
+            .hero-content {
+                margin-bottom: 0; /* Reset margins for center alignment */
+                width: 90%; /* Ensure it doesn't hit screen edges */
+                margin: 0 auto 40px auto;
+            }
+        
+            .title-box {
+                padding: 15px 30px;
+                width: 100%; /* Make box more fluid */
+                border-width: 1px; /* Thinner gold line for mobile */
+            }
+        
+            .title-box h1 {
+                font-size: 2rem; 
+                letter-spacing: 5px;
+                line-height: 1.2;
+            }
+        
+            /* Adjust scroll indicator for mobile */
+            .scroll-indicator {
+                bottom: 15px;
+                font-size: 0.6rem;
+            }
+        }
+        
+        /* 4. Small Smartphones (Up to 480px) */
+        @media (max-width: 480px) {
+            .hero-section {
+                height: 18vh;
+                margin-bottom: 40px;
+            }
+        
+            .title-box {
+                padding: 10px 20px;
+            }
+        
+            .title-box h1 {
+                font-size: 1.5rem;
+                letter-spacing: 3px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -826,4 +901,5 @@
 
 </body>
 </html>
+
 
