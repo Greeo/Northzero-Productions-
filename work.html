@@ -109,6 +109,55 @@
             background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             animation: shimmer 6s linear infinite;
         }
+
+        /* Hero Section Fixes */
+        .hero-content { 
+            position: relative; 
+            z-index: 2; 
+            text-align: center; 
+            margin-bottom: 5%; /* Reduced margin for better mobile spacing */
+            width: 100%;
+            padding: 0 20px; /* Prevents box from touching screen edges */
+        }
+
+        .title-box {
+            padding: 20px 40px; /* Reduced from 30px 60px */
+            border: 2px solid var(--nz-gold); 
+            display: inline-block;
+            max-width: 100%; /* Ensures it never exceeds screen width */
+            background: rgba(0, 0, 0, 0.2); 
+            backdrop-filter: blur(5px); 
+            animation: fadeInBox 1.5s ease-out forwards;
+        }
+
+        .title-box h1 {
+            color: var(--nz-white); 
+            font-size: 4rem; 
+            text-transform: uppercase; 
+            letter-spacing: 15px; 
+            font-weight: 900; 
+            margin: 0;
+            background: linear-gradient(120deg, #fff 40%, var(--nz-gold) 50%, #fff 60%);
+            background-size: 200% auto; 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 6s linear infinite;
+        }
+
+        /* Mobile Specific Fixes */
+        @media (max-width: 768px) {
+            .title-box {
+                padding: 15px 20px;
+                border-width: 1px;
+            }
+            .title-box h1 {
+                font-size: 1.8rem; /* Significantly smaller for mobile */
+                letter-spacing: 5px; /* Tighter spacing so it fits one line */
+            }
+            .hero-section {
+                margin-bottom: 5%; /* Less gap on mobile */
+            }
+        }
         
         @keyframes fadeInBox {
             0% { opacity: 0; transform: scale(0.9); border-color: transparent; }
@@ -385,3 +434,4 @@
     </script>
 </body>
 </html>
+
