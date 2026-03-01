@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northzero Productions - Storytelling</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #050505;
+            overflow: hidden;
+            font-family: 'Space Mono', monospace;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Cinematic Letterboxing Effect */
+        .letterbox-bar {
+            width: 100%;
+            height: 60px;
+            background-color: #000000;
+            z-index: 10;
+        }
+
+        .content-area {
+            flex-grow: 1;
+            display: flex;
+            padding: 60px 80px;
+            gap: 80px;
+            align-items: center;
+            background: radial-gradient(circle at 70% 50%, #1a1a1a 0%, #050505 70%);
+        }
+
+        /* Left Column: Text */
+        .text-column {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .kicker {
+            font-family: 'Space Mono', monospace;
+            font-size: 14px;
+            color: #E6A32E;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .kicker::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: #E6A32E;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 56px;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: #FFFFFF;
+        }
+
+        p {
+            font-family: 'Space Mono', monospace;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #B0B0B0;
+            max-width: 90%;
+        }
+
+        /* Right Column: Stat */
+        .stat-column {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            border-left: 1px solid #333;
+            padding-left: 60px;
+        }
+
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 140px;
+            line-height: 1;
+            color: #E6A32E;
+            margin-bottom: 10px;
+        }
+
+        .stat-desc {
+            font-family: 'Space Mono', monospace;
+            font-size: 20px;
+            line-height: 1.4;
+            color: #FFFFFF;
+        }
+
+        .stat-source {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: #555;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="letterbox-bar"></div>
+        
+        <div class="content-area">
+            <div class="text-column">
+                <div class="kicker">The Power of Cinematic Storytelling</div>
+                <h1>Your Brand Deserves More Than a Video</h1>
+                <p>In a world saturated with content, only the most visually compelling stories cut through the noise. Cinematic production isn't a luxury — it's the difference between being remembered and being ignored. Northzero Productions brings Hollywood-caliber craft to every brand story we tell.</p>
+            </div>
+            
+            <div class="stat-column">
+                <div class="stat-number">80%</div>
+                <div class="stat-desc">of consumers say video content directly influences their purchasing decisions.</div>
+                <div class="stat-source">Source: Wyzowl Video Marketing Statistics</div>
+            </div>
+        </div>
+
+        <div class="letterbox-bar"></div>
+    </div>
+</body>
+</html>

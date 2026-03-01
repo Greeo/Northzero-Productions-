@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northzero Productions - Our Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #050505;
+            overflow: hidden;
+            font-family: 'Space Mono', monospace;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .letterbox-bar {
+            width: 100%;
+            height: 60px;
+            background-color: #000000;
+            z-index: 10;
+            flex-shrink: 0;
+        }
+
+        .content-area {
+            flex-grow: 1;
+            padding: 40px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px; /* reduced from 60 to save vertical space */
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 48px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            letter-spacing: -1px;
+            max-width: 800px;
+            line-height: 1.1;
+        }
+
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: #555;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding-top: 10px; /* keep upper padding for title consistency */
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 60px;
+            row-gap: 30px; /* reduced from 50 to tighten rows */
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        .service-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            text-transform: uppercase;
+            color: #E6A32E;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .service-desc {
+            font-family: 'Space Mono', monospace;
+            font-size: 16px;
+            color: #B0B0B0;
+            line-height: 1.5;
+        }
+
+        /* Decorative element */
+        .accent-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #E6A32E;
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="letterbox-bar"></div>
+        
+        <div class="content-area">
+            <div class="header-row">
+                <h1>Everything You Need.<br>Under One Roof.</h1>
+                <div class="section-label">Our Services</div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="accent-dot"></div>
+                    <div class="service-title">Brand Films</div>
+                    <div class="service-desc">Narrative-driven films that define your brand identity and connect with audiences.</div>
+                </div>
+
+                <div class="service-item">
+                    <div class="accent-dot"></div>
+                    <div class="service-title">Commercials</div>
+                    <div class="service-desc">High-impact advertising for TV, digital, and social platforms that drives action.</div>
+                </div>
+
+                <div class="service-item">
+                    <div class="accent-dot"></div>
+                    <div class="service-title">Corporate Video</div>
+                    <div class="service-desc">Internal communications, training modules, and executive profiles.</div>
+                </div>
+
+                <div class="service-item">
+                    <div class="accent-dot"></div>
+                    <div class="service-title">Event Coverage</div>
+                    <div class="service-desc">Cinematic capture of live events, product launches, and conferences.</div>
+                </div>
+
+                <div class="service-item">
+                    <div class="accent-dot"></div>
+                    <div class="service-title">Social Content</div>
+                    <div class="service-desc">Short-form, high-energy cinematic content built specifically for engagement.</div>
+                </div>
+
+                <div class="service-item">
+                    <div class="accent-dot"></div>
+                    <div class="service-title">Post-Production</div>
+                    <div class="service-desc">Professional color grading, editing, sound design, and VFX services.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="letterbox-bar"></div>
+    </div>
+</body>
+</html>
