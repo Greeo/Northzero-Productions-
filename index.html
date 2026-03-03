@@ -509,14 +509,16 @@
             transition: transform 0.8s cubic-bezier(0.45, 0, 0.55, 1); /* Smoother movement */
         }
 
-        /* Update these in your index.html style block */
+       /* Update this in your index.html <style> section */
         .slide-frame { 
             min-width: 100%; 
             flex-shrink: 0; 
-            aspect-ratio: 16 / 9; /* Keeps a cinematic shape */
+            aspect-ratio: 16 / 9; 
             background: #000;
-            overflow: hidden; /* Prevents internal scrollbars from showing */
-            display: flex;
+            display: flex; /* Key fix: enables flex alignment */
+            justify-content: center; /* Centers horizontally */
+            align-items: center; /* Centers vertically */
+            overflow: hidden;
         }
         
         .slide-frame iframe { 
@@ -524,7 +526,6 @@
             height: 100%; 
             border: none; 
             display: block;
-            object-fit: cover; /* Ensures the content stretches to fill */
         }
 
         div.content-area {
@@ -987,6 +988,7 @@
     </script>
 </body>
 </html>
+
 
 
 
