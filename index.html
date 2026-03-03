@@ -489,14 +489,14 @@
         }
 
         /* FIXED PRESENTATION SLIDER SECTION */
-        .slider-wrapper { max-width: 1283px; max-height:972px; margin: 0 auto; position: relative; overflow: hidden; border: 1px solid #222; justify-content: flex-center; }
-        .slider-container { min-height: 720px; display: flex; transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+        .slider-wrapper { max-width: 1283px; margin: 0 auto; position: relative; overflow: hidden; border: 1px solid #222; }
+        .slider-container { display: flex; transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
         .slide-frame { min-width: 100%; aspect-ratio: 16 / 9; background: #000; }
         .slide-frame iframe { width: 100%; height: 100%; border: none; display: block; }
         .slider-controls { display: flex; justify-content: center; align-items: center; margin-top: 30px; gap: 20px; padding-bottom: 40px; }
         .slide-nav { background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color); width: 45px; height: 45px; border-radius: 50%; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
         .slide-nav:hover { background: var(--accent-color); color: #000; }
-        .dot { /* width: 8px; height: */ 8px; background: #444; border-radius: 50%; cursor: pointer; transition: 0.3s; }
+        .dot { width: 8px; height: 8px; background: #444; border-radius: 50%; cursor: pointer; transition: 0.3s; }
         .dot.active { background: var(--accent-color); width: 20px; border-radius: 4px; }
 
         /* Contact & Footer */
@@ -627,6 +627,12 @@
         <div class="hamburger-icon" onclick="toggleMenu()">
             <span></span><span></span><span></span>
         </div>
+        <div class="mobile-dropdown">
+            <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="about.html" onclick="toggleMenu()">About</a>
+            <a href="work.html" onclick="toggleMenu()">Work</a>
+            <a href="contact.html" onclick="toggleMenu()">Contact</a>
+        </div>
     </nav>
 
     <section class="hero">
@@ -721,7 +727,7 @@
         <p>Let Northzero Productions bring your vision to life.</p>
         
         <div class="contact-info">
-            <p><strong>Email:</strong> info@northzeroproductions.com</p>
+            <p><strong>Email:</strong> admin@northzeroproductions.com</p>
             <p><strong>Phone:</strong> (914) 458-7355</p>
             <p><strong>Location:</strong> Ossining, NY</p>
         </div>
@@ -736,54 +742,7 @@
     </footer>
 
     <script>
-         // Function to play video inside the box (No black screen)
-        function playNow(element, url) {
-            element.innerHTML = `<iframe src="${url}" allow="autoplay; fullscreen" allowfullscreen style="width:100%; height:100%; border:none;"></iframe>`;
-            element.onclick = null; // Disable additional clicks
-        }
-
-        function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const burger = document.getElementById('burgerBtn');
-            
-            // Toggle 'active' class to slide menu in/out
-            menu.classList.toggle('active');
-            
-            // Prevent background scroll when menu is open
-            if (menu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // Ensure video starts immediately on load
-        window.addEventListener('load', function() {
-            const video = document.getElementById('heroVideo');
-            video.play().catch(error => {
-                console.log("Autoplay was prevented by browser. User interaction required.");
-            });
-        });
-
-        // Add a parallax effect on scroll for the title
-        window.addEventListener('scroll', function() {
-            const scroll = window.pageYOffset;
-            const title = document.querySelector('.hero-content');
-            title.style.transform = 'translateY(' + scroll * 0.4 + 'px)';
-            title.style.opacity = 1 - (scroll / 600);
-        });
-
-        
-        // Adding a subtle click reaction
-        const logo = document.getElementById('mainLogo');
-        logo.addEventListener('mousedown', () => {
-            logo.style.transform = 'scale(0.96)';
-        });
-        logo.addEventListener('mouseup', () => {
-            logo.style.transform = 'scale(1)';
-        });
-        
-        // Cinematic Slide Configuration - Reordered for Narrative Flow
+        // --- CONFIGURATION ---
         const slideFiles = [
             'slide7.html', // Impactful Intro
             'slide6.html', // Who We Are
@@ -796,25 +755,35 @@
 
         let currentIdx = 0;
         const slider = document.getElementById('mainSlider');
-        const dots = document.getElementById('slideDots');
+        const dotsContainer = document.getElementById('slideDots');
 
+        // --- SLIDER FUNCTIONS ---
         function initSlider() {
-            // Clean injection to ensure external slide styles stay isolated in their iframes
+            // Clear existing content to prevent duplicates
+            slider.innerHTML = '';
+            dotsContainer.innerHTML = '';
+
             slideFiles.forEach((file, i) => {
+                // Create Slide Frame
                 const div = document.createElement('div');
                 div.className = 'slide-frame';
+                // Using iframes as per your original structure
                 div.innerHTML = `<iframe src="${file}" loading="lazy"></iframe>`;
                 slider.appendChild(div);
 
+                // Create Navigation Dot
                 const dot = document.createElement('div');
                 dot.className = i === 0 ? 'dot active' : 'dot';
                 dot.onclick = () => goToSlide(i);
-                dots.appendChild(dot);
+                dotsContainer.appendChild(dot);
             });
         }
 
         function moveSlide(direction) {
-            currentIdx = (currentIdx + direction + slideFiles.length) % slideFiles.length;
+            currentIdx += direction;
+            // Loop back to start or end
+            if (currentIdx >= slideFiles.length) currentIdx = 0;
+            if (currentIdx < 0) currentIdx = slideFiles.length - 1;
             updateSlider();
         }
 
@@ -824,30 +793,42 @@
         }
 
         function updateSlider() {
+            // Move the container
             slider.style.transform = `translateX(-${currentIdx * 100}%)`;
-            document.querySelectorAll('.dot').forEach((d, i) => {
-                d.classList.toggle('active', i === currentIdx);
+            
+            // Update dots
+            const allDots = dotsContainer.querySelectorAll('.dot');
+            allDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIdx);
             });
         }
 
+        // --- MOBILE MENU LOGIC ---
         function toggleMenu() {
-            alert("Mobile menu clicked. Please ensure your mobile-dropdown elements exist in HTML.");
+            // Targeted the existing mobile-dropdown class in your CSS
+            const mobileNav = document.querySelector('.mobile-dropdown');
+            if (mobileNav) {
+                mobileNav.classList.toggle('active');
+                
+                // Toggle body scroll to prevent "scrolling behind" the menu
+                if (mobileNav.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = 'auto';
+                }
+            }
         }
 
-        // Initialize on load
-        window.onload = initSlider;
+        // --- INITIALIZATION ---
+        window.addEventListener('DOMContentLoaded', () => {
+            initSlider();
+            
+            // Optional: Auto-play hero video if it exists
+            const heroVid = document.querySelector('.hero-video');
+            if (heroVid) {
+                heroVid.play().catch(() => console.log("Autoplay blocked."));
+            }
+        });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
