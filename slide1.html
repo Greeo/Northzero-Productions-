@@ -13,16 +13,31 @@
             box-sizing: border-box;
         }
         
-        body, html {
+        /* Reset margins and force full height/width */
+        html, body {
+            margin: 0;
+            padding: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden; /* Removes scrollbars inside the slider */
+            overflow: hidden;
+        }
+    
+        /* Create a centered container for your text/images */
+        body {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #0a0a0a; /* Match your brand background */
-            color: white;
+            flex-direction: column; /* Stacks content vertically */
+            justify-content: center; /* Centers vertically */
+            align-items: center; /* Centers horizontally */
+            background-color: #0a0a0a; /* Match Northzero background */
+            color: #ffffff;
+            text-align: center;
             font-family: 'Helvetica Neue', sans-serif;
+        }
+    
+        /* Wrap your slide text in this class to control its width */
+        .content-area {
+            max-width: 80%; /* Prevents text from hitting the edges */
+            padding: 20px;
         }
     
         .slide-content {
@@ -176,36 +191,38 @@
     </style>
 </head>
 <body>
-    <div class="slide-container">
-        <div class="cinematic-bg"></div>
-        <div class="overlay"></div>
-
-        <div class="letterbox-top"></div>
-        
-        <div class="content-wrapper">
-            <div class="accent-line"></div>
-            <h1>Your Story.<br>Our Lens.<br>Zero Limits.</h1>
-            <p>Whether you're launching a product, building brand awareness, or telling your company's story — Northzero Productions is ready to bring your vision to life.</p>
+    <div class="content-area">
+        <div class="slide-container">
+            <div class="cinematic-bg"></div>
+            <div class="overlay"></div>
+    
+            <div class="letterbox-top"></div>
             
-            <div class="contact-list">
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-globe"></i></div>
-                    <span>northzeroproductions.com</span>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                    <span>info@northzeroproductions.com</span>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fab fa-instagram"></i></div>
-                    <span>@northzero_productions</span>
+            <div class="content-wrapper">
+                <div class="accent-line"></div>
+                <h1>Your Story.<br>Our Lens.<br>Zero Limits.</h1>
+                <p>Whether you're launching a product, building brand awareness, or telling your company's story — Northzero Productions is ready to bring your vision to life.</p>
+                
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-globe"></i></div>
+                        <span>northzeroproductions.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <span>info@northzeroproductions.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+                        <span>@northzero_productions</span>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="letterbox-bottom">
-            <div class="footer-logo">Northzero Productions</div>
-            <div class="footer-tagline">Capturing the world, one frame at a time.</div>
+    
+            <div class="letterbox-bottom">
+                <div class="footer-logo">Northzero Productions</div>
+                <div class="footer-tagline">Capturing the world, one frame at a time.</div>
+            </div>
         </div>
     </div>
 </body>
