@@ -624,14 +624,19 @@
             <a href="policies.html">Policies</a>
             <a href="contact.html" class="cta-btn">Contact Us</a>
         </div>
-        <div class="hamburger-icon" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
+        <div class="hamburger-icon" id="burgerBtn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
         </div>
-        <div class="mobile-dropdown">
-            <a href="index.html" onclick="toggleMenu()">Home</a>
-            <a href="about.html" onclick="toggleMenu()">About</a>
-            <a href="work.html" onclick="toggleMenu()">Work</a>
-            <a href="contact.html" onclick="toggleMenu()">Contact</a>
+        
+        <div class="mobile-dropdown" id="mobileMenu">
+            <a href="index.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Home</a>
+            <a href="about.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">About</a>
+            <a href="all-services.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Services</a>
+            <a href="work.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Work</a>
+            <a href="policies.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Policies</a>
+            <a href="contact.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Contact</a>
         </div>
     </nav>
 
@@ -832,3 +837,4 @@
     </script>
 </body>
 </html>
+
