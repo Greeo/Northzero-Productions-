@@ -946,10 +946,10 @@
         }
 
         function updateSlider() {
-            // This creates the movement by sliding the entire container to the left
+            // This moves the container by 100% of the wrapper's width per slide
             slider.style.transform = `translateX(-${currentIdx * 100}%)`;
             
-            // Update Dot Classes
+            // Updates dots active state
             const allDots = dotsContainer.querySelectorAll('.dot');
             allDots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === currentIdx);
@@ -988,6 +988,7 @@
     </script>
 </body>
 </html>
+
 
 
 
