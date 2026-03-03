@@ -489,15 +489,51 @@
         }
 
         /* FIXED PRESENTATION SLIDER SECTION */
-        .slider-wrapper { max-width: 1283px; margin: 0 auto; position: relative; overflow: hidden; border: 1px solid #222; }
-        .slider-container { display: flex; transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
-        .slide-frame { min-width: 100%; aspect-ratio: 16 / 9; background: #000; }
-        .slide-frame iframe { width: 100%; height: 100%; border: none; display: block; }
-        .slider-controls { display: flex; justify-content: center; align-items: center; margin-top: 30px; gap: 20px; padding-bottom: 40px; }
-        .slide-nav { background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color); width: 45px; height: 45px; border-radius: 50%; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
-        .slide-nav:hover { background: var(--accent-color); color: #000; }
-        .dot { width: 8px; height: 8px; background: #444; border-radius: 50%; cursor: pointer; transition: 0.3s; }
-        .dot.active { background: var(--accent-color); width: 20px; border-radius: 4px; }
+
+        #presentation {
+            position: relative;
+            z-index: 5; /* Ensures it stays above background elements but below the Nav */
+        }
+        .slider-wrapper { 
+            max-width: 1283px; 
+            margin: 0 auto; 
+            position: relative; 
+            overflow: hidden; 
+            border: 1px solid #222;
+            background: #000; /* Prevents white flash during loads */
+        }
+
+        .slider-container { 
+            display: flex; 
+            width: 100%; /* Ensures container starts at full width */
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); 
+        }
+
+        .slide-frame { 
+            min-width: 100%; /* Crucial: Forces each slide to take up exactly one wrapper width */
+            flex-shrink: 0;  /* Prevents slides from squeezing together */
+            aspect-ratio: 16 / 9; 
+            background: #000; 
+        }
+
+        .slide-frame iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+            display: block; 
+        }
+
+        /* Ensure controls are visible and clickable */
+        .slider-controls { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            margin-top: 30px; 
+            gap: 20px; 
+            padding-bottom: 40px; 
+        }
+
+        
 
         /* Contact & Footer */
         .contact-section {
@@ -605,7 +641,7 @@
             }
 
             /* --- RESPONSIVE PRESENTATION SLIDER --- */
-            
+
             /* Tablets and Small Laptops (under 1024px) */
             @media (max-width: 1024px) {
                 .slider-wrapper {
@@ -617,29 +653,29 @@
                     margin-bottom: 40px;
                 }
             }
-            
+
             /* Mobile Devices (under 768px) */
             @media (max-width: 768px) {
                 .slider-wrapper {
                     max-width: 95%;
                     border: none; /* Cleaner look on small screens */
                 }
-            
+
                 /* Adjust aspect ratio for mobile to allow more vertical content */
                 .slide-frame {
                     aspect-ratio: 4 / 3; 
                 }
-            
+
                 .slider-controls {
                     gap: 15px;
                     padding-bottom: 20px;
                 }
-            
+
                 .slide-nav {
                     width: 40px;
                     height: 40px;
                 }
-            
+
                 /* Make dots slightly larger for easier touch interaction */
                 .dot {
                     width: 10px;
@@ -650,24 +686,23 @@
                     width: 25px;
                 }
             }
-            
+
             /* Very Small Devices (under 480px) */
             @media (max-width: 480px) {
                 .slide-frame {
                     aspect-ratio: 1 / 1; /* Square format works best for mobile "slides" */
                 }
-            
+
                 .section-title {
                     font-size: 1.5rem;
                     letter-spacing: 2px;
                 }
-            
+
                 .slider-controls {
                     margin-top: 20px;
                 }
             }
-
-        
+        }
     </style>
 </head>
 <body>
@@ -688,12 +723,13 @@
             <a href="policies.html">Policies</a>
             <a href="contact.html" class="cta-btn">Contact Us</a>
         </div>
+
         <div class="hamburger-icon" id="burgerBtn" onclick="toggleMenu()">
         <span></span>
         <span></span>
         <span></span>
         </div>
-        
+
         <div class="mobile-dropdown" id="mobileMenu">
             <a href="index.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">Home</a>
             <a href="about.html" onclick="toggleMenu()" style="color:white; text-decoration:none; font-size:1.5rem;">About</a>
