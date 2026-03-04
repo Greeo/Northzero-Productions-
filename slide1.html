@@ -187,6 +187,66 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+        /* Tablets and Small Laptops (under 1024px) */
+            @media (max-width: 1024px) {
+                .slider-wrapper {
+                    max-width: 90%; /* Give it some breathing room on the sides */
+                }
+                
+                .section-title {
+                    font-size: 1.8rem;
+                    margin-bottom: 40px;
+                }
+            }
+
+            /* Mobile Devices (under 768px) */
+            @media (max-width: 768px) {
+                .slider-wrapper {
+                    max-width: 95%;
+                    border: none; /* Cleaner look on small screens */
+                }
+
+                /* Adjust aspect ratio for mobile to allow more vertical content */
+                .slide-frame {
+                    aspect-ratio: 4 / 3; 
+                }
+
+                .slider-controls {
+                    gap: 15px;
+                    padding-bottom: 20px;
+                }
+
+                .slide-nav {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                /* Make dots slightly larger for easier touch interaction */
+                .dot {
+                    width: 10px;
+                    height: 10px;
+                }
+                
+                .dot.active {
+                    width: 25px;
+                }
+            }
+
+            /* Very Small Devices (under 480px) */
+            @media (max-width: 480px) {
+                .slide-frame {
+                    aspect-ratio: 1 / 1; /* Square format works best for mobile "slides" */
+                }
+
+                .section-title {
+                    font-size: 1.5rem;
+                    letter-spacing: 2px;
+                }
+
+                .slider-controls {
+                    margin-top: 20px;
+                }
+            }
 
     </style>
 </head>
