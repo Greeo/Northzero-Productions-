@@ -157,9 +157,28 @@
         </div>
 
         <div class="footer-cta">
-            <a href="javascript:history.back()" class="back-btn">Back to Submission</a>
+            <a href="promotions.html" class="back-btn" id="backToPromo">Back to Submission</a>
         </div>
     </div>
 
+    <script>
+        // Select the back button by its ID
+        const backBtn = document.getElementById('backToPromo');
+
+        // Add a click event listener to handle the redirect
+        backBtn.addEventListener('click', function(event) {
+            // Prevent default browser history behavior
+            event.preventDefault();
+            
+            // Force a direct redirect to the promotions page
+            window.location.href = 'promotions.html';
+        });
+
+        // Optional: Handle the browser's physical back button 
+        // to ensure it stays within your marketing funnel
+        window.onpopstate = function() {
+            window.location.href = 'promotions.html';
+        };
+    </script>
 </body>
 </html>
