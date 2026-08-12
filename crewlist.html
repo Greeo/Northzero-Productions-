@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Roster & Production Network | Northzero Productions</title>
+    <style>
+        /* Northzero Global Identity Variables */
+        :root {
+            --bg-dark: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.85);
+            --border-color: #1f2937;
+            --border-hover: #374151;
+            --gold: #c5a059;
+            --gold-glow: rgba(197, 160, 89, 0.15);
+            --cyan: #38bdf8;
+            --text-light: #ffffff;
+            --text-muted: #9ca3af;
+            --font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Ambient Production Lighting Background */
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(197, 160, 89, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+                linear-gradient(rgba(31, 41, 55, 0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(31, 41, 55, 0.2) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            color: #d1d5db;
+            font-family: var(--font-stack);
+            font-size: 16px;
+            line-height: 1.6;
+            padding: 30px 20px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        /* Live Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            color: var(--gold);
+            font-size: 8pt;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #10b981;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* Header Styling */
+        .page-header {
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .brand-title {
+            font-size: 28pt;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            line-height: 1.1;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-subtitle {
+            font-size: 11pt;
+            letter-spacing: 2.5px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-top: 6px;
+            font-weight: 600;
+        }
+
+        /* Stats Bar */
+        .stats-ribbon {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 14px 18px;
+            border-radius: 6px;
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .stat-number {
+            font-size: 16pt;
+            font-weight: 800;
+            color: var(--text-light);
+            line-height: 1;
+        }
+
+        .stat-number span { color: var(--gold); }
+
+        .stat-label {
+            font-size: 8.5pt;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* Intro Box */
+        .intro-summary {
+            background: var(--card-bg);
+            border-left: 4px solid var(--gold);
+            border-radius: 0 8px 8px 0;
+            padding: 18px 22px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .intro-summary p {
+            color: #d1d5db;
+            font-size: 10.5pt;
+            line-height: 1.6;
+        }
+
+        /* Tab Switcher */
+        .tab-container {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 14px;
+        }
+
+        .tab-btn {
+            background: var(--card-bg);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            font-family: var(--font-stack);
+            font-size: 9.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-light);
+            border-color: var(--gold);
+            box-shadow: 0 0 15px var(--gold-glow);
+        }
+
+        .tab-btn.active {
+            background: var(--gold);
+            color: #000000;
+            border-color: var(--gold);
+            box-shadow: 0 4px 20px rgba(197, 160, 89, 0.4);
+        }
+
+        /* Content Display Panels */
+        .panel {
+            display: none;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            min-height: 700px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 0.35s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .panel.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 11pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--cyan);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Responsive Embed Containers */
+        .embed-wrapper {
+            width: 100%;
+            min-height: 85vh;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            background-color: var(--bg-dark);
+        }
+
+        iframe {
+            width: 100%;
+            height: 85vh;
+            min-height: 800px;
+            border: none;
+        }
+
+        /* Footer Info */
+        .footer-note {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 9pt;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .footer-note strong {
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Live Status Badge -->
+        <div class="status-badge">
+            <span class="pulse-dot"></span> Active Roster &bull; Westchester & NYC Metro
+        </div>
+
+        <!-- Header -->
+        <header class="page-header">
+            <h1 class="brand-title">Northzero Productions</h1>
+            <div class="brand-subtitle">Regional Production Network & Crew Roster</div>
+        </header>
+
+        <!-- Metrics Ribbon -->
+        <div class="stats-ribbon">
+            <div class="stat-card">
+                <div class="stat-number">150<span>+</span></div>
+                <div class="stat-label">Vetted Crew Specialists</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4K<span>/</span>8K</div>
+                <div class="stat-label">Cinema Rig Standards</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24<span>hr</span></div>
+                <div class="stat-label">Roster Dispatch Response</div>
+            </div>
+        </div>
+
+        <!-- Intro -->
+        <div class="intro-summary">
+            <p><strong>Production Network Hub:</strong> Northzero Productions maintains an active database of vetted DPs, Gaffers, Audio Engineers, Editors, and Drone Operators. Use the portal below to register for active commercial and architectural production calls or browse available specialized crew for upcoming shoots.</p>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tab-container" role="tablist">
+            <button class="tab-btn active" id="tab-apply" role="tab" aria-selected="true" aria-controls="apply-panel" onclick="switchTab('apply-panel', this)">Apply to Roster</button>
+            <button class="tab-btn" id="tab-directory" role="tab" aria-selected="false" aria-controls="directory-panel" onclick="switchTab('directory-panel', this)">Browse Crew Directory</button>
+        </div>
+
+        <!-- Panel 1: Clean Fillout Dark Form -->
+        <div id="apply-panel" class="panel active" role="tabpanel" aria-labelledby="tab-apply">
+            <div class="section-title">
+                <span>Crew Intake & Capabilities Registration</span>
+                <span style="font-size: 8pt; color: var(--text-muted);">Encrypted &bull; Direct Sync</span>
+            </div>
+            <div class="embed-wrapper">
+                <div style="width:100%;height:100%;min-height:800px;" data-fillout-id="39AA2i7CKNus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
+                <script src="https://server.fillout.com/embed/v1/"></script>
+            </div>
+        </div>
+
+        <!-- Panel 2: Polished Softr Card Grid -->
+        <div id="directory-panel" class="panel" role="tabpanel" aria-labelledby="tab-directory">
+            <div class="section-title">
+                <span>Vetted Specialists & Production Roster</span>
+                <span style="font-size: 8pt; color: var(--text-muted);">Real-Time Availability</span>
+            </div>
+            <div class="embed-wrapper">
+                <iframe src="https://brooks59819.softr.app" title="Northzero Crew Directory" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer-note">
+            <strong>Northzero Productions LLC</strong> &bull; Ossining, NY &bull; info@northzeroproductions.com &bull; (914) 458-7355
+        </footer>
+
+    </div>
+
+    <!-- JavaScript for Tab Switching -->
+    <script>
+        function switchTab(panelId, btnElement) {
+            const panels = document.querySelectorAll('.panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
+
+            const activePanel = document.getElementById(panelId);
+            activePanel.classList.add('active');
+            
+            btnElement.classList.add('active');
+            btnElement.setAttribute('aria-selected', 'true');
+        }
+    </script>
+
+</body>
+</html>
