@@ -96,3 +96,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Get the current page filename from the URL
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Select all menu links
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    navLinks.forEach(link => {
+        // Compare href attribute with current pathname
+        if (link.getAttribute('href') === currentPath) {
+            link.style.color = 'var(--nz-gold)';
+            link.style.fontWeight = '700';
+        }
+    });
+});
