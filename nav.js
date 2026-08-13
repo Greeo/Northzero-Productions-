@@ -1,20 +1,29 @@
 /* ============================================================
    NORTHZERO NAV ENGINE v2.3 | 2026
    Targets: #hamburger-menu / #nav-links-container / .active
-   v2.3: Reliable cross-browser mobile dropdown fix
+   v2.3: Reliable cross-browser mobile dropdown + active page highlight
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger-menu');
     const navLinks  = document.getElementById('nav-links-container');
 
+    // ── 1. Automatic Active Link Highlighting ────────────────
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const allLinks    = document.querySelectorAll('.nav-links a');
+
+    allLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+            link.style.color = 'var(--nz-gold)';
+            link.style.fontWeight = '700';
+        }
+    });
+
     if (!hamburger || !navLinks) return;
 
-    // ── Helpers ──────────────────────────────────────────────
-
+    // ── 2. Helpers ───────────────────────────────────────────
     function isMobile() {
-        // Check by screen width rather than computed style —
-        // more reliable across all mobile browsers including iOS Safari
         return window.innerWidth <= 900;
     }
 
@@ -32,28 +41,25 @@ document.addEventListener('DOMContentLoaded', () => {
         closeAllDropdowns();
     }
 
-    // ── Hamburger ────────────────────────────────────────────
+    // ── 3. Hamburger Toggle ──────────────────────────────────
     hamburger.addEventListener('click', () => {
         const isOpen = navLinks.classList.toggle('active');
         hamburger.setAttribute('aria-expanded', String(isOpen));
-        // Close dropdowns when menu itself closes
         if (!isOpen) closeAllDropdowns();
     });
 
-    // ── Nav link clicks (non-dropdown) ───────────────────────
+    // ── 4. Nav Link Clicks (non-dropdown) ────────────────────
     navLinks.querySelectorAll('a:not(.dropbtn)').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
 
-    // ── Dropdown toggle ──────────────────────────────────────
+    // ── 5. Mobile Dropdown Toggle ───────────────────────────
     document.querySelectorAll('.dropbtn').forEach(btn => {
         btn.setAttribute('aria-haspopup', 'true');
         btn.setAttribute('aria-expanded', 'false');
 
         btn.addEventListener('click', function (e) {
-            // On desktop let the link navigate normally
             if (!isMobile()) return;
-
             e.preventDefault();
             e.stopPropagation();
 
@@ -61,11 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!dropdown) return;
 
             const isOpen = dropdown.classList.contains('open');
-
-            // Close any other open dropdown first
             closeAllDropdowns();
 
-            // Toggle this one
             if (!isOpen) {
                 dropdown.classList.add('open');
                 btn.setAttribute('aria-expanded', 'true');
@@ -73,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ── Escape key ───────────────────────────────────────────
+    // ── 6. Keyboard Escape Key ───────────────────────────────
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
             closeMenu();
@@ -81,9 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ── Outside click/tap to close ───────────────────────────
-    // Use both click and touchstart for maximum browser compatibility.
-    // touchstart fires before click and is more reliable on iOS Safari.
+    // ── 7. Outside Click/Tap to Close ────────────────────────
     ['click', 'touchstart'].forEach(evtType => {
         document.addEventListener(evtType, function (e) {
             if (
