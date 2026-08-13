@@ -426,31 +426,12 @@
             }
         });
 
-        // --- Crew Hub Tab Switching Logic ---
-        function switchTab(panelId, btnElement) {
-            const panels = document.querySelectorAll('.panel');
-            panels.forEach(panel => panel.classList.remove('active'));
+    
 
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-                btn.setAttribute('aria-selected', 'false');
-            });
-
-            const activePanel = document.getElementById(panelId);
-            activePanel.classList.add('active');
-            
-            btnElement.classList.add('active');
-            btnElement.setAttribute('aria-selected', 'true');
-        }
-
-        // --- Direct Email Obfuscation ---
+        // --- Email obfuscation ---
         const u = 'omar';
         const d = 'northzeroproductions.com';
-        const emailEl = document.getElementById('email-link');
-        if (emailEl) {
-            emailEl.href = `mailto:${u}@${d}`;
-        }
+        document.getElementById('email-link').href = `mailto:${u}@${d}`;
     </script>
 
 </body>
