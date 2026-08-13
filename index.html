@@ -605,11 +605,48 @@
             });
         }());
 
-        // --- Email obfuscation ---
+
+        // --- Mobile Hamburger Menu Toggle ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger-menu');
+            const navLinks = document.getElementById('nav-links-container');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+                    hamburger.setAttribute('aria-expanded', !isExpanded);
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
+
+        // --- Crew Hub Tab Switching Logic ---
+        function switchTab(panelId, btnElement) {
+            const panels = document.querySelectorAll('.panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
+
+            const activePanel = document.getElementById(panelId);
+            activePanel.classList.add('active');
+            
+            btnElement.classList.add('active');
+            btnElement.setAttribute('aria-selected', 'true');
+        }
+
+        // --- Direct Email Obfuscation ---
         const u = 'omar';
         const d = 'northzeroproductions.com';
-        document.getElementById('email-link').href = `mailto:${u}@${d}`;
+        const emailEl = document.getElementById('email-link');
+        if (emailEl) {
+            emailEl.href = `mailto:${u}@${d}`;
+        }
     </script>
+
 
     <!-- Meta Pixel Code -->
     <script>
