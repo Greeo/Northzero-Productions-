@@ -308,6 +308,27 @@
         .hpc-badge-name   { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #fff; font-weight: 700; }
         .hpc-badge-studio { font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; color: #333; }
 
+
+        /* --- PARTNER SLIDER --- */
+        .partners-strip { overflow: hidden; }
+        .partner-slider-container { 
+            position: relative; 
+            width: 260px; /* Matching your badge-card width */
+            height: 180px; 
+            margin: 0 auto;
+        }
+        .partner-slide { 
+            position: absolute; 
+            width: 100%; 
+            opacity: 0; 
+            transition: opacity 1s ease-in-out; 
+        }
+        .partner-slide.active { opacity: 1; }
+        
+        /* Ensure the cards look clean */
+        .partner-slide .hpc-badge-card { width: 100%; border-color: var(--nz-gold); }
+        .partner-slide .hpc-badge-inner { background: #050505; }
+
         /* --- MOBILE --- */
         @media screen and (max-width: 900px) {
             .slide-content h1 {
@@ -494,6 +515,67 @@
             </div>
         </section>
 
+        <!-- Partners Carousel -->
+        <section class="hpc-strip partners-strip" aria-label="Our Partners">
+            <div class="hpc-strip-inner" style="flex-direction: column; text-align: center;">
+                <div class="hpc-copy" style="max-width: 100%; margin-bottom: 40px;">
+                    <span class="hpc-label">Network Ecosystem</span>
+                    <h2>Collaborative Partners</h2>
+                </div>
+                
+                <div class="partner-slider-container" id="partner-slider">
+                    <!-- Partner Slide 1 -->
+                    <div class="hpc-strip-inner">
+                        <div class="hpc-copy">
+                            <span class="hpc-label">Institutional Credential</span>
+                            <h2>Grounded in Preservation Law</h2>
+                            <p>
+                                Northzero Productions is founded by Omar A. Greene — an alternate member
+                                of the Village of Ossining Historic Preservation Commission. This institutional
+                                position informs every production we undertake: from landmark documentation
+                                to municipal visual strategy.
+                            </p>
+                            <a href="authority.html" class="cta-btn" style="margin-top: 30px; display: inline-block;">
+                                The Authority Suite &rarr;
+                            </a>
+                        </div>
+        
+                        <div class="hpc-badge-card" aria-hidden="true">
+                            <div class="hpc-badge-inner">
+                                <span class="hpc-badge-abbr">HPC</span>
+                                <span class="hpc-badge-title">Historic Preservation<br>Commission</span>
+                                <span class="hpc-badge-sub">Village of Ossining, New York</span>
+                                <div class="hpc-badge-divider"></div>
+                                <span class="hpc-badge-role">Alternate Member</span>
+                                <span class="hpc-badge-name">Omar A. Greene</span>
+                                <span class="hpc-badge-studio">Northzero Productions</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Partner Slide 2 -->
+                    <div class="partner-slide">
+                        <div class="hpc-badge-card">
+                            <div class="hpc-badge-inner">
+                                <span class="hpc-badge-abbr" style="font-size: 1.5rem;">PARTNER B</span>
+                                <div class="hpc-badge-divider"></div>
+                                <span class="hpc-badge-role">Strategy & Branding</span>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Partner Slide 3 -->
+                    <div class="partner-slide">
+                        <div class="hpc-badge-card">
+                            <div class="hpc-badge-inner">
+                                <span class="hpc-badge-abbr" style="font-size: 1.5rem;">PARTNER C</span>
+                                <div class="hpc-badge-divider"></div>
+                                <span class="hpc-badge-role">Digital Logistics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Final CTA -->
         <section class="cta-section" aria-label="Start a project">
             <h2>Initiate an Audit</h2>
@@ -625,7 +707,23 @@
         const u = 'omar';
         const d = 'northzeroproductions.com';
         document.getElementById('email-link').href = `mailto:${u}@${d}`;
+
+        // <--- Partner Slider Logic --->
+        (function() {
+            const slides = document.querySelectorAll('.partner-slide');
+            let currentPartner = 0;
+        
+            function nextPartner() {
+                slides[currentPartner].classList.remove('active');
+                currentPartner = (currentPartner + 1) % slides.length;
+                slides[currentPartner].classList.add('active');
+            }
+        
+            // Cycle every 4 seconds
+            setInterval(nextPartner, 4000);
+        })(); 
     </script>
+
 
 
     <!-- Meta Pixel Code -->
