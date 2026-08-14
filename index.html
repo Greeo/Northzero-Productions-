@@ -595,6 +595,29 @@
     <script src="nav.js?v=2.0"></script>
 
     <script>
+
+        // --- Partner Slideshow Slider ---
+        const partnerSlides = document.querySelectorAll('.partner-slide');
+        const partnerDots   = document.querySelectorAll('.partner-dot');
+        let currentPartner  = 0;
+        let partnerTimer;
+
+        function goToPartnerSlide(idx) {
+            partnerSlides[currentPartner].classList.remove('active');
+            partnerDots[currentPartner].classList.remove('active');
+            currentPartner = (idx + partnerSlides.length) % partnerSlides.length;
+            partnerSlides[currentPartner].classList.add('active');
+            partnerDots[currentPartner].classList.add('active');
+        }
+
+        function startPartnerSlider() {
+            partnerTimer = setInterval(() => {
+                goToPartnerSlide(currentPartner + 1);
+            }, 4500);
+        }
+
+        startPartnerSlider();
+        
         // --- Hero Slider ---
         const slides     = document.querySelectorAll('.slide');
         const sliderEl   = document.getElementById('hero-slider');
