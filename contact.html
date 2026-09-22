@@ -574,7 +574,22 @@
         const btn         = document.getElementById('submit-btn');
         const successCard = document.getElementById('success-card');
         const counterEl   = document.getElementById('redirect-counter');
+        
+       /* ========================================================
+        PASTE HERE: Pre-select Service Radio from URL parameter (?service=Architectural+Cinema, etc.)
+       ======================================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const serviceParam = params.get('service');
+            if (serviceParam) {
+                const targetRadio = document.querySelector(`input[name="service"][value="${serviceParam}"]`);
+                if (targetRadio) {
+                    targetRadio.checked = true;
+                }
+            }
+        });
 
+        // --- SUBMISSION HANDLER ---
         async function handleSubmit(e) {
             e.preventDefault();
         
