@@ -81,6 +81,114 @@
             .pillar-grid    { display: flex; flex-direction: column; }
             .pillars-container { padding: 60px 20px; }
         }
+
+        /* --- COMMISSION A PRODUCTION / SERVICE FOOTER BANNER --- */
+        .commission-banner {
+            background: #050505;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 110px 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .commission-inner {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .commission-rule {
+            width: 1px;
+            height: 50px;
+            background: var(--nz-gold);
+            margin-bottom: 25px;
+        }
+        
+        .commission-tag {
+            font-size: 0.65rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--nz-gold);
+            margin-bottom: 18px;
+            display: block;
+        }
+        
+        .commission-banner h2 {
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            text-transform: uppercase;
+            letter-spacing: 7px;
+            color: #fff;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 22px;
+        }
+        
+        .commission-banner p {
+            font-size: 1rem;
+            color: #888;
+            line-height: 1.8;
+            max-width: 620px;
+            margin-bottom: 45px;
+            font-weight: 300;
+        }
+        
+        .commission-btn-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .commission-primary-btn {
+            display: inline-block;
+            border: 1px solid var(--nz-gold);
+            background: transparent;
+            color: var(--nz-gold);
+            padding: 18px 38px;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-family: inherit;
+            font-weight: 600;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+        
+        .commission-primary-btn:hover {
+            background: var(--nz-gold);
+            color: #000;
+            transform: translateY(-2px);
+        }
+        
+        .commission-secondary-btn {
+            display: inline-block;
+            border: 1px solid #222;
+            background: #0a0a0a;
+            color: #777;
+            padding: 18px 30px;
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-family: inherit;
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .commission-secondary-btn:hover {
+            border-color: #444;
+            color: #fff;
+        }
+        
+        @media (max-width: 768px) {
+            .commission-banner { padding: 80px 20px; }
+            .commission-btn-group { width: 100%; flex-direction: column; }
+            .commission-primary-btn, .commission-secondary-btn { width: 100%; text-align: center; }
+        }
     </style>
 </head>
 <body>
@@ -181,6 +289,19 @@
                 <a href="contact.html" class="cta-btn">Initiate Full Audit</a>
                 <a href="https://calendly.com/northzeroproductions-info/30min" class="cta-btn booking" target="_blank" rel="noopener noreferrer" aria-label="Schedule a consultation — opens in new tab">Schedule a Consultation</a>
                 <a href="#" id="email-link" class="cta-btn secondary">Direct Email</a>
+            </div>
+        </section>
+
+        <section class="commission-banner" aria-label="Start a production inquiry">
+            <div class="commission-inner">
+                <div class="commission-rule" aria-hidden="true"></div>
+                <span class="commission-tag">Direct Engagement</span>
+                <h2>Bring the Vision to Light</h2>
+                <p>Whether navigating complex landmark approvals or directing ultra-luxury estate cinema, every commission begins with a deliberate brief.</p>
+                <div class="commission-btn-group">
+                    <a href="contact.html" class="commission-primary-btn">Initiate Inquiry →</a>
+                    <a href="about.html" class="commission-secondary-btn">The Lens &amp; Philosophy</a>
+                </div>
             </div>
         </section>
 
