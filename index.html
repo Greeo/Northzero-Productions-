@@ -204,6 +204,32 @@
         .showreel-wrapper.is-playing:hover .showreel-overlay {
             opacity: 1;
         }
+        /* --- BUMPER IMAGE & VIDEO STACKING --- */
+        .showreel-bumper {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2; /* Sits directly in front of the video */
+            transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+            pointer-events: none;
+        }
+        
+        .showreel-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1; /* Sits behind bumper */
+            background: #000;
+        }
+        
+        /* When video actually begins playing, gently fade the bumper out */
+        .showreel-wrapper.video-active .showreel-bumper {
+            opacity: 0;
+        }
         
         /* --- HTML, & BODY --- */
         html, body {
@@ -575,31 +601,62 @@
             <div style="text-align: center; margin-bottom: 50px;">
                 <p style="color: var(--nz-gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.7rem;">Selected Portfolios</p>
             </div>
-            <div class="bento-grid-fixed">
-                
-               <!-- <div class="bento-item large" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200');">
-                    <div class="bento-text"><h3>Regan Estates</h3></div>
-                </div> -->
-
-                <!-- NATIVE 4K/HD CINEMA SHOWREEL (BENTO ITEM) -->
-                <div 
-                    class="showreel-wrapper bento-item large" 
-                    id="regan-showreel"
-                    role="region" 
-                    aria-label="Northzero Productions Showreel"
-                >
-                    <video 
-                        id="native-reel-player"
-                        class="showreel-video"
-                        poster="regan-estates.jpg" 
-                        preload="metadata"
-                        playsinline
-                        muted
-                        loop
+            <div class="bento-grid-fixed"> 
+                   <!-- <div class="bento-item large" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200');">
+                        <div class="bento-text"><h3>Regan Estates</h3></div>
+                    </div> -->
+    
+                    <!-- NATIVE 4K/HD CINEMA SHOWREEL (BENTO ITEM) -->
+                    <!-- NATIVE SHOWREEL CONTAINER -->
+                    <div 
+                        class="showreel-wrapper bento-item large" 
+                        id="regan-showreel"
+                        role="region" 
+                        aria-label="Northzero Productions Showreel"
                     >
-                        <source src="northzero-architectural-cinema-showreel.mp4" type="video/mp4">
-                        Your browser does not support HTML5 video.
-                    </video>
+                        <!-- True Bumper Image Layer -->
+                        <img 
+                            src="regan-estates.jpg" 
+                            alt="Regan Estates Architectural Cinema — Northzero Productions" 
+                            class="showreel-bumper" 
+                            id="showreel-bumper-img"
+                            width="1920" 
+                            height="1080"
+                            loading="eager"
+                        >
+                    
+                        <!-- Native Video Layer -->
+                        <video 
+                            id="native-reel-player"
+                            class="showreel-video"
+                            poster="regan-estates.jpg" 
+                            preload="auto"
+                            playsinline
+                            muted
+                            loop
+                        >
+                            <source src="northzero-architectural-cinema-showreel.mp4" type="video/mp4">
+                            Your browser does not support HTML5 video.
+                        </video>
+                    
+                        <!-- HUD Overlay -->
+                        <div class="showreel-overlay" id="showreel-overlay">
+                            <button class="showreel-play-btn" id="showreel-toggle-btn" aria-label="Play Showreel">
+                                <svg id="play-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                <svg id="pause-icon" viewBox="0 0 24 24" style="display: none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                            </button>
+                            <span class="showreel-tag" id="showreel-tag">Experience Showreel</span>
+                        </div>
+                    
+                        <!-- Sound Toggle Button -->
+                        <button class="showreel-sound-btn" id="showreel-sound-btn" aria-label="Toggle Mute" style="display: none;">
+                            <span id="sound-text">Unmute</span>
+                        </button>
+                    
+                        <div class="bento-text">
+                            <h3>Regan Estates</h3>
+                        </div>
+                    </div>
                 
                     <!-- Custom Luxury HUD / Control Overlay -->
                     <div class="showreel-overlay" id="showreel-overlay">
@@ -731,7 +788,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             const reelContainer = document.getElementById('regan-showreel');
             const video = document.getElementById('native-reel-player');
-            const playBtn = document.getElementById('showreel-toggle-btn');
             const playIcon = document.getElementById('play-icon');
             const pauseIcon = document.getElementById('pause-icon');
             const soundBtn = document.getElementById('showreel-sound-btn');
@@ -740,34 +796,44 @@
         
             if (!reelContainer || !video) return;
         
-            // --- TOGGLE PLAY / PAUSE ---
+            let hasStarted = false;
+        
+            function playReel() {
+                video.play().then(() => {
+                    // Once the video actually renders frames, crossfade bumper
+                    reelContainer.classList.add('video-active');
+                    reelContainer.classList.add('is-playing');
+                    if (playIcon) playIcon.style.display = 'none';
+                    if (pauseIcon) pauseIcon.style.display = 'block';
+                    if (tag) tag.textContent = 'Pause Showreel';
+                    if (soundBtn) soundBtn.style.display = 'block';
+                    hasStarted = true;
+                }).catch(err => console.warn('Autoplay prevented:', err));
+            }
+        
+            function pauseReel() {
+                video.pause();
+                reelContainer.classList.remove('is-playing');
+                if (playIcon) playIcon.style.display = 'block';
+                if (pauseIcon) pauseIcon.style.display = 'none';
+                if (tag) tag.textContent = 'Resume Showreel';
+            }
+        
             function togglePlay() {
                 if (video.paused) {
-                    video.play().then(() => {
-                        reelContainer.classList.add('is-playing');
-                        playIcon.style.display = 'none';
-                        pauseIcon.style.display = 'block';
-                        tag.textContent = 'Pause Showreel';
-                        if (soundBtn) soundBtn.style.display = 'block';
-                    }).catch(err => {
-                        console.warn('Playback intercepted by browser:', err);
-                    });
+                    playReel();
                 } else {
-                    video.pause();
-                    reelContainer.classList.remove('is-playing');
-                    playIcon.style.display = 'block';
-                    pauseIcon.style.display = 'none';
-                    tag.textContent = 'Resume Showreel';
+                    pauseReel();
                 }
             }
         
-            // Click anywhere on the reel or play button
+            // Manual click toggle
             reelContainer.addEventListener('click', (e) => {
                 if (e.target.closest('#showreel-sound-btn')) return;
                 togglePlay();
             });
         
-            // Sound Toggle (Unmute / Mute)
+            // Sound toggle
             if (soundBtn) {
                 soundBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -776,28 +842,27 @@
                 });
             }
         
-            // --- AUTOPLAY WHEN SCROLLED INTO VIEW ---
+            // Intersection Observer with a slight delay so the image is seen first
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-                        if (video.paused) {
-                            video.play().then(() => {
-                                reelContainer.classList.add('is-playing');
-                                playIcon.style.display = 'none';
-                                pauseIcon.style.display = 'block';
-                                if (soundBtn) soundBtn.style.display = 'block';
-                            }).catch(() => {});
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+                        if (!hasStarted && video.paused) {
+                            // 600ms pause so the viewer registers the Regan Estates photograph
+                            setTimeout(() => {
+                                if (entry.isIntersecting) {
+                                    playReel();
+                                }
+                            }, 600);
+                        } else if (hasStarted && video.paused) {
+                            playReel();
                         }
                     } else {
                         if (!video.paused) {
-                            video.pause();
-                            reelContainer.classList.remove('is-playing');
-                            playIcon.style.display = 'block';
-                            pauseIcon.style.display = 'none';
+                            pauseReel();
                         }
                     }
                 });
-            }, { threshold: [0.2, 0.5] });
+            }, { threshold: [0.2, 0.55] });
         
             observer.observe(reelContainer);
         });
