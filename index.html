@@ -23,7 +23,7 @@
     <meta name="twitter:description" content="Luxury product cinematography and architectural cinema studio serving Westchester County, Hudson Valley, and the Tri-State Area.">
     <meta name="twitter:image"       content="https://northzeroproductions.com/og-image.jpg">
 
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&amp;w=1920">
+    <link rel="preload" as="image" href="regan-estates.jpg">
     <link rel="stylesheet" href="style.css?v=2.2">
 
     <!-- Schema Structured Data -->
@@ -195,6 +195,7 @@
             border: 1px solid #1a1a1a;
             cursor: pointer;
             grid-row: span 2;
+            contain: layout paint; /* Isolates stacking context so play button cannot leak to hero */
         }
 
         #regan-showreel .showreel-bumper {
@@ -547,7 +548,7 @@
                         loading="eager"
                     >
                 
-                    <!-- Native Video Layer (Preload none ensures image renders first) -->
+                    <!-- Native Video Layer -->
                     <video 
                         id="native-reel-player"
                         class="showreel-video"
@@ -697,6 +698,7 @@
 
             if (reelContainer && video) {
                 let hasStarted = false;
+                let autoPlayTimer = null;
 
                 function playReel() {
                     video.play().then(() => {
@@ -739,26 +741,27 @@
                     });
                 }
 
-                // Intersection Observer: 800ms intentional viewing pause so viewer sees the static Regan photo
+                // 1.2-second pause while in view so the Regan Estates photo is clearly admired before video starts
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
-                        if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+                        if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
                             if (!hasStarted && video.paused) {
-                                setTimeout(() => {
+                                autoPlayTimer = setTimeout(() => {
                                     if (entry.isIntersecting) {
                                         playReel();
                                     }
-                                }, 800);
+                                }, 1200);
                             } else if (hasStarted && video.paused) {
                                 playReel();
                             }
                         } else {
+                            if (autoPlayTimer) clearTimeout(autoPlayTimer);
                             if (!video.paused) {
                                 pauseReel();
                             }
                         }
                     });
-                }, { threshold: [0.2, 0.6] });
+                }, { threshold: [0.2, 0.55] });
 
                 observer.observe(reelContainer);
             }
