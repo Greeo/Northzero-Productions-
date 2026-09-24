@@ -98,91 +98,111 @@
 
         /* ... existing header, pillars, nav styles ... */
         /*  PASTE HERE: .showreel-wrapper CSS */
+        /* --- NATIVE SHOWREEL PLAYER --- */
         .showreel-wrapper {
             position: relative;
             width: 100%;
-            max-width: 1200px;
-            margin: 60px auto;
-            aspect-ratio: 16 / 9;
+            height: 100%;
             background: #000;
             overflow: hidden;
             border: 1px solid #1a1a1a;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
             cursor: pointer;
+            grid-row: span 2;
         }
-
-        .showreel-img {
+        
+        .showreel-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease;
+            background: #000;
         }
-
-        .showreel-wrapper:hover .showreel-img {
-            transform: scale(1.02);
-        }
-
+        
         .showreel-overlay {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+            background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             transition: opacity 0.4s ease;
+            z-index: 3;
+            pointer-events: none;
         }
-
+        
         .showreel-play-btn {
-            width: 70px;
-            height: 70px;
+            width: 74px;
+            height: 74px;
             border-radius: 50%;
             border: 1px solid var(--nz-gold);
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.65);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: transform 0.3s ease, background 0.3s ease;
+            pointer-events: auto;
+            cursor: pointer;
         }
-
+        
         .showreel-play-btn svg {
             width: 22px;
             height: 22px;
             fill: var(--nz-gold);
-            margin-left: 3px;
             transition: fill 0.3s ease;
         }
-
+        
+        .showreel-play-btn #play-icon {
+            margin-left: 3px;
+        }
+        
         .showreel-wrapper:hover .showreel-play-btn {
             transform: scale(1.1);
             background: var(--nz-gold);
         }
-
+        
         .showreel-wrapper:hover .showreel-play-btn svg {
             fill: #000;
         }
-
+        
         .showreel-tag {
             font-size: 0.65rem;
             letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--nz-gold);
-            margin-top: 15px;
+            margin-top: 16px;
             font-weight: 500;
         }
-
-        .showreel-wrapper.is-playing .showreel-img,
-        .showreel-wrapper.is-playing .showreel-overlay {
-            display: none;
-        }
-
-        .showreel-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        
+        /* Sound / Mute Toggle Button */
+        .showreel-sound-btn {
             position: absolute;
-            inset: 0;
+            top: 20px;
+            right: 20px;
+            z-index: 5;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #333;
+            color: var(--nz-gold);
+            padding: 8px 14px;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: inherit;
+            transition: border-color 0.3s, background 0.3s;
+        }
+        
+        .showreel-sound-btn:hover {
+            border-color: var(--nz-gold);
+            background: #000;
+        }
+        
+        /* When playing: soften the center overlay */
+        .showreel-wrapper.is-playing .showreel-overlay {
+            opacity: 0;
+        }
+        .showreel-wrapper.is-playing:hover .showreel-overlay {
+            opacity: 1;
         }
         
         /* --- HTML, & BODY --- */
@@ -561,30 +581,42 @@
                     <div class="bento-text"><h3>Regan Estates</h3></div>
                 </div> -->
 
-                <!-- ========================================================
-                   PASTE HERE: Replaces the static Regan Estates <img> tag
-                   ======================================================== -->
+                <!-- NATIVE 4K/HD CINEMA SHOWREEL (BENTO ITEM) -->
                 <div 
-                    class="showreel-wrapper" 
-                    id="regan-showreel" 
-                    data-video-id="YOUR_YOUTUBE_ID_HERE"
+                    class="showreel-wrapper bento-item large" 
+                    id="regan-showreel"
                     role="region" 
                     aria-label="Northzero Productions Showreel"
                 >
-                    <img 
-                        src="regan-estates.jpg" 
-                        alt="Regan Estates Architectural Cinema Showreel — Northzero Productions" 
-                        class="showreel-img" 
-                        id="showreel-poster"
-                        width="1920" 
-                        height="1080"
-                        loading="eager"
+                    <video 
+                        id="native-reel-player"
+                        class="showreel-video"
+                        poster="regan-estates.jpg" 
+                        preload="metadata"
+                        playsinline
+                        muted
+                        loop
                     >
-                    <div class="showreel-overlay" id="showreel-overlay" aria-hidden="true">
-                        <div class="showreel-play-btn">
-                            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                        </div>
-                        <span class="showreel-tag">Experience Showreel</span>
+                        <source src="showreel.mp4" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
+                
+                    <!-- Custom Luxury HUD / Control Overlay -->
+                    <div class="showreel-overlay" id="showreel-overlay">
+                        <button class="showreel-play-btn" id="showreel-toggle-btn" aria-label="Play Showreel">
+                            <svg id="play-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            <svg id="pause-icon" viewBox="0 0 24 24" style="display: none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                        </button>
+                        <span class="showreel-tag" id="showreel-tag">Experience Showreel</span>
+                    </div>
+                
+                    <!-- Sound Toggle Button -->
+                    <button class="showreel-sound-btn" id="showreel-sound-btn" aria-label="Toggle Mute" style="display: none;">
+                        <span id="sound-text">Unmute</span>
+                    </button>
+                
+                    <div class="bento-text">
+                        <h3>Regan Estates</h3>
                     </div>
                 </div>
                 
@@ -698,48 +730,75 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const reelContainer = document.getElementById('regan-showreel');
-            if (!reelContainer) return;
-    
-            const videoId = reelContainer.getAttribute('data-video-id');
-            let playerLoaded = false;
-    
-            function activateReel() {
-                if (playerLoaded) return;
-                playerLoaded = true;
-    
-                const iframe = document.createElement('iframe');
-                iframe.setAttribute('src', `https://www.youtube.com/embed/${kK3YcxUXMu8?si=LZdo0TVhGygsh1fx}?autoplay=1&mute=1&enablejsapi=1&rel=0&modestbranding=1&playsinline=1`);
-                iframe.setAttribute('title', 'Northzero Productions Cinema Showreel');
-                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-                iframe.setAttribute('allowfullscreen', 'true');
-    
-                reelContainer.classList.add('is-playing');
-                reelContainer.appendChild(iframe);
+            const video = document.getElementById('native-reel-player');
+            const playBtn = document.getElementById('showreel-toggle-btn');
+            const playIcon = document.getElementById('play-icon');
+            const pauseIcon = document.getElementById('pause-icon');
+            const soundBtn = document.getElementById('showreel-sound-btn');
+            const soundText = document.getElementById('sound-text');
+            const tag = document.getElementById('showreel-tag');
+        
+            if (!reelContainer || !video) return;
+        
+            // --- TOGGLE PLAY / PAUSE ---
+            function togglePlay() {
+                if (video.paused) {
+                    video.play().then(() => {
+                        reelContainer.classList.add('is-playing');
+                        playIcon.style.display = 'none';
+                        pauseIcon.style.display = 'block';
+                        tag.textContent = 'Pause Showreel';
+                        if (soundBtn) soundBtn.style.display = 'block';
+                    }).catch(err => {
+                        console.warn('Playback intercepted by browser:', err);
+                    });
+                } else {
+                    video.pause();
+                    reelContainer.classList.remove('is-playing');
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                    tag.textContent = 'Resume Showreel';
+                }
             }
-    
-            reelContainer.addEventListener('click', activateReel);
-    
-            if (window.location.hash === '#showreel') {
-                setTimeout(() => {
-                    reelContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 300);
+        
+            // Click anywhere on the reel or play button
+            reelContainer.addEventListener('click', (e) => {
+                if (e.target.closest('#showreel-sound-btn')) return;
+                togglePlay();
+            });
+        
+            // Sound Toggle (Unmute / Mute)
+            if (soundBtn) {
+                soundBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    video.muted = !video.muted;
+                    soundText.textContent = video.muted ? 'Unmute' : 'Mute';
+                });
             }
-    
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.65
-            };
-    
-            const observer = new IntersectionObserver((entries, obs) => {
+        
+            // --- AUTOPLAY WHEN SCROLLED INTO VIEW ---
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        activateReel();
-                        obs.unobserve(reelContainer);
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                        if (video.paused) {
+                            video.play().then(() => {
+                                reelContainer.classList.add('is-playing');
+                                playIcon.style.display = 'none';
+                                pauseIcon.style.display = 'block';
+                                if (soundBtn) soundBtn.style.display = 'block';
+                            }).catch(() => {});
+                        }
+                    } else {
+                        if (!video.paused) {
+                            video.pause();
+                            reelContainer.classList.remove('is-playing');
+                            playIcon.style.display = 'block';
+                            pauseIcon.style.display = 'none';
+                        }
                     }
                 });
-            }, observerOptions);
-    
+            }, { threshold: [0.2, 0.5] });
+        
             observer.observe(reelContainer);
         });
     </script>
