@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Production Services | Luxury Brand Film & Architectural Cinema · Northzero Productions</title>
+    <title>Production Services | Luxury Brand Film &amp; Architectural Cinema · Northzero Productions</title>
 
     <meta name="description" content="Luxury brand film, product cinematography, architectural estate cinema, and preservation documentation. Northzero Productions serves Ossining, Westchester County, and the Hudson Valley.">
 
     <meta property="og:type"         content="website">
     <meta property="og:url"          content="https://northzeroproductions.com/all-services.html">
-    <meta property="og:title"        content="Production Services | Luxury Brand Film & Architectural Cinema · Northzero Productions">
+    <meta property="og:title"        content="Production Services | Luxury Brand Film &amp; Architectural Cinema · Northzero Productions">
     <meta property="og:description"  content="Luxury brand film, product cinematography, and architectural cinema serving Ossining, Westchester County, and the Hudson Valley.">
     <meta property="og:image"        content="https://northzeroproductions.com/og-image.jpg">
     <meta property="og:image:width"  content="1200">
@@ -69,11 +69,12 @@
         .category-label h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 5px; color: #fff; margin-right: 20px; white-space: nowrap; }
         .divider           { flex-grow: 1; height: 1px; background: #222; }
 
-        .pillar-grid   { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .pillar-card   { background: #0d0d0d; padding: 40px; border: 1px solid #1a1a1a; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .pillar-grid       { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+        .pillar-card       { background: #0d0d0d; padding: 40px; border: 1px solid #1a1a1a; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .pillar-card:hover { border-color: var(--nz-gold); transform: translateY(-5px); }
-        .pillar-card h3 { color: #fff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; font-size: 1rem; }
-        .pillar-card p  { color: #777; line-height: 1.8; font-size: 0.9rem; }
+        .pillar-card .step-num { font-size: 0.7rem; letter-spacing: 3px; color: var(--nz-gold); margin-bottom: 12px; display: block; font-weight: 600; }
+        .pillar-card h3    { color: #fff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; font-size: 1rem; }
+        .pillar-card p     { color: #777; line-height: 1.8; font-size: 0.9rem; margin: 0; }
 
         /* --- MOBILE --- */
         @media screen and (max-width: 768px) {
@@ -92,7 +93,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .commission-inner {
             max-width: 820px;
             margin: 0 auto;
@@ -100,14 +101,14 @@
             flex-direction: column;
             align-items: center;
         }
-        
+
         .commission-rule {
             width: 1px;
             height: 50px;
             background: var(--nz-gold);
             margin-bottom: 25px;
         }
-        
+
         .commission-tag {
             font-size: 0.65rem;
             letter-spacing: 5px;
@@ -116,7 +117,7 @@
             margin-bottom: 18px;
             display: block;
         }
-        
+
         .commission-banner h2 {
             font-size: clamp(1.8rem, 4.5vw, 2.8rem);
             text-transform: uppercase;
@@ -126,7 +127,7 @@
             line-height: 1.35;
             margin-bottom: 22px;
         }
-        
+
         .commission-banner p {
             font-size: 1rem;
             color: #888;
@@ -135,7 +136,7 @@
             margin-bottom: 45px;
             font-weight: 300;
         }
-        
+
         .commission-btn-group {
             display: flex;
             align-items: center;
@@ -143,7 +144,7 @@
             gap: 20px;
             flex-wrap: wrap;
         }
-        
+
         .commission-primary-btn {
             display: inline-block;
             border: 1px solid var(--nz-gold);
@@ -158,13 +159,13 @@
             font-weight: 600;
             transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
         }
-        
+
         .commission-primary-btn:hover {
             background: var(--nz-gold);
             color: #000;
             transform: translateY(-2px);
         }
-        
+
         .commission-secondary-btn {
             display: inline-block;
             border: 1px solid #222;
@@ -178,12 +179,12 @@
             font-family: inherit;
             transition: border-color 0.3s ease, color 0.3s ease;
         }
-        
+
         .commission-secondary-btn:hover {
             border-color: #444;
             color: #fff;
         }
-        
+
         @media (max-width: 768px) {
             .commission-banner { padding: 80px 20px; }
             .commission-btn-group { width: 100%; flex-direction: column; }
@@ -238,14 +239,59 @@
         </header>
 
         <div class="pillars-container">
+            <!-- OUR PROCESS -->
             <div class="category-block">
-                <h2>OUR PROCESS</h2>
+                <div class="category-label">
+                    <h2>Our Process</h2>
+                    <div class="divider" aria-hidden="true"></div>
+                </div>
                 <div class="pillar-grid">
-                    <p>01 Discovery: we learn your brand and goals. 02 DesignDirection: we propose the look and structure. 03 Development: we build and add your video. 04 Launch &Support: we launch the site and keep it running.</p>
+                    <div class="pillar-card">
+                        <span class="step-num">01 / DISCOVERY</span>
+                        <h3>Brand &amp; Scope Audit</h3>
+                        <p>We analyze your structural goals, target audience, and architectural heritage to outline a clear creative brief.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <span class="step-num">02 / DIRECTION</span>
+                        <h3>Visual Framework</h3>
+                        <p>We establish the lighting approach, spatial pacing, narrative sequence, and technical specifications.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <span class="step-num">03 / PRODUCTION</span>
+                        <h3>Principal Capture</h3>
+                        <p>Execution with deliberate cinema optics, macro-detail framing, and professional field direction.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <span class="step-num">04 / DELIVERY</span>
+                        <h3>Finishing &amp; Archival</h3>
+                        <p>Color grading, precision sound design, master exports, and long-term asset packaging for web and broadcast.</p>
+                    </div>
                 </div>
             </div>
-           
-            
+
+            <!-- AUTHORITY & INSTITUTIONAL -->
+            <div class="category-block">
+                <div class="category-label">
+                    <h2>Authority &amp; Institutional</h2>
+                    <div class="divider" aria-hidden="true"></div>
+                </div>
+                <div class="pillar-grid">
+                    <div class="pillar-card">
+                        <h3>Compliance &amp; Board Cinema</h3>
+                        <p>High-stakes visual packages designed for Historic Preservation Commissions, planning boards, and municipal review.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <h3>Capital Project Records</h3>
+                        <p>Systematic, archival progress documentation for infrastructure, public works, and adaptive reuse developments.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <h3>Civic &amp; DRI Submissions</h3>
+                        <p>Targeted visual reels engineered to support state economic development, NY Forward, and DRI grant initiatives.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARCHITECTURAL & ESTATE -->
             <div class="category-block">
                 <div class="category-label">
                     <h2>Architectural &amp; Estate</h2>
@@ -262,44 +308,35 @@
                     </div>
                     <div class="pillar-card">
                         <h3>Preservation Consulting</h3>
-                        <p>Visual audits and archival filming for historic properties, leveraging our roots in the Historic Preservation Commission.</p>
+                        <p>Visual audits and archival filming for historic properties, leveraging our background in historic preservation reviews.</p>
                     </div>
                 </div>
             </div>
 
+            <!-- TACTILE NARRATIVES -->
             <div class="category-block">
                 <div class="category-label">
-                    <h2>Tactile Narrative</h2>
+                    <h2>Tactile Narratives</h2>
                     <div class="divider" aria-hidden="true"></div>
                 </div>
                 <div class="pillar-grid">
                     <div class="pillar-card">
                         <h3>Product Cinematography</h3>
-                        <p>Macro-photography and specialized lighting that reveals the texture and physical soul of premium products.</p>
+                        <p>Macro-optics and specialized lighting that reveal the texture and physical soul of premium crafted goods.</p>
                     </div>
                     <div class="pillar-card">
                         <h3>Brand Storytelling</h3>
-                        <p>Deep-dive narratives that connect your brand's heritage with the modern consumer through cinematic visuals.</p>
+                        <p>Deep-dive narratives that connect your brand's heritage with modern consumers through cinematic framing.</p>
                     </div>
                     <div class="pillar-card">
                         <h3>Lifestyle Integration</h3>
-                        <p>Contextual films that show your product in its natural architectural element, emphasizing luxury and utility.</p>
+                        <p>Contextual films showing your product in its natural architectural element, emphasizing luxury and utility.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- CTA — full-bleed, outside .pillars-container -->
-        <section class="cta-section" aria-label="Start a project">
-            <p>Ready to Document the Legacy?</p>
-            <h2>Let's Discuss the Scope</h2>
-            <div class="btn-group">
-                <a href="contact.html" class="cta-btn">Initiate Full Audit</a>
-                <a href="https://calendly.com/northzeroproductions-info/30min" class="cta-btn booking" target="_blank" rel="noopener noreferrer" aria-label="Schedule a consultation — opens in new tab">Schedule a Consultation</a>
-                <a href="#" id="email-link" class="cta-btn secondary">Direct Email</a>
-            </div>
-        </section>
-
+        <!-- COMMISSION A PRODUCTION BANNER -->
         <section class="commission-banner" aria-label="Start a production inquiry">
             <div class="commission-inner">
                 <div class="commission-rule" aria-hidden="true"></div>
