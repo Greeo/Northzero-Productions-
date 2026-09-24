@@ -96,6 +96,96 @@
             --nav-height: 80px;
         }
 
+        /* ... existing header, pillars, nav styles ... */
+        /*  PASTE HERE: .showreel-wrapper CSS */
+        .showreel-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 60px auto;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            overflow: hidden;
+            border: 1px solid #1a1a1a;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+        }
+
+        .showreel-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease;
+        }
+
+        .showreel-wrapper:hover .showreel-img {
+            transform: scale(1.02);
+        }
+
+        .showreel-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.4s ease;
+        }
+
+        .showreel-play-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 1px solid var(--nz-gold);
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .showreel-play-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--nz-gold);
+            margin-left: 3px;
+            transition: fill 0.3s ease;
+        }
+
+        .showreel-wrapper:hover .showreel-play-btn {
+            transform: scale(1.1);
+            background: var(--nz-gold);
+        }
+
+        .showreel-wrapper:hover .showreel-play-btn svg {
+            fill: #000;
+        }
+
+        .showreel-tag {
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--nz-gold);
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .showreel-wrapper.is-playing .showreel-img,
+        .showreel-wrapper.is-playing .showreel-overlay {
+            display: none;
+        }
+
+        .showreel-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute;
+            inset: 0;
+        }
+        
+        /* --- HTML, & BODY --- */
         html, body {
             background-color: var(--bg-black) !important;
             margin: 0; padding: 0;
@@ -466,9 +556,38 @@
                 <p style="color: var(--nz-gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.7rem;">Selected Portfolios</p>
             </div>
             <div class="bento-grid-fixed">
-                <div class="bento-item large" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200');">
+                
+               <!-- <div class="bento-item large" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200');">
                     <div class="bento-text"><h3>Regan Estates</h3></div>
+                </div> -->
+
+                <!-- ========================================================
+                   PASTE HERE: Replaces the static Regan Estates <img> tag
+                   ======================================================== -->
+                <div 
+                    class="showreel-wrapper" 
+                    id="regan-showreel" 
+                    data-video-id="YOUR_YOUTUBE_ID_HERE"
+                    role="region" 
+                    aria-label="Northzero Productions Showreel"
+                >
+                    <img 
+                        src="regan-estates.jpg" 
+                        alt="Regan Estates Architectural Cinema Showreel — Northzero Productions" 
+                        class="showreel-img" 
+                        id="showreel-poster"
+                        width="1920" 
+                        height="1080"
+                        loading="eager"
+                    >
+                    <div class="showreel-overlay" id="showreel-overlay" aria-hidden="true">
+                        <div class="showreel-play-btn">
+                            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                        <span class="showreel-tag">Experience Showreel</span>
+                    </div>
                 </div>
+                
                 <div class="bento-item" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1719368472026-dc26f70a9b76?q=80&w=800');">
                     <div class="bento-text"><h3>Tactile: Croc</h3></div>
                 </div>
@@ -572,6 +691,58 @@
 
     <!-- nav.js handles all hamburger toggle logic — no inline nav JS needed -->
     <script src="nav.js?v=2.0"></script>
+
+    <!-- ========================================================
+       PASTE HERE: Showreel Auto-Scroll & IntersectionObserver Script
+    ======================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reelContainer = document.getElementById('regan-showreel');
+            if (!reelContainer) return;
+    
+            const videoId = reelContainer.getAttribute('data-video-id');
+            let playerLoaded = false;
+    
+            function activateReel() {
+                if (playerLoaded) return;
+                playerLoaded = true;
+    
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('src', `https://www.youtube.com/embed/${kK3YcxUXMu8?si=LZdo0TVhGygsh1fx}?autoplay=1&mute=1&enablejsapi=1&rel=0&modestbranding=1&playsinline=1`);
+                iframe.setAttribute('title', 'Northzero Productions Cinema Showreel');
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+                iframe.setAttribute('allowfullscreen', 'true');
+    
+                reelContainer.classList.add('is-playing');
+                reelContainer.appendChild(iframe);
+            }
+    
+            reelContainer.addEventListener('click', activateReel);
+    
+            if (window.location.hash === '#showreel') {
+                setTimeout(() => {
+                    reelContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+    
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.65
+            };
+    
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        activateReel();
+                        obs.unobserve(reelContainer);
+                    }
+                });
+            }, observerOptions);
+    
+            observer.observe(reelContainer);
+        });
+    </script>
 
     <script>
         
