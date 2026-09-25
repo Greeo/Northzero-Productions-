@@ -186,6 +186,25 @@
             z-index: 5;
         }
 
+        .bento-sub {
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--nz-gold);
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        
+        .bento-desc {
+            font-size: 0.75rem;
+            color: #a0a0a0;
+            line-height: 1.5;
+            margin-top: 6px;
+            font-weight: 300;
+            max-width: 90%;
+        }
+
         .bento-grid-fixed {
             display: grid;
             grid-template-columns: 1.6fr 1fr;
@@ -561,28 +580,28 @@
 
         </div>
 
-        <!-- Bento Grid -->
+       <!-- Bento Grid -->
         <section class="bento-showcase" aria-label="Selected portfolios">
             <div style="text-align: center; margin-bottom: 50px;">
                 <p style="color: var(--nz-gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.7rem;">Selected Portfolios</p>
             </div>
             <div class="bento-grid-fixed"> 
                 
-                <!-- NATIVE SHOWREEL CONTAINER -->
+                <!-- 1. REGAN ESTATES SHOWREEL ITEM -->
                 <div 
                     class="bento-item large" 
                     id="regan-showreel"
                     role="region" 
                     aria-label="Northzero Productions Showreel"
                 >
-                    <!-- Bumper Image Layer (Visible by default) -->
+                    <!-- Bumper Image Layer -->
                     <img 
                         src="regan-estates.jpg" 
                         alt="Regan Estates Architectural Cinema — Northzero Productions" 
                         class="showreel-bumper" 
                         id="showreel-bumper-img"
                         width="1920" 
-                        height="1080"
+                        height="1080" 
                         loading="eager"
                     >
                 
@@ -614,15 +633,28 @@
                     </button>
                 
                     <div class="bento-text">
+                        <span class="bento-sub">Architectural Cinema · Luxury Real Estate</span>
                         <h3>Regan Estates</h3>
+                        <p class="bento-desc">4K aerial mapping &amp; interior spatial cinema produced for a multi-acre Hudson River compound. Structured for rapid broker syndication and private acquisition.</p>
                     </div>
                 </div>
                 
-                <div class="bento-item" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1719368472026-dc26f70a9b76?q=80&w=800');">
-                    <div class="bento-text"><h3>Tactile: Croc</h3></div>
+                <!-- 2. TACTILE CROC -->
+                <div class="bento-item" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1719368472026-dc26f70a9b76?q=80&w=800');">
+                    <div class="bento-text">
+                        <span class="bento-sub">Tactile Narrative · Material Study</span>
+                        <h3>Tactile: Croc</h3>
+                        <p class="bento-desc">Macro cinema study capturing physical craft, leather grain, and structural detail for luxury retail and commercial campaigns.</p>
+                    </div>
                 </div>
-                <div class="bento-item" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?q=80&w=800');">
-                    <div class="bento-text"><h3>Archival Strategy</h3></div>
+
+                <!-- 3. ARCHIVAL STRATEGY -->
+                <div class="bento-item" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?q=80&w=800');">
+                    <div class="bento-text">
+                        <span class="bento-sub">Authority Suite · Institutional Heritage</span>
+                        <h3>Archival Strategy</h3>
+                        <p class="bento-desc">Municipal compliance packages and archival narrative films engineered to satisfy landmark preservation boards and public funding briefs.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -694,14 +726,12 @@
                     <span class="hpc-label">Institutional Credential</span>
                     <h2>Grounded in Preservation Law</h2>
                     <p>
-                        Northzero Productions is founded by Omar A. Greene — an alternate member
-                        of the Village of Ossining Historic Preservation Commission. This institutional
-                        position informs every production we undertake: from landmark documentation
-                        to municipal visual strategy.
+                        Northzero Productions is founded by Omar A. Greene — an alternate member of the Village of Ossining Historic Preservation Commission. This institutional foundation directly informs every commercial brief we execute: from strict municipal landmark documentation and grant-support visuals to high-stakes preservation narratives and public-facing heritage films.
                     </p>
-                    <a href="authority.html" class="cta-btn" style="margin-top: 30px; display: inline-block;">
-                        The Authority Suite &rarr;
-                    </a>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 30px;">
+                        <a href="authority.html" class="cta-btn">The Authority Suite &rarr;</a>
+                        <a href="westchester.html" class="cta-btn" style="border-color: #333; color: #888;">Regional Preservation Index &rarr;</a>
+                    </div>
                 </div>
 
                 <div class="hpc-badge-card" aria-hidden="true">
