@@ -703,202 +703,202 @@
         <!-- Page Interaction Controller -->
     <script>
        <!-- Page Interaction Controller -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // --- SHOWREEL VIDEO CONTROLLER ---
-        const video = document.getElementById('native-reel-player');
-        const playBtn = document.querySelector('.showreel-play-btn') || document.getElementById('reel-play-btn');
-        const bumper = document.querySelector('.reel-bumper') || document.getElementById('reel-bumper');
-        const container = document.getElementById('regan-showreel') || document.getElementById('reel-container');
-    
-        if (!video) return;
-    
-        function playReel() {
-            video.playsInline = true;
-            video.muted = false;
-            const playPromise = video.play();
-    
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    if (bumper) bumper.style.display = 'none';
-                    if (playBtn) playBtn.style.display = 'none';
-                    if (container) container.classList.add('video-active', 'is-playing');
-                    video.setAttribute('controls', 'true');
-                }).catch((err) => {
-                    console.warn('Playback blocked, trying muted...', err);
-                    video.muted = true;
-                    video.play();
-                    if (bumper) bumper.style.display = 'none';
-                    if (playBtn) playBtn.style.display = 'none';
-                    if (container) container.classList.add('video-active', 'is-playing');
-                    video.setAttribute('controls', 'true');
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- SHOWREEL VIDEO CONTROLLER ---
+            const video = document.getElementById('native-reel-player');
+            const playBtn = document.querySelector('.showreel-play-btn') || document.getElementById('reel-play-btn');
+            const bumper = document.querySelector('.reel-bumper') || document.getElementById('reel-bumper');
+            const container = document.getElementById('regan-showreel') || document.getElementById('reel-container');
+        
+            if (!video) return;
+        
+            function playReel() {
+                video.playsInline = true;
+                video.muted = false;
+                const playPromise = video.play();
+        
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        if (bumper) bumper.style.display = 'none';
+                        if (playBtn) playBtn.style.display = 'none';
+                        if (container) container.classList.add('video-active', 'is-playing');
+                        video.setAttribute('controls', 'true');
+                    }).catch((err) => {
+                        console.warn('Playback blocked, trying muted...', err);
+                        video.muted = true;
+                        video.play();
+                        if (bumper) bumper.style.display = 'none';
+                        if (playBtn) playBtn.style.display = 'none';
+                        if (container) container.classList.add('video-active', 'is-playing');
+                        video.setAttribute('controls', 'true');
+                    });
+                }
+            }
+        
+            if (playBtn) {
+                playBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    playReel();
                 });
             }
-        }
-    
-        if (playBtn) {
-            playBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                playReel();
+        
+            if (container) {
+                container.addEventListener('click', () => {
+                    if (video.paused) {
+                        playReel();
+                    }
+                });
+            }
+        
+            video.addEventListener('ended', () => {
+                video.removeAttribute('controls');
+                if (bumper) bumper.style.display = 'block';
+                if (playBtn) playBtn.style.display = 'flex';
+                if (container) container.classList.remove('is-playing');
             });
-        }
-    
-        if (container) {
-            container.addEventListener('click', () => {
-                if (video.paused) {
-                    playReel();
-                }
-            });
-        }
-    
-        video.addEventListener('ended', () => {
-            video.removeAttribute('controls');
-            if (bumper) bumper.style.display = 'block';
-            if (playBtn) playBtn.style.display = 'flex';
-            if (container) container.classList.remove('is-playing');
         });
-    });
-    </script>
-   
-    <script>
-                // 1.2-second pause while in view so the Regan Estates photo is clearly admired before video starts
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
-                            if (!hasStarted && video.paused) {
-                                autoPlayTimer = setTimeout(() => {
-                                    if (entry.isIntersecting) {
-                                        playReel();
-                                    }
-                                }, 1200);
-                            } else if (hasStarted && video.paused) {
-                                playReel();
+        </script>
+       
+        <script>
+                    // 1.2-second pause while in view so the Regan Estates photo is clearly admired before video starts
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+                                if (!hasStarted && video.paused) {
+                                    autoPlayTimer = setTimeout(() => {
+                                        if (entry.isIntersecting) {
+                                            playReel();
+                                        }
+                                    }, 1200);
+                                } else if (hasStarted && video.paused) {
+                                    playReel();
+                                }
+                            } else {
+                                if (autoPlayTimer) clearTimeout(autoPlayTimer);
+                                if (!video.paused) {
+                                    pauseReel();
+                                }
                             }
-                        } else {
-                            if (autoPlayTimer) clearTimeout(autoPlayTimer);
-                            if (!video.paused) {
-                                pauseReel();
-                            }
-                        }
-                    });
-                }, { threshold: [0.2, 0.55] });
-
-                observer.observe(reelContainer);
-            }
-
-            // --- HERO SLIDER ---
-            const slides = document.querySelectorAll('.slide');
-            const sliderEl = document.getElementById('hero-slider');
-            if (sliderEl && slides.length > 0) {
-                let currentSlide = 0;
-                let sliderTimer;
-
-                function goToSlide(idx) {
-                    slides[currentSlide].classList.remove('active');
-                    currentSlide = (idx + slides.length) % slides.length;
-                    slides[currentSlide].classList.add('active');
+                        });
+                    }, { threshold: [0.2, 0.55] });
+    
+                    observer.observe(reelContainer);
                 }
-
-                function startSlider() { sliderTimer = setInterval(() => goToSlide(currentSlide + 1), 5000); }
-                function stopSlider()  { clearInterval(sliderTimer); }
-
-                sliderEl.addEventListener('mouseenter', stopSlider);
-                sliderEl.addEventListener('mouseleave', startSlider);
-                sliderEl.addEventListener('focusin', stopSlider);
-                sliderEl.addEventListener('focusout', startSlider);
-
-                startSlider();
-            }
-
-            // --- EMAIL OBFUSCATION ---
-            const emailLink = document.getElementById('email-link');
-            if (emailLink) {
-                const u = 'omar';
-                const d = 'northzeroproductions.com';
-                emailLink.href = `mailto:${u}@${d}`;
-            }
-
-            // --- LEAD MAGNET FORM (Mailchimp JSONP) ---
-            const form = document.getElementById('lm-form');
-            if (form) {
-                const MC_ENDPOINT = // --- Lead Magnet Form (Mailchimp JSONP) ---
-                const MC_ENDPOINT = // --- Your Lead Magnet Form ID (Mailchimp JSONP) --- '';
-                const status = document.getElementById('lm-status');
-                const btn = document.getElementById('lm-submit');
-
-                form.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    const emailInput = document.getElementById('lm-email');
-                    const email = emailInput ? emailInput.value.trim() : '';
-
-                    if (!email) {
-                        if (status) {
-                            status.textContent = 'Please enter your email.';
-                            status.style.color = '#e05555';
-                        }
-                        return;
+    
+                // --- HERO SLIDER ---
+                const slides = document.querySelectorAll('.slide');
+                const sliderEl = document.getElementById('hero-slider');
+                if (sliderEl && slides.length > 0) {
+                    let currentSlide = 0;
+                    let sliderTimer;
+    
+                    function goToSlide(idx) {
+                        slides[currentSlide].classList.remove('active');
+                        currentSlide = (idx + slides.length) % slides.length;
+                        slides[currentSlide].classList.add('active');
                     }
-
-                    if (btn) btn.disabled = true;
-                    if (status) {
-                        status.textContent = 'Sending...';
-                        status.style.color = 'var(--nz-gold)';
-                    }
-
-                    const callbackName = 'lm_mc_cb_' + Date.now();
-                    const params = new URLSearchParams({ EMAIL: email });
-                    const url = MC_ENDPOINT + '&' + params.toString() + '&c=' + callbackName;
-
-                    const timeout = setTimeout(() => {
-                        cleanup();
-                        if (status) {
-                            status.textContent = 'Request timed out. Please try again.';
-                            status.style.color = '#e05555';
-                        }
-                        if (btn) btn.disabled = false;
-                    }, 8000);
-
-                    function cleanup() {
-                        clearTimeout(timeout);
-                        delete window[callbackName];
-                        const s = document.getElementById('lm-mc-jsonp');
-                        if (s) s.remove();
-                    }
-
-                    window[callbackName] = function (data) {
-                        cleanup();
-                        if (btn) btn.disabled = false;
-                        const alreadySubscribed = data.msg && data.msg.includes('already subscribed');
-                        if (data.result === 'success' || alreadySubscribed) {
-                            const link = document.createElement('a');
-                            link.href = 'THE_INDIE_FILMMAKERS_FAST_TRACK.pdf';
-                            link.download = 'NorthzeroFastTrack.pdf';
-                            document.body.appendChild(link);
-                            link.click();
-                            document.body.removeChild(link);
+    
+                    function startSlider() { sliderTimer = setInterval(() => goToSlide(currentSlide + 1), 5000); }
+                    function stopSlider()  { clearInterval(sliderTimer); }
+    
+                    sliderEl.addEventListener('mouseenter', stopSlider);
+                    sliderEl.addEventListener('mouseleave', startSlider);
+                    sliderEl.addEventListener('focusin', stopSlider);
+                    sliderEl.addEventListener('focusout', startSlider);
+    
+                    startSlider();
+                }
+    
+                // --- EMAIL OBFUSCATION ---
+                const emailLink = document.getElementById('email-link');
+                if (emailLink) {
+                    const u = 'omar';
+                    const d = 'northzeroproductions.com';
+                    emailLink.href = `mailto:${u}@${d}`;
+                }
+    
+                // --- LEAD MAGNET FORM (Mailchimp JSONP) ---
+                const form = document.getElementById('lm-form');
+                if (form) {
+                    const MC_ENDPOINT = // --- Lead Magnet Form (Mailchimp JSONP) ---
+                    const MC_ENDPOINT = // --- Your Lead Magnet Form ID (Mailchimp JSONP) --- '';
+                    const status = document.getElementById('lm-status');
+                    const btn = document.getElementById('lm-submit');
+    
+                    form.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        const emailInput = document.getElementById('lm-email');
+                        const email = emailInput ? emailInput.value.trim() : '';
+    
+                        if (!email) {
                             if (status) {
-                                status.textContent = alreadySubscribed
-                                    ? "You're already subscribed — download started."
-                                    : 'Download started — check your inbox too.';
-                                status.style.color = '#fff';
-                            }
-                            form.reset();
-                        } else {
-                            if (status) {
-                                status.textContent = 'Something went wrong. Please try again.';
+                                status.textContent = 'Please enter your email.';
                                 status.style.color = '#e05555';
                             }
+                            return;
                         }
-                    };
-
-                    const script = document.createElement('script');
-                    script.id = 'lm-mc-jsonp';
-                    script.src = url;
-                    document.body.appendChild(script);
-                });
-            }
-        });
-    </script>
+    
+                        if (btn) btn.disabled = true;
+                        if (status) {
+                            status.textContent = 'Sending...';
+                            status.style.color = 'var(--nz-gold)';
+                        }
+    
+                        const callbackName = 'lm_mc_cb_' + Date.now();
+                        const params = new URLSearchParams({ EMAIL: email });
+                        const url = MC_ENDPOINT + '&' + params.toString() + '&c=' + callbackName;
+    
+                        const timeout = setTimeout(() => {
+                            cleanup();
+                            if (status) {
+                                status.textContent = 'Request timed out. Please try again.';
+                                status.style.color = '#e05555';
+                            }
+                            if (btn) btn.disabled = false;
+                        }, 8000);
+    
+                        function cleanup() {
+                            clearTimeout(timeout);
+                            delete window[callbackName];
+                            const s = document.getElementById('lm-mc-jsonp');
+                            if (s) s.remove();
+                        }
+    
+                        window[callbackName] = function (data) {
+                            cleanup();
+                            if (btn) btn.disabled = false;
+                            const alreadySubscribed = data.msg && data.msg.includes('already subscribed');
+                            if (data.result === 'success' || alreadySubscribed) {
+                                const link = document.createElement('a');
+                                link.href = 'THE_INDIE_FILMMAKERS_FAST_TRACK.pdf';
+                                link.download = 'NorthzeroFastTrack.pdf';
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
+                                if (status) {
+                                    status.textContent = alreadySubscribed
+                                        ? "You're already subscribed — download started."
+                                        : 'Download started — check your inbox too.';
+                                    status.style.color = '#fff';
+                                }
+                                form.reset();
+                            } else {
+                                if (status) {
+                                    status.textContent = 'Something went wrong. Please try again.';
+                                    status.style.color = '#e05555';
+                                }
+                            }
+                        };
+    
+                        const script = document.createElement('script');
+                        script.id = 'lm-mc-jsonp';
+                        script.src = url;
+                        document.body.appendChild(script);
+                    });
+                }
+            });
+        </script>
 
     <!-- Meta Pixel Code -->
     <script>
