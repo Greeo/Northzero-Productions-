@@ -253,6 +253,17 @@
         .submit-btn:hover    { background: var(--nz-gold); color: #000; }
         .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
+        .review-guarantee {
+            grid-column: span 2;
+            text-align: center;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
         #form-status {
             grid-column: span 2;
             text-align: center;
@@ -537,6 +548,9 @@
 
             <button type="submit" class="submit-btn" id="submit-btn">Submit Production Brief</button>
             <p id="form-status" role="status" aria-live="polite"></p>
+            <p class="review-guarantee">
+                Every brief is reviewed directly by our principal desk within 24 hours.
+            </p>
         </form>
 
         <!-- Testimonial Carousel -->
