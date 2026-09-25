@@ -702,61 +702,64 @@
     <script>
         <!-- Page Interaction Controller -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- SHOWREEL VIDEO CONTROLLER ---
-            const video = document.getElementById('native-reel-player');
-            const playBtn = document.querySelector('.showreel-play-btn') || document.getElementById('reel-play-btn');
-            const bumper = document.querySelector('.reel-bumper') || document.getElementById('reel-bumper');
-            const container = document.getElementById('regan-showreel') || document.getElementById('reel-container');
-        
-            if (!video) return;
-        
-            function playReel() {
-                video.playsInline = true;
-                video.muted = false;
-                const playPromise = video.play();
-        
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        if (bumper) bumper.style.display = 'none';
-                        if (playBtn) playBtn.style.display = 'none';
-                        if (container) container.classList.add('video-active', 'is-playing');
-                        video.setAttribute('controls', 'true');
-                    }).catch((err) => {
-                        console.warn('Playback blocked, trying muted...', err);
-                        video.muted = true;
-                        video.play();
-                        if (bumper) bumper.style.display = 'none';
-                        if (playBtn) playBtn.style.display = 'none';
-                        if (container) container.classList.add('video-active', 'is-playing');
-                        video.setAttribute('controls', 'true');
-                    });
-                }
-            }
-        
-            if (playBtn) {
-                playBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    playReel();
+       <!-- Page Interaction Controller -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- SHOWREEL VIDEO CONTROLLER ---
+        const video = document.getElementById('native-reel-player');
+        const playBtn = document.querySelector('.showreel-play-btn') || document.getElementById('reel-play-btn');
+        const bumper = document.querySelector('.reel-bumper') || document.getElementById('reel-bumper');
+        const container = document.getElementById('regan-showreel') || document.getElementById('reel-container');
+    
+        if (!video) return;
+    
+        function playReel() {
+            video.playsInline = true;
+            video.muted = false;
+            const playPromise = video.play();
+    
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    if (bumper) bumper.style.display = 'none';
+                    if (playBtn) playBtn.style.display = 'none';
+                    if (container) container.classList.add('video-active', 'is-playing');
+                    video.setAttribute('controls', 'true');
+                }).catch((err) => {
+                    console.warn('Playback blocked, trying muted...', err);
+                    video.muted = true;
+                    video.play();
+                    if (bumper) bumper.style.display = 'none';
+                    if (playBtn) playBtn.style.display = 'none';
+                    if (container) container.classList.add('video-active', 'is-playing');
+                    video.setAttribute('controls', 'true');
                 });
             }
-        
-            if (container) {
-                container.addEventListener('click', () => {
-                    if (video.paused) {
-                        playReel();
-                    }
-                });
-            }
-        
-            video.addEventListener('ended', () => {
-                video.removeAttribute('controls');
-                if (bumper) bumper.style.display = 'block';
-                if (playBtn) playBtn.style.display = 'flex';
-                if (container) container.classList.remove('is-playing');
+        }
+    
+        if (playBtn) {
+            playBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                playReel();
             });
+        }
+    
+        if (container) {
+            container.addEventListener('click', () => {
+                if (video.paused) {
+                    playReel();
+                }
+            });
+        }
+    
+        video.addEventListener('ended', () => {
+            video.removeAttribute('controls');
+            if (bumper) bumper.style.display = 'block';
+            if (playBtn) playBtn.style.display = 'flex';
+            if (container) container.classList.remove('is-playing');
         });
+    });
     </script>
+   
     <script>
                 // 1.2-second pause while in view so the Regan Estates photo is clearly admired before video starts
                 const observer = new IntersectionObserver((entries) => {
