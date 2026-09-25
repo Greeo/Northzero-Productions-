@@ -697,12 +697,9 @@
 
     <!-- nav.js handles all hamburger toggle logic -->
     <script src="nav.js?v=2.0"></script>
+    
 
     <!-- Page Interaction Controller -->
-    <script>
-       // <!-- Page Interaction Controller -->
-    <script>
-       // <!-- Page Interaction Controller -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- SHOWREEL VIDEO CONTROLLER ---
@@ -761,31 +758,31 @@
         </script>
        
         <script>
-                    // 1.2-second pause while in view so the Regan Estates photo is clearly admired before video starts
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
-                                if (!hasStarted && video.paused) {
-                                    autoPlayTimer = setTimeout(() => {
-                                        if (entry.isIntersecting) {
-                                            playReel();
-                                        }
-                                    }, 1200);
-                                } else if (hasStarted && video.paused) {
+            // 1.2-second pause while in view so the Regan Estates photo is clearly admired before video starts
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+                        if (!hasStarted && video.paused) {
+                            autoPlayTimer = setTimeout(() => {
+                                if (entry.isIntersecting) {
                                     playReel();
                                 }
-                            } else {
+                            }, 1200);
+                        } else if (hasStarted && video.paused) {
+                             playReel();
+                            }
+                    } else {
                                 if (autoPlayTimer) clearTimeout(autoPlayTimer);
                                 if (!video.paused) {
                                     pauseReel();
                                 }
                             }
-                        });
-                    }, { threshold: [0.2, 0.55] });
-    
-                    observer.observe(reelContainer);
-                }
-    
+                    });
+                }, { threshold: [0.2, 0.55] });
+
+                observer.observe(reelContainer);
+            }
+
                 // --- HERO SLIDER ---
                 const slides = document.querySelectorAll('.slide');
                 const sliderEl = document.getElementById('hero-slider');
@@ -912,10 +909,11 @@
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '1474158324082001');
             fbq('track', 'PageView');
-            </script>
-            <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1474158324082001&amp;ev=PageView&amp;noscript=1"
-        /></noscript>
+        </script>
+    
+        <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1474158324082001&amp;ev=PageView&amp;noscript=1"/>
+        </noscript>
         <!-- End Meta Pixel Code -->
    
 </body>
