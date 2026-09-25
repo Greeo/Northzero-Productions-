@@ -6,15 +6,31 @@
     <title>Start a Project | Northzero Productions · Westchester & Hudson Valley</title>
 
     <meta name="description" content="Initiate a luxury product film, estate cinema, or preservation documentation project with Northzero Productions — serving Ossining, Westchester County, and the Hudson Valley.">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://northzeroproductions.com/contact.html">
+    <meta property="og:title" content="Start a Project | Northzero Productions">
+    <meta property="og:description" content="Commission an architectural cinema, authority suite, or tactile product film project with Northzero Productions.">
+    <meta property="og:image" content="https://northzeroproductions.com/og-image.jpg">
 
     <link rel="stylesheet" href="style.css?v=2.2">
 
     <style>
-        :root { --nz-gold: #d4af37; --nz-blue: #0047ab; --nav-height: 80px; }
+        :root {
+            --nz-gold: #d4af37;
+            --nz-blue: #0047ab;
+            --nav-height: 80px;
+        }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #000; color: #fff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; overflow-x: hidden; }
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+        }
 
         /* --- FORM CONTAINER --- */
         .contact-container {
@@ -26,8 +42,18 @@
         }
 
         .form-header { text-align: center; margin-bottom: 40px; }
-        .form-header h1 { font-size: 2.2rem; letter-spacing: 8px; text-transform: uppercase; margin-top: 10px; }
-        .form-header p  { color: var(--nz-gold); letter-spacing: 3px; text-transform: uppercase; font-size: 0.7rem; }
+        .form-header h1 {
+            font-size: clamp(1.8rem, 5vw, 2.4rem);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+        .form-header p {
+            color: var(--nz-gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+        }
 
         /* --- POST-SUBMISSION SUCCESS CARD --- */
         .success-card {
@@ -120,13 +146,14 @@
             border: 1px solid #222;
             padding: 15px;
             color: #fff;
-            font-size: 1rem;
+            font-size: 0.95rem;
             width: 100%;
             font-family: inherit;
             outline: none;
             transition: border-color 0.3s;
             appearance: none;
             -webkit-appearance: none;
+            border-radius: 0;
         }
 
         input:focus, select:focus, textarea:focus { border-color: var(--nz-gold); }
@@ -152,17 +179,29 @@
             gap: 12px;
         }
 
+        .service-card { position: relative; }
+
         .service-card input[type="radio"] {
             position: absolute;
-            opacity: 0; width: 0; height: 0;
+            opacity: 0;
+            width: 0;
+            height: 0;
         }
 
         .service-card label {
-            display: flex; flex-direction: column; gap: 6px;
-            padding: 20px; border: 1px solid #222;
-            background: #0a0a0a; cursor: pointer;
-            transition: 0.3s; color: #fff;
-            font-size: inherit; text-transform: none; letter-spacing: normal;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 20px;
+            border: 1px solid #222;
+            background: #0a0a0a;
+            cursor: pointer;
+            transition: 0.3s;
+            color: #fff;
+            height: 100%;
+            font-size: inherit;
+            text-transform: none;
+            letter-spacing: normal;
         }
 
         .service-card label:hover { border-color: #444; }
@@ -208,6 +247,7 @@
             margin-top: 10px;
             font-family: inherit;
             font-size: 0.8rem;
+            font-weight: 600;
         }
 
         .submit-btn:hover    { background: var(--nz-gold); color: #000; }
@@ -251,7 +291,7 @@
         }
 
         .t-carousel { position: relative; max-width: 900px; margin: 0 auto; }
-        .t-track    { position: relative; min-height: 260px; }
+        .t-track    { position: relative; min-height: 280px; }
 
         .t-slide {
             position: absolute; top: 0; left: 0; width: 100%;
@@ -307,7 +347,7 @@
             .t-quote        { padding-left: 20px; }
             .t-attribution  { padding-left: 23px; }
             .t-controls     { padding-left: 0; flex-direction: column; gap: 25px; align-items: flex-start; }
-            .t-track        { min-height: 320px; }
+            .t-track        { min-height: 380px; }
             .success-card   { padding: 40px 20px; }
         }
     </style>
@@ -322,6 +362,11 @@
                 <span class="sub-title">PRODUCTIONS</span>
             </div>
         </a>
+
+        <div class="nz-credential-badge" aria-label="Omar A. Greene — Ossining Historic Preservation Commission">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span class="badge-text">HPC Member · Ossining, NY</span>
+        </div>
 
         <button
             class="hamburger"
@@ -358,7 +403,7 @@
             <h1>Initiate Project Brief</h1>
         </div>
 
-        <!-- POST-SUBMISSION SUCCESS STATE (Hidden until successful Formspree submission) -->
+        <!-- POST-SUBMISSION SUCCESS STATE -->
         <div class="success-card" id="success-card" role="region" aria-live="assertive">
             <span class="sc-tag">Direct Transmission Complete</span>
             <h2>Brief Routed to Desk</h2>
@@ -566,7 +611,7 @@
     <script src="nav.js?v=2.1" defer></script>
     <script>
         // --- Formspree Async Handshake & Post-Submission Reveal ---
-        const ENDPOINT    = 'https://formspree.io/f/xykedrkb';
+        const ENDPOINT     = 'https://formspree.io/f/xykedrkb';
         const CALENDLY_URL = 'https://calendly.com/northzeroproductions-info/30min';
         
         const form        = document.getElementById('nz-contact-form');
@@ -574,10 +619,10 @@
         const btn         = document.getElementById('submit-btn');
         const successCard = document.getElementById('success-card');
         const counterEl   = document.getElementById('redirect-counter');
-        
-       /* ========================================================
-        Pre-select Service Radio from URL parameter (?service=Architectural+Cinema, etc.)
-       ======================================================== */
+        const calendlyBtn = document.getElementById('calendly-direct-btn');
+        let countdown     = null;
+
+        /* Pre-select Service Radio from URL parameter (?service=Architectural+Cinema, etc.) */
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
             const serviceParam = params.get('service');
@@ -589,6 +634,14 @@
             }
         });
 
+        // Cancel countdown if user manually clicks Calendly button
+        if (calendlyBtn) {
+            calendlyBtn.addEventListener('click', () => {
+                if (countdown) clearInterval(countdown);
+                if (counterEl) counterEl.textContent = 'Opening scheduling calendar...';
+            });
+        }
+
         async function handleSubmit(e) {
             e.preventDefault();
         
@@ -596,8 +649,6 @@
             const emailInput   = document.getElementById('field-email');
             const name         = nameInput ? nameInput.value.trim() : '';
             const email        = emailInput ? emailInput.value.trim() : '';
-            
-            // Strict query for checked radio button across document/form
             const checkedRadio = form.querySelector('input[name="service"]:checked');
         
             // 1. Validate Name
@@ -608,7 +659,7 @@
                 return;
             }
         
-            // 2. Validate Email format
+            // 2. Validate Email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!email || !emailRegex.test(email)) {
                 status.textContent = 'Please provide a valid email address.';
@@ -617,11 +668,10 @@
                 return;
             }
         
-            // 3. Strict Service Radio Check
+            // 3. Service Radio Check
             if (!checkedRadio || !checkedRadio.value) {
                 status.textContent = 'Please select a production scope.';
                 status.style.color = '#e05555';
-                // Scroll smoothly to service cards if missed
                 document.querySelector('.service-cards').scrollIntoView({ behavior: 'smooth', block: 'center' });
                 return;
             }
@@ -638,7 +688,6 @@
                 });
         
                 if (res.ok) {
-                    // Smooth transition: fade out form, display success gate
                     form.style.opacity = '0';
                     setTimeout(() => {
                         form.style.display = 'none';
@@ -646,9 +695,8 @@
                         successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }, 400);
         
-                    // Initiate auto-redirect countdown
                     let timeLeft = 6;
-                    const countdown = setInterval(() => {
+                    countdown = setInterval(() => {
                         timeLeft -= 1;
                         if (timeLeft > 0) {
                             counterEl.textContent = `Redirecting to scheduling calendar in ${timeLeft} seconds...`;
