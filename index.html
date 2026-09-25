@@ -471,6 +471,76 @@
         .hpc-badge-name   { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #fff; font-weight: 700; }
         .hpc-badge-studio { font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; color: #333; }
 
+
+        /* --- WHAT EVERY ENGAGEMENT INCLUDES STRIP --- */
+        .engagements-strip {
+            padding: 90px 5%;
+            background: #050505;
+            border-top: 1px solid #141414;
+            border-bottom: 1px solid #141414;
+        }
+        
+        .engagements-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .eng-tag {
+            color: var(--nz-gold);
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .engagements-inner h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+        
+        .eng-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .eng-num {
+            font-size: 0.75rem;
+            color: var(--nz-gold);
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 12px;
+            font-family: monospace;
+        }
+        
+        .eng-col h4 {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        
+        .eng-col p {
+            font-size: 0.75rem;
+            color: #777;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        @media (max-width: 900px) {
+            .eng-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
         /* --- MOBILE --- */
         @media screen and (max-width: 900px) {
             .slide-content h1 {
@@ -718,46 +788,66 @@
                 </div>
             </div>
         </section>
+        
 
-        <!-- HPC Credential Strip -->
-        <section class="hpc-strip" aria-label="Institutional credentials">
-            <div class="hpc-strip-inner">
-                <div class="hpc-copy">
-                    <span class="hpc-label">Institutional Credential</span>
-                    <h2>Grounded in Preservation Law</h2>
-                    <p>
-                        Northzero Productions is founded by Omar A. Greene — an alternate member of the Village of Ossining Historic Preservation Commission. This institutional foundation directly informs every commercial brief we execute: from strict municipal landmark documentation and grant-support visuals to high-stakes preservation narratives and public-facing heritage films.
-                    </p>
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 30px;">
-                        <a href="authority.html" class="cta-btn">The Authority Suite &rarr;</a>
-                        <a href="westchester.html" class="cta-btn" style="border-color: #333; color: #888;">Regional Preservation Index &rarr;</a>
+        <!-- What Every Engagement Includes Strip -->
+        <section class="engagements-strip" aria-label="Production standards and deliverables">
+            <div class="engagements-inner">
+                <span class="eng-tag">Commission Standards</span>
+                <h2>What Every Engagement Includes</h2>
+                <div class="eng-grid">
+                    <div class="eng-col">
+                        <span class="eng-num">01</span>
+                        <h4>Pre-Production Strategy</h4>
+                        <p>Location reconnaissance, lighting analysis, zoning &amp; historic preservation review, and custom shot-list choreography.</p>
                     </div>
-                </div>
-
-                <div class="hpc-badge-card" aria-hidden="true">
-                    <div class="hpc-badge-inner">
-                        <span class="hpc-badge-abbr">HPC</span>
-                        <span class="hpc-badge-title">Historic Preservation<br>Commission</span>
-                        <span class="hpc-badge-sub">Village of Ossining, New York</span>
-                        <div class="hpc-badge-divider"></div>
-                        <span class="hpc-badge-role">Alternate Member</span>
-                        <span class="hpc-badge-name">Omar A. Greene</span>
-                        <span class="hpc-badge-studio">Northzero Productions</span>
+                    <div class="eng-col">
+                        <span class="eng-num">02</span>
+                        <h4>Cinema Production</h4>
+                        <p>Principal-led camera operation, calibrated cinema glass, stabilized motion rigs, and FAA Part 107 licensed aerial capture.</p>
+                    </div>
+                    <div class="eng-col">
+                        <span class="eng-num">03</span>
+                        <h4>Editorial &amp; Acoustic Grade</h4>
+                        <p>Calibrated color grading, licensed acoustic scoring, sound design, and master 4K / 6K ProRes delivery archives.</p>
+                    </div>
+                    <div class="eng-col">
+                        <span class="eng-num">04</span>
+                        <h4>Multi-Channel Syndication</h4>
+                        <p>MLS/web unbranded horizontal masters + 9:16 vertical cuts optimized for high-net-worth mobile syndication.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Final CTA -->
-        <section class="cta-section" aria-label="Start a project">
-            <h2>Initiate an Audit</h2>
-            <div class="btn-group">
-                <a href="contact.html" class="cta-btn">Start Project</a>
-                <a href="https://calendly.com/northzeroproductions-info/30min" class="cta-btn booking" target="_blank" rel="noopener noreferrer" aria-label="Schedule a consultation — opens in new tab">Schedule a Consultation</a>
-                <a href="#" id="email-link" class="cta-btn secondary">Direct Email</a>
+        <!-- Final Conversion Banner -->
+        <section class="cta-section" aria-label="Initiate project inquiry" style="padding: 100px 5%; text-align: center; background: #000;">
+            <p style="color: var(--nz-gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 15px; font-weight: 500;">
+                Next Production Window
+            </p>
+            <h2 style="font-size: clamp(2rem, 5vw, 3rem); letter-spacing: 7px; text-transform: uppercase; color: #fff; margin-bottom: 20px;">
+                Initiate a Production Brief
+            </h2>
+            <p style="color: #777; font-size: 0.95rem; max-width: 600px; margin: 0 auto 35px; line-height: 1.8; font-weight: 300;">
+                Tell us about your estate, architectural milestone, or brand narrative. Briefs are reviewed directly by our principal desk within 24 hours.
+            </p>
+            <div class="btn-group" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 25px;">
+                <a href="contact.html" class="cta-btn" style="border: 1px solid var(--nz-gold); padding: 16px 36px; color: var(--nz-gold); text-decoration: none; letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem; font-weight: 600;">
+                    Start Project Brief
+                </a>
+                <a href="https://calendly.com/northzeroproductions-info/30min" class="cta-btn booking" target="_blank" rel="noopener noreferrer" style="border: 1px solid #222; padding: 16px 36px; color: #fff; text-decoration: none; letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem;">
+                    Schedule a Consultation
+                </a>
+                <a href="contact.html?service=Architectural+Cinema" class="cta-btn secondary" style="border: 1px solid #1a1a1a; padding: 16px 36px; color: #666; text-decoration: none; letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem;">
+                    Scope an Audit
+                </a>
+            </div>
+            <div style="font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: #555;">
+                <span style="color: var(--nz-gold);">●</span> Briefs reviewed within 24 hours · Ossining &amp; NYC Desks
             </div>
         </section>
     </main>
+    
 
     <footer style="padding: 60px 5%; text-align: center; border-top: 1px solid #111; background: #000;">
         <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 25px;">
