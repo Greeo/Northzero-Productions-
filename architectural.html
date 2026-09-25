@@ -45,6 +45,17 @@
     <link rel="stylesheet" href="style.css?v=2.2">
 
     <style>
+        html, body {
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+            position: relative;
+            width: 100%;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
         :root {
             --nz-gold: #d4af37;
             --nz-blue: #0047ab;
@@ -486,6 +497,61 @@
                 display: none;
             }
         }
+
+        @media (max-width: 768px) {
+        /* 1. Prevent buttons from pushing out past screen width */
+        .btn-group {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: stretch !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            gap: 12px !important;
+        }
+    
+        .cta-btn, .tier-btn {
+            width: 100% !important;
+            text-align: center !important;
+            box-sizing: border-box !important;
+        }
+    
+        /* 2. Prevent package spec strip from expanding horizontally */
+        .package-spec-strip {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            padding: 20px 20px !important;
+            gap: 15px !important;
+        }
+    
+        .spec-divider {
+            display: none !important;
+        }
+    
+        /* 3. Ensure cards and sections fit the screen tightly */
+        .packages-section, 
+        .cta-section, 
+        main {
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            padding-left: 5% !important;
+            padding-right: 5% !important;
+        }
+    
+        .packages-grid {
+            grid-template-columns: 1fr !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+    
+        .package-card {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+    }
     </style>
 </head>
 <body>
