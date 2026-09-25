@@ -701,59 +701,44 @@
     <!-- Page Interaction Controller -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- SHOWREEL VIDEO CONTROLLER ---
-            const reelContainer = document.getElementById('regan-showreel');
-            const video = document.getElementById('native-reel-player');
-            const playIcon = document.getElementById('play-icon');
-            const pauseIcon = document.getElementById('pause-icon');
-            const soundBtn = document.getElementById('showreel-sound-btn');
-            const soundText = document.getElementById('sound-text');
-            const tag = document.getElementById('showreel-tag');
-
-            if (reelContainer && video) {
-                let hasStarted = false;
-                let autoPlayTimer = null;
-
+                const video = document.getElementById('native-reel-player');
+                const playBtn = document.querySelector('.showreel-play-btn') || document.getElementById('reel-play-btn');
+                const bumper = document.querySelector('.reel-bumper') || document.getElementById('reel-bumper');
+            
+                if (!video) return;
+            
                 function playReel() {
-                    video.play().then(() => {
-                        reelContainer.classList.add('video-active');
-                        reelContainer.classList.add('is-playing');
-                        if (playIcon) playIcon.style.display = 'none';
-                        if (pauseIcon) pauseIcon.style.display = 'block';
-                        if (tag) tag.textContent = 'Pause Showreel';
-                        if (soundBtn) soundBtn.style.display = 'block';
-                        hasStarted = true;
-                    }).catch(err => console.warn('Playback prevented:', err));
-                }
-
-                function pauseReel() {
-                    video.pause();
-                    reelContainer.classList.remove('is-playing');
-                    if (playIcon) playIcon.style.display = 'block';
-                    if (pauseIcon) pauseIcon.style.display = 'none';
-                    if (tag) tag.textContent = 'Resume Showreel';
-                }
-
-                function togglePlay() {
-                    if (video.paused) {
-                        playReel();
-                    } else {
-                        pauseReel();
+                    video.playsInline = true;
+                    video.muted = false; // set to true if you want it muted on start
+                    const playPromise = video.play();
+            
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            if (bumper) bumper.style.display = 'none';
+                            if (playBtn) playBtn.style.display = 'none';
+                            video.setAttribute('controls', 'true');
+                        }).catch((err) => {
+                            console.warn('Playback blocked, trying muted...', err);
+                            video.muted = true;
+                            video.play();
+                            if (bumper) bumper.style.display = 'none';
+                            if (playBtn) playBtn.style.display = 'none';
+                            video.setAttribute('controls', 'true');
+                        });
                     }
                 }
-
-                reelContainer.addEventListener('click', (e) => {
-                    if (e.target.closest('#showreel-sound-btn')) return;
-                    togglePlay();
-                });
-
-                if (soundBtn) {
-                    soundBtn.addEventListener('click', (e) => {
+            
+                if (playBtn) {
+                    playBtn.addEventListener('click', (e) => {
                         e.stopPropagation();
-                        video.muted = !video.muted;
-                        soundText.textContent = video.muted ? 'Unmute' : 'Mute';
+                        playReel();
                     });
                 }
+            
+                video.addEventListener('click', () => {
+                    if (video.paused) playReel();
+                });
+            });
 
                 // 1.2-second pause while in view so the Regan Estates photo is clearly admired before video starts
                 const observer = new IntersectionObserver((entries) => {
