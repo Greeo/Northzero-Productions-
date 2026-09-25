@@ -1,109 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Agency Pages -->
+  <url>
+    <loc>https://northzeroproductions.com/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://northzeroproductions.com/work.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://northzeroproductions.com/about.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://northzeroproductions.com/contact.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://northzeroproductions.com/crewlist.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
-    <!-- Homepage -->
-    <url>
-        <loc>https://northzeroproductions.com/</loc>
-        <lastmod>2026-04-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
-    </url>
+  <!-- Service Suites -->
+  <url>
+    <loc>https://northzeroproductions.com/all-services.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://northzeroproductions.com/authority.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://northzeroproductions.com/architectural.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://northzeroproductions.com/tactile.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://northzeroproductions.com/production-terms.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 
-    <!-- Selected Works -->
-    <url>
-        <loc>https://northzeroproductions.com/work.html</loc>
-        <lastmod>2026-04-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
+  <!-- Lead Magnet & Growth Assets -->
+  <url>
+    <loc>https://northzeroproductions.com/fast-track.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
-    <!-- Services index -->
-    <url>
-        <loc>https://northzeroproductions.com/all-services.html</loc>
-        <lastmod>2026-04-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Services: Authority Suite -->
-    <url>
-        <loc>https://northzeroproductions.com/authority.html</loc>
-        <lastmod>2026-04-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Services: Architectural Cinema -->
-    <url>
-        <loc>https://northzeroproductions.com/architectural.html</loc>
-        <lastmod>2026-04-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Services: Tactile Narratives -->
-    <url>
-        <loc>https://northzeroproductions.com/tactile.html</loc>
-        <lastmod>2026-04-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- About / The Lens -->
-    <url>
-        <loc>https://northzeroproductions.com/about.html</loc>
-        <lastmod>2026-04-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Lead Magnet Landing Page -->
-    <url>
-        <loc>https://northzeroproductions.com/fast-track.html</loc>
-        <lastmod>2026-04-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Journal Index -->
-    <url>
-        <loc>https://northzeroproductions.com/journal.html</loc>
-        <lastmod>2026-04-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Journal: Why Luxury Brands Need Film -->
-    <url>
-        <loc>https://northzeroproductions.com/journal/why-luxury-brands-need-film.html</loc>
-        <lastmod>2026-04-01</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <!-- Journal: Why Estate Listings Need Cinema -->
-    <url>
-        <loc>https://northzeroproductions.com/journal/why-estate-listings-need-cinema.html</loc>
-        <lastmod>2026-03-01</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <!-- Journal: What HPC Approval Requires -->
-    <url>
-        <loc>https://northzeroproductions.com/journal/what-hpc-approval-requires.html</loc>
-        <lastmod>2026-02-01</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <!-- Contact — noindex in meta but included for completeness;
-         search engines will respect the noindex directive          -->
-    <url>
-        <loc>https://northzeroproductions.com/contact.html</loc>
-        <lastmod>2026-04-07</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
+  <!-- Journal & Thought Leadership (High SEO Value) -->
+  <url>
+    <loc>https://northzeroproductions.com/journal.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://northzeroproductions.com/what-hpc-approval-requires.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://northzeroproductions.com/why-estate-listings-need-cinema.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://northzeroproductions.com/why-luxury-brands-need-film.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
