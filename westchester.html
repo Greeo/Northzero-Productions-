@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Westchester &amp; Hudson Valley Architectural Cinema | Northzero Productions</title>
+
+    <meta name="description" content="Cinematic estate films, landmark documentation, and luxury architectural cinematography across Westchester County and the Hudson Valley. Grounded in historic preservation law.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://northzeroproductions.com/westchester.html">
+    <meta property="og:title" content="Westchester &amp; Hudson Valley Architectural Cinema | Northzero Productions">
+    <meta property="og:description" content="Cinematic estate films and landmark compliance cinema across Bedford, Scarsdale, Tarrytown, Rye, and the Hudson River corridor.">
+    <meta property="og:image" content="https://northzeroproductions.com/og-image.jpg">
+
+    <!-- Local SEO Structured Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Northzero Productions LLC",
+      "url": "https://northzeroproductions.com/westchester.html",
+      "image": "https://northzeroproductions.com/og-image.jpg",
+      "telephone": "+1-914-458-3705",
+      "priceRange": "$7,000 - $15,000",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ossining",
+        "addressRegion": "NY",
+        "postalCode": "10562",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Ossining" },
+        { "@type": "AdministrativeArea", "name": "Bedford" },
+        { "@type": "AdministrativeArea", "name": "Scarsdale" },
+        { "@type": "AdministrativeArea", "name": "Rye" },
+        { "@type": "AdministrativeArea", "name": "Tarrytown" },
+        { "@type": "AdministrativeArea", "name": "Pound Ridge" },
+        { "@type": "AdministrativeArea", "name": "Cold Spring" },
+        { "@type": "AdministrativeArea", "name": "Hudson Valley" },
+        { "@type": "AdministrativeArea", "name": "Westchester County" }
+      ],
+      "knowsAbout": [
+        "Architectural Cinema",
+        "Historic Landmark Preservation Documentation",
+        "FAA Part 107 Aerial Cinematography",
+        "Luxury Real Estate Motion Assets"
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="style.css?v=2.2">
+
+    <style>
+        :root {
+            --nz-gold: #d4af37;
+            --nz-blue: #0047ab;
+            --bg-black: #000;
+            --bg-card: #080808;
+            --border-dim: #1a1a1a;
+            --nav-height: 80px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg-black);
+            color: #fff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- HERO HEADER --- */
+        .towns-hero {
+            padding: 160px 5% 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-tag {
+            color: var(--nz-gold);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            display: block;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .towns-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        .towns-hero p {
+            max-width: 780px;
+            margin: 0 auto 35px;
+            color: #888;
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.9;
+        }
+
+        .badge-callout {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 24px;
+            border: 1px solid var(--border-dim);
+            background: #050505;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #aaa;
+        }
+
+        .badge-callout span.dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--nz-gold);
+        }
+
+        /* --- EDITORIAL ENCLAVE GRID --- */
+        .enclaves-section {
+            padding: 40px 5% 100px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .enclave-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .enclave-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            padding: 50px 45px;
+            position: relative;
+            transition: border-color 0.4s ease, transform 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .enclave-card:hover {
+            border-color: var(--nz-gold);
+            transform: translateY(-4px);
+        }
+
+        .enclave-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0%;
+            background: var(--nz-gold);
+            transition: height 0.4s ease;
+        }
+
+        .enclave-card:hover::before {
+            height: 100%;
+        }
+
+        .enclave-sub {
+            color: var(--nz-gold);
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .enclave-card h2 {
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .enclave-card p {
+            color: #777;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .enclave-specs {
+            list-style: none;
+            border-top: 1px solid #141414;
+            padding-top: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .enclave-specs li {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: #999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .enclave-specs li::before {
+            content: '—';
+            color: var(--nz-gold);
+        }
+
+        .card-link {
+            align-self: flex-start;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--nz-gold);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 3px;
+            transition: border-color 0.3s, color 0.3s;
+        }
+
+        .card-link:hover {
+            color: #fff;
+            border-color: var(--nz-gold);
+        }
+
+        /* --- REGULATORY ADVANTAGE STRIP --- */
+        .advantage-strip {
+            background: #030303;
+            border-top: 1px solid var(--border-dim);
+            border-bottom: 1px solid var(--border-dim);
+            padding: 100px 5%;
+        }
+
+        .advantage-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .advantage-copy h3 {
+            font-size: 1.8rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .advantage-copy p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .pillar-box {
+            background: #080808;
+            border: 1px solid #161616;
+            padding: 30px 25px;
+        }
+
+        .pillar-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .pillar-desc {
+            font-size: 0.7rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* --- FINAL ACTION BANNER --- */
+        .bottom-cta {
+            padding: 120px 5%;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .bottom-cta h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            letter-spacing: 7px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .bottom-cta p {
+            color: #777;
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 40px;
+            border: 1px solid var(--nz-gold);
+            color: var(--nz-gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: var(--nz-gold);
+            color: #000;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .enclave-grid { grid-template-columns: 1fr; }
+            .advantage-inner { grid-template-columns: 1fr; gap: 40px; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .towns-hero h1 { letter-spacing: 4px; font-size: 1.8rem; }
+            .enclave-card { padding: 40px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation Bar -->
+    <nav class="nz-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="logo-link" aria-label="Northzero Productions — home">
+            <div class="compass-box" aria-hidden="true"><div class="needle"></div></div>
+            <div class="logo-text">
+                <span class="main-title">NORTHZERO</span>
+                <span class="sub-title">PRODUCTIONS</span>
+            </div>
+        </a>
+
+        <div class="nz-credential-badge" aria-label="Omar A. Greene — Ossining Historic Preservation Commission">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span class="badge-text">HPC Member · Ossining, NY</span>
+        </div>
+
+        <button
+            class="hamburger"
+            id="hamburger-menu"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="nav-links-container"
+        >
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="nav-links" id="nav-links-container" role="menubar">
+            <a href="index.html" role="menuitem">Agency</a>
+            <a href="work.html" role="menuitem">Works</a>
+            <div class="dropdown">
+                <a href="all-services.html" class="dropbtn" role="menuitem">Services</a>
+                <div class="dropdown-content">
+                    <a href="authority.html">Authority Suite</a>
+                    <a href="architectural.html">Architectural Cinema</a>
+                    <a href="tactile.html">Tactile Narratives</a>
+                    <a href="production-terms.html">FAQ &amp; Terms</a>
+                </div>
+            </div>
+            <a href="about.html" role="menuitem">Lens</a>
+            <a href="crewlist.html" role="menuitem">Network</a>
+            <a href="journal.html" role="menuitem">Journal</a>
+            <a href="contact.html" role="menuitem" style="border: 1px solid var(--nz-gold); padding: 10px 20px; color: var(--nz-gold) !important;">Start Project</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Header -->
+        <header class="towns-hero">
+            <span class="hero-tag">Geographic Production Index</span>
+            <h1>Architectural Cinema Across Westchester &amp; The Hudson Valley</h1>
+            <p>
+                From historic Hudson River estates and Gilded Age preservation landmarks to private equestrian acreage in Northern Westchester — our studio produces cinema-grade motion assets engineered for structural permanence, municipal review, and high-value real estate placement.
+            </p>
+            <div class="badge-callout">
+                <span class="dot"></span>
+                <span>Anchored in Ossining, NY · Deployed County-Wide &amp; Tri-State</span>
+            </div>
+        </header>
+
+        <!-- Regional Enclaves Grid -->
+        <section class="enclaves-section" aria-label="Featured Westchester and Hudson Valley enclaves">
+            <div class="enclave-grid">
+
+                <!-- Enclave 1: Ossining & Hudson River Shoreline -->
+                <article class="enclave-card">
+                    <div>
+                        <span class="enclave-sub">Home Studio &amp; Municipal Anchor</span>
+                        <h2>Ossining &amp; The River Towns</h2>
+                        <p>
+                            Grounded directly in preservation practice. As an alternate member of the Village of Ossining Historic Preservation Commission, our documentation along the Hudson River corridor (Briarcliff Manor, Croton-on-Hudson, Scarborough) respects architectural heritage, local landmarking mandates, and municipal visual standards.
+                        </p>
+                        <ul class="enclave-specs">
+                            <li>HPC Landmark Documentation &amp; Compliance</li>
+                            <li>Hudson River Waterfront Aerial Cinema (FAA Part 107)</li>
+                            <li>Historic Registry Narrative Archival Films</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html?service=Architectural+Cinema" class="card-link">Initiate River Towns Brief &rarr;</a>
+                </article>
+
+                <!-- Enclave 2: Bedford, Pound Ridge & North County -->
+                <article class="enclave-card">
+                    <div>
+                        <span class="enclave-sub">Equestrian Compounds &amp; Historic Stone</span>
+                        <h2>Bedford &amp; Pound Ridge</h2>
+                        <p>
+                            Expansive acreage, historic stone walls, and bespoke modern compounds require large-format visual framing. We produce slow-pacing aerial cinema, interior architectural motion, and natural-light studies that honor the privacy and scale of Northern Westchester’s premier rural estates.
+                        </p>
+                        <ul class="enclave-specs">
+                            <li>Multi-Acre Drone Topography &amp; Elevation Passes</li>
+                            <li>Architectural Walkthroughs for Exclusive Broker Networks</li>
+                            <li>Natural-Light Diurnal &amp; Twilight Studies</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html?service=Architectural+Cinema" class="card-link">Initiate Bedford Brief &rarr;</a>
+                </article>
+
+                <!-- Enclave 3: Scarsdale, Bronxville & Lower Westchester -->
+                <article class="enclave-card">
+                    <div>
+                        <span class="enclave-sub">Tudor Architecture &amp; Luxury Listings</span>
+                        <h2>Scarsdale &amp; Bronxville</h2>
+                        <p>
+                            Defined by architectural density, classical revival design, and high-stakes luxury residential transactions. We produce refined cinema tours that emphasize millwork, bespoke interior volumes, and manicured property lines for multi-million dollar listing rollouts.
+                        </p>
+                        <ul class="enclave-specs">
+                            <li>Cinematic Listing Walkthroughs (4K / 6K Raw)</li>
+                            <li>Vertical Cutdowns for High-Net-Worth Social Syndication</li>
+                            <li>Turnaround Alignment for MLS &amp; Press Embargoes</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html?service=Architectural+Cinema" class="card-link">Initiate Scarsdale Brief &rarr;</a>
+                </article>
+
+                <!-- Enclave 4: Tarrytown, Irvington & Sleepy Hollow -->
+                <article class="enclave-card">
+                    <div>
+                        <span class="enclave-sub">Historic Mansions &amp; Adaptive Reuse</span>
+                        <h2>Tarrytown &amp; Irvington</h2>
+                        <p>
+                            Rich with Gilded Age provenance, masonry preservation, and institutional estates overlooking the Tappan Zee. We collaborate with architects, restoration developers, and institutional stewards to capture adaptive reuse and historic restoration milestones.
+                        </p>
+                        <ul class="enclave-specs">
+                            <li>Pre- and Post-Restoration Time-Slice Documentation</li>
+                            <li>Investor &amp; Municipal Presentation Packages</li>
+                            <li>Curated Institutional Narratives</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html?service=Authority+Suite" class="card-link">Initiate Tarrytown Brief &rarr;</a>
+                </article>
+
+                <!-- Enclave 5: Rye, Mamaroneck & The Sound Shore -->
+                <article class="enclave-card">
+                    <div>
+                        <span class="enclave-sub">Coastal Architecture &amp; Contemporary Builds</span>
+                        <h2>Rye &amp; The Sound Shore</h2>
+                        <p>
+                            From Long Island Sound coastal modernism to classic waterfront manors. We provide precision aerial cinema navigating coastal airspace compliance alongside interior stabilization that captures high-contrast water views with calibrated dynamic range.
+                        </p>
+                        <ul class="enclave-specs">
+                            <li>Waterfront FAA Coastal Flight Authorization</li>
+                            <li>Ultra-High Dynamic Range Cinema (Log / Raw)</li>
+                            <li>Design-Build Portfolio Films for Architects</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html?service=Architectural+Cinema" class="card-link">Initiate Sound Shore Brief &rarr;</a>
+                </article>
+
+                <!-- Enclave 6: Cold Spring, Garrison & The Highlands -->
+                <article class="enclave-card">
+                    <div>
+                        <span class="enclave-sub">Hudson Highlands &amp; Mountain Compounds</span>
+                        <h2>Cold Spring &amp; Garrison</h2>
+                        <p>
+                            Dramatic topography, protected ridgelines, and contemporary mountain retreats. Our production units bring rugged field capabilities paired with cinema-grade optics to document architecture embedded directly into the Hudson Highlands landscape.
+                        </p>
+                        <ul class="enclave-specs">
+                            <li>Topographical Valley &amp; Mountain Drone Mapping</li>
+                            <li>Architectural Integration &amp; Environmental Cinema</li>
+                            <li>Conservation &amp; Land Trust Visual Assets</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html?service=Architectural+Cinema" class="card-link">Initiate Highlands Brief &rarr;</a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Regulatory & Technical Advantage -->
+        <section class="advantage-strip" aria-label="Why Northzero for Westchester production">
+            <div class="advantage-inner">
+                <div class="advantage-copy">
+                    <span class="enclave-sub">The Institutional Advantage</span>
+                    <h3>Why Westchester Commissions Northzero</h3>
+                    <p>
+                        Producing architectural motion assets in Westchester County requires more than a camera rig. It demands a working understanding of local zoning boards, historic district regulations, and FAA airspace restrictions.
+                    </p>
+                    <p>
+                        Northzero bridges the gap between high-end cinema optics and strict municipal compliance, giving developers, private principals, and elite brokerages total peace of mind.
+                    </p>
+                </div>
+
+                <div class="pillars-grid">
+                    <div class="pillar-box">
+                        <span class="pillar-title">HPC Inside Perspective</span>
+                        <p class="pillar-desc">
+                            Direct insight into historic commission expectations ensures preservation submissions and archival packages satisfy regulatory boards on the first review.
+                        </p>
+                    </div>
+
+                    <div class="pillar-box">
+                        <span class="pillar-title">FAA Part 107 Airspace Cleared</span>
+                        <p class="pillar-desc">
+                            Full commercial drone certification with LAANC authorizations across Westchester County Airport (HPN) corridors and Hudson River flight restrictions.
+                        </p>
+                    </div>
+
+                    <div class="pillar-box">
+                        <span class="pillar-title">Cinema Spec Optics</span>
+                        <p class="pillar-desc">
+                            Shot on cinema-grade glass with calibrated color pipelines, preserving natural structural textures without artificial wide-angle distortion.
+                        </p>
+                    </div>
+
+                    <div class="pillar-box">
+                        <span class="pillar-title">Rapid Listing Turnaround</span>
+                        <p class="pillar-desc">
+                            48-to-72-hour delivery pipelines for high-stakes estate listing campaigns to match broker staging dates and press launch timelines.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Call to Action -->
+        <section class="bottom-cta" aria-label="Commission an architectural production">
+            <h2>Commission a Regional Production</h2>
+            <p>
+                Tell us about your property, architectural milestone, or historic restoration project. Briefs are reviewed directly by our principal desk within 24 hours.
+            </p>
+            <a href="contact.html" class="cta-btn">Initiate Project Brief</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="padding: 60px; text-align: center; border-top: 1px solid #111; color: #444; letter-spacing: 4px; text-transform: uppercase; font-size: 0.65rem;">
+        &copy; 2026 Northzero Productions LLC | New York
+    </footer>
+
+    <!-- Scripts -->
+    <script src="nav.js?v=2.1" defer></script>
+</body>
+</html>
