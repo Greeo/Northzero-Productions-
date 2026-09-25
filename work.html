@@ -60,6 +60,23 @@
             overflow: hidden; cursor: pointer;
             border: 1px solid #1a1a1a;
         }
+        /* Work info update all projects */
+        .work-info {
+            position: absolute; bottom: 25px; left: 25px; right: 25px;
+            opacity: 0; transform: translateY(15px);
+            transition: 0.4s cubic-bezier(0.2, 1, 0.3, 1); z-index: 5;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 18px 22px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 2px solid var(--nz-gold);
+        }
+
+        .work-item:hover .work-info { opacity: 1; transform: translateY(0); }
+        .work-info h3 { text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; color: #fff; margin-bottom: 4px; }
+        .work-info .p-type { font-size: 0.6rem; color: var(--nz-gold); text-transform: uppercase; letter-spacing: 2px; font-weight: 500; margin-bottom: 6px; display: block; }
+        .work-info .p-desc { font-size: 0.7rem; color: #aaa; line-height: 1.4; margin: 0; font-weight: 300; }
+        /* Work info update all projects Ends */
 
         .work-item.featured  { grid-column: span 4; grid-row: span 2; }
         .work-item.tall      { grid-column: span 2; grid-row: span 2; }
@@ -311,17 +328,17 @@
           "name": "Northzero Productions | Commercial Cinematography Reel",
           "description": "A showcase of narrative commercial cinematography, luxury brand storytelling, and cinematic visuals by Northzero Productions based in the Hudson Valley, NY.",
           "thumbnailUrl": [
-            ""https://img.youtube.com/vi/AVN2N2hopGk/maxresdefault.jpg""
+            "https://img.youtube.com/vi/AVN2N2hopGk/maxresdefault.jpg"
           ],
           "uploadDate": "2026-01-15T08:00:00+08:00",
-          "contentUrl": "https://northzeroproductions.com/work.html/",
-          "embedUrl": "https://youtu.be/AVN2N2hopGk?si=Kp_i4JlsFRUmXy1Y",
+          "contentUrl": "https://northzeroproductions.com/work.html",
+          "embedUrl": "https://youtu.be/AVN2N2hopGk",
           "publisher": {
             "@type": "Organization",
             "name": "Northzero Productions",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://northzeroproductions.com/index.html/"
+              "url": "https://northzeroproductions.com/og-image.jpg"
             }
           }
         }
@@ -376,10 +393,10 @@
         </section>
 
         <div class="filter-container" role="group" aria-label="Filter works by category">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="estate">Estate</button>
-            <button class="filter-btn" data-filter="tactile">Tactile</button>
-            <button class="filter-btn" data-filter="institutional">Institutional</button>
+            <button class="filter-btn active" data-filter="all">All Disciplines</button>
+            <button class="filter-btn" data-filter="estate">Architectural &amp; Estate</button>
+            <button class="filter-btn" data-filter="tactile">Tactile &amp; Craft</button>
+            <button class="filter-btn" data-filter="authority">Authority &amp; Public Trust</button>
         </div>
 
         <div class="work-grid" id="workGrid" aria-label="Portfolio grid"></div>
@@ -496,20 +513,70 @@
     <script src="nav.js?v=2.0"></script>
 
     <script>
-        // --- Project Data ---
+        // --- Project Data with Deliverables & Outcomes ---
         const projects = [
-            { id: 'AVN2N2hopGk', title: 'The Modern Estate',  category: 'estate',        type: 'Architectural Cinema',   layout: 'featured'  },
-            { id: 'xOAFWcR3esw', title: 'Adrienne Fashion', category: 'tactile',       type: 'Tactile Narrative',      layout: 'tall'      },
-            { id: '4c1LY4C5K-A', title: 'Housing Plus', category: 'authority',       type: 'Authority Narrative',      layout: 'wide'      },
-            { id: 'ONyk8VokO2k', title: 'Design & Texture',   category: 'tactile',       type: 'Macro Study',            layout: 'standard'  },
-            { id: 'QshtoadJsac', title: 'Food Show',   category: 'tactile',       type: 'Macro Study',            layout: 'standard'  },
-            { id: 'UV3Lvew15fs', title: 'Visual Rhythm',      category: 'tactile',       type: 'Production Design',      layout: 'standard'  },
-            { id: 'U_s0PDP123c', title: 'Global Tech',        category: 'institutional', type: 'Institutional Strategy', layout: 'wide'      }
+            { 
+                id: 'AVN2N2hopGk', 
+                title: 'The Modern Estate',  
+                category: 'estate',        
+                type: 'Architectural Cinema',   
+                layout: 'featured',
+                desc: '4K aerial & spatial interior cinema for a multi-acre Hudson River estate.'
+            },
+            { 
+                id: 'xOAFWcR3esw', 
+                title: 'Adrienne Fashion', 
+                category: 'tactile',       
+                type: 'Tactile Narrative',      
+                layout: 'tall',
+                desc: 'Textile-focus campaign and natural-light motion study for luxury ready-to-wear.'
+            },
+            { 
+                id: '4c1LY4C5K-A', 
+                title: 'Housing Plus', 
+                category: 'authority',       
+                type: 'Authority Narrative',      
+                layout: 'wide',
+                desc: 'Institutional documentary and public-trust visual assets for civic development.'
+            },
+            { 
+                id: 'ONyk8VokO2k', 
+                title: 'Design & Texture',   
+                category: 'tactile',       
+                type: 'Macro Study',            
+                layout: 'standard',
+                desc: 'Close-focus material cinematography highlighting fine tactile finishing.'
+            },
+            { 
+                id: 'QshtoadJsac', 
+                title: 'Culinary Craft',   
+                category: 'tactile',       
+                type: 'Artisan Study',            
+                layout: 'standard',
+                desc: 'Atmospheric process documentation capturing texture, heat, and plating.'
+            },
+            { 
+                id: 'UV3Lvew15fs', 
+                title: 'Visual Rhythm',      
+                category: 'tactile',       
+                type: 'Production Design',      
+                layout: 'standard',
+                desc: 'Choreographed studio lighting and architectural form in motion.'
+            },
+            { 
+                id: 'U_s0PDP123c', 
+                title: 'Global Tech',        
+                category: 'authority', 
+                type: 'Institutional Strategy', 
+                layout: 'wide',
+                desc: 'Executive brand anthem and compliance-reviewed enterprise profile.'
+            }
         ];
 
         // --- Gallery Renderer ---
         function renderGallery(filter = 'all') {
-            const grid     = document.getElementById('workGrid');
+            const grid = document.getElementById('workGrid');
+            if (!grid) return;
             const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
             grid.innerHTML = '';
 
@@ -518,24 +585,31 @@
                 item.className = `work-item ${p.layout}`;
                 item.setAttribute('role', 'button');
                 item.setAttribute('tabindex', '0');
-                item.setAttribute('aria-label', `Open video: ${p.title}`);
+                item.setAttribute('aria-label', `Play film: ${p.title} (${p.type})`);
 
-                const img     = document.createElement('img');
-                img.src       = `https://img.youtube.com/vi/${p.id}/maxresdefault.jpg`;
-                img.alt       = p.title;
-                img.loading   = 'lazy';
+                const img = document.createElement('img');
+                img.src = `https://img.youtube.com/vi/${p.id}/maxresdefault.jpg`;
+                img.alt = `${p.title} — ${p.type} by Northzero Productions`;
+                img.loading = 'lazy';
 
-                const info    = document.createElement('div');
+                const info = document.createElement('div');
                 info.className = 'work-info';
 
-                const h3      = document.createElement('h3');
+                const pType = document.createElement('span');
+                pType.className = 'p-type';
+                pType.textContent = p.type;
+
+                const h3 = document.createElement('h3');
                 h3.textContent = p.title;
 
-                const pTag    = document.createElement('p');
-                pTag.textContent = p.type;
+                const pDesc = document.createElement('p');
+                pDesc.className = 'p-desc';
+                pDesc.textContent = p.desc;
 
+                info.appendChild(pType);
                 info.appendChild(h3);
-                info.appendChild(pTag);
+                info.appendChild(pDesc);
+
                 item.appendChild(img);
                 item.appendChild(info);
 
@@ -551,29 +625,32 @@
             });
         }
 
-        // --- Filter ---
-        document.querySelector('.filter-container').addEventListener('click', e => {
-            const btn = e.target.closest('.filter-btn');
-            if (!btn) return;
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderGallery(btn.dataset.filter);
-        });
+        // --- Filter Handler ---
+        const filterContainer = document.querySelector('.filter-container');
+        if (filterContainer) {
+            filterContainer.addEventListener('click', e => {
+                const btn = e.target.closest('.filter-btn');
+                if (!btn) return;
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderGallery(btn.dataset.filter);
+            });
+        }
 
         // --- Lightbox ---
-        const lightbox    = document.getElementById('videoLightbox');
+        const lightbox = document.getElementById('videoLightbox');
         const playerFrame = document.getElementById('videoPlayerFrame');
-        const closeBtn    = document.getElementById('closeLightbox');
-        let   lastFocused = null;
+        const closeBtn = document.getElementById('closeLightbox');
+        let lastFocused = null;
 
         function openVideo(videoID, title) {
             lastFocused = document.activeElement;
-            const iframe           = document.createElement('iframe');
-            iframe.src             = `https://www.youtube.com/embed/${videoID}?autoplay=1&rel=0&modestbranding=1`;
-            iframe.allow           = 'autoplay; fullscreen';
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoID}?autoplay=1&rel=0&modestbranding=1`;
+            iframe.allow = 'autoplay; fullscreen';
             iframe.allowFullscreen = true;
-            iframe.title           = title || 'Video player';
-            playerFrame.innerHTML  = '';
+            iframe.title = title || 'Northzero Cinema Production';
+            playerFrame.innerHTML = '';
             playerFrame.appendChild(iframe);
             lightbox.classList.add('is-open');
             document.body.style.overflow = 'hidden';
@@ -587,10 +664,12 @@
             if (lastFocused) lastFocused.focus();
         }
 
-        closeBtn.addEventListener('click', closeVideo);
-        lightbox.addEventListener('click', e => { if (e.target === lightbox) closeVideo(); });
+        if (closeBtn) closeBtn.addEventListener('click', closeVideo);
+        if (lightbox) {
+            lightbox.addEventListener('click', e => { if (e.target === lightbox) closeVideo(); });
+        }
         document.addEventListener('keydown', e => {
-            if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeVideo();
+            if (e.key === 'Escape' && lightbox && lightbox.classList.contains('is-open')) closeVideo();
         });
 
         // --- Testimonial Carousel ---
@@ -598,14 +677,14 @@
             initCarousel('work');
 
             function initCarousel(id) {
-                const track   = document.getElementById('t-track-' + id);
-                const dotsEl  = document.getElementById('t-dots-' + id);
+                const track = document.getElementById('t-track-' + id);
+                const dotsEl = document.getElementById('t-dots-' + id);
                 const prevBtn = document.getElementById('t-prev-' + id);
                 const nextBtn = document.getElementById('t-next-' + id);
-                if (!track) return;
+                if (!track || !dotsEl || !prevBtn || !nextBtn) return;
 
                 const slides = Array.from(track.querySelectorAll('.t-slide'));
-                let current  = 0;
+                let current = 0;
                 let autoTimer;
 
                 slides.forEach((_, i) => {
@@ -641,28 +720,31 @@
                 prevBtn.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
 
                 function startAuto() { autoTimer = setInterval(next, 6000); }
-                function stopAuto()  { clearInterval(autoTimer); }
+                function stopAuto() { clearInterval(autoTimer); }
 
                 const section = track.closest('.testimonial-section');
-                section.addEventListener('mouseenter', stopAuto);
-                section.addEventListener('mouseleave', startAuto);
-                section.addEventListener('focusin',    stopAuto);
-                section.addEventListener('focusout',   startAuto);
-                section.addEventListener('keydown', e => {
-                    if (e.key === 'ArrowRight') { stopAuto(); next(); startAuto(); }
-                    if (e.key === 'ArrowLeft')  { stopAuto(); prev(); startAuto(); }
-                });
+                if (section) {
+                    section.addEventListener('mouseenter', stopAuto);
+                    section.addEventListener('mouseleave', startAuto);
+                    section.addEventListener('focusin', stopAuto);
+                    section.addEventListener('focusout', startAuto);
+                    section.addEventListener('keydown', e => {
+                        if (e.key === 'ArrowRight') { stopAuto(); next(); startAuto(); }
+                        if (e.key === 'ArrowLeft') { stopAuto(); prev(); startAuto(); }
+                    });
+                }
 
                 startAuto();
             }
         }());
 
-        // --- Email obfuscation ---
-        const u = 'omar';
-        const d = 'northzeroproductions.com';
-        document.getElementById('email-link').href = `mailto:${u}@${d}`;
+        // --- Safe Email Link Handler (Checks existence first) ---
+        const emailLink = document.getElementById('email-link');
+        if (emailLink) {
+            emailLink.href = 'mailto:omar@northzeroproductions.com';
+        }
 
-        // --- Init gallery ---
+        // --- Initialize Gallery Safely ---
         renderGallery();
     </script>
 </body>
