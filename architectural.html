@@ -262,6 +262,230 @@
             .commission-btn-group { width: 100%; flex-direction: column; }
             .commission-primary-btn, .commission-secondary-btn { width: 100%; text-align: center; }
         }
+
+        /* --- DEDICATED REAL ESTATE PACKAGES --- */
+        .packages-section {
+            padding: 100px 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .packages-header {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 60px;
+        }
+
+        .packages-header .p-tag {
+            color: var(--nz-gold);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .packages-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+
+        .packages-header p {
+            color: #777;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .package-card {
+            background: #080808;
+            border: 1px solid #1a1a1a;
+            padding: 45px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .package-card:hover {
+            border-color: #333;
+            transform: translateY(-4px);
+        }
+
+        .package-card.featured {
+            border-color: var(--nz-gold);
+            background: #0a0a09;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            left: 35px;
+            background: var(--nz-gold);
+            color: #000;
+            font-size: 0.55rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 4px 12px;
+        }
+
+        .card-head {
+            margin-bottom: 30px;
+        }
+
+        .card-subtitle {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--nz-gold);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .card-head h3 {
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .card-tagline {
+            font-size: 0.8rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 35px 0;
+            border-top: 1px solid #151515;
+            padding-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .package-features li {
+            font-size: 0.8rem;
+            color: #888;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .package-features li strong {
+            color: #ddd;
+            font-weight: 500;
+        }
+
+        .package-features li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: var(--nz-gold);
+            font-size: 0.75rem;
+        }
+
+        .tier-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 16px 20px;
+            border: 1px solid #2a2a2a;
+            color: #ccc;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.7rem;
+            transition: all 0.3s ease;
+        }
+
+        .tier-btn:hover {
+            border-color: var(--nz-gold);
+            color: var(--nz-gold);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .tier-btn.featured-btn {
+            background: var(--nz-gold);
+            color: #000;
+            font-weight: 600;
+            border-color: var(--nz-gold);
+        }
+
+        .tier-btn.featured-btn:hover {
+            opacity: 0.9;
+            background: #e5bd3d;
+            color: #000;
+        }
+
+        /* --- SPEC STRIP --- */
+        .package-spec-strip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 25px 35px;
+            background: #050505;
+            border: 1px solid #151515;
+            margin-top: 20px;
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .spec-title {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--nz-gold);
+            font-weight: 600;
+        }
+
+        .spec-desc {
+            font-size: 0.7rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .spec-divider {
+            width: 1px;
+            height: 35px;
+            background: #1c1c1c;
+        }
+
+        @media (max-width: 950px) {
+            .packages-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .package-spec-strip {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .spec-divider {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -365,6 +589,97 @@
             <div class="commission-btn-group">
                 <a href="contact.html?service=Architectural+Cinema" class="commission-primary-btn">Start Project Brief →</a>
                 <a href="work.html" class="commission-secondary-btn">Review Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEDICATED REAL ESTATE CINEMA TIERS -->
+    <section class="packages-section" id="real-estate-packages" aria-label="Estate Cinema Production Packages">
+        <div class="packages-header">
+            <span class="p-tag">Transaction &amp; Acquisition Assets</span>
+            <h2>Estate Cinema Commission Tiers</h2>
+            <p>
+                Motion assets engineered for multi-million dollar residential transactions, press distribution, and qualified buyer discovery across Westchester County and the Hudson River corridor.
+            </p>
+        </div>
+
+        <div class="packages-grid">
+
+            <!-- Tier 1: The Listing Release -->
+            <div class="package-card">
+                <div class="card-head">
+                    <span class="card-subtitle">Market Entry Suite</span>
+                    <h3>The Listing Release</h3>
+                    <p class="card-tagline">Optimized for high-impact MLS debuts and verified broker syndicate channels.</p>
+                </div>
+                <ul class="package-features">
+                    <li><strong>Single-Day Cinema Production:</strong> Full interior &amp; exterior capture.</li>
+                    <li><strong>FAA Part 107 Drone Passes:</strong> Boundary lines, approach, and elevation vistas.</li>
+                    <li><strong>2–3 Minute Master Film:</strong> 4K ProRes calibrated color delivery.</li>
+                    <li><strong>Syndication Formats:</strong> MLS-compliant unbranded cut + branded website master.</li>
+                    <li><strong>Turnaround:</strong> 72 hours from final shoot wrap.</li>
+                </ul>
+                <div class="package-cta">
+                    <a href="contact.html?service=Architectural+Cinema" class="tier-btn">Commission Release &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Tier 2: The Signature Compound (Featured) -->
+            <div class="package-card featured">
+                <div class="featured-badge">Premier Placement</div>
+                <div class="card-head">
+                    <span class="card-subtitle">Equestrian &amp; Acreage Estates</span>
+                    <h3>The Signature Compound</h3>
+                    <p class="card-tagline">Comprehensive multi-acre spatial and lifestyle documentation for bespoke compounds.</p>
+                </div>
+                <ul class="package-features">
+                    <li><strong>Diurnal Multi-Flight Ops:</strong> Dawn, afternoon, and twilight golden-hour passes.</li>
+                    <li><strong>Architectural Motion Rig:</strong> Steadicam &amp; slow-pacing interior gimbal passes.</li>
+                    <li><strong>3–5 Minute Signature Film:</strong> Scored sound design &amp; narrative pacing.</li>
+                    <li><strong>High-Net-Worth Social Suite:</strong> 3x 9:16 vertical cuts for Instagram &amp; LinkedIn.</li>
+                    <li><strong>Turnaround:</strong> Priority 48-hour delivery window available.</li>
+                </ul>
+                <div class="package-cta">
+                    <a href="contact.html?service=Architectural+Cinema" class="tier-btn featured-btn">Commission Signature &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Tier 3: The Archival Portfolio -->
+            <div class="package-card">
+                <div class="card-head">
+                    <span class="card-subtitle">Architects, Developers &amp; Historic Trusts</span>
+                    <h3>The Archival Portfolio</h3>
+                    <p class="card-tagline">Permanent documentation for legacy estates, landmark restoration, and awards submission.</p>
+                </div>
+                <ul class="package-features">
+                    <li><strong>Multi-Day Production Window:</strong> Full seasonal or restoration time-slice.</li>
+                    <li><strong>HPC-Aligned Documentation:</strong> Meets historic commission preservation standards.</li>
+                    <li><strong>Raw Cinema Deliverables:</strong> 6K Blackmagic Raw / Log footage master archive.</li>
+                    <li><strong>Monograph Stills Package:</strong> High-resolution extracted cinema frames for print.</li>
+                    <li><strong>Principal-Led Direction:</strong> Direct oversight from Omar Greene.</li>
+                </ul>
+                <div class="package-cta">
+                    <a href="contact.html?service=Architectural+Cinema" class="tier-btn">Scope Archival &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Turnaround & Spec Guarantee Bar -->
+        <div class="package-spec-strip">
+            <div class="spec-item">
+                <span class="spec-title">Compliance Guaranteed</span>
+                <span class="spec-desc">FAA Part 107 Remote Pilot &amp; HPN / LaGuardia Airspace Authorization</span>
+            </div>
+            <div class="spec-divider" aria-hidden="true"></div>
+            <div class="spec-item">
+                <span class="spec-title">Format Agnostic</span>
+                <span class="spec-desc">Delivery ready for Zillow, Realtor.com, Wall Street Journal, and 4K Cinema</span>
+            </div>
+            <div class="spec-divider" aria-hidden="true"></div>
+            <div class="spec-item">
+                <span class="spec-title">Broker Privacy</span>
+                <span class="spec-desc">Discreet, non-intrusive on-location presence with NDA security protocols</span>
             </div>
         </div>
     </section>
