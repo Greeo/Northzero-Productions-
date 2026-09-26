@@ -361,6 +361,12 @@
             .t-track        { min-height: 380px; }
             .success-card   { padding: 40px 20px; }
         }
+
+        @media screen and (max-width: 768px) {
+            input, select, textarea {
+                font-size: 16px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -537,16 +543,36 @@
                 </div>
             </div>
 
-            <div class="form-group full-width">
-                <label for="field-brief">Project Brief &amp; Objectives</label>
-                <textarea
-                    id="field-brief"
-                    name="brief"
-                    rows="5"
-                    placeholder="Briefly describe the property, product, or institutional vision — and what you need this production to accomplish..."
-                ></textarea>
+           <div class="form-group full-width">
+                <label>Production Scope Required *</label>
+                <div class="service-cards" role="radiogroup" aria-label="Select a service">
+                    <div class="service-card">
+                        <input type="radio" name="service" id="svc-arch" value="Architectural Cinema">
+                        <label for="svc-arch">
+                            <span class="card-title">Architectural Cinema</span>
+                            <span class="card-desc">Estate cinema tiers, historic properties, aerial mapping &amp; spatial walkthroughs.</span>
+                        </label>
+                    </div>
+                    <div class="service-card">
+                        <input type="radio" name="service" id="svc-auth" value="Authority Suite">
+                        <label for="svc-auth">
+                            <span class="card-title">Authority Suite</span>
+                            <span class="card-desc">HPC compliance films, municipal visual briefs, capital projects &amp; grant submissions.</span>
+                        </label>
+                    </div>
+                    <div class="service-card">
+                        <input type="radio" name="service" id="svc-tact" value="Tactile Narratives">
+                        <label for="svc-tact">
+                            <span class="card-title">Tactile Narratives</span>
+                            <span class="card-desc">Product cinematography, atelier &amp; craft documentaries, luxury retail assets.</span>
+                        </label>
+                    </div>
+                </div>
             </div>
-
+            
+            <!-- Formspree Anti-Bot Honeypot -->
+            <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+            
             <button type="submit" class="submit-btn" id="submit-btn">Submit Production Brief</button>
             <p id="form-status" role="status" aria-live="polite"></p>
             <p class="review-guarantee">
@@ -724,7 +750,7 @@
                         successCard.style.display = 'block';
                         successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }, 400);
-        
+
                     let timeLeft = 6;
                     countdown = setInterval(() => {
                         timeLeft -= 1;
@@ -735,14 +761,14 @@
                             window.location.href = CALENDLY_URL;
                         }
                     }, 1000);
-        
+
                 } else {
-                    status.textContent = 'Submission error. Please email directly.';
+                    status.innerHTML = 'Transmission issue. <a href="' + CALENDLY_URL + '" target="_blank" style="color:var(--nz-gold);text-decoration:underline;">Click here to book a call directly via Calendly &rarr;</a>';
                     status.style.color = '#e05555';
                     btn.disabled = false;
                 }
             } catch (err) {
-                status.textContent = 'Connection interrupted. Please try again.';
+                status.innerHTML = 'Network interrupted. <a href="' + CALENDLY_URL + '" target="_blank" style="color:var(--nz-gold);text-decoration:underline;">Click here to book a call directly via Calendly &rarr;</a>';
                 status.style.color = '#e05555';
                 btn.disabled = false;
             }
