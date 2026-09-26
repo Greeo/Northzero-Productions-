@@ -97,7 +97,7 @@
             background-color: #000;
         }
 
-        /* --- HERO --- */
+        /* --- HERO & VIDEO BACKGROUND --- */
         .hero {
             height: 75vh;
             min-height: 520px;
@@ -108,42 +108,53 @@
             justify-content: center;
             text-align: center;
             border-bottom: 1px solid #111;
+            background: #000;
         }
 
         .video-background {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -2; pointer-events: none; overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Sits above the black background */
+            pointer-events: none;
+            overflow: hidden;
         }
 
         #yt-player {
-            position: absolute; top: 50%; left: 50%;
-            width: 100vw; height: 56.25vw;
-            min-height: 100vh; min-width: 177.77vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw; /* 16:9 aspect ratio */
+            min-height: 100vh;
+            min-width: 177.77vh;
             transform: translate(-50%, -50%);
+            border: none;
+            pointer-events: none;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 2; /* Sits directly over the video */
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3; /* Sits cleanly on top of the overlay */
+            padding: 0 20px;
         }
 
         @media (prefers-reduced-motion: reduce) {
             .video-background { display: none; }
             .hero { background: #0a0a0a; }
-        }
-
-        .hero-overlay {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(10,10,10,0.65); z-index: -1;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            text-transform: uppercase; letter-spacing: 15px;
-            color: #fff; font-weight: 900; margin-bottom: 10px;
-            line-height: 1.15;
-        }
-        .hero-content p {
-            font-size: 0.85rem; text-transform: uppercase;
-            letter-spacing: 6px; color: var(--nz-gold);
-            font-weight: 500;
         }
 
         /* --- MANIFESTO --- */
@@ -532,7 +543,14 @@
     <main id="main-content">
         <section class="hero" aria-label="Northzero Productions showreel">
             <div class="video-background" aria-hidden="true">
-                <div id="yt-player"></div>
+                <iframe 
+                    id="yt-player" 
+                    src="https://www.youtube-nocookie.com/embed/AVN2N2hopGk?autoplay=1&mute=1&controls=0&loop=1&playlist=AVN2N2hopGk&playsinline=1&rel=0&showinfo=0&modestbranding=1&enablejsapi=1" 
+                    title="Northzero Background Reel"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
             <div class="hero-overlay" aria-hidden="true"></div>
             <div class="hero-content">
@@ -687,52 +705,5 @@
     <!-- 1. Deferred main navigation logic -->
     <script src="nav.js?v=2.1" defer></script>
 
-    <!-- 2. Bulletproof YouTube Background Player -->
-    <script>
-        (function() {
-            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (prefersReduced) return;
-
-            // 1. Explicitly attach to global window scope so YouTube API can always find it
-            window.onYouTubeIframeAPIReady = function() {
-                window.ytPlayer = new YT.Player('yt-player', {
-                    videoId: 'AVN2N2hopGk',
-                    playerVars: {
-                        autoplay: 1,
-                        controls: 0,
-                        showinfo: 0,
-                        rel: 0,
-                        loop: 1,
-                        playlist: 'AVN2N2hopGk',
-                        mute: 1,
-                        playsinline: 1,
-                        modestbranding: 1,
-                        iv_load_policy: 3,
-                        disablekb: 1,
-                        origin: window.location.origin
-                    },
-                    events: {
-                        onReady: function(event) {
-                            // Hardware mute required by Chrome/Safari before autoplay trigger
-                            event.target.mute();
-                            event.target.playVideo();
-                        },
-                        onStateChange: function(event) {
-                            // Ensure seamless loop when video ends
-                            if (event.data === YT.PlayerState.ENDED) {
-                                event.target.playVideo();
-                            }
-                        }
-                    }
-                });
-            };
-
-            // 2. Load API only after window finishes initial parse
-            const tag = document.createElement('script');
-            tag.src = "https://www.youtube.com/iframe_api";
-            const firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        })();
-    </script>
 </body>
 </html>
