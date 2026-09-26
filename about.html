@@ -687,39 +687,52 @@
     <!-- 1. Deferred main navigation logic -->
     <script src="nav.js?v=2.1" defer></script>
 
-    <!-- 2. Lightweight, conditionally loaded YouTube background player -->
+    <!-- 2. Bulletproof YouTube Background Player -->
     <script>
-        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        let player;
-        function onYouTubeIframeAPIReady() {
+        (function() {
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (prefersReduced) return;
-            player = new YT.Player('yt-player', {
-                videoId: 'AVN2N2hopGk',
-                playerVars: {
-                    autoplay: 1,
-                    controls: 0,
-                    showinfo: 0,
-                    rel: 0,
-                    loop: 1,
-                    playlist: 'AVN2N2hopGk',
-                    mute: 1,
-                    modestbranding: 1,
-                    iv_load_policy: 3,
-                    disablekb: 1
-                },
-                events: { 
-                    onReady: e => e.target.playVideo() 
-                }
-            });
-        }
 
-        if (!prefersReduced) {
+            // 1. Explicitly attach to global window scope so YouTube API can always find it
+            window.onYouTubeIframeAPIReady = function() {
+                window.ytPlayer = new YT.Player('yt-player', {
+                    videoId: 'AVN2N2hopGk',
+                    playerVars: {
+                        autoplay: 1,
+                        controls: 0,
+                        showinfo: 0,
+                        rel: 0,
+                        loop: 1,
+                        playlist: 'AVN2N2hopGk',
+                        mute: 1,
+                        playsinline: 1,
+                        modestbranding: 1,
+                        iv_load_policy: 3,
+                        disablekb: 1,
+                        origin: window.location.origin
+                    },
+                    events: {
+                        onReady: function(event) {
+                            // Hardware mute required by Chrome/Safari before autoplay trigger
+                            event.target.mute();
+                            event.target.playVideo();
+                        },
+                        onStateChange: function(event) {
+                            // Ensure seamless loop when video ends
+                            if (event.data === YT.PlayerState.ENDED) {
+                                event.target.playVideo();
+                            }
+                        }
+                    }
+                });
+            };
+
+            // 2. Load API only after window finishes initial parse
             const tag = document.createElement('script');
             tag.src = "https://www.youtube.com/iframe_api";
-            tag.async = true;
-            document.head.appendChild(tag);
-        }
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        })();
     </script>
 </body>
 </html>
