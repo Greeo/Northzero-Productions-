@@ -145,3 +145,19 @@ If you are adding images directly into an article file (like `journal/why-luxury
 ```
 
 *(No need for `../assets`—the root `/` will work universally across every page and folder).*
+
+
+How to Drop In Your Real Headshot / On-Set Photo Later:
+When you have the authentic photo of yourself on set or operating the rig ready:
+Save it in your root directory as omar-greene.jpg (or in assets/images/omar-greene.webp).
+Simply change the src to omar-greene.jpg:
+HTML
+<img
+    src="omar-greene.jpg"
+    alt="Omar A. Greene on location — Northzero Productions"
+    loading="lazy"
+    decoding="async"
+    width="360"
+    height="500"
+>
+The updated block above will load cleanly immediately—no broken image icon, no failed script callbacks, and with the architectural cove lighting active.
