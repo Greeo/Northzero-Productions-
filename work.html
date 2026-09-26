@@ -25,7 +25,8 @@
 
     <style>
         :root {
-            --nz-gold: #d4af37;
+            --nz-gold: #dfa837;
+            --nz-gold-glow: rgba(223, 168, 55, 0.16);
             --nz-blue: #0047ab;
             --nav-height: 80px;
         }
@@ -73,33 +74,41 @@
             font-weight: 300;
         }
 
+        /* --- FILTER BAR --- */
         .filter-container { 
             text-align: center; 
-            margin: 40px 0 50px; 
+            margin: 30px 0 50px; 
             padding: 0 20px; 
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .filter-btn {
             background: #080808; 
-            border: 1px solid #1a1a1a; 
-            color: #777; 
+            border: 1px solid #1c2028; 
+            color: #888e9b; 
             text-transform: uppercase;
             letter-spacing: 2.5px; 
-            font-size: 0.68rem; 
-            padding: 10px 22px;
+            font-size: 0.7rem; 
+            padding: 12px 24px;
             cursor: pointer; 
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             font-weight: 600;
+            border-radius: 4px;
         }
 
-        .filter-btn.active, .filter-btn:hover { 
+        .filter-btn:hover { 
             border-color: var(--nz-gold); 
-            color: #000; 
+            color: var(--nz-gold); 
+        }
+
+        .filter-btn.active { 
+            border-color: var(--nz-gold); 
+            color: #0b0c10; 
             background: var(--nz-gold); 
+            box-shadow: 0 0 20px rgba(223, 168, 55, 0.3);
         }
 
         /* --- BENTO GRID WITH ARCHITECTURAL EDGES --- */
@@ -119,7 +128,8 @@
             overflow: hidden; 
             cursor: pointer;
             border: 1px solid #1a1a1a;
-            transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+            border-radius: 6px;
+            transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
         }
 
         .work-item:hover {
@@ -127,21 +137,20 @@
             transform: translateY(-4px);
         }
 
-        /* FEATURED MONOLITH GRAZE: THE MODERN ESTATE */
         .work-item.featured { 
             grid-column: span 4; 
             grid-row: span 2; 
             border-color: #222630;
             box-shadow: 
-                0 0 0 1px rgba(212, 175, 55, 0.15),
+                0 0 0 1px rgba(223, 168, 55, 0.15),
                 0 20px 45px -15px rgba(0, 0, 0, 0.9);
         }
 
         .work-item.featured:hover {
             border-color: var(--nz-gold);
             box-shadow: 
-                0 0 0 1px rgba(212, 175, 55, 0.4),
-                0 25px 60px -15px rgba(212, 175, 55, 0.15),
+                0 0 0 1px rgba(223, 168, 55, 0.4),
+                0 25px 60px -15px rgba(223, 168, 55, 0.15),
                 0 35px 80px -20px rgba(0, 0, 0, 0.95);
         }
 
@@ -151,12 +160,12 @@
 
         .work-item img {
             width: 100%; height: 100%; object-fit: cover;
-            filter: grayscale(0.4) brightness(0.75);
-            transition: filter 0.6s ease, transform 0.6s ease;
+            filter: grayscale(0.2) brightness(0.8);
+            transition: filter 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .work-item:hover img { 
-            filter: grayscale(0) brightness(0.95); 
+            filter: grayscale(0) brightness(0.98); 
             transform: scale(1.04); 
         }
 
@@ -169,6 +178,7 @@
             border-radius: 50%;
             border: 1px solid var(--nz-gold);
             background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -200,9 +210,11 @@
             right: 25px;
             background: rgba(5, 5, 5, 0.88);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 20px 24px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-left: 3px solid var(--nz-gold);
+            border-radius: 3px;
             z-index: 5;
             transition: transform 0.4s ease, border-color 0.3s ease;
         }
@@ -212,7 +224,7 @@
             letter-spacing: 2px; 
             font-size: 1.05rem; 
             color: #fff; 
-            margin-bottom: 6px; 
+            margin: 0 0 6px 0; 
             font-weight: 700;
         }
 
@@ -245,6 +257,7 @@
             backdrop-filter: blur(8px);
             overflow-y: auto;
             padding: 60px 20px 80px;
+            box-sizing: border-box;
         }
         
         .lightbox.is-open { 
@@ -259,39 +272,21 @@
             max-width: 1100px;
             background: #060606;
             border: 1px solid #1c2028;
+            border-radius: 8px;
             margin: auto;
-
-            /* Concealed fixture graze + warm plinth floor spill */
             box-shadow: 
-                0 -1px 0 0 rgba(212, 175, 55, 0.45),
-                0 -30px 60px -10px rgba(212, 175, 55, 0.14),
+                0 -1px 0 0 rgba(223, 168, 55, 0.45),
+                0 -30px 60px -10px rgba(223, 168, 55, 0.14),
                 0 40px 90px -20px rgba(0, 0, 0, 0.98),
-                0 25px 50px -10px rgba(212, 175, 55, 0.1);
-        }
-
-        /* Linear reveal wash behind the case study modal */
-        .lightbox-content::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: 15%;
-            width: 70%;
-            height: 140px;
-            background: radial-gradient(
-                ellipse at top, 
-                rgba(212, 175, 55, 0.15) 0%, 
-                rgba(212, 175, 55, 0.03) 50%, 
-                transparent 75%
-            );
-            filter: blur(15px);
-            pointer-events: none;
-            z-index: -1;
+                0 25px 50px -10px rgba(223, 168, 55, 0.1);
         }
 
         .video-player-container {
             width: 100%;
             aspect-ratio: 16 / 9;
             background: #000;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
         }
 
         .video-player-container iframe { 
@@ -313,11 +308,11 @@
         
         .close-lightbox:hover { color: #fff; }
 
-        /* Case Study Details inside Modal */
         .case-study-details {
             padding: 40px;
             border-top: 1px solid #1a1a1a;
             background: #060606;
+            border-radius: 0 0 8px 8px;
         }
 
         .cs-header {
@@ -360,6 +355,7 @@
             text-transform: uppercase;
             text-decoration: none;
             font-weight: 600;
+            border-radius: 4px;
             transition: 0.3s ease;
         }
 
@@ -379,7 +375,7 @@
             font-size: 0.62rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #555;
+            color: #666;
             display: block;
             margin-bottom: 6px;
             font-weight: 700;
@@ -406,7 +402,7 @@
             aspect-ratio: 16 / 9;
             object-fit: cover;
             border: 1px solid #1a1a1a;
-            filter: contrast(1.05);
+            border-radius: 3px;
         }
 
         /* --- TESTIMONIAL CAROUSEL --- */
@@ -556,6 +552,7 @@
             text-transform: uppercase;
             text-decoration: none;
             font-weight: 600;
+            border-radius: 4px;
             transition: 0.3s ease;
         }
         
@@ -575,6 +572,7 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             text-decoration: none;
+            border-radius: 4px;
             transition: 0.3s ease;
         }
         
@@ -599,7 +597,7 @@
         @media (max-width: 768px) {
             .work-grid        { display: flex; flex-direction: column; padding: 0 20px 80px; }
             .work-item        { height: 320px; margin-bottom: 12px; }
-            .portfolio-header { padding-top: 40px; }
+            .portfolio-header { padding-top: calc(var(--nav-height) + 20px); }
             .case-study-details { padding: 25px 20px; }
             .cs-stills-strip  { grid-template-columns: 1fr; }
             .t-quote          { padding-left: 20px; }
@@ -614,6 +612,7 @@
 </head>
 <body>
 
+    <!-- Main Navigation Bar -->
     <nav class="nz-nav" role="navigation" aria-label="Main navigation">
         <a href="index.html" class="logo-link" aria-label="Northzero Productions — home">
             <div class="compass-box" aria-hidden="true"><div class="needle"></div></div>
@@ -666,82 +665,54 @@
             <p>Luxury product cinematography, architectural cinema, and institutional visual strategy across Westchester County, the Hudson Valley, and the Tri-State region.</p>
         </section>
 
-        <div class="filter-container" role="group" aria-label="Filter works by category">
+        <!-- Filter Controls -->
+        <div class="filter-container">
             <button class="filter-btn active" data-filter="all">All Disciplines</button>
             <button class="filter-btn" data-filter="estate">Architectural &amp; Estate</button>
-            <button class="filter-btn" data-filter="tactile">Tactile &amp; Craft</button>
-            <button class="filter-btn" data-filter="authority">Authority &amp; Public Trust</button>
+            <button class="filter-btn" data-filter="commercial">Commercial &amp; Culinary</button>
+            <button class="filter-btn" data-filter="tactile">Tactile Narratives</button>
+            <button class="filter-btn" data-filter="authority">Authority Suite</button>
         </div>
 
-        <div class="work-grid" id="workGrid" aria-label="Portfolio grid"></div>
+        <!-- Bento Grid Generated by JS -->
+        <section class="work-grid" id="workGrid" aria-label="Portfolio projects"></section>
 
-        <!-- Lightbox with Integrated Case Study Drawer -->
-        <div
-            id="videoLightbox"
-            class="lightbox"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Video player &amp; case study"
-        >
-            <div class="lightbox-content">
-                <button class="close-lightbox" id="closeLightbox" aria-label="Close modal">&times;</button>
-                <div class="video-player-container" id="videoPlayerFrame"></div>
-                <div class="case-study-details" id="caseStudyDrawer"></div>
-            </div>
-        </div>
-
-        <!-- Testimonial Carousel -->
+        <!-- Testimonials Section -->
         <section class="testimonial-section" aria-label="Client testimonials">
             <div class="testimonial-header">
-                <span class="t-label">Client Voices</span>
-                <h2>What Clients Say</h2>
+                <span class="t-label">Client Endorsements</span>
+                <h2>Industry Trust</h2>
             </div>
 
-            <div class="t-carousel" id="t-carousel-work">
-                <div class="t-track" id="t-track-work" aria-live="polite" aria-atomic="true">
-
-                    <div class="t-slide active" role="group" aria-label="Testimonial 1 of 3">
+            <div class="t-carousel">
+                <div class="t-track" id="t-track-work">
+                    <div class="t-slide active">
                         <div class="t-quote">
-                            <p>"The documentation Northzero produced for our landmark submission was unlike anything we'd seen from a production company. They understood the HPC process from the inside — the result was approved without revision."</p>
+                            <p>&ldquo;Northzero translated our residential architecture into a moving work of art. The precision of daylight capture and cove lighting studies elevated our entire multi-million dollar portfolio.&rdquo;</p>
                         </div>
                         <div class="t-attribution">
-                            <div class="t-avatar" aria-hidden="true">JR</div>
+                            <div class="t-avatar">MR</div>
                             <div class="t-meta">
-                                <span class="t-name">J. Reynolds</span>
-                                <span class="t-role">Principal, Reynolds Heritage Developers</span>
-                                <span class="t-service">Authority Suite</span>
+                                <span class="t-name">Marcus Reed</span>
+                                <span class="t-role">Principal Architect &middot; Hudson Modern</span>
+                                <span class="t-service">Architectural Cinema Scope</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="t-slide" role="group" aria-label="Testimonial 2 of 3">
+                    <div class="t-slide">
                         <div class="t-quote">
-                            <p>"We listed the estate at $4.2M. The cinematic walkthrough Omar produced repositioned it entirely — the quality of enquiry changed overnight. It sold in 11 days."</p>
+                            <p>&ldquo;The culinary vignette produced for our brand captured the heat, color, and texture of our sofrito with unbelievable detail. Direct conversion driver for our regional rollout.&rdquo;</p>
                         </div>
                         <div class="t-attribution">
-                            <div class="t-avatar" aria-hidden="true">MC</div>
+                            <div class="t-avatar">DM</div>
                             <div class="t-meta">
-                                <span class="t-name">M. Castellano</span>
-                                <span class="t-role">Senior Associate, Hudson Valley Realty Group</span>
-                                <span class="t-service">Architectural Cinema</span>
+                                <span class="t-name">DMJ Culinary Group</span>
+                                <span class="t-role">Founding Director</span>
+                                <span class="t-service">Commercial Culinary Vignette</span>
                             </div>
                         </div>
                     </div>
-
-                    <div class="t-slide" role="group" aria-label="Testimonial 3 of 3">
-                        <div class="t-quote">
-                            <p>"The tactile film Northzero produced for our leather goods launch became the centrepiece of our entire campaign. It conveyed craftsmanship in a way photography never could."</p>
-                        </div>
-                        <div class="t-attribution">
-                            <div class="t-avatar" aria-hidden="true">AS</div>
-                            <div class="t-meta">
-                                <span class="t-name">A. Sterling</span>
-                                <span class="t-role">Creative Director, Sterling Goods Co.</span>
-                                <span class="t-service">Tactile Narratives</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
                 <div class="t-controls">
@@ -772,6 +743,15 @@
         </section>
     </main>
 
+    <!-- ARCHITECTURAL COVE LIGHTBOX MODAL -->
+    <div class="lightbox" id="videoLightbox" role="dialog" aria-modal="true" aria-label="Cinema player &amp; case study drawer">
+        <div class="lightbox-content">
+            <button class="close-lightbox" id="closeLightbox" aria-label="Close modal">&times;</button>
+            <div class="video-player-container" id="videoPlayerFrame"></div>
+            <div class="case-study-details" id="caseStudyDrawer"></div>
+        </div>
+    </div>
+
     <footer style="padding: 60px 5%; text-align: center; border-top: 1px solid #111; background: #000;">
         <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 25px;">
             <a href="westchester.html" style="color: #666; text-decoration: none; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; transition: color 0.3s;" onmouseover="this.style.color='var(--nz-gold)'" onmouseout="this.style.color='#666'">
@@ -798,11 +778,29 @@
         // --- Project Data with Expanded Case-Study Specs & Stills ---
         const projects = [
             { 
+                id: '6s24MSYLMQA', 
+                title: 'Cooking With DMJ Sofrito',  
+                category: 'commercial',        
+                type: 'Commercial & Culinary',  
+                layout: 'featured',
+                desc: 'Macro culinary cinema, natural color grade, and sensory movement for regional brand distribution.',
+                serviceQuery: 'Tactile+Narratives',
+                client: 'DMJ Sofrito',
+                challenge: 'Visualizing fresh aromatic ingredients, sizzle dynamics, and culinary process in high-definition motion.',
+                scope: 'Commercial Kitchen Stage, Probe Cinema Macro Lenses, High Frame Rate Motion, Precision Color Timing',
+                deliverables: '1x Brand Vignette (Master 4K), Social E-Commerce Cuts, High-Res Product Stills',
+                stills: [
+                    'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800',
+                    'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800',
+                    'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=800'
+                ]
+            },
+            { 
                 id: 'AVN2N2hopGk', 
                 title: 'The Modern Estate',  
                 category: 'estate',        
                 type: 'Architectural Cinema',  
-                layout: 'featured',
+                layout: 'tall',
                 desc: '4K aerial & spatial interior cinema for a multi-acre Hudson River estate.',
                 serviceQuery: 'Architectural+Cinema',
                 client: 'Luxury Residential & Brokerage Syndicate',
@@ -819,8 +817,8 @@
                 id: 'xOAFWcR3esw', 
                 title: 'Adrienne Fashion', 
                 category: 'tactile',       
-                type: 'Tactile Narrative',      
-                layout: 'tall',
+                type: 'Tactile Narrative',     
+                layout: 'wide',
                 desc: 'Textile-focus campaign and natural-light motion study for luxury ready-to-wear.',
                 serviceQuery: 'Tactile+Narratives',
                 client: 'Adrienne Luxury Apparel',
@@ -837,12 +835,12 @@
                 id: '4c1LY4C5K-A', 
                 title: 'Housing Plus', 
                 category: 'authority',       
-                type: 'Authority Narrative',      
-                layout: 'wide',
+                type: 'Authority Narrative',     
+                layout: 'standard',
                 desc: 'Institutional documentary and public-trust visual assets for civic development.',
                 serviceQuery: 'Authority+Suite',
                 client: 'Regional Civic Housing Alliance',
-                challenge: 'Communicating civic impact and regulatory compliance to secure municipal municipal board approvals and grant capital.',
+                challenge: 'Communicating civic impact and regulatory compliance to secure municipal board approvals and grant capital.',
                 scope: 'Multi-Stakeholder On-Location Interviews, Archival B-Roll Integration, Legal Compliance Review',
                 deliverables: '1x Institutional Case Film (5:00), Hearing Presentation Package, Executive Soundbites',
                 stills: [
@@ -855,7 +853,7 @@
                 id: 'ONyk8VokO2k', 
                 title: 'Design & Texture',   
                 category: 'tactile',       
-                type: 'Macro Study',            
+                type: 'Macro Study',             
                 layout: 'standard',
                 desc: 'Close-focus material cinematography highlighting fine tactile finishing.',
                 serviceQuery: 'Tactile+Narratives',
@@ -870,31 +868,13 @@
                 ]
             },
             { 
-                id: 'QshtoadJsac', 
-                title: 'Culinary Craft',   
-                category: 'tactile',       
-                type: 'Artisan Study',            
-                layout: 'standard',
-                desc: 'Atmospheric process documentation capturing texture, heat, and plating.',
-                serviceQuery: 'Tactile+Narratives',
-                client: 'Hudson Valley Hospitality Collective',
-                challenge: 'Depicting temperature, kinetic preparation, and sensory craft in low-light ambient dining environments.',
-                scope: 'Kitchen Floor Cinema, Natural Sound Foley Recording, High-Contrast Grade',
-                deliverables: '1x Chef Profile, Social Campaign Cuts, Restaurant Sizzle Loop',
-                stills: [
-                    'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800',
-                    'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800',
-                    'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=800'
-                ]
-            },
-            { 
                 id: 'UV3Lvew15fs', 
                 title: 'Visual Rhythm',      
-                category: 'tactile',       
-                type: 'Production Design',      
+                category: 'estate',       
+                type: 'Lighting Architecture',       
                 layout: 'standard',
                 desc: 'Choreographed studio lighting and architectural form in motion.',
-                serviceQuery: 'Tactile+Narratives',
+                serviceQuery: 'Architectural+Cinema',
                 client: 'Architectural Lighting Guild',
                 challenge: 'Visualizing dynamic lux output, photometric falloff, and luminaire construction in motion.',
                 scope: 'Black-Box Soundstage, Motorized Slider Control, Precision Dimmer Synchronization',
@@ -903,24 +883,6 @@
                     'https://images.unsplash.com/photo-1507499739999-097706ad8914?q=80&w=800',
                     'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800',
                     'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800'
-                ]
-            },
-            { 
-                id: 'U_s0PDP123c', 
-                title: 'Global Tech',        
-                category: 'authority', 
-                type: 'Institutional Strategy', 
-                layout: 'wide',
-                desc: 'Executive brand anthem and compliance-reviewed enterprise profile.',
-                serviceQuery: 'Authority+Suite',
-                client: 'Enterprise Software Corporation',
-                challenge: 'Translating intangible abstract digital platforms into human, executive-level market authority.',
-                scope: 'Executive Profiling, On-Location Facility Capture, Motion Graphics Integration',
-                deliverables: '1x Investor Keynote Anthem, 4x Department Spotlights',
-                stills: [
-                    'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800',
-                    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800',
-                    'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=800'
                 ]
             }
         ];
@@ -940,7 +902,7 @@
                 item.setAttribute('aria-label', `View case study & film: ${p.title} (${p.type})`);
 
                 const img = document.createElement('img');
-                img.src = `https://img.youtube.com/vi/${p.id}/maxresdefault.jpg`;
+                img.src = `https://img.youtube.com/vi/${p.id}/hqdefault.jpg`;
                 img.alt = `${p.title} — ${p.type} by Northzero Productions`;
                 img.loading = 'lazy';
 
@@ -1005,8 +967,8 @@
             lastFocused = document.activeElement;
             
             const iframe = document.createElement('iframe');
-            iframe.src = `https://www.youtube.com/embed/${project.id}?autoplay=1&rel=0&modestbranding=1`;
-            iframe.allow = 'autoplay; fullscreen';
+            iframe.src = `https://www.youtube-nocookie.com/embed/${project.id}?autoplay=1&rel=0&modestbranding=1`;
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
             iframe.allowFullscreen = true;
             iframe.title = `${project.title} — Northzero Cinema Production`;
             playerFrame.innerHTML = '';
@@ -1132,7 +1094,7 @@
             }
         }());
 
-        // --- Initialize Gallery ---
+        // --- Run Initial Gallery Render ---
         renderGallery();
     </script>
 </body>
