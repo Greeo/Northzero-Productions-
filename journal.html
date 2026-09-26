@@ -176,6 +176,19 @@
             transform: scale(1.03);
         }
 
+        /* Ensure non-featured card images render cleanly */
+        .article-card:not(.featured) .article-image {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .article-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
         /* Empty state — shown when no posts match filter */
         .journal-empty {
             grid-column: 1 / -1;
@@ -199,6 +212,24 @@
             .article-card { padding: 40px 5%; }
         }
     </style>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "The Journal | Northzero Productions",
+      "description": "Technical insights on architectural cinema, historic preservation standards, and tactile product cinematography.",
+      "url": "https://northzeroproductions.com/journal.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Northzero Productions",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://northzeroproductions.com/og-image.jpg"
+        }
+      }
+    }
+    </script>
 </head>
 <body>
 
@@ -258,29 +289,27 @@
 
         <div class="journal-grid" id="journalGrid" aria-label="Articles">
 
-            <!-- ARTICLE 1 — Featured (Tactile / Product Brands) -->
+            <!-- ARTICLE 1 — Featured (Tactile Narratives) -->
             <a href="journal/why-luxury-brands-need-film.html"
                class="article-card featured"
                data-category="tactile"
                aria-label="Read: Why Luxury Brands Need Film, Not Photography">
                 <div>
-                    <span class="article-tag">Tactile Narratives</span>
+                    <span class="article-tag">Tactile Narratives · Materiality</span>
                     <p class="article-date" style="margin-top: 20px;">April 2026 · 8 min read</p>
                     <h2 class="article-title" style="margin-top: 15px;">
                         Why Luxury Brands Need Film, Not Photography
                     </h2>
                     <p class="article-excerpt" style="margin-top: 20px;">
-                        Photography shows what a product looks like. Film shows what it feels like.
-                        For luxury brands competing in a saturated visual landscape, the difference
-                        between the two is the difference between interest and desire.
+                        Photography captures surface aesthetics. Cinema communicates physical weight, finish, and tactile craft. In saturated luxury markets, macro optics and kinetic lighting bridge the gap between interest and commercial desire.
                     </p>
-                    <span class="article-read-more" style="margin-top: 30px; display: block;">Read Article →</span>
+                    <span class="article-read-more" style="margin-top: 30px; display: block;">Read Field Brief &rarr;</span>
                 </div>
                 <div class="article-image">
                     <img
                         src="https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=1200&q=80"
-                        alt="Close-up macro shot of luxury leather texture"
-                        loading="lazy"
+                        alt="Macro cinematography study of luxury leather texture and stitching"
+                        loading="eager"
                     >
                 </div>
             </a>
@@ -290,14 +319,22 @@
                class="article-card"
                data-category="architectural"
                aria-label="Read: Why Estate Listings Need Cinema, Not Walkthroughs">
-                <span class="article-tag">Architectural Cinema</span>
-                <p class="article-date">March 2026 · 6 min read</p>
-                <h2 class="article-title">Why Estate Listings Need Cinema, Not Walkthroughs</h2>
-                <p class="article-excerpt">
-                    A virtual walkthrough shows rooms. Architectural cinema communicates value.
-                    Here's why the distinction matters at the top end of the Westchester market.
-                </p>
-                <span class="article-read-more">Read Article →</span>
+                <div class="article-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+                        alt="Modern architectural estate at twilight in Westchester County"
+                        loading="lazy"
+                    >
+                </div>
+                <div>
+                    <span class="article-tag">Architectural Cinema</span>
+                    <p class="article-date" style="margin-top: 15px;">March 2026 · 6 min read</p>
+                    <h2 class="article-title" style="margin-top: 10px;">Why Estate Listings Need Cinema, Not Walkthroughs</h2>
+                    <p class="article-excerpt" style="margin-top: 12px;">
+                        A virtual walkthrough displays floorplans. Deliberate 24fps spatial pacing and twilight optics command premium valuation for luxury compounds across Westchester and the Hudson Valley.
+                    </p>
+                    <span class="article-read-more" style="margin-top: 20px; display: block;">Read Field Brief &rarr;</span>
+                </div>
             </a>
 
             <!-- ARTICLE 3 — Authority Suite -->
@@ -305,47 +342,73 @@
                class="article-card"
                data-category="authority"
                aria-label="Read: What HPC Approval Actually Requires From Visual Documentation">
-                <span class="article-tag blue">Authority Suite</span>
-                <p class="article-date">February 2026 · 7 min read</p>
-                <h2 class="article-title">What HPC Approval Actually Requires From Visual Documentation</h2>
-                <p class="article-excerpt">
-                    Most production companies have never been inside an HPC hearing.
-                    Here's what the commission actually looks for — and how cinematic
-                    documentation can be the difference between approval and revision.
-                </p>
-                <span class="article-read-more">Read Article →</span>
+                <div class="article-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=800&q=80"
+                        alt="Historic stone facade documentation and municipal architectural review"
+                        loading="lazy"
+                    >
+                </div>
+                <div>
+                    <span class="article-tag blue">Authority Suite · Municipal Law</span>
+                    <p class="article-date" style="margin-top: 15px;">February 2026 · 7 min read</p>
+                    <h2 class="article-title" style="margin-top: 10px;">What HPC Approval Actually Requires From Visual Documentation</h2>
+                    <p class="article-excerpt" style="margin-top: 12px;">
+                        Most production teams lack insider knowledge of historic board proceedings. Here is how archival fidelity and regulatory alignment determine approval outcomes.
+                    </p>
+                    <span class="article-read-more" style="margin-top: 20px; display: block;">Read Field Brief &rarr;</span>
+                </div>
             </a>
 
-            <!-- -->
-            <a href="journal/what-hpc-approval-requires.html"
+            <!-- ARTICLE 4 — Authority Suite (Fixed Slug & Dedicated Scope) -->
+            <a href="journal/integrity-of-lived-experience.html"
                class="article-card"
                data-category="authority"
-               aria-label="Read: What HPC Approval Actually Requires From Visual Documentation">
-                <span class="article-tag blue">The Preservation of Narrative Part II</span>
-                <p class="article-date">April 2026 • 5 min read</p>
-                <h2 class="article-title">The Integrity of Lived Experience</h2>
-                <p class="article-excerpt">
-                    In my time serving on the Historic Preservation Commission, 
-                    the core challenge is always the same: 
-                    how do we protect the soul of a structure while adapting it for the future?
-                    We’ve found that the same principle applies to Service Design and Advocacy. 
-                </p>
-            <span class="article-read-more">Read Article →</span>
-                
+               aria-label="Read: The Integrity of Lived Experience">
+                <div class="article-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+                        alt="Civic architecture and adaptive reuse documentation"
+                        loading="lazy"
+                    >
+                </div>
+                <div>
+                    <span class="article-tag blue">Authority Suite · Adaptive Reuse</span>
+                    <p class="article-date" style="margin-top: 15px;">April 2026 · 5 min read</p>
+                    <h2 class="article-title" style="margin-top: 10px;">The Integrity of Lived Experience</h2>
+                    <p class="article-excerpt" style="margin-top: 12px;">
+                        Preserving the architectural soul of a structure while adapting it for modern civic utility. How documentary rigor protects both community heritage and developer investment.
+                    </p>
+                    <span class="article-read-more" style="margin-top: 20px; display: block;">Read Field Brief &rarr;</span>
+                </div>
             </a>
 
             <div class="journal-empty" id="journalEmpty">
-                No articles in this category yet.
+                No articles found in this category.
             </div>
 
         </div>
 
-        <section class="cta-section" aria-label="Start a project">
-            <p>Ready to discuss a production?</p>
-            <h2>Initiate an Audit</h2>
-            <div class="btn-group">
-                <a href="contact.html" class="cta-btn">Start Project</a>
-                <a href="work.html" class="cta-btn secondary">View Works</a>
+        <section class="cta-section" aria-label="Start a project" style="padding: 100px 5%; text-align: center; background: #000; border-top: 1px solid #111;">
+            <p style="color: var(--nz-gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 15px; font-weight: 500;">
+                Production Consultation
+            </p>
+            <h2 style="font-size: clamp(1.8rem, 4.5vw, 2.6rem); letter-spacing: 6px; text-transform: uppercase; color: #fff; margin-bottom: 20px;">
+                Commission a Production Brief
+            </h2>
+            <p style="color: #777; font-size: 0.95rem; max-width: 600px; margin: 0 auto 35px; line-height: 1.8; font-weight: 300;">
+                Discuss your architectural timeline, municipal compliance hurdles, or tactile campaign with our principal desk.
+            </p>
+            <div class="btn-group" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 25px;">
+                <a href="contact.html" class="cta-btn" style="border: 1px solid var(--nz-gold); padding: 16px 36px; color: var(--nz-gold); text-decoration: none; letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem; font-weight: 600;">
+                    Start Project Brief
+                </a>
+                <a href="https://calendly.com/northzeroproductions-info/30min" class="cta-btn booking" target="_blank" rel="noopener noreferrer" style="border: 1px solid #222; padding: 16px 36px; color: #fff; text-decoration: none; letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem;">
+                    Schedule Consultation
+                </a>
+            </div>
+            <div style="font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: #555;">
+                <span style="color: var(--nz-gold);">●</span> Briefs reviewed within 24 hours · Ossining &amp; New York Desks
             </div>
         </section>
     </main>
