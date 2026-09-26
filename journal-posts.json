@@ -1,0 +1,41 @@
+[
+  {
+    "id": "post-1",
+    "slug": "journal/why-luxury-brands-need-film.html",
+    "title": "Why Luxury Brands Need Film, Not Photography",
+    "category": "tactile",
+    "categoryLabel": "Tactile Narratives · Materiality",
+    "date": "April 2026",
+    "readTime": "8 min read",
+    "excerpt": "Photography captures surface aesthetics. Cinema communicates physical weight, finish, and tactile craft. In saturated luxury markets, macro optics and kinetic lighting bridge the gap between interest and commercial desire.",
+    "image": "https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "Macro cinematography study of luxury leather texture and stitching",
+    "featured": true
+  },
+  {
+    "id": "post-2",
+    "slug": "journal/why-estate-listings-need-cinema.html",
+    "title": "Why Estate Listings Need Cinema, Not Walkthroughs",
+    "category": "architectural",
+    "categoryLabel": "Architectural Cinema",
+    "date": "March 2026",
+    "readTime": "6 min read",
+    "excerpt": "A virtual walkthrough displays floorplans. Deliberate 24fps spatial pacing and twilight optics command premium valuation for luxury compounds across Westchester and the Hudson Valley.",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+    "imageAlt": "Modern architectural estate at twilight in Westchester County",
+    "featured": false
+  },
+  {
+    "id": "post-3",
+    "slug": "journal/evidentiary-standard-municipal-review.html",
+    "title": "The Evidentiary Standard: Cinema in Municipal Review",
+    "category": "authority",
+    "categoryLabel": "Authority Suite · Preservation",
+    "date": "September 2026",
+    "readTime": "7 min read",
+    "excerpt": "Municipal review bodies and preservation commissions do not evaluate architectural intent through promotional reels. How evidentiary discipline secures board approval without revision.",
+    "image": "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=800&q=80",
+    "imageAlt": "Historic stone masonry and municipal architectural documentation",
+    "featured": false
+  }
+]
