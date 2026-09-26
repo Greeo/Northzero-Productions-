@@ -1,0 +1,20 @@
+How You Publish Moving Forward:
+Whenever you have a new whitepaper or case study:
+Write the article and save it as journal/your-slug-title.html.
+Open journal-posts.json and paste your new object at the top:
+JSON
+{
+  "id": "post-4",
+  "slug": "journal/your-slug-title.html",
+  "title": "Title of Your New Field Brief",
+  "category": "architectural",
+  "categoryLabel": "Architectural Cinema",
+  "date": "October 2026",
+  "readTime": "6 min read",
+  "excerpt": "A short 2-sentence summary of the takeaway.",
+  "image": "https://your-image-url.jpg",
+  "imageAlt": "Description of image",
+  "featured": true
+}
+Set "featured": true if you want it to command the hero banner at the top (and set the previous one to false).
+Save journal-posts.json, commit it, and the entire journal renders automatically with complete responsive styling, instant category filters, and zero layout bugs.
