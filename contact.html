@@ -73,16 +73,40 @@
             align-items: start;
         }
 
-        /* --- ROOMY FORM CANVAS --- */
+        /* --- ARCHITECTURAL COVE GRAZE: FORM CANVAS --- */
         .nz-form {
             width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 32px 28px;
             transition: opacity 0.4s ease;
-            background: #060606;
-            border: 1px solid #181818;
+            background: linear-gradient(180deg, #09090b 0%, #040404 100%);
+            border: 1px solid #1a1e24;
             padding: 55px 50px;
+            position: relative;
+            
+            /* Architectural compound cove wash */
+            box-shadow: 
+                0 -1px 0 0 rgba(212, 175, 55, 0.4),
+                0 -25px 50px -10px rgba(212, 175, 55, 0.12),
+                0 30px 60px -15px rgba(0, 0, 0, 0.95);
+        }
+
+        /* Downward light spill from the concealed top fixture */
+        .nz-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 5%;
+            width: 90%;
+            height: 120px;
+            background: radial-gradient(
+                ellipse at top, 
+                rgba(212, 175, 55, 0.08) 0%, 
+                rgba(212, 175, 55, 0.02) 45%, 
+                transparent 75%
+            );
+            pointer-events: none;
         }
 
         .form-group { display: flex; flex-direction: column; gap: 10px; }
@@ -223,7 +247,7 @@
             min-height: 1.4em;
         }
 
-        /* --- STICKY PRODUCTION DESK SIDEBAR --- */
+        /* --- STICKY PRODUCTION DESK & PLINTH KICK --- */
         .desk-sidebar {
             display: flex;
             flex-direction: column;
@@ -233,10 +257,28 @@
         }
 
         .desk-card {
-            background: #060606;
-            border: 1px solid #181818;
+            background: linear-gradient(180deg, #08080a 0%, #030303 100%);
+            border: 1px solid #1a1e24;
             border-left: 3px solid var(--nz-gold);
             padding: 38px 32px;
+            position: relative;
+            
+            /* Low-level architectural underglow wash */
+            box-shadow: 
+                0 15px 35px -10px rgba(0, 0, 0, 0.9),
+                0 25px 45px -15px rgba(212, 175, 55, 0.08);
+        }
+
+        /* Grounding bottom cove line */
+        .desk-card::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 15%;
+            width: 70%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+            pointer-events: none;
         }
 
         .desk-card h3 {
@@ -550,7 +592,7 @@
                     </p>
                 </div>
 
-                <!-- FORM -->
+                <!-- FORM WITH ARCHITECTURAL COVE GRAZE -->
                 <form id="nz-contact-form" class="nz-form" novalidate>
                     <div class="form-group">
                         <label for="field-name">Principal Name *</label>
