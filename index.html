@@ -98,6 +98,7 @@
         .slider-container {
             position: relative;
             height: 100vh;
+            min-height: 620px;
             width: 100%;
             overflow: hidden;
             background: #000;
@@ -113,11 +114,10 @@
 
         .slide.active { opacity: 1; z-index: 5; }
 
-        /* -- New rule for Hero Slides -- */
         .slide-kicker {
             display: inline-block;
             color: var(--nz-gold);
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             letter-spacing: 4px;
             text-transform: uppercase;
             font-weight: 600;
@@ -126,28 +126,46 @@
         
         .slide-content p {
             max-width: 680px;
-            margin: 12px auto 25px;
-            color: #aaa;
-            font-size: 0.95rem;
+            margin: 12px auto 28px;
+            color: #ccc;
+            font-size: 1rem;
             letter-spacing: 1px;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-weight: 300;
         }
 
-         /* -- New rule for Hero Slides Ends -- */
+        .slide-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
 
-        .slide-1 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920') center/cover; }
-        .slide-2 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=1920') center/cover; }
-        .slide-3 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1920') center/cover; }
+        .hero-promise {
+            font-size: 0.68rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .slide-1 { background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920') center/cover; }
+        .slide-2 { background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=1920') center/cover; }
+        .slide-3 { background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1920') center/cover; }
 
         .slide-content { padding: 0 20px; width: 100%; max-width: 1100px; z-index: 10; }
 
         .slide-content h1 {
-            font-size: clamp(1.8rem, 8vw, 3.5rem);
+            font-size: clamp(2rem, 8vw, 3.8rem);
             text-transform: uppercase;
             letter-spacing: 12px;
             margin-bottom: 20px;
             color: var(--nz-white);
             position: relative;
+            line-height: 1.15;
+            font-weight: 900;
         }
 
         .slide-content h1::after {
@@ -171,36 +189,57 @@
         }
 
         .cta-btn {
-            display: inline-block; padding: 15px 30px;
+            display: inline-block; padding: 16px 34px;
             border: 1px solid var(--nz-gold); color: var(--nz-gold);
             text-decoration: none; text-transform: uppercase;
-            letter-spacing: 3px; font-size: 0.75rem; transition: 0.4s;
+            letter-spacing: 3px; font-size: 0.75rem; transition: 0.3s ease;
+            font-weight: 600;
         }
-        .cta-btn:hover { background: var(--nz-gold); color: #000; }
+        .cta-btn:hover { background: var(--nz-gold); color: #000; transform: translateY(-2px); }
+
+        .cta-btn.primary {
+            background: var(--nz-gold);
+            color: #000;
+        }
+        .cta-btn.primary:hover {
+            background: transparent;
+            color: var(--nz-gold);
+        }
+
+        .cta-btn.secondary {
+            border-color: #333;
+            color: #bbb;
+            background: rgba(0,0,0,0.6);
+        }
+        .cta-btn.secondary:hover {
+            border-color: var(--nz-gold);
+            color: #fff;
+            background: #000;
+        }
 
         /* --- BENTO GRID & SHOWREEL --- */
         .bento-showcase { 
-            padding: 100px 5%; 
+            padding: 110px 5%; 
             background: var(--bg-black); 
             position: relative; 
             z-index: 5;
         }
 
         .bento-sub {
-            font-size: 0.6rem;
-            letter-spacing: 2px;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--nz-gold);
             display: block;
-            margin-bottom: 6px;
-            font-weight: 500;
+            margin-bottom: 8px;
+            font-weight: 600;
         }
         
         .bento-desc {
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             color: #a0a0a0;
-            line-height: 1.5;
-            margin-top: 6px;
+            line-height: 1.6;
+            margin-top: 8px;
             font-weight: 300;
             max-width: 90%;
         }
@@ -218,13 +257,13 @@
             background: #0a0a0a; border: 1px solid #1a1a1a;
             position: relative; overflow: hidden;
             background-size: cover; background-position: center;
-            transition: 0.5s;
+            transition: 0.4s ease;
         }
 
-        .bento-item:hover  { border-color: var(--nz-gold); transform: translateY(-5px); }
+        .bento-item:hover  { border-color: var(--nz-gold); transform: translateY(-3px); }
         .bento-item.large  { grid-row: span 2; }
-        .bento-text        { position: absolute; bottom: 20px; left: 20px; z-index: 25; pointer-events: none; }
-        .bento-text h3     { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin: 0; }
+        .bento-text        { position: absolute; bottom: 25px; left: 25px; z-index: 25; pointer-events: none; }
+        .bento-text h3     { font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin: 0; font-weight: 700; }
 
         /* Scoped strictly inside the showreel block */
         #regan-showreel {
@@ -282,11 +321,11 @@
         }
 
         #regan-showreel .showreel-play-btn {
-            width: 74px;
-            height: 74px;
+            width: 76px;
+            height: 76px;
             border-radius: 50%;
             border: 1px solid var(--nz-gold);
-            background: rgba(0, 0, 0, 0.75);
+            background: rgba(0, 0, 0, 0.8);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -296,8 +335,8 @@
         }
 
         #regan-showreel .showreel-play-btn svg {
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
             fill: var(--nz-gold);
             transition: fill 0.3s ease;
         }
@@ -307,7 +346,7 @@
         }
 
         #regan-showreel:hover .showreel-play-btn {
-            transform: scale(1.1);
+            transform: scale(1.08);
             background: var(--nz-gold);
         }
 
@@ -321,7 +360,7 @@
             text-transform: uppercase;
             color: var(--nz-gold);
             margin-top: 16px;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         #regan-showreel .showreel-sound-btn {
@@ -375,20 +414,20 @@
         .lm-copy           { flex: 1; min-width: 280px; max-width: 560px; }
         .lm-copy .lm-label {
             color: var(--nz-gold); letter-spacing: 6px; text-transform: uppercase;
-            font-size: 0.65rem; margin-bottom: 20px; display: block;
+            font-size: 0.65rem; margin-bottom: 20px; display: block; font-weight: 600;
         }
         .lm-copy h2 {
             font-size: clamp(1.6rem, 4vw, 2.4rem); text-transform: uppercase;
-            letter-spacing: 8px; color: #fff; margin-bottom: 20px; line-height: 1.2;
+            letter-spacing: 8px; color: #fff; margin-bottom: 20px; line-height: 1.2; font-weight: 800;
         }
-        .lm-copy p { color: #666; font-size: 0.95rem; line-height: 2; margin-bottom: 30px; }
+        .lm-copy p { color: #888; font-size: 0.95rem; line-height: 2; margin-bottom: 30px; font-weight: 300; }
 
         .lm-form   { display: flex; flex-direction: column; gap: 12px; max-width: 480px; }
         .lm-fields { display: flex; gap: 0; }
 
         .lm-fields input {
             flex: 1; background: #0a0a0a; border: 1px solid #222; border-right: none;
-            padding: 14px 16px; color: #fff; font-size: 0.85rem; font-family: inherit;
+            padding: 16px 18px; color: #fff; font-size: 0.85rem; font-family: inherit;
             outline: none; transition: border-color 0.3s; min-width: 0;
         }
         .lm-fields input:focus       { border-color: var(--nz-gold); }
@@ -396,19 +435,19 @@
 
         .lm-fields button {
             background: var(--nz-gold); border: 1px solid var(--nz-gold); color: #000;
-            padding: 14px 22px; text-transform: uppercase; letter-spacing: 3px;
-            font-size: 0.65rem; font-family: inherit; font-weight: 700;
+            padding: 16px 24px; text-transform: uppercase; letter-spacing: 3px;
+            font-size: 0.68rem; font-family: inherit; font-weight: 700;
             cursor: pointer; transition: 0.3s; white-space: nowrap; flex-shrink: 0;
         }
         .lm-fields button:hover    { background: #000; color: var(--nz-gold); }
         .lm-fields button:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        .lm-more    { font-size: 0.6rem; color: #333; letter-spacing: 1px; line-height: 1.8; }
-        .lm-more a  { color: #555; text-decoration: none; border-bottom: 1px solid #333; transition: color 0.3s; }
+        .lm-more    { font-size: 0.65rem; color: #555; letter-spacing: 1px; line-height: 1.8; }
+        .lm-more a  { color: #888; text-decoration: none; border-bottom: 1px solid #333; transition: color 0.3s; }
         .lm-more a:hover { color: var(--nz-gold); }
 
         .lm-card {
-            flex-shrink: 0; width: 260px; border: 1px solid #1a1a1a;
+            flex-shrink: 0; width: 280px; border: 1px solid #1a1a1a;
             padding: 40px 35px; background: #0a0a0a; position: relative;
         }
         .lm-card::before {
@@ -416,16 +455,16 @@
             width: 3px; height: 100%; background: var(--nz-gold);
         }
         .lm-card .lm-card-tag {
-            font-size: 0.55rem; letter-spacing: 4px; text-transform: uppercase;
-            color: var(--nz-gold); margin-bottom: 18px; display: block;
+            font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--nz-gold); margin-bottom: 18px; display: block; font-weight: 600;
         }
         .lm-card h3 {
             font-size: 0.95rem; letter-spacing: 2px; text-transform: uppercase;
-            color: #fff; line-height: 1.4; margin-bottom: 22px;
+            color: #fff; line-height: 1.4; margin-bottom: 22px; font-weight: 700;
         }
         .lm-card ul  { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; }
         .lm-card ul li {
-            font-size: 0.7rem; color: #555; letter-spacing: 1px;
+            font-size: 0.72rem; color: #777; letter-spacing: 1px;
             padding-left: 14px; position: relative; line-height: 1.5;
         }
         .lm-card ul li::before { content: '—'; position: absolute; left: 0; color: var(--nz-gold); }
@@ -434,23 +473,23 @@
         .hpc-strip { background: #000; border-top: 1px solid #111; border-bottom: 1px solid #111; }
 
         .hpc-strip-inner {
-            max-width: 1300px; margin: 0 auto; padding: 100px 5%;
+            max-width: 1300px; margin: 0 auto; padding: 110px 5%;
             display: flex; align-items: center; gap: 80px; flex-wrap: wrap;
         }
 
         .hpc-copy           { flex: 1; min-width: 280px; max-width: 560px; }
         .hpc-label {
             color: var(--nz-blue); letter-spacing: 6px; text-transform: uppercase;
-            font-size: 0.65rem; margin-bottom: 20px; display: block;
+            font-size: 0.65rem; margin-bottom: 20px; display: block; font-weight: 600;
         }
         .hpc-copy h2 {
             font-size: clamp(1.6rem, 4vw, 2.2rem); text-transform: uppercase;
-            letter-spacing: 8px; color: #fff; margin-bottom: 25px; line-height: 1.2;
+            letter-spacing: 8px; color: #fff; margin-bottom: 25px; line-height: 1.2; font-weight: 800;
         }
-        .hpc-copy p { color: #666; font-size: 0.95rem; line-height: 2; }
+        .hpc-copy p { color: #888; font-size: 0.95rem; line-height: 2; font-weight: 300; }
 
         .hpc-badge-card {
-            flex-shrink: 0; width: 260px; border: 1px solid var(--nz-blue);
+            flex-shrink: 0; width: 280px; border: 1px solid var(--nz-blue);
             padding: 3px; background: #000; position: relative;
         }
         .hpc-badge-card::before {
@@ -464,17 +503,16 @@
             text-align: center; gap: 8px; background: #020810;
         }
         .hpc-badge-abbr   { font-size: 2.5rem; letter-spacing: 8px; color: var(--nz-blue); font-weight: 900; margin-bottom: 4px; }
-        .hpc-badge-title  { font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: #fff; line-height: 1.6; }
-        .hpc-badge-sub    { font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; color: #334; }
+        .hpc-badge-title  { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #fff; line-height: 1.6; }
+        .hpc-badge-sub    { font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; color: #668; }
         .hpc-badge-divider { width: 30px; height: 1px; background: var(--nz-blue); opacity: 0.4; margin: 8px 0; }
-        .hpc-badge-role   { font-size: 0.55rem; letter-spacing: 3px; text-transform: uppercase; color: var(--nz-blue); }
-        .hpc-badge-name   { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #fff; font-weight: 700; }
-        .hpc-badge-studio { font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; color: #333; }
-
+        .hpc-badge-role   { font-size: 0.55rem; letter-spacing: 3px; text-transform: uppercase; color: #8bb4f6; }
+        .hpc-badge-name   { font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: #fff; font-weight: 700; }
+        .hpc-badge-studio { font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; color: #555; }
 
         /* --- WHAT EVERY ENGAGEMENT INCLUDES STRIP --- */
         .engagements-strip {
-            padding: 90px 5%;
+            padding: 100px 5%;
             background: #050505;
             border-top: 1px solid #141414;
             border-bottom: 1px solid #141414;
@@ -492,7 +530,7 @@
             text-transform: uppercase;
             display: block;
             margin-bottom: 12px;
-            font-weight: 500;
+            font-weight: 600;
         }
         
         .engagements-inner h2 {
@@ -501,6 +539,7 @@
             text-transform: uppercase;
             margin-bottom: 50px;
             color: #fff;
+            font-weight: 800;
         }
         
         .eng-grid {
@@ -516,6 +555,7 @@
             display: block;
             margin-bottom: 12px;
             font-family: monospace;
+            font-weight: 700;
         }
         
         .eng-col h4 {
@@ -525,29 +565,92 @@
             color: #fff;
             margin-bottom: 12px;
             line-height: 1.4;
+            font-weight: 700;
         }
         
         .eng-col p {
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             color: #777;
-            line-height: 1.7;
+            line-height: 1.8;
             font-weight: 300;
         }
         
-        @media (max-width: 900px) {
-            .eng-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
+        /* --- COMMISSION BANNER --- */
+        .commission-banner {
+            background: #000;
+            border-top: 1px solid #111;
+            padding: 110px 5%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .commission-inner {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .commission-rule {
+            width: 1px;
+            height: 45px;
+            background: var(--nz-gold);
+            margin-bottom: 25px;
+        }
+        
+        .commission-tag {
+            font-size: 0.65rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--nz-gold);
+            margin-bottom: 18px;
+            display: block;
+            font-weight: 600;
+        }
+        
+        .commission-banner h2 {
+            font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: #fff;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+        
+        .commission-banner p {
+            font-size: 0.95rem;
+            color: #777;
+            line-height: 1.8;
+            max-width: 620px;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+        
+        .commission-btn-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .commitment-indicator {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555;
         }
 
         /* --- MOBILE --- */
         @media screen and (max-width: 900px) {
             .slide-content h1 {
                 font-size: 2rem !important; letter-spacing: 4px !important;
-                line-height: 1.2 !important; white-space: normal !important;
+                line-height: 1.2 !important;
             }
-            .slide-content p { font-size: 0.8rem !important; }
+            .slide-content p { font-size: 0.85rem !important; }
             .bento-grid-fixed { display: flex; flex-direction: column; height: auto; }
             .bento-item       { height: 300px; }
             #regan-showreel   { height: 360px; }
@@ -559,6 +662,9 @@
             .lm-fields button  { padding: 14px; }
             .hpc-strip-inner   { flex-direction: column; padding: 80px 5%; gap: 50px; }
             .hpc-badge-card    { width: 100%; }
+            .eng-grid          { grid-template-columns: 1fr; gap: 30px; }
+            .slide-actions, .commission-btn-group { width: 100%; flex-direction: column; }
+            .slide-actions .cta-btn, .commission-btn-group .cta-btn { width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -589,7 +695,7 @@
         </button>
 
         <div class="nav-links" id="nav-links-container" role="menubar">
-            <a href="index.html" role="menuitem">Agency</a>
+            <a href="index.html" role="menuitem" style="color: var(--nz-gold);">Agency</a>
             <a href="work.html" role="menuitem">Works</a>
             <div class="dropdown">
                 <a href="all-services.html" class="dropbtn" role="menuitem">Services</a>
@@ -605,7 +711,7 @@
             <a href="about.html" role="menuitem">Lens</a>
             <a href="crewlist.html" role="menuitem">Network</a> 
             <a href="journal.html" role="menuitem">Journal</a>
-            <a href="contact.html" role="menuitem" style="border: 1px solid var(--nz-gold); padding: 8px 15px; color: var(--nz-gold);">Start a Project</a>
+            <a href="contact.html" role="menuitem" style="border: 1px solid var(--nz-gold); padding: 10px 20px; color: var(--nz-gold) !important;">Start Project</a>
         </div>
     </nav>
 
@@ -620,7 +726,11 @@
                     <h1 data-text="Architectural Cinema" aria-label="Architectural Cinema">Architectural Cinema</h1>
                     <p>Estate documentation, historic registry narratives, and luxury residential motion assets.</p>
                     <div class="slide-actions">
-                        <a href="architectural.html" class="cta-btn">Explore Architectural Films &rarr;</a>
+                        <a href="contact.html?service=Architectural+Cinema" class="cta-btn primary">Initiate Project Brief &rarr;</a>
+                        <a href="architectural.html" class="cta-btn secondary">Explore Architectural Films</a>
+                    </div>
+                    <div class="hero-promise">
+                        <span style="color: var(--nz-gold);">●</span> Briefs reviewed within 24 hours · Ossining &amp; NYC Desks
                     </div>
                 </div>
             </div>
@@ -632,7 +742,11 @@
                     <h1 data-text="Tactile Narrative" aria-label="Tactile Narrative">Tactile Narrative</h1>
                     <p>Macro product cinematography, material craft, and physical-world commercial narratives.</p>
                     <div class="slide-actions">
-                        <a href="tactile.html" class="cta-btn">View Product Work &rarr;</a>
+                        <a href="contact.html?service=Tactile+Narratives" class="cta-btn primary">Initiate Project Brief &rarr;</a>
+                        <a href="tactile.html" class="cta-btn secondary">View Product Films</a>
+                    </div>
+                    <div class="hero-promise">
+                        <span style="color: var(--nz-gold);">●</span> Briefs reviewed within 24 hours · Ossining &amp; NYC Desks
                     </div>
                 </div>
             </div>
@@ -644,14 +758,18 @@
                     <h1 data-text="Authority Suite" aria-label="Authority Suite">Authority Suite</h1>
                     <p>HPC compliance visual packages, archival documentation, and public-facing heritage films.</p>
                     <div class="slide-actions">
-                        <a href="authority.html" class="cta-btn">Discuss Authority Suite &rarr;</a>
+                        <a href="contact.html?service=Authority+Suite" class="cta-btn primary">Initiate Project Brief &rarr;</a>
+                        <a href="authority.html" class="cta-btn secondary">Explore Authority Suite</a>
+                    </div>
+                    <div class="hero-promise">
+                        <span style="color: var(--nz-gold);">●</span> Briefs reviewed within 24 hours · Ossining &amp; NYC Desks
                     </div>
                 </div>
             </div>
 
         </div>
 
-       <!-- Bento Grid -->
+        <!-- Bento Grid -->
         <section class="bento-showcase" aria-label="Selected portfolios">
             <div style="text-align: center; margin-bottom: 50px;">
                 <p style="color: var(--nz-gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.7rem;">Selected Portfolios</p>
@@ -790,7 +908,6 @@
             </div>
         </section>
         
-
         <!-- What Every Engagement Includes Strip -->
         <section class="engagements-strip" aria-label="Production standards and deliverables">
             <div class="engagements-inner">
@@ -821,34 +938,23 @@
             </div>
         </section>
 
-        <!-- Final Conversion Banner -->
-        <section class="cta-section" aria-label="Initiate project inquiry" style="padding: 100px 5%; text-align: center; background: #000;">
-            <p style="color: var(--nz-gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 15px; font-weight: 500;">
-                Next Production Window
-            </p>
-            <h2 style="font-size: clamp(2rem, 5vw, 3rem); letter-spacing: 7px; text-transform: uppercase; color: #fff; margin-bottom: 20px;">
-                Initiate a Production Brief
-            </h2>
-            <p style="color: #777; font-size: 0.95rem; max-width: 600px; margin: 0 auto 35px; line-height: 1.8; font-weight: 300;">
-                Tell us about your estate, architectural milestone, or brand narrative. Briefs are reviewed directly by our principal desk within 24 hours.
-            </p>
-            <div class="btn-group" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 25px;">
-                <a href="contact.html" class="cta-btn" style="border: 1px solid var(--nz-gold); padding: 16px 36px; color: var(--nz-gold); text-decoration: none; letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem; font-weight: 600;">
-                    Start Project Brief
-                </a>
-                <a href="https://calendly.com/northzeroproductions-info/30min" class="cta-btn booking" target="_blank" rel="noopener noreferrer" style="border: 1px solid #222; padding: 16px 36px; color: #fff; text-decoration: none; letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem;">
-                    Schedule a Consultation
-                </a>
-                <a href="contact.html?service=Architectural+Cinema" class="cta-btn secondary" style="border: 1px solid #1a1a1a; padding: 16px 36px; color: #666; text-decoration: none; letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem;">
-                    Scope an Audit
-                </a>
-            </div>
-            <div style="font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: #555;">
-                <span style="color: var(--nz-gold);">●</span> Briefs reviewed within 24 hours · Ossining &amp; NYC Desks
+        <!-- Standardized Conversion Footer Banner -->
+        <section class="commission-banner" aria-label="Initiate project brief">
+            <div class="commission-inner">
+                <div class="commission-rule" aria-hidden="true"></div>
+                <span class="commission-tag">Production Consultation</span>
+                <h2>Commission a Production Brief</h2>
+                <p>Discuss your architectural timeline, municipal compliance hurdles, or tactile campaign with our principal desk.</p>
+                <div class="commission-btn-group">
+                    <a href="contact.html" class="cta-btn primary">Start Project Brief &rarr;</a>
+                    <a href="https://calendly.com/northzeroproductions-info/30min" class="cta-btn secondary" target="_blank" rel="noopener noreferrer">Schedule Consultation</a>
+                </div>
+                <div class="commitment-indicator">
+                    <span style="color: var(--nz-gold);">●</span> Briefs reviewed within 24 hours · Ossining &amp; New York Desks
+                </div>
             </div>
         </section>
     </main>
-    
 
     <footer style="padding: 60px 5%; text-align: center; border-top: 1px solid #111; background: #000;">
         <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 25px;">
@@ -870,7 +976,7 @@
     </footer>
 
     <!-- nav.js handles all hamburger toggle logic -->
-    <script src="nav.js?v=2.0"></script>
+    <script src="nav.js?v=2.1" defer></script>
 
     <!-- Page Interaction Controller -->
     <script>
@@ -1017,14 +1123,6 @@
 
             startSlider();
         }
-
-        // --- EMAIL OBFUSCATION ---
-        const emailLink = document.getElementById('email-link');
-        if (emailLink) {
-            const u = 'omar';
-            const d = 'northzeroproductions.com';
-            emailLink.href = `mailto:${u}@${d}`;
-        }
     });
     </script>
 
@@ -1044,6 +1142,5 @@
     <noscript><img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=1474158324082001&amp;ev=PageView&amp;noscript=1"/>
     </noscript>
-    <!-- End Meta Pixel Code -->
 </body>
 </html>
