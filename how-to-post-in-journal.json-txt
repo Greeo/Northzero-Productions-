@@ -18,3 +18,80 @@ JSON
 }
 Set "featured": true if you want it to command the hero banner at the top (and set the previous one to false).
 Save journal-posts.json, commit it, and the entire journal renders automatically with complete responsive styling, instant category filters, and zero layout bugs.
+
+
+When referencing your own local assets, the cleanest and most resilient method is using a **root-relative path** starting with a forward slash (`/`).
+
+Assuming your project directory looks like this:
+
+```text
+root/
+├── assets/
+│   ├── images/
+│   │   ├── leather-craft.jpg
+│   │   ├── estate-twilight.jpg
+│   │   └── stone-facade.jpg
+├── journal-posts.json
+├── journal.html
+└── journal/
+    └── why-luxury-brands-need-film.html
+
+```
+
+---
+
+### In `journal-posts.json`
+
+Write the `"image"` property starting with a forward slash `/`:
+
+```json
+[
+  {
+    "id": "post-1",
+    "slug": "journal/why-luxury-brands-need-film.html",
+    "title": "Why Luxury Brands Need Film, Not Photography",
+    "category": "tactile",
+    "categoryLabel": "Tactile Narratives · Materiality",
+    "date": "April 2026",
+    "readTime": "8 min read",
+    "excerpt": "Photography captures surface aesthetics. Cinema communicates physical weight, finish, and tactile craft...",
+    "image": "/assets/images/leather-craft.jpg",
+    "imageAlt": "Macro cinematography study of luxury leather texture and stitching",
+    "featured": true
+  },
+  {
+    "id": "post-2",
+    "slug": "journal/why-estate-listings-need-cinema.html",
+    "title": "Why Estate Listings Need Cinema, Not Walkthroughs",
+    "category": "architectural",
+    "categoryLabel": "Architectural Cinema",
+    "date": "March 2026",
+    "readTime": "6 min read",
+    "excerpt": "A virtual walkthrough displays floorplans. Deliberate 24fps spatial pacing and twilight optics command premium valuation...",
+    "image": "/assets/images/estate-twilight.jpg",
+    "imageAlt": "Modern architectural estate at twilight in Westchester County",
+    "featured": false
+  }
+]
+
+```
+
+---
+
+### Why the leading slash (`/`) is essential:
+
+1. **Root-relative anchoring:** When a browser sees `/assets/images/estate-twilight.jpg`, it always resolves from your root domain (`[https://northzeroproductions.com/assets/images/estate-twilight.jpg](https://northzeroproductions.com/assets/images/estate-twilight.jpg)`), regardless of what page or subfolder loads it.
+2. **Prevents path drift:** If you wrote `assets/images/...` without the leading `/`, loading it from inside the `/journal/` directory would cause the browser to search for `journal/assets/images/...` and trigger another `404 Not Found`.
+
+---
+
+### Using Local Images Inside Article HTML Files
+
+If you are adding images directly into an article file (like `journal/why-luxury-brands-need-film.html`), you can also use that exact same root-relative syntax:
+
+```html
+<img src="/assets/images/leather-craft.jpg" alt="Macro detail framing" loading="lazy">
+
+```
+
+*(No need for `../assets`—the root `/` will work universally across every page and folder).*
