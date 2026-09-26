@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: The Modern Estate | Architectural Cinema · Northzero Productions</title>
+    <meta name="description" content="In-depth case study of an architectural and luxury estate cinema engagement in Westchester and the Hudson Valley by Northzero Productions.">
+    <link rel="canonical" href="https://northzeroproductions.com/case-study-modern-estate.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Case Study: The Modern Estate | Northzero Productions">
+    <meta property="og:description" content="Translating interior architectural daylight rhythms and stone materiality into an actionable acquisition film.">
+    <meta property="og:url" content="https://northzeroproductions.com/case-study-modern-estate.html">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80">
+
+    <link rel="stylesheet" href="style.css?v=2.2">
+
+    <style>
+        :root {
+            --nz-gold: #dfa837;
+            --nz-gold-glow: rgba(223, 168, 55, 0.16);
+            --bg-dark: #07080a;
+            --card-dark: #0d0f14;
+            --border-subtle: #1c2028;
+            --text-dim: #888e9b;
+        }
+
+        html, body {
+            background-color: var(--bg-dark) !important;
+            margin: 0; padding: 0;
+            color: #e5e5e5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .cs-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 5% 100px;
+        }
+
+        /* Breadcrumb Navigation */
+        .cs-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--nz-gold);
+            text-decoration: none;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: transform 0.25s ease;
+        }
+        .cs-back:hover { transform: translateX(-4px); }
+
+        /* Case Study Header */
+        .cs-hero-title {
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+        .cs-hero-sub {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+            max-width: 800px;
+            margin-bottom: 45px;
+            font-weight: 300;
+        }
+
+        /* Primary Cinema Frame */
+        .cinema-hero-player {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(223, 168, 55, 0.35);
+            background: #000;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), 0 0 40px var(--nz-gold-glow);
+            margin-bottom: 70px;
+        }
+        .cinema-aspect {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 */
+        }
+        .cinema-aspect iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+
+        /* Client / Scope Key Stats Bar */
+        .cs-stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 30px;
+            background: var(--card-dark);
+            border: 1px solid var(--border-subtle);
+            border-left: 3px solid var(--nz-gold);
+            border-radius: 6px;
+            margin-bottom: 80px;
+        }
+        .stat-item .stat-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--nz-gold);
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .stat-item .stat-val {
+            font-size: 0.92rem;
+            color: #f0f0f0;
+            font-weight: 500;
+        }
+
+        /* Narrative Breakdown Sections */
+        .cs-narrative-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            margin-bottom: 70px;
+            border-bottom: 1px solid #14161d;
+            padding-bottom: 70px;
+        }
+        .cs-section-heading h2 {
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #fff;
+            margin-top: 0;
+        }
+        .cs-section-heading span {
+            font-size: 0.68rem;
+            letter-spacing: 2px;
+            color: var(--nz-gold);
+            text-transform: uppercase;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .cs-body-content p {
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: #b0b4be;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        .cs-body-content p strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Stills Gallery Grid */
+        .cs-visual-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 35px;
+        }
+        .cs-visual-strip img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid var(--border-subtle);
+            filter: brightness(0.85);
+            transition: all 0.4s ease;
+        }
+        .cs-visual-strip img:hover {
+            filter: brightness(1);
+            border-color: var(--nz-gold);
+            transform: translateY(-3px);
+        }
+
+        /* Deliverables Asset Matrix */
+        .deliverables-box {
+            background: #090a0d;
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 35px;
+            margin-top: 20px;
+        }
+        .deliverables-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .deliverables-list li {
+            font-size: 0.85rem;
+            color: #ccc;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.5;
+        }
+        .deliverables-list li::before {
+            content: "■";
+            color: var(--nz-gold);
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+
+        /* CTA Footer Card */
+        .cs-cta-box {
+            text-align: center;
+            background: radial-gradient(circle at 50% 0%, rgba(223, 168, 55, 0.12), transparent 70%), var(--card-dark);
+            border: 1px solid rgba(223, 168, 55, 0.3);
+            border-radius: 8px;
+            padding: 60px 30px;
+            margin-top: 90px;
+        }
+        .cs-cta-box h3 {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        .cs-cta-box p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+        .cs-btn {
+            display: inline-block;
+            background: var(--nz-gold);
+            color: #000;
+            padding: 16px 36px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .cs-btn:hover {
+            box-shadow: 0 0 30px rgba(223, 168, 55, 0.4);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 860px) {
+            .cs-narrative-grid { grid-template-columns: 1fr; gap: 30px; }
+            .cs-visual-strip { grid-template-columns: 1fr; }
+            .cs-wrapper { padding-top: 90px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cs-wrapper">
+        <a href="work.html" class="cs-back">&larr; Return to Selected Works</a>
+
+        <h1 class="cs-hero-title">The Modern Estate | Architectural Cinema</h1>
+        <p class="cs-hero-sub">
+            Translating interior architectural daylight rhythms, natural stonework, and 14 acres of riverfront elevation into an acquisition-driving visual asset.
+        </p>
+
+        <!-- Main Video Showcase Player -->
+        <div class="cinema-hero-player">
+            <div class="cinema-aspect">
+                <iframe 
+                    src="https://www.youtube-nocookie.com/embed/6s24MSYLMQA?rel=0&modestbranding=1" 
+                    title="Northzero Architectural Cinema Reel"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Key Metrics / Project Brief -->
+        <div class="cs-stats-bar">
+            <div class="stat-item">
+                <span class="stat-label">Client &amp; Syndicate</span>
+                <span class="stat-val">Luxury Residential Brokerage</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Location / Terrain</span>
+                <span class="stat-val">Hudson River Valley, NY</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Cinematography Format</span>
+                <span class="stat-val">4K Cinema / FAA Part 107 Aerials</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Turnaround Timeline</span>
+                <span class="stat-val">5 Business Days to Master</span>
+            </div>
+        </div>
+
+        <!-- Section 1: The Assignment & Challenge -->
+        <div class="cs-narrative-grid">
+            <div class="cs-section-heading">
+                <span>Phase 01</span>
+                <h2>The Spatial Challenge</h2>
+            </div>
+            <div class="cs-body-content">
+                <p>
+                    Multi-million dollar architectural estates cannot be accurately communicated through static wide-angle photography alone. The residence featured vast floor-to-ceiling curtain walls with extreme dynamic range variations between morning daylight and evening river fog.
+                </p>
+                <p>
+                    <strong>The Objective:</strong> Capture the authentic spatial flow from the cantilevered exterior terraces into the vaulted interior living spaces without artificial, over-lit real estate glare. The prospective acquisition syndicates required a film that captured emotional presence, architectural integrity, and the elevation of the property above the Hudson River.
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 2: Production Approach & Lighting Studies -->
+        <div class="cs-narrative-grid">
+            <div class="cs-section-heading">
+                <span>Phase 02</span>
+                <h2>Founder-Led Execution</h2>
+            </div>
+            <div class="cs-body-content">
+                <p>
+                    Northzero executed a two-day principal photography schedule synchronized to the solar path. Using calibrated cinema optics, our team timed interior tracking sequences to coincide with natural architectural cove illumination—preserving the architect's intended shadow lines and texture.
+                </p>
+                <p>
+                    Under FAA Part 107 regulatory oversight, twilight aerial sweeps were captured at exact elevations to emphasize private parcel boundaries and direct river proximity without disrupting municipal noise standards.
+                </p>
+
+                <!-- Case Study Stills Strip -->
+                <div class="cs-visual-strip">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Living Pavilion Daylight Study" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Terrace Elevation & River Proximity" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Architectural Framing & Cove Grazing" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Deliverables & Syndication Matrix -->
+        <div class="cs-narrative-grid">
+            <div class="cs-section-heading">
+                <span>Phase 03</span>
+                <h2>Deliverables &amp; Syndication</h2>
+            </div>
+            <div class="cs-body-content">
+                <p>
+                    A premium listing requires multiple tiers of distribution tailored for buyer presentations, high-net-worth social acquisition, and MLS compliance.
+                </p>
+
+                <div class="deliverables-box">
+                    <ul class="deliverables-list">
+                        <li><strong>4K Master Acquisition Film</strong> (3:00 horizontal master with custom acoustic score)</li>
+                        <li><strong>Unbranded MLS Presentation Cut</strong> (Strict adherence to MLS non-promotional regulations)</li>
+                        <li><strong>3x 9:16 Mobile-First Vertical Cuts</strong> (Optimized for private buyer syndication &amp; Instagram)</li>
+                        <li><strong>Archival High-Resolution Still Set</strong> (Color-graded frame grabs for editorial print marketing)</li>
+                        <li><strong>ProRes 422 HQ Masters</strong> (Long-term studio archives delivered via secure cloud portal)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Consultation Box -->
+        <div class="cs-cta-box">
+            <h3>Commission Architectural Cinema</h3>
+            <p>
+                Discuss your architectural timeline, private listing launch, or historic property documentation with our principal desk.
+            </p>
+            <a href="contact.html?service=Architectural+Cinema" class="cs-btn">Start Project Brief &rarr;</a>
+        </div>
+    </div>
+
+</body>
+</html>
