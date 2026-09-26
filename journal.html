@@ -75,7 +75,7 @@
         .journal-filter button.active,
         .journal-filter button:hover { color: var(--nz-gold); }
 
-        /* --- ARTICLE GRID & LAYOUT --- */
+        /* --- ARTICLE LAYOUT --- */
         .journal-container {
             max-width: 1400px;
             margin: 50px auto 100px;
@@ -83,6 +83,7 @@
             display: flex;
             flex-direction: column;
             gap: 40px;
+            min-height: 400px;
         }
 
         .article-card {
@@ -93,15 +94,16 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-            transition: border-color 0.3s ease, background 0.3s ease;
+            transition: border-color 0.3s ease, background 0.3s ease, transform 0.2s ease;
         }
 
         .article-card:hover {
             border-color: var(--nz-gold);
-            background: #0d0d0d;
+            background: #0c0c0c;
+            transform: translateY(-2px);
         }
 
-        /* Hero Featured Post (Side-by-Side on desktop) */
+        /* Featured Hero Style */
         .article-card.featured {
             display: grid;
             grid-template-columns: 1.2fr 1fr;
@@ -111,11 +113,12 @@
             background: #050505;
         }
 
-        /* Sub-Grid for remaining posts */
+        /* Subgrid for Remaining Cards */
         .journal-subgrid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
             gap: 30px;
+            width: 100%;
         }
 
         .article-tag {
@@ -176,6 +179,12 @@
             overflow: hidden;
         }
 
+        .article-card:not(.featured) .article-image {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
         .article-image img {
             width: 100%;
             height: 100%;
@@ -206,23 +215,8 @@
                 padding: 40px 25px;
                 gap: 30px;
             }
-            .journal-subgrid {
-                grid-template-columns: 1fr;
-            }
-            .article-card {
-                padding: 30px 20px;
-            }
-        }
-
-        /* --- MOBILE --- */
-        @media (max-width: 900px) {
-            .article-card.featured {
-                grid-template-columns: 1fr;
-                padding: 50px 5%;
-                gap: 30px;
-            }
-            .journal-grid { grid-template-columns: 1fr; }
-            .article-card { padding: 40px 5%; }
+            .journal-subgrid { grid-template-columns: 1fr; }
+            .article-card { padding: 30px 20px; }
         }
     </style>
     
@@ -285,7 +279,7 @@
         </div>
     </nav>
 
-  <main>
+    <main>
         <header class="journal-header">
             <span class="label">Northzero Journal</span>
             <h1>The Editorial</h1>
@@ -299,88 +293,15 @@
             <button data-filter="authority">Authority Suite</button>
         </div>
 
+        <!-- DYNAMIC JOURNAL CONTAINER -->
         <div class="journal-container" id="journalContainer">
-
-            <!-- POST 1: Hero Featured (Tactile Narratives) -->
-            <a href="journal/why-luxury-brands-need-film.html"
-               class="article-card featured"
-               data-category="tactile"
-               aria-label="Read: Why Luxury Brands Need Film, Not Photography">
-                <div>
-                    <span class="article-tag">Tactile Narratives · Materiality</span>
-                    <p class="article-date">April 2026 · 8 min read</p>
-                    <h2 class="article-title">Why Luxury Brands Need Film, Not Photography</h2>
-                    <p class="article-excerpt">
-                        Photography captures surface aesthetics. Cinema communicates physical weight, finish, and tactile craft. In saturated luxury markets, macro optics and kinetic lighting bridge the gap between interest and commercial desire.
-                    </p>
-                    <span class="article-read-more">Read Field Brief &rarr;</span>
-                </div>
-                <div class="article-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=1200&q=80"
-                        alt="Macro cinematography study of luxury leather texture and stitching"
-                        loading="eager"
-                    >
-                </div>
-            </a>
-
-            <!-- SUBGRID: Architectural Cinema & Authority Suite -->
-            <div class="journal-subgrid">
-                
-                <!-- POST 2: Architectural Cinema -->
-                <a href="journal/why-estate-listings-need-cinema.html"
-                   class="article-card"
-                   data-category="architectural"
-                   aria-label="Read: Why Estate Listings Need Cinema, Not Walkthroughs">
-                    <div class="article-image">
-                        <img
-                            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
-                            alt="Modern architectural estate at twilight in Westchester County"
-                            loading="lazy"
-                        >
-                    </div>
-                    <div>
-                        <span class="article-tag">Architectural Cinema</span>
-                        <p class="article-date">March 2026 · 6 min read</p>
-                        <h2 class="article-title">Why Estate Listings Need Cinema, Not Walkthroughs</h2>
-                        <p class="article-excerpt">
-                            A virtual walkthrough displays floorplans. Deliberate 24fps spatial pacing and twilight optics command premium valuation for luxury compounds across Westchester and the Hudson Valley.
-                        </p>
-                        <span class="article-read-more">Read Field Brief &rarr;</span>
-                    </div>
-                </a>
-
-                <!-- POST 3: Authority Suite -->
-                <a href="journal/evidentiary-standard-municipal-review.html"
-                   class="article-card"
-                   data-category="authority"
-                   aria-label="Read: The Evidentiary Standard: Architectural Cinema in Municipal Review">
-                    <div class="article-image">
-                        <img
-                            src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=800&q=80"
-                            alt="Historic stone masonry and municipal architectural documentation"
-                            loading="lazy"
-                        >
-                    </div>
-                    <div>
-                        <span class="article-tag">Authority Suite · Preservation</span>
-                        <p class="article-date">September 2026 · 7 min read</p>
-                        <h2 class="article-title">The Evidentiary Standard: Cinema in Municipal Review</h2>
-                        <p class="article-excerpt">
-                            Municipal review bodies and preservation commissions do not evaluate architectural intent through promotional reels. How evidentiary discipline secures board approval without revision.
-                        </p>
-                        <span class="article-read-more">Read Field Brief &rarr;</span>
-                    </div>
-                </a>
-
-            </div>
-
+            <div id="featured-slot"></div>
+            <div class="journal-subgrid" id="subgrid-slot"></div>
             <div class="journal-empty" id="journalEmpty">
                 Briefs in this category are currently in development.
             </div>
-
         </div>
-        <!-- Conversion CTA Banner -->
+
         <section class="cta-section" aria-label="Start a project" style="padding: 100px 5%; text-align: center; background: #000; border-top: 1px solid #111;">
             <p style="color: var(--nz-gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 15px; font-weight: 500;">
                 Production Consultation
@@ -426,35 +347,101 @@
 
     <script src="nav.js?v=2.0"></script>
     <script>
-        // --- Robust Filter Handling ---
-        const filterBtns = document.querySelectorAll('.journal-filter button');
-        const cards      = document.querySelectorAll('.article-card');
-        const emptyMsg   = document.getElementById('journalEmpty');
-        const subGrid    = document.querySelector('.journal-subgrid');
+        let allPosts = [];
+        let currentFilter = 'all';
 
+        // --- Fetch & Render Engine ---
+        async function loadJournal() {
+            try {
+                const res = await fetch('journal-posts.json?v=' + Date.now());
+                if (!res.ok) throw new Error('Failed to load journal manifest');
+                allPosts = await res.json();
+                renderJournal();
+            } catch (err) {
+                console.error(err);
+                document.getElementById('journalEmpty').style.display = 'block';
+                document.getElementById('journalEmpty').textContent = 'Unable to load editorial briefs at this time.';
+            }
+        }
+
+        function createCardHTML(post, isFeatured) {
+            return `
+                <a href="${post.slug}" 
+                   class="article-card ${isFeatured ? 'featured' : ''}" 
+                   data-category="${post.category}"
+                   aria-label="Read: ${post.title}">
+                    ${!isFeatured ? `
+                        <div class="article-image">
+                            <img src="${post.image}" alt="${post.imageAlt}" loading="lazy">
+                        </div>
+                    ` : ''}
+                    <div>
+                        <span class="article-tag">${post.categoryLabel}</span>
+                        <p class="article-date">${post.date} · ${post.readTime}</p>
+                        <h2 class="article-title">${post.title}</h2>
+                        <p class="article-excerpt">${post.excerpt}</p>
+                        <span class="article-read-more">Read Field Brief &rarr;</span>
+                    </div>
+                    ${isFeatured ? `
+                        <div class="article-image">
+                            <img src="${post.image}" alt="${post.imageAlt}" loading="eager">
+                        </div>
+                    ` : ''}
+                </a>
+            `;
+        }
+
+        function renderJournal() {
+            const featuredSlot = document.getElementById('featured-slot');
+            const subgridSlot  = document.getElementById('subgrid-slot');
+            const emptyNotice  = document.getElementById('journalEmpty');
+
+            // 1. Filter by current category
+            const filtered = currentFilter === 'all' 
+                ? allPosts 
+                : allPosts.filter(p => p.category === currentFilter);
+
+            // 2. Empty check
+            if (filtered.length === 0) {
+                featuredSlot.innerHTML = '';
+                subgridSlot.innerHTML = '';
+                emptyNotice.style.display = 'block';
+                return;
+            } else {
+                emptyNotice.style.display = 'none';
+            }
+
+            // 3. Featured Card Selection
+            // When filtering by a category, the first matching post takes the top slot.
+            // When viewing 'All', respect the "featured: true" flag (or default to the first).
+            let featuredIndex = currentFilter === 'all' 
+                ? filtered.findIndex(p => p.featured)
+                : 0;
+
+            if (featuredIndex === -1) featuredIndex = 0;
+
+            const featuredPost = filtered[featuredIndex];
+            const secondaryPosts = filtered.filter((_, idx) => idx !== featuredIndex);
+
+            // 4. Inject
+            featuredSlot.innerHTML = createCardHTML(featuredPost, true);
+            subgridSlot.innerHTML = secondaryPosts.map(p => createCardHTML(p, false)).join('');
+            subgridSlot.style.display = secondaryPosts.length === 0 ? 'none' : 'grid';
+        }
+
+        // --- Filter Event Binding ---
+        const filterBtns = document.querySelectorAll('.journal-filter button');
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-
-                const filter  = btn.dataset.filter;
-                let   visible = 0;
-
-                cards.forEach(card => {
-                    const match = filter === 'all' || card.dataset.category === filter;
-                    card.style.display = match ? '' : 'none';
-                    if (match) visible++;
-                });
-
-                // Cleanly handle subgrid display if empty
-                if (subGrid) {
-                    const subGridVisible = subGrid.querySelectorAll('.article-card:not([style*="display: none"])').length;
-                    subGrid.style.display = subGridVisible === 0 ? 'none' : 'grid';
-                }
-
-                emptyMsg.style.display = visible === 0 ? 'block' : 'none';
+                currentFilter = btn.dataset.filter;
+                renderJournal();
             });
         });
+
+        // Initialize on DOM Ready
+        document.addEventListener('DOMContentLoaded', loadJournal);
     </script>
 </body>
 </html>
