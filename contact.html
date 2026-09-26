@@ -443,7 +443,7 @@
             </p>
         </div>
 
-        <!-- PRIMARY INTAKE FORM -->
+       <!-- PRIMARY INTAKE FORM -->
         <form id="nz-contact-form" class="nz-form" novalidate>
 
             <div class="form-group">
@@ -490,6 +490,7 @@
                 >
             </div>
 
+            <!-- Single Dedicated Production Scope Radio Group -->
             <div class="form-group full-width">
                 <label>Production Scope Required *</label>
                 <div class="service-cards" role="radiogroup" aria-label="Select a service">
@@ -497,21 +498,21 @@
                         <input type="radio" name="service" id="svc-arch" value="Architectural Cinema">
                         <label for="svc-arch">
                             <span class="card-title">Architectural Cinema</span>
-                            <span class="card-desc">Estate documentation, historic narratives, luxury real estate.</span>
+                            <span class="card-desc">Estate cinema tiers, historic properties, aerial mapping &amp; spatial walkthroughs.</span>
                         </label>
                     </div>
                     <div class="service-card">
                         <input type="radio" name="service" id="svc-auth" value="Authority Suite">
                         <label for="svc-auth">
                             <span class="card-title">Authority Suite</span>
-                            <span class="card-desc">HPC compliance, investor briefings, municipal visuals.</span>
+                            <span class="card-desc">HPC compliance films, municipal visual briefs, capital projects &amp; grant submissions.</span>
                         </label>
                     </div>
                     <div class="service-card">
                         <input type="radio" name="service" id="svc-tact" value="Tactile Narratives">
                         <label for="svc-tact">
                             <span class="card-title">Tactile Narratives</span>
-                            <span class="card-desc">Product cinematography, brand storytelling, lifestyle integration.</span>
+                            <span class="card-desc">Product cinematography, atelier &amp; craft documentaries, luxury retail assets.</span>
                         </label>
                     </div>
                 </div>
@@ -543,31 +544,15 @@
                 </div>
             </div>
 
-           <div class="form-group full-width">
-                <label>Production Scope Required *</label>
-                <div class="service-cards" role="radiogroup" aria-label="Select a service">
-                    <div class="service-card">
-                        <input type="radio" name="service" id="svc-arch" value="Architectural Cinema">
-                        <label for="svc-arch">
-                            <span class="card-title">Architectural Cinema</span>
-                            <span class="card-desc">Estate cinema tiers, historic properties, aerial mapping &amp; spatial walkthroughs.</span>
-                        </label>
-                    </div>
-                    <div class="service-card">
-                        <input type="radio" name="service" id="svc-auth" value="Authority Suite">
-                        <label for="svc-auth">
-                            <span class="card-title">Authority Suite</span>
-                            <span class="card-desc">HPC compliance films, municipal visual briefs, capital projects &amp; grant submissions.</span>
-                        </label>
-                    </div>
-                    <div class="service-card">
-                        <input type="radio" name="service" id="svc-tact" value="Tactile Narratives">
-                        <label for="svc-tact">
-                            <span class="card-title">Tactile Narratives</span>
-                            <span class="card-desc">Product cinematography, atelier &amp; craft documentaries, luxury retail assets.</span>
-                        </label>
-                    </div>
-                </div>
+            <!-- Project Brief Textarea -->
+            <div class="form-group full-width">
+                <label for="field-brief">Project Brief &amp; Objectives</label>
+                <textarea
+                    id="field-brief"
+                    name="brief"
+                    rows="5"
+                    placeholder="Briefly describe the property, product, or institutional vision — and what you need this production to accomplish..."
+                ></textarea>
             </div>
             
             <!-- Formspree Anti-Bot Honeypot -->
