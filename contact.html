@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start a Project | Northzero Productions · Westchester & Hudson Valley</title>
+    <title>Start a Project | Northzero Productions · Westchester &amp; Hudson Valley</title>
 
     <meta name="description" content="Initiate a luxury product film, estate cinema, or preservation documentation project with Northzero Productions — serving Ossining, Westchester County, and the Hudson Valley.">
     <meta name="robots" content="index, follow">
@@ -25,126 +25,79 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
+        html, body {
             background: #000;
             color: #fff;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             overflow-x: hidden;
         }
 
-        /* --- FORM CONTAINER --- */
+        /* --- CONTACT WRAPPER --- */
         .contact-container {
             padding: 140px 5% 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            max-width: 1240px;
+            margin: 0 auto;
             min-height: 100vh;
         }
 
-        .form-header { text-align: center; margin-bottom: 40px; }
+        .form-header { 
+            text-align: center; 
+            margin-bottom: 50px; 
+        }
+
+        .form-header .eyebrow {
+            color: var(--nz-gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
         .form-header h1 {
-            font-size: clamp(1.8rem, 5vw, 2.4rem);
+            font-size: clamp(2rem, 5vw, 2.8rem);
             letter-spacing: 8px;
             text-transform: uppercase;
-            margin-top: 10px;
-        }
-        .form-header p {
-            color: var(--nz-gold);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-size: 0.7rem;
+            line-height: 1.2;
+            font-weight: 800;
         }
 
-        /* --- POST-SUBMISSION SUCCESS CARD --- */
-        .success-card {
-            display: none;
-            width: 100%;
-            max-width: 720px;
-            background: #0a0a0a;
-            border: 1px solid var(--nz-gold);
-            padding: 60px 40px;
-            text-align: center;
-            margin: 20px auto 60px;
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        .success-card .sc-tag {
-            color: var(--nz-gold);
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            font-size: 0.65rem;
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        .success-card h2 {
-            font-size: clamp(1.6rem, 4vw, 2.4rem);
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-
-        .success-card p {
-            color: #aaa;
-            font-size: 0.95rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .success-card .redirect-notice {
-            color: #666;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-top: 25px;
-        }
-
-        .success-card .btn-schedule {
-            display: inline-block;
-            background: var(--nz-gold);
-            color: #000;
-            padding: 18px 36px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 0.8rem;
-            text-decoration: none;
-            font-weight: bold;
-            transition: opacity 0.3s;
-        }
-
-        .success-card .btn-schedule:hover { opacity: 0.85; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to   { opacity: 1; transform: translateY(0); }
+        /* --- TWO-COLUMN DESK LAYOUT --- */
+        .desk-layout {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 50px;
+            align-items: start;
         }
 
         /* --- FORM GRID --- */
         .nz-form {
             width: 100%;
-            max-width: 800px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 24px;
             transition: opacity 0.4s ease;
+            background: #070707;
+            border: 1px solid #1a1a1a;
+            padding: 40px;
         }
 
         .form-group { display: flex; flex-direction: column; gap: 8px; }
         .full-width  { grid-column: span 2; }
 
         label {
-            color: #666;
+            color: #777;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 0.6rem;
+            font-size: 0.65rem;
+            font-weight: 600;
         }
 
         input, select, textarea {
-            background: #0a0a0a;
+            background: #020202;
             border: 1px solid #222;
-            padding: 15px;
+            padding: 16px;
             color: #fff;
             font-size: 0.95rem;
             width: 100%;
@@ -162,15 +115,14 @@
         .select-wrapper::after {
             content: '↓';
             position: absolute;
-            right: 15px; top: 50%;
+            right: 18px; top: 50%;
             transform: translateY(-50%);
-            color: #444; font-size: 0.8rem;
+            color: var(--nz-gold); 
+            font-size: 0.85rem;
             pointer-events: none;
         }
         .select-wrapper select { padding-right: 40px; cursor: pointer; }
-
         select option { background: #0a0a0a; color: #fff; }
-        select option:disabled { color: #444; }
 
         /* --- SERVICE CARDS --- */
         .service-cards {
@@ -192,14 +144,13 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
-            padding: 20px;
+            padding: 18px 16px;
             border: 1px solid #222;
-            background: #0a0a0a;
+            background: #020202;
             cursor: pointer;
             transition: 0.3s;
             color: #fff;
             height: 100%;
-            font-size: inherit;
             text-transform: none;
             letter-spacing: normal;
         }
@@ -208,46 +159,40 @@
 
         .service-card input[type="radio"]:checked + label {
             border-color: var(--nz-gold);
-            background: #0d0d0a;
-        }
-
-        .service-card input[type="radio"]:focus-visible + label {
-            outline: 2px solid var(--nz-gold);
-            outline-offset: 2px;
+            background: #0d0c07;
         }
 
         .service-card .card-title {
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #fff;
+            font-weight: 700;
         }
 
         .service-card .card-desc {
             font-size: 0.65rem;
-            color: #555;
-            letter-spacing: 0;
-            text-transform: none;
+            color: #666;
             line-height: 1.5;
         }
 
-        .service-card input[type="radio"]:checked + label .card-desc { color: #888; }
+        .service-card input[type="radio"]:checked + label .card-desc { color: #aaa; }
 
-        /* --- SUBMIT --- */
+        /* --- SUBMIT & NOTICE --- */
         .submit-btn {
             grid-column: span 2;
             background: transparent;
             border: 1px solid var(--nz-gold);
             color: var(--nz-gold);
-            padding: 20px;
+            padding: 18px;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             cursor: pointer;
-            transition: 0.4s;
+            transition: 0.3s;
             margin-top: 10px;
             font-family: inherit;
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .submit-btn:hover    { background: var(--nz-gold); color: #000; }
@@ -256,116 +201,241 @@
         .review-guarantee {
             grid-column: span 2;
             text-align: center;
-            font-size: 0.65rem;
+            font-size: 0.68rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #555;
-            margin-top: 10px;
-            font-weight: 400;
+            color: #666;
+            margin-top: 8px;
         }
 
         #form-status {
             grid-column: span 2;
             text-align: center;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             min-height: 1.2em;
+        }
+
+        /* --- SIDEBAR: DIRECT DESK CARD --- */
+        .desk-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .desk-card {
+            background: #070707;
+            border: 1px solid #1a1a1a;
+            border-left: 3px solid var(--nz-gold);
+            padding: 32px 28px;
+        }
+
+        .desk-card h3 {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .desk-card p {
+            color: #888;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .desk-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .desk-link-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            border-bottom: 1px solid #141414;
+            padding-bottom: 12px;
+        }
+
+        .desk-link-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .desk-link-item .d-label {
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .desk-link-item a {
+            color: var(--nz-gold);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .desk-link-item a:hover {
+            color: #fff;
+        }
+
+        /* --- SUCCESS CARD --- */
+        .success-card {
+            display: none;
+            background: #080808;
+            border: 1px solid var(--nz-gold);
+            padding: 60px 40px;
+            text-align: center;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .success-card .sc-tag {
+            color: var(--nz-gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .success-card h2 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+
+        .success-card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 28px;
+            font-weight: 300;
+        }
+
+        .success-card .btn-schedule {
+            display: inline-block;
+            background: var(--nz-gold);
+            color: #000;
+            padding: 16px 34px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            text-decoration: none;
+            font-weight: 700;
+            transition: opacity 0.3s;
+        }
+
+        .success-card .btn-schedule:hover { opacity: 0.85; }
+
+        .success-card .redirect-notice {
+            color: #555;
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 22px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         /* --- TESTIMONIAL CAROUSEL --- */
         .testimonial-section {
             background: #050505;
             border-top: 1px solid #111;
-            border-bottom: 1px solid #111;
             padding: 100px 5%;
             overflow: hidden;
             width: 100%;
         }
 
-        .testimonial-header { text-align: center; margin-bottom: 60px; }
-
+        .testimonial-header { text-align: center; margin-bottom: 50px; }
         .testimonial-header .t-label {
             color: var(--nz-gold);
-            letter-spacing: 6px;
+            letter-spacing: 5px;
             text-transform: uppercase;
             font-size: 0.65rem;
             display: block;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
-
         .testimonial-header h2 {
             font-size: clamp(1.4rem, 4vw, 2rem);
             text-transform: uppercase;
-            letter-spacing: 8px;
+            letter-spacing: 6px;
             color: #fff;
         }
 
         .t-carousel { position: relative; max-width: 900px; margin: 0 auto; }
-        .t-track    { position: relative; min-height: 280px; }
+        .t-track    { position: relative; min-height: 260px; }
 
         .t-slide {
             position: absolute; top: 0; left: 0; width: 100%;
-            opacity: 0; transform: translateX(40px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            opacity: 0; transform: translateX(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
             pointer-events: none;
         }
 
         .t-slide.active { opacity: 1; transform: translateX(0); pointer-events: auto; position: relative; }
-        .t-slide.exit   { opacity: 0; transform: translateX(-40px); }
+        .t-slide.exit   { opacity: 0; transform: translateX(-30px); }
 
-        .t-quote            { border-left: 3px solid var(--nz-gold); padding: 10px 0 10px 40px; margin-bottom: 35px; }
-        .t-quote p          { font-size: clamp(1rem, 2.5vw, 1.3rem); color: #ccc; line-height: 1.9; font-weight: 300; font-style: italic; }
-        .t-attribution      { display: flex; align-items: center; gap: 20px; padding-left: 43px; }
+        .t-quote        { border-left: 3px solid var(--nz-gold); padding: 5px 0 5px 35px; margin-bottom: 30px; }
+        .t-quote p      { font-size: clamp(1rem, 2.2vw, 1.25rem); color: #ccc; line-height: 1.8; font-weight: 300; font-style: italic; }
+        .t-attribution  { display: flex; align-items: center; gap: 18px; padding-left: 38px; }
 
         .t-avatar {
-            width: 44px; height: 44px; border-radius: 50%; border: 1px solid #222;
+            width: 42px; height: 42px; border-radius: 50%; border: 1px solid #222;
             background: #0a0a0a; display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0; font-size: 0.7rem; letter-spacing: 1px;
-            color: var(--nz-gold); text-transform: uppercase;
+            font-size: 0.7rem; color: var(--nz-gold); text-transform: uppercase;
         }
 
         .t-meta    { display: flex; flex-direction: column; gap: 3px; }
-        .t-name    { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: #fff; }
-        .t-role    { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 3px; color: #555; }
-        .t-service { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 2px; color: var(--nz-gold); margin-top: 2px; }
+        .t-name    { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #fff; font-weight: 600; }
+        .t-role    { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: #666; }
+        .t-service { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 2px; color: var(--nz-gold); margin-top: 2px; font-weight: 600; }
 
-        .t-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 50px; padding-left: 43px; }
+        .t-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 40px; padding-left: 38px; }
         .t-dots     { display: flex; gap: 10px; }
 
         .t-dot {
             width: 20px; height: 2px; background: #222;
-            border: none; cursor: pointer;
-            transition: background 0.3s, width 0.3s; padding: 0;
+            border: none; cursor: pointer; transition: background 0.3s, width 0.3s; padding: 0;
         }
-        .t-dot.active { background: var(--nz-gold); width: 36px; }
+        .t-dot.active { background: var(--nz-gold); width: 34px; }
 
         .t-arrows { display: flex; gap: 12px; }
-
         .t-arrow {
-            width: 44px; height: 44px; background: none; border: 1px solid #222;
-            color: #555; font-size: 1rem; cursor: pointer; transition: 0.3s;
+            width: 40px; height: 40px; background: none; border: 1px solid #222;
+            color: #666; font-size: 0.9rem; cursor: pointer; transition: 0.3s;
             display: flex; align-items: center; justify-content: center;
-            font-family: inherit;
         }
         .t-arrow:hover { border-color: var(--nz-gold); color: var(--nz-gold); }
 
-        /* --- MOBILE --- */
-        @media (max-width: 900px) {
-            .nz-form        { display: flex; flex-direction: column; }
-            .form-header h1 { font-size: 1.5rem; letter-spacing: 4px; }
-            .service-cards  { grid-template-columns: 1fr; }
-            .t-quote        { padding-left: 20px; }
-            .t-attribution  { padding-left: 23px; }
-            .t-controls     { padding-left: 0; flex-direction: column; gap: 25px; align-items: flex-start; }
-            .t-track        { min-height: 380px; }
-            .success-card   { padding: 40px 20px; }
+        /* --- RESPONSIVE --- */
+        @media (max-width: 980px) {
+            .desk-layout { grid-template-columns: 1fr; gap: 40px; }
+            .service-cards { grid-template-columns: 1fr; }
+            .nz-form { padding: 30px 20px; }
         }
 
-        @media screen and (max-width: 768px) {
-            input, select, textarea {
-                font-size: 16px !important;
-            }
+        @media (max-width: 768px) {
+            .nz-form { display: flex; flex-direction: column; }
+            .form-header h1 { font-size: 1.6rem; letter-spacing: 4px; }
+            .t-quote { padding-left: 20px; }
+            .t-attribution { padding-left: 20px; }
+            .t-controls { padding-left: 0; flex-direction: column; gap: 20px; align-items: flex-start; }
+            input, select, textarea { font-size: 16px !important; }
         }
     </style>
 </head>
@@ -405,7 +475,6 @@
                     <a href="architectural.html">Architectural Cinema</a>
                     <a href="tactile.html">Tactile Narratives</a>
                     <a href="westchester.html">Westchester &amp; Hudson Valley</a>
-                    <a href="architectural.html#real-estate-packages">Estate Cinema Tiers</a>
                     <a href="production-terms.html">FAQ &amp; Terms</a>
                 </div>
             </div>
@@ -417,219 +486,253 @@
     </nav>
 
     <main class="contact-container">
-        <div class="form-header">
-            <p>Commission a Production</p>
-            <h1>Initiate Project Brief</h1>
+        <header class="form-header">
+            <span class="eyebrow" id="discipline-eyebrow">Production Consultation Desk</span>
+            <h1 id="discipline-heading">Initiate Project Brief</h1>
+        </header>
+
+        <div class="desk-layout">
+            <!-- LEFT: INTAKE FORM OR SUCCESS CARD -->
+            <div class="intake-column">
+                
+                <!-- SUCCESS CARD -->
+                <div class="success-card" id="success-card" role="region" aria-live="assertive">
+                    <span class="sc-tag">Direct Transmission Complete</span>
+                    <h2>Brief Routed to Desk</h2>
+                    <p>
+                        Your production parameters have been logged. To discuss timeline alignment, 
+                        creative scope, or technical constraints without delay, lock in your introductory briefing below.
+                    </p>
+                    <a
+                        href="https://calendly.com/northzeroproductions-info/30min"
+                        class="btn-schedule"
+                        id="calendly-direct-btn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Schedule Creative Briefing &rarr;
+                    </a>
+                    <p class="redirect-notice" id="redirect-counter">
+                        Redirecting to scheduling calendar in 6 seconds...
+                    </p>
+                </div>
+
+                <!-- FORM -->
+                <form id="nz-contact-form" class="nz-form" novalidate>
+                    <div class="form-group">
+                        <label for="field-name">Principal Name *</label>
+                        <input
+                            type="text"
+                            id="field-name"
+                            name="name"
+                            placeholder="Omar Greene"
+                            autocomplete="name"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="field-email">Email Address *</label>
+                        <input
+                            type="email"
+                            id="field-email"
+                            name="email"
+                            placeholder="name@agency.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="field-org">Organisation / Firm</label>
+                        <input
+                            type="text"
+                            id="field-org"
+                            name="organisation"
+                            placeholder="Firm, agency, or estate name"
+                            autocomplete="organization"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="field-role">Your Role</label>
+                        <input
+                            type="text"
+                            id="field-role"
+                            name="role"
+                            placeholder="Principal, Architect, Developer, Agent"
+                            autocomplete="organization-title"
+                        >
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Production Scope Required *</label>
+                        <div class="service-cards" role="radiogroup" aria-label="Select a service">
+                            <div class="service-card">
+                                <input type="radio" name="service" id="svc-arch" value="Architectural Cinema">
+                                <label for="svc-arch">
+                                    <span class="card-title">Architectural Cinema</span>
+                                    <span class="card-desc">Estate cinema tiers, historic properties, aerial mapping &amp; spatial walkthroughs.</span>
+                                </label>
+                            </div>
+                            <div class="service-card">
+                                <input type="radio" name="service" id="svc-auth" value="Authority Suite">
+                                <label for="svc-auth">
+                                    <span class="card-title">Authority Suite</span>
+                                    <span class="card-desc">HPC compliance films, municipal visual briefs, capital projects &amp; grant submissions.</span>
+                                </label>
+                            </div>
+                            <div class="service-card">
+                                <input type="radio" name="service" id="svc-tact" value="Tactile Narratives">
+                                <label for="svc-tact">
+                                    <span class="card-title">Tactile Narratives</span>
+                                    <span class="card-desc">Product cinematography, atelier &amp; craft documentaries, luxury retail assets.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="field-timeline">Target Timeline</label>
+                        <div class="select-wrapper">
+                            <select id="field-timeline" name="timeline">
+                                <option value="" disabled selected>Select production window</option>
+                                <option value="Immediate (within 4 weeks)">Immediate — within 4 weeks</option>
+                                <option value="Short-term (1–3 months)">Short-term — 1–3 months</option>
+                                <option value="Mid-term (3–6 months)">Mid-term — 3–6 months</option>
+                                <option value="Planning stage (6+ months)">Planning stage — 6+ months</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="field-investment">Estimated Production Investment</label>
+                        <div class="select-wrapper">
+                            <select id="field-investment" name="investment_bracket">
+                                <option value="" disabled selected>Select investment tier</option>
+                                <option value="$3,500 – $7,500">$3,500 – $7,500 (Single-day / Core Deliverable)</option>
+                                <option value="$7,500 – $15,000">$7,500 – $15,000 (Multi-day / Full Cinema Crew)</option>
+                                <option value="$15,000+">$15,000+ (Comprehensive Campaign / Compliance)</option>
+                                <option value="To be determined">To be scoped in briefing</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="field-brief">Project Brief &amp; Objectives</label>
+                        <textarea
+                            id="field-brief"
+                            name="brief"
+                            rows="5"
+                            placeholder="Describe the property location, subject matter, or institutional vision..."
+                        ></textarea>
+                    </div>
+                    
+                    <!-- Formspree Honeypot -->
+                    <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+                    
+                    <button type="submit" class="submit-btn" id="submit-btn">Submit Production Brief &rarr;</button>
+                    <p id="form-status" role="status" aria-live="polite"></p>
+                    <p class="review-guarantee">
+                        Every brief is reviewed directly by our principal desk within 24 hours.
+                    </p>
+                </form>
+            </div>
+
+            <!-- RIGHT: DIRECT DESK CREDENTIAL SIDEBAR -->
+            <aside class="desk-sidebar" aria-label="Direct studio communications">
+                <div class="desk-card">
+                    <h3>Principal Dispatch</h3>
+                    <p>
+                        High-stakes municipal filings, rapid architectural listing windows, or direct agency inquiries may contact our principal desk directly.
+                    </p>
+                    <div class="desk-links">
+                        <div class="desk-link-item">
+                            <span class="d-label">Studio Inquiries</span>
+                            <a href="mailto:studio@northzeroproductions.com">studio@northzeroproductions.com</a>
+                        </div>
+                        <div class="desk-link-item">
+                            <span class="d-label">Direct Calendar Booking</span>
+                            <a href="https://calendly.com/northzeroproductions-info/30min" target="_blank" rel="noopener noreferrer">30-Min Scoping Call &rarr;</a>
+                        </div>
+                        <div class="desk-link-item">
+                            <span class="d-label">Operational Territory</span>
+                            <span style="font-size:0.85rem; color:#ccc;">Ossining Studio · Westchester County &amp; NYC Metro</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="desk-card" style="border-left-color: var(--nz-blue);">
+                    <h3 style="color:#8bb4f6;">Evidentiary Standing</h3>
+                    <p style="font-size:0.82rem; margin-bottom:0;">
+                        Direct institutional representation on the Village of Ossining Historic Preservation Commission ensures compliance briefs meet strict HABS/HAER standards.
+                    </p>
+                </div>
+            </aside>
         </div>
-
-        <!-- POST-SUBMISSION SUCCESS STATE -->
-        <div class="success-card" id="success-card" role="region" aria-live="assertive">
-            <span class="sc-tag">Direct Transmission Complete</span>
-            <h2>Brief Routed to Desk</h2>
-            <p>
-                Your production parameters have been logged. To discuss timeline alignment, 
-                creative scope, or technical constraints without delay, lock in your introductory briefing below.
-            </p>
-            <a
-                href="https://calendly.com/northzeroproductions-info/30min"
-                class="btn-schedule"
-                id="calendly-direct-btn"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Schedule Creative Briefing →
-            </a>
-            <p class="redirect-notice" id="redirect-counter">
-                Redirecting to scheduling calendar in 6 seconds...
-            </p>
-        </div>
-
-       <!-- PRIMARY INTAKE FORM -->
-        <form id="nz-contact-form" class="nz-form" novalidate>
-
-            <div class="form-group">
-                <label for="field-name">Principal Name *</label>
-                <input
-                    type="text"
-                    id="field-name"
-                    name="name"
-                    placeholder="Omar Greene"
-                    autocomplete="name"
-                    required
-                >
-            </div>
-            <div class="form-group">
-                <label for="field-email">Email Address *</label>
-                <input
-                    type="email"
-                    id="field-email"
-                    name="email"
-                    placeholder="name@agency.com"
-                    autocomplete="email"
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="field-org">Organisation / Firm</label>
-                <input
-                    type="text"
-                    id="field-org"
-                    name="organisation"
-                    placeholder="Firm, agency, or estate name"
-                    autocomplete="organization"
-                >
-            </div>
-            <div class="form-group">
-                <label for="field-role">Your Role</label>
-                <input
-                    type="text"
-                    id="field-role"
-                    name="role"
-                    placeholder="Principal, Architect, Developer, Agent"
-                    autocomplete="organization-title"
-                >
-            </div>
-
-            <!-- Single Dedicated Production Scope Radio Group -->
-            <div class="form-group full-width">
-                <label>Production Scope Required *</label>
-                <div class="service-cards" role="radiogroup" aria-label="Select a service">
-                    <div class="service-card">
-                        <input type="radio" name="service" id="svc-arch" value="Architectural Cinema">
-                        <label for="svc-arch">
-                            <span class="card-title">Architectural Cinema</span>
-                            <span class="card-desc">Estate cinema tiers, historic properties, aerial mapping &amp; spatial walkthroughs.</span>
-                        </label>
-                    </div>
-                    <div class="service-card">
-                        <input type="radio" name="service" id="svc-auth" value="Authority Suite">
-                        <label for="svc-auth">
-                            <span class="card-title">Authority Suite</span>
-                            <span class="card-desc">HPC compliance films, municipal visual briefs, capital projects &amp; grant submissions.</span>
-                        </label>
-                    </div>
-                    <div class="service-card">
-                        <input type="radio" name="service" id="svc-tact" value="Tactile Narratives">
-                        <label for="svc-tact">
-                            <span class="card-title">Tactile Narratives</span>
-                            <span class="card-desc">Product cinematography, atelier &amp; craft documentaries, luxury retail assets.</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="field-timeline">Target Timeline</label>
-                <div class="select-wrapper">
-                    <select id="field-timeline" name="timeline">
-                        <option value="" disabled selected>Select production window</option>
-                        <option value="Immediate (within 4 weeks)">Immediate — within 4 weeks</option>
-                        <option value="Short-term (1–3 months)">Short-term — 1–3 months</option>
-                        <option value="Mid-term (3–6 months)">Mid-term — 3–6 months</option>
-                        <option value="Planning stage (6+ months)">Planning stage — 6+ months</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="field-investment">Estimated Production Investment</label>
-                <div class="select-wrapper">
-                    <select id="field-investment" name="investment_bracket">
-                        <option value="" disabled selected>Select investment tier</option>
-                        <option value="$3,500 – $7,500">$3,500 – $7,500 (Single-day / Core Deliverable)</option>
-                        <option value="$7,500 – $15,000">$7,500 – $15,000 (Multi-day / Full Cinema Crew)</option>
-                        <option value="$15,000+">$15,000+ (Comprehensive Campaign / Compliance)</option>
-                        <option value="To be determined">To be scoped in briefing</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Project Brief Textarea -->
-            <div class="form-group full-width">
-                <label for="field-brief">Project Brief &amp; Objectives</label>
-                <textarea
-                    id="field-brief"
-                    name="brief"
-                    rows="5"
-                    placeholder="Briefly describe the property, product, or institutional vision — and what you need this production to accomplish..."
-                ></textarea>
-            </div>
-            
-            <!-- Formspree Anti-Bot Honeypot -->
-            <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
-            
-            <button type="submit" class="submit-btn" id="submit-btn">Submit Production Brief</button>
-            <p id="form-status" role="status" aria-live="polite"></p>
-            <p class="review-guarantee">
-                Every brief is reviewed directly by our principal desk within 24 hours.
-            </p>
-        </form>
-
-        <!-- Testimonial Carousel -->
-        <section class="testimonial-section" aria-label="Client testimonials">
-            <div class="testimonial-header">
-                <span class="t-label">Client Voices</span>
-                <h2>What Clients Say</h2>
-            </div>
-
-            <div class="t-carousel" id="t-carousel-contact">
-                <div class="t-track" id="t-track-contact" aria-live="polite" aria-atomic="true">
-
-                    <div class="t-slide active" role="group" aria-label="Testimonial 1 of 3">
-                        <div class="t-quote">
-                            <p>"The documentation Northzero produced for our landmark submission was unlike anything we'd seen from a production company. They understood the HPC process from the inside — the result was approved without revision."</p>
-                        </div>
-                        <div class="t-attribution">
-                            <div class="t-avatar" aria-hidden="true">JR</div>
-                            <div class="t-meta">
-                                <span class="t-name">J. Reynolds</span>
-                                <span class="t-role">Principal, Reynolds Heritage Developers</span>
-                                <span class="t-service">Authority Suite</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="t-slide" role="group" aria-label="Testimonial 2 of 3">
-                        <div class="t-quote">
-                            <p>"We listed the estate at $4.2M. The cinematic walkthrough Omar produced repositioned it entirely — the quality of enquiry changed overnight. It sold in 11 days."</p>
-                        </div>
-                        <div class="t-attribution">
-                            <div class="t-avatar" aria-hidden="true">MC</div>
-                            <div class="t-meta">
-                                <span class="t-name">M. Castellano</span>
-                                <span class="t-role">Senior Associate, Hudson Valley Realty Group</span>
-                                <span class="t-service">Architectural Cinema</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="t-slide" role="group" aria-label="Testimonial 3 of 3">
-                        <div class="t-quote">
-                            <p>"The tactile film Northzero produced for our leather goods launch became the centrepiece of our entire campaign. It conveyed craftsmanship in a way photography never could."</p>
-                        </div>
-                        <div class="t-attribution">
-                            <div class="t-avatar" aria-hidden="true">AS</div>
-                            <div class="t-meta">
-                                <span class="t-name">A. Sterling</span>
-                                <span class="t-role">Creative Director, Sterling Goods Co.</span>
-                                <span class="t-service">Tactile Narratives</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="t-controls">
-                    <div class="t-dots" id="t-dots-contact" role="tablist" aria-label="Testimonial navigation"></div>
-                    <div class="t-arrows">
-                        <button class="t-arrow" id="t-prev-contact" aria-label="Previous testimonial">&#8592;</button>
-                        <button class="t-arrow" id="t-next-contact" aria-label="Next testimonial">&#8594;</button>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
+
+    <!-- TESTIMONIAL CAROUSEL -->
+    <section class="testimonial-section" aria-label="Client testimonials">
+        <div class="testimonial-header">
+            <span class="t-label">Client Voices</span>
+            <h2>What Clients Say</h2>
+        </div>
+
+        <div class="t-carousel" id="t-carousel-contact">
+            <div class="t-track" id="t-track-contact" aria-live="polite" aria-atomic="true">
+
+                <div class="t-slide active" role="group" aria-label="Testimonial 1 of 3">
+                    <div class="t-quote">
+                        <p>"The documentation Northzero produced for our landmark submission was unlike anything we'd seen from a production company. They understood the HPC process from the inside — the result was approved without revision."</p>
+                    </div>
+                    <div class="t-attribution">
+                        <div class="t-avatar" aria-hidden="true">JR</div>
+                        <div class="t-meta">
+                            <span class="t-name">J. Reynolds</span>
+                            <span class="t-role">Principal, Reynolds Heritage Developers</span>
+                            <span class="t-service">Authority Suite</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="t-slide" role="group" aria-label="Testimonial 2 of 3">
+                    <div class="t-quote">
+                        <p>"We listed the estate at $4.2M. The cinematic walkthrough Omar produced repositioned it entirely — the quality of enquiry changed overnight. It sold in 11 days."</p>
+                    </div>
+                    <div class="t-attribution">
+                        <div class="t-avatar" aria-hidden="true">MC</div>
+                        <div class="t-meta">
+                            <span class="t-name">M. Castellano</span>
+                            <span class="t-role">Senior Associate, Hudson Valley Realty Group</span>
+                            <span class="t-service">Architectural Cinema</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="t-slide" role="group" aria-label="Testimonial 3 of 3">
+                    <div class="t-quote">
+                        <p>"The tactile film Northzero produced for our leather goods launch became the centrepiece of our entire campaign. It conveyed craftsmanship in a way photography never could."</p>
+                    </div>
+                    <div class="t-attribution">
+                        <div class="t-avatar" aria-hidden="true">AS</div>
+                        <div class="t-meta">
+                            <span class="t-name">A. Sterling</span>
+                            <span class="t-role">Creative Director, Sterling Goods Co.</span>
+                            <span class="t-service">Tactile Narratives</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="t-controls">
+                <div class="t-dots" id="t-dots-contact" role="tablist" aria-label="Testimonial navigation"></div>
+                <div class="t-arrows">
+                    <button class="t-arrow" id="t-prev-contact" aria-label="Previous testimonial">&#8592;</button>
+                    <button class="t-arrow" id="t-next-contact" aria-label="Next testimonial">&#8594;</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer style="padding: 60px 5%; text-align: center; border-top: 1px solid #111; background: #000;">
         <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 25px;">
@@ -652,7 +755,6 @@
 
     <script src="nav.js?v=2.1" defer></script>
     <script>
-        // --- Formspree Async Handshake & Post-Submission Reveal ---
         const ENDPOINT     = 'https://formspree.io/f/xykedrkb';
         const CALENDLY_URL = 'https://calendly.com/northzeroproductions-info/30min';
         
@@ -664,19 +766,33 @@
         const calendlyBtn = document.getElementById('calendly-direct-btn');
         let countdown     = null;
 
-        /* Pre-select Service Radio from URL parameter (?service=Architectural+Cinema, etc.) */
+        /* Dynamic Heading & Radio Pre-selection from Query Params */
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
             const serviceParam = params.get('service');
+            
             if (serviceParam) {
                 const targetRadio = document.querySelector(`input[name="service"][value="${serviceParam}"]`);
                 if (targetRadio) {
                     targetRadio.checked = true;
                 }
+
+                const heading = document.getElementById('discipline-heading');
+                const eyebrow = document.getElementById('discipline-eyebrow');
+
+                if (serviceParam.includes('Authority')) {
+                    eyebrow.textContent = 'Municipal & Landmark Compliance Desk';
+                    heading.textContent = 'Authority Suite Intake';
+                } else if (serviceParam.includes('Tactile')) {
+                    eyebrow.textContent = 'Luxury Product & Atelier Cinema';
+                    heading.textContent = 'Tactile Narratives Intake';
+                } else if (serviceParam.includes('Architectural')) {
+                    eyebrow.textContent = 'Residential Estates & Built Environment';
+                    heading.textContent = 'Architectural Cinema Intake';
+                }
             }
         });
 
-        // Cancel countdown if user manually clicks Calendly button
         if (calendlyBtn) {
             calendlyBtn.addEventListener('click', () => {
                 if (countdown) clearInterval(countdown);
@@ -693,7 +809,6 @@
             const email        = emailInput ? emailInput.value.trim() : '';
             const checkedRadio = form.querySelector('input[name="service"]:checked');
         
-            // 1. Validate Name
             if (!name) {
                 status.textContent = 'Please enter your name.';
                 status.style.color = '#e05555';
@@ -701,7 +816,6 @@
                 return;
             }
         
-            // 2. Validate Email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!email || !emailRegex.test(email)) {
                 status.textContent = 'Please provide a valid email address.';
@@ -710,7 +824,6 @@
                 return;
             }
         
-            // 3. Service Radio Check
             if (!checkedRadio || !checkedRadio.value) {
                 status.textContent = 'Please select a production scope.';
                 status.style.color = '#e05555';
@@ -796,7 +909,7 @@
                     dots[current].classList.remove('active');
                     dots[current].setAttribute('aria-selected', 'false');
                     const exiting = slides[current];
-                    setTimeout(() => exiting.classList.remove('exit'), 620);
+                    setTimeout(() => exiting.classList.remove('exit'), 500);
                     current = (idx + slides.length) % slides.length;
                     slides[current].classList.add('active');
                     dots[current].classList.add('active');
