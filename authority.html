@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Authority Suite | HPC Documentation & Preservation Cinematography · Westchester, NY</title>
+    <title>The Authority Suite | HPC Documentation &amp; Preservation Cinematography · Westchester, NY</title>
 
-    <meta name="description" content="High-stakes visual documentation for HPC-regulated properties, investor briefings, and municipal approvals. Northzero Productions — Ossining Historic Preservation Commission member, serving Westchester County and the Hudson Valley.">
+    <meta name="description" content="High-stakes visual documentation for HPC-regulated properties, landmark compliance, and municipal approvals. Northzero Productions — Ossining Historic Preservation Commission member, serving Westchester County and the Hudson Valley.">
 
     <meta property="og:type"         content="website">
     <meta property="og:url"          content="https://northzeroproductions.com/authority.html">
-    <meta property="og:title"        content="The Authority Suite | HPC Documentation · Westchester & Hudson Valley">
+    <meta property="og:title"        content="The Authority Suite | HPC Documentation · Westchester &amp; Hudson Valley">
     <meta property="og:description"  content="Visual documentation for HPC-regulated properties and landmark compliance. Serving Ossining, Westchester County, and the Hudson Valley.">
     <meta property="og:image"        content="https://northzeroproductions.com/og-image.jpg">
     <meta property="og:image:width"  content="1200">
@@ -54,36 +54,39 @@
         /* --- HERO --- */
         .auth-hero {
             height: 70vh;
+            min-height: 520px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80')
+            background: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.85)),
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80')
                         center/cover;
             text-align: center;
+            padding: 0 5%;
         }
 
         .auth-hero h1 {
-            font-size: clamp(2rem, 8vw, 4rem);
+            font-size: clamp(2.2rem, 7vw, 4rem);
             text-transform: uppercase;
-            letter-spacing: 15px;
+            letter-spacing: 12px;
             margin-bottom: 20px;
             color: #fff;
-            white-space: normal;
+            line-height: 1.2;
         }
 
         .auth-hero .eyebrow {
             letter-spacing: 8px;
             color: var(--nz-gold);
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             font-size: 0.75rem;
             text-transform: uppercase;
+            font-weight: 600;
         }
 
         /* --- INTRO --- */
         .auth-intro {
-            padding: 120px 10%;
-            max-width: 1100px;
+            padding: 110px 8%;
+            max-width: 1050px;
             margin: 0 auto;
             text-align: center;
         }
@@ -91,131 +94,180 @@
         .auth-intro h2 {
             color: var(--nz-gold);
             text-transform: uppercase;
-            letter-spacing: 8px;
-            font-size: 1rem;
-            margin-bottom: 30px;
+            letter-spacing: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
         }
 
         .auth-intro p {
-            font-size: 1.4rem;
-            line-height: 2;
+            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+            line-height: 1.9;
             font-weight: 300;
             color: #ccc;
+            margin-bottom: 40px;
+        }
+
+        /* Specifications Card */
+        .auth-specs-card {
+            background: #080808;
+            border: 1px solid #1a1a1a;
+            border-left: 3px solid var(--nz-gold);
+            padding: 35px 40px;
+            text-align: left;
+            margin-top: 40px;
+        }
+
+        .auth-specs-card h3 {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+
+        .auth-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            color: #888;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .auth-specs-grid li {
+            list-style: none;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .auth-specs-grid li::before {
+            content: "■";
+            position: absolute;
+            left: 0;
+            color: var(--nz-gold);
+            font-size: 0.6rem;
+            top: 2px;
         }
 
         /* --- SERVICE GRID --- */
         .tech-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            border-top: 1px solid #222;
+            border-top: 1px solid #1a1a1a;
             background: #000;
         }
 
         .tech-cell {
             padding: 80px;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid #1a1a1a;
             transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background: #000;
         }
 
-        .tech-cell:nth-child(odd)  { border-right: 1px solid #222; }
-        .tech-cell:hover           { background: #080808; border-color: var(--nz-gold); }
+        .tech-cell:nth-child(odd) { border-right: 1px solid #1a1a1a; }
+        .tech-cell:hover          { background: #070707; border-color: var(--nz-gold); }
 
         .tech-cell h3 {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 4px;
             color: var(--nz-gold);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .tech-cell h4 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             letter-spacing: 2px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-weight: 400;
             color: #fff;
+            text-transform: uppercase;
         }
 
-        .tech-cell p { color: #777; line-height: 1.8; font-size: 0.95rem; }
+        .tech-cell p { 
+            color: #777; 
+            line-height: 1.8; 
+            font-size: 0.95rem; 
+            font-weight: 300;
+        }
 
-        /* --- ENHANCED CREDENTIALS BAR --- */
+        /* --- CREDENTIALS BAR --- */
         .credentials-bar {
-            background: #0a0a0a;
-            border-top: 1px solid var(--nz-blue);
-            padding: 80px 5%;
+            background: #070707;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 90px 6%;
             display: flex;
-            gap: 80px;
+            gap: 70px;
             flex-wrap: wrap;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
         }
 
-        .cred-primary { flex: 1; min-width: 280px; max-width: 560px; }
+        .cred-primary { 
+            flex: 1; 
+            min-width: 300px; 
+            max-width: 580px; 
+        }
 
         .cred-primary-label {
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             letter-spacing: 5px;
             text-transform: uppercase;
-            color: var(--nz-blue);
+            color: var(--nz-gold);
             margin-bottom: 15px;
             display: block;
         }
 
         .cred-primary-title {
-            font-size: 1.4rem;
-            letter-spacing: 4px;
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: #fff;
             font-weight: 400;
             margin-bottom: 20px;
+            line-height: 1.3;
         }
 
         .cred-primary-body {
-            color: #777;
-            font-size: 0.9rem;
-            line-height: 2;
+            color: #888;
+            font-size: 0.92rem;
+            line-height: 1.9;
             margin-bottom: 25px;
+            font-weight: 300;
         }
 
-        .cred-tags      { display: flex; flex-wrap: wrap; gap: 10px; }
+        .cred-tags { display: flex; flex-wrap: wrap; gap: 10px; }
         .cred-tag {
-            font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase;
-            border: 1px solid #1a1a2a; padding: 8px 14px; color: var(--nz-blue);
+            font-size: 0.6rem; 
+            letter-spacing: 3px; 
+            text-transform: uppercase;
+            border: 1px solid #222; 
+            padding: 8px 14px; 
+            color: var(--nz-gold);
+            background: #020202;
         }
 
         .cred-supporting {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 35px;
             justify-content: center;
             flex-shrink: 0;
+            border-left: 1px solid #1a1a1a;
+            padding-left: 50px;
         }
 
         .cred-item  { text-align: left; }
-        .cred-value { display: block; font-size: 1.2rem; letter-spacing: 2px; color: #fff; margin-bottom: 5px; }
-        .cred-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 4px; color: var(--nz-blue); font-weight: 900; display: block; }
+        .cred-value { display: block; font-size: 1.25rem; letter-spacing: 2px; color: #fff; margin-bottom: 4px; font-weight: 500; }
+        .cred-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 3px; color: #555; }
 
-        /* --- MOBILE --- */
-        @media (max-width: 900px) {
-            .tech-grid                { grid-template-columns: 1fr; }
-            .tech-cell:nth-child(odd) { border-right: none; }
-            .tech-cell                { padding: 60px 10%; }
-            .auth-hero h1             { letter-spacing: 8px; }
-            .auth-intro               { padding: 80px 6%; }
-            .auth-intro p             { font-size: 1.1rem; }
-            .credentials-bar          { flex-direction: column; gap: 50px; }
-            .cred-supporting          { flex-direction: row; flex-wrap: wrap; gap: 30px; }
-        }
-
-        /* --- COMMISSION A PRODUCTION / SERVICE FOOTER BANNER --- */
+        /* --- UNIFIED CONVERSION FOOTER BANNER --- */
         .commission-banner {
-            background: #050505;
-            border-top: 1px solid #1a1a1a;
-            border-bottom: 1px solid #1a1a1a;
-            padding: 110px 5%;
+            background: #000;
+            padding: 120px 5%;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
         
         .commission-inner {
@@ -228,7 +280,7 @@
         
         .commission-rule {
             width: 1px;
-            height: 50px;
+            height: 45px;
             background: var(--nz-gold);
             margin-bottom: 25px;
         }
@@ -240,24 +292,25 @@
             color: var(--nz-gold);
             margin-bottom: 18px;
             display: block;
+            font-weight: 600;
         }
         
         .commission-banner h2 {
-            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            font-size: clamp(1.8rem, 4.5vw, 2.6rem);
             text-transform: uppercase;
-            letter-spacing: 7px;
+            letter-spacing: 6px;
             color: #fff;
             font-weight: 700;
-            line-height: 1.35;
-            margin-bottom: 22px;
+            line-height: 1.3;
+            margin-bottom: 20px;
         }
         
         .commission-banner p {
-            font-size: 1rem;
-            color: #888;
+            font-size: 0.95rem;
+            color: #777;
             line-height: 1.8;
             max-width: 620px;
-            margin-bottom: 45px;
+            margin-bottom: 35px;
             font-weight: 300;
         }
         
@@ -265,8 +318,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 18px;
             flex-wrap: wrap;
+            margin-bottom: 25px;
         }
         
         .commission-primary-btn {
@@ -274,14 +328,13 @@
             border: 1px solid var(--nz-gold);
             background: transparent;
             color: var(--nz-gold);
-            padding: 18px 38px;
+            padding: 16px 36px;
             font-size: 0.75rem;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             text-decoration: none;
-            font-family: inherit;
             font-weight: 600;
-            transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            transition: 0.3s ease;
         }
         
         .commission-primary-btn:hover {
@@ -293,26 +346,40 @@
         .commission-secondary-btn {
             display: inline-block;
             border: 1px solid #222;
-            background: #0a0a0a;
-            color: #777;
-            padding: 18px 30px;
+            background: #080808;
+            color: #888;
+            padding: 16px 32px;
             font-size: 0.72rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             text-decoration: none;
-            font-family: inherit;
-            transition: border-color 0.3s ease, color 0.3s ease;
+            transition: 0.3s ease;
         }
         
         .commission-secondary-btn:hover {
             border-color: #444;
             color: #fff;
         }
-        
-        @media (max-width: 768px) {
-            .commission-banner { padding: 80px 20px; }
-            .commission-btn-group { width: 100%; flex-direction: column; }
-            .commission-primary-btn, .commission-secondary-btn { width: 100%; text-align: center; }
+
+        .commitment-indicator {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .tech-grid                { grid-template-columns: 1fr; }
+            .tech-cell:nth-child(odd) { border-right: none; }
+            .tech-cell                { padding: 60px 8%; }
+            .auth-hero h1             { letter-spacing: 8px; }
+            .auth-intro               { padding: 80px 6%; }
+            .credentials-bar          { flex-direction: column; gap: 40px; padding: 70px 6%; }
+            .cred-supporting          { border-left: none; padding-left: 0; flex-direction: row; flex-wrap: wrap; gap: 25px; }
+            .commission-btn-group     { width: 100%; flex-direction: column; }
+            .commission-primary-btn, 
+            .commission-secondary-btn { width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -352,39 +419,41 @@
                     <a href="architectural.html">Architectural Cinema</a>
                     <a href="tactile.html">Tactile Narratives</a>
                     <a href="westchester.html">Westchester &amp; Hudson Valley</a>
-                    <!-- Add this link -->
                     <a href="production-terms.html">FAQ &amp; Terms</a>
                 </div>
             </div>
             <a href="about.html" role="menuitem">Lens</a>
             <a href="crewlist.html" role="menuitem">Network</a>
             <a href="journal.html" role="menuitem">Journal</a>
-            <a href="contact.html" role="menuitem" style="border: 1px solid var(--nz-gold); padding: 10px 20px; color: var(--nz-gold) !important;">Start Project</a>
+            <a href="contact.html?service=Authority+Suite" role="menuitem" style="border: 1px solid var(--nz-gold); padding: 10px 20px; color: var(--nz-gold) !important;">Start Project</a>
         </div>
     </nav>
 
     <main>
         <header class="auth-hero" aria-label="The Authority Suite">
             <div class="hero-content">
-                <p class="eyebrow">Strategic Visual Assets</p>
+                <p class="eyebrow">Visual Compliance &amp; Municipal Strategy</p>
                 <h1>The Authority Suite</h1>
             </div>
         </header>
 
         <section class="auth-intro" aria-label="Visual compliance and strategy">
-            <h2>The Authority Suite (Executive Profiling) Visual Compliance &amp; Strategy</h2>
+            <h2>Institutional Documentation for Regulated Architecture</h2>
             <p>
-                Northzero Productions engineers cinema-grade visual assets and high-contrast 
-                portraiture explicitly for senior partners and corporate executives.
+                Northzero Productions engineers high-resolution visual evidence, diurnal light studies, and compliance films explicitly designed for Historic Preservation Commissions, planning boards, and municipal review authorities.
             </p>
-            <details>
-                <summary>Technical Specifications & Deliverables</summary>
-                <ul>
-                    <li>Low-key "noir" style lighting layout modification</li>
-                    <li>Large-format cinema camera arrays with anamorphic optics</li>
-                    <li>On-location corporate office execution</li>
+
+            <div class="auth-specs-card">
+                <h3>Evidentiary Technical Specifications</h3>
+                <ul class="auth-specs-grid">
+                    <li>REC.709 Color-Managed Archival Master Profiles</li>
+                    <li>FAA Part 107 Repeatable Orthographic Flight Passes</li>
+                    <li>Diurnal Sun Angle &amp; Shadow Analysis (Morning / Noon / Dusk)</li>
+                    <li>Secretary of the Interior Standards Visual Alignment</li>
+                    <li>Comprehensive Material &amp; Fenestration Close-Up Mapping</li>
+                    <li>Hearing-Ready Boardroom Video Packages &amp; Stills</li>
                 </ul>
-            </details>
+            </div>
         </section>
 
         <section class="tech-grid" aria-label="Service pillars">
@@ -430,7 +499,7 @@
             <div class="cred-supporting">
                 <div class="cred-item">
                     <p class="cred-label">Jurisdiction</p>
-                    <span class="cred-value">NY / Tri-State Area</span>
+                    <span class="cred-value">Westchester &amp; Tri-State</span>
                 </div>
                 <div class="cred-item">
                     <p class="cred-label">Standard</p>
@@ -443,28 +512,23 @@
             </div>
         </section>
 
-        <section class="cta-section" aria-label="Start a project">
-            <p>Ready to Document the Legacy?</p>
-            <h2>Let's Discuss the Scope</h2>
-            <div class="btn-group">
-                <a href="contact.html" class="cta-btn">Initiate Full Audit</a>
-                <a href="https://calendly.com/northzeroproductions-info/30min" class="cta-btn booking" target="_blank" rel="noopener noreferrer" aria-label="Schedule a consultation — opens in new tab">Schedule a Consultation</a>
+        <!-- SINGLE HIGH-IMPACT CONVERSION BANNER -->
+        <section class="commission-banner" aria-label="Initiate institutional visual documentation">
+            <div class="commission-inner">
+                <div class="commission-rule" aria-hidden="true"></div>
+                <span class="commission-tag">Institutional Rigour</span>
+                <h2>Secure Visual Compliance</h2>
+                <p>HPC hearing documentation, HABS/HAER influence, and high-stakes municipal visual packages delivered for regulatory and investor review.</p>
+                <div class="commission-btn-group">
+                    <a href="contact.html?service=Authority+Suite" class="commission-primary-btn">Initiate Scope Audit &rarr;</a>
+                    <a href="https://calendly.com/northzeroproductions-info/30min" class="commission-secondary-btn" target="_blank" rel="noopener noreferrer">Schedule Briefing Desk</a>
+                </div>
+                <div class="commitment-indicator">
+                    <span style="color: var(--nz-gold);">●</span> Briefs reviewed within 24 hours · Ossining &amp; New York Desks
+                </div>
             </div>
         </section>
     </main>
-
-    <section class="commission-banner" aria-label="Initiate institutional visual documentation">
-        <div class="commission-inner">
-            <div class="commission-rule" aria-hidden="true"></div>
-            <span class="commission-tag">Institutional Rigour</span>
-            <h2>Secure Visual Compliance</h2>
-            <p>HPC hearing documentation, HABS/HAER influence, and high-stakes municipal visual packages delivered for regulatory and investor review.</p>
-            <div class="commission-btn-group">
-                <a href="contact.html?service=Authority+Suite" class="commission-primary-btn">Initiate Scope Audit →</a>
-                <a href="production-terms.html" class="commission-secondary-btn">Standards &amp; Terms</a>
-            </div>
-        </div>
-    </section>
     
     <footer style="padding: 60px 5%; text-align: center; border-top: 1px solid #111; background: #000;">
         <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 25px;">
@@ -476,7 +540,7 @@
                 Production Terms &amp; FAQ
             </a>
             <span style="color: #222;" aria-hidden="true">·</span>
-            <a href="contact.html" style="color: #666; text-decoration: none; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; transition: color 0.3s;" onmouseover="this.style.color='var(--nz-gold)'" onmouseout="this.style.color='#666'">
+            <a href="contact.html?service=Authority+Suite" style="color: #666; text-decoration: none; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; transition: color 0.3s;" onmouseover="this.style.color='var(--nz-gold)'" onmouseout="this.style.color='#666'">
                 Initiate Brief
             </a>
         </div>
@@ -485,15 +549,7 @@
         </p>
     </footer>
 
-    <!-- nav.js handles all hamburger toggle logic — no inline nav JS needed -->
+    <!-- nav.js handles all hamburger toggle logic -->
     <script src="nav.js?v=2.0"></script>
-    <script>
-        // --- Email obfuscation ---
-        const u = 'omar';
-        const d = 'northzeroproductions.com';
-        document.getElementById('email-link').href = `mailto:${u}@${d}`;
-    </script>
 </body>
 </html>
-
-
