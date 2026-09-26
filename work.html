@@ -796,7 +796,7 @@
                 ]
             },
             { 
-                id: '6s24MSYLMQA', 
+                id: 'AVN2N2hopGk', 
                 title: 'The Modern Estate',  
                 category: 'estate',        
                 type: 'Architectural Cinema',  
@@ -807,6 +807,7 @@
                 challenge: 'Translating interior architectural daylight rhythms and stone materiality across 14 acres into an actionable acquisition film.',
                 scope: '2-Day Principal Photography, Twilight Aerial Cinema, Precision Color Timing, Master Audio Score',
                 deliverables: '1x 4K Master Film (3:00), 3x 9:16 Social Cutdowns, Archival Still Set',
+                caseStudyUrl: 'case-study-modern-estate.html',
                 stills: [
                     'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800',
                     'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800',
@@ -980,15 +981,22 @@
                    </div>` 
                 : '';
 
+            const caseStudyBtn = project.caseStudyUrl 
+                ? `<a href="${project.caseStudyUrl}" class="cs-cta-btn" style="background: var(--nz-gold); color: #000; margin-right: 10px;">Read Full Case Study &rarr;</a>` 
+                : '';
+
             caseStudyDrawer.innerHTML = `
                 <div class="cs-header">
                     <div class="cs-header-titles">
                         <span class="cs-category">${project.type} &middot; Case Study</span>
                         <h2>${project.title}</h2>
                     </div>
-                    <a href="contact.html?service=${project.serviceQuery || 'Architectural+Cinema'}" class="cs-cta-btn">
-                        Commission Similar Scope &rarr;
-                    </a>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                        ${caseStudyBtn}
+                        <a href="contact.html?service=${project.serviceQuery || 'Architectural+Cinema'}" class="cs-cta-btn">
+                            Commission Similar Scope &rarr;
+                        </a>
+                    </div>
                 </div>
                 <div class="cs-specs-grid">
                     <div class="cs-spec-col">
