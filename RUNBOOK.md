@@ -162,3 +162,30 @@ Simply change the src to omar-greene.jpg:
 >
 ```
 The updated block above will load cleanly immediately—no broken image icon, no failed script callbacks, and with the architectural cove lighting active.
+
+---
+
+
+09/26/26 New
+
+That completes the core punch list across your production pillars.
+
+Here is the current state of the architecture:
+
+* **`index.html`:** The above-the-fold hero has a dual conversion track (**"Initiate Project Brief →"** linking directly to pre-filtered intake + secondary discipline discovery), the 24-hour review badge, and a hardened showreel controller.
+* **`work.html`:** Case studies load inside an in-modal drawer featuring structured client scopes, deliverables, a 3-column production stills strip, direct conversion handoffs, and architectural cove grazing.
+* **`about.html`:** The generic skyscraper still is replaced with verified cinema production imagery, anchored by the **"Proof Before Biography"** strip (Ossining HPC, Parsons School of Design, FAA Part 107, and HABS/HAER influence) and architectural illumination.
+* **`contact.html`:** Expanded to a 1440px desktop briefing console with dynamic query parsing, asynchronous Formspree submission, a 6-second Calendly handoff, and the pinned **Principal Dispatch** sidebar with under-plinth lighting.
+* **Site & Server Infrastructure:** Synchronized global styling (`style.css?v=2.2`), cache-busted deferred script execution (`nav.js?v=2.1`), root-level `services.html` fallback, `robots.txt`, and `sitemap.xml`.
+
+---
+
+### Suggested Next Actions
+
+Where would you like to focus next to continue the rollout?
+
+1. Perform a multi-device mobile audit across key pages
+
+2. Set up Google Search Console and verify rich schemas
+
+3. Draft the first project entry for journal.html
