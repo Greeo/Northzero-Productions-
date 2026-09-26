@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tactile Narratives | Luxury Product Cinematography · New York & Hudson Valley</title>
+    <title>Tactile Narratives | Luxury Product Cinematography · New York &amp; Hudson Valley</title>
 
     <meta name="description" content="Macro cinematography and tactile brand film production for luxury product launches and premium goods. Northzero Productions — serving New York, Westchester County, and the Hudson Valley.">
 
@@ -28,7 +28,7 @@
       "@type": "Service",
       "name": "Tactile Narratives",
       "serviceType": "Luxury Product Cinematography",
-      "description": "Macro-photography and tactile brand film production for luxury product launches, premium goods, and brand storytelling campaigns across New York and the Hudson Valley.",
+      "description": "Macro-cinematography and tactile brand film production for luxury product launches, premium goods, and brand storytelling campaigns across New York and the Hudson Valley.",
       "provider": { "@id": "https://northzeroproductions.com/#business" },
       "areaServed": [
         { "@type": "State",  "name": "New York" },
@@ -53,21 +53,23 @@
 
         /* --- HERO --- */
         .tactile-hero {
-            height: 100vh;
+            height: 85vh;
+            min-height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #000;
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid #111;
         }
 
         .macro-vid {
             position: absolute;
             width: 100%; height: 100%;
             object-fit: cover;
-            opacity: 0.4;
-            filter: contrast(1.2) brightness(0.8);
+            opacity: 0.35;
+            filter: contrast(1.2) brightness(0.7);
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -83,42 +85,41 @@
         }
 
         .tactile-content .eyebrow {
-            letter-spacing: 10px;
+            letter-spacing: 8px;
             text-transform: uppercase;
             color: var(--nz-gold);
             margin-bottom: 20px;
             font-size: 0.75rem;
             display: block;
+            font-weight: 600;
         }
 
         .tactile-content h1 {
-            font-size: clamp(2.2rem, 10vw, 5rem);
+            font-size: clamp(2.2rem, 7vw, 4.5rem);
             text-transform: uppercase;
-            letter-spacing: 15px;
-            font-weight: 900;
+            letter-spacing: 12px;
+            font-weight: 700;
             color: #fff;
-            line-height: 1.1;
+            line-height: 1.15;
             white-space: normal;
         }
 
-        /* --- SENSORY ROW --- */
+        /* --- SENSORY PILLARS --- */
         .sensory-row {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             background: #000;
-            border-top: 1px solid #111;
+            border-bottom: 1px solid #1a1a1a;
         }
 
         .sensory-box {
-            flex: 1;
-            min-width: 300px;
-            padding: 100px 5%;
-            border-right: 1px solid #111;
-            transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            padding: 80px 8%;
+            border-right: 1px solid #1a1a1a;
+            transition: 0.4s ease;
         }
 
         .sensory-box:last-child { border-right: none; }
-        .sensory-box:hover      { background: #080808; }
+        .sensory-box:hover      { background: #070707; }
 
         .sensory-box h2 {
             color: var(--nz-gold);
@@ -128,28 +129,102 @@
             margin-bottom: 20px;
         }
 
-        .sensory-box p { font-size: 1.4rem; line-height: 1.6; color: #eee; font-weight: 300; }
+        .sensory-box p { 
+            font-size: 1.25rem; 
+            line-height: 1.7; 
+            color: #ccc; 
+            font-weight: 300; 
+        }
 
-        /* --- RHYTHM GALLERY --- */
-        .rhythm-gallery {
-            padding: 120px 5%;
-            background: #050505;
+        /* --- TECHNICAL SPECIFICATIONS CARD --- */
+        .tactile-specs-section {
+            padding: 100px 5%;
+            max-width: 1100px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .rhythm-gallery > h3 {
-            font-size: 2rem;
-            letter-spacing: 10px;
+        .tactile-specs-section h2 {
+            color: var(--nz-gold);
             text-transform: uppercase;
-            margin-bottom: 60px;
+            letter-spacing: 6px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+
+        .tactile-specs-section p.lead {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: #ddd;
+            line-height: 1.8;
+            font-weight: 300;
+            max-width: 880px;
+            margin: 0 auto 50px;
+        }
+
+        .tactile-specs-card {
+            background: #070707;
+            border: 1px solid #1a1a1a;
+            border-left: 3px solid var(--nz-gold);
+            padding: 40px;
+            text-align: left;
+        }
+
+        .tactile-specs-card h3 {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .tactile-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            color: #888;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .tactile-specs-grid li {
+            list-style: none;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .tactile-specs-grid li::before {
+            content: "■";
+            position: absolute;
+            left: 0;
+            color: var(--nz-gold);
+            font-size: 0.6rem;
+            top: 2px;
+        }
+
+        /* --- RHYTHM GALLERY --- */
+        .rhythm-gallery {
+            padding: 110px 5%;
+            background: #050505;
+            text-align: center;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .rhythm-gallery > h3 {
+            font-size: 1.8rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
             color: #fff;
         }
 
         .rhythm-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            max-width: 1400px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
@@ -158,59 +233,50 @@
             background: #0d0d0d;
             overflow: hidden;
             border: 1px solid #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .rhythm-item img {
             width: 100%; height: 100%;
             object-fit: cover;
-            filter: grayscale(1);
-            transition: 1s ease;
+            filter: grayscale(0.4) brightness(0.85);
+            transition: 0.6s ease;
         }
 
-        .rhythm-item:hover img { filter: grayscale(0); transform: scale(1.05); }
-
-        .rhythm-item.text-card {
-            padding: 40px;
-            text-align: left;
-            flex-direction: column;
-            justify-content: center;
+        .rhythm-item:hover img { 
+            filter: grayscale(0) brightness(1); 
+            transform: scale(1.03); 
         }
 
-        .rhythm-item.text-card h3 {
-            font-size: 1rem;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            color: #fff;
+        .rhythm-underbottom { 
+            grid-column: 1 / -1;
+            margin-top: 40px;
+            padding: 30px;
+            border-top: 1px solid #151515;
+        }
+
+        .rhythm-underbottom h4 {
+            font-size: 0.85rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
+            color: var(--nz-gold);
+            margin-bottom: 10px;
         }
 
-        .rhythm-item.text-card p { font-size: 0.85rem; color: #666; line-height: 1.6; }
-
-        .rhythim-underbottom { 
-            width: 100% 
+        .rhythm-underbottom p {
+            font-size: 0.95rem;
+            color: #777;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 300;
         }
 
-        /* --- MOBILE --- */
-        @media (max-width: 900px) {
-            .sensory-box        { border-right: none; border-bottom: 1px solid #111; padding: 60px 10%; }
-            .sensory-box p      { font-size: 1.1rem; }
-            .tactile-content h1 { letter-spacing: 8px; }
-            .rhythm-grid        { grid-template-columns: 1fr; }
-            .rhythm-item        { aspect-ratio: 4 / 3; }
-        }
-
-        /* --- COMMISSION A PRODUCTION / SERVICE FOOTER BANNER --- */
+        /* --- COMMISSION BANNER --- */
         .commission-banner {
-            background: #050505;
-            border-top: 1px solid #1a1a1a;
-            border-bottom: 1px solid #1a1a1a;
-            padding: 110px 5%;
+            background: #000;
+            padding: 120px 5%;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
         
         .commission-inner {
@@ -223,7 +289,7 @@
         
         .commission-rule {
             width: 1px;
-            height: 50px;
+            height: 45px;
             background: var(--nz-gold);
             margin-bottom: 25px;
         }
@@ -235,24 +301,25 @@
             color: var(--nz-gold);
             margin-bottom: 18px;
             display: block;
+            font-weight: 600;
         }
         
         .commission-banner h2 {
-            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            font-size: clamp(1.8rem, 4.5vw, 2.6rem);
             text-transform: uppercase;
-            letter-spacing: 7px;
+            letter-spacing: 6px;
             color: #fff;
             font-weight: 700;
-            line-height: 1.35;
-            margin-bottom: 22px;
+            line-height: 1.3;
+            margin-bottom: 20px;
         }
         
         .commission-banner p {
-            font-size: 1rem;
-            color: #888;
+            font-size: 0.95rem;
+            color: #777;
             line-height: 1.8;
             max-width: 620px;
-            margin-bottom: 45px;
+            margin-bottom: 35px;
             font-weight: 300;
         }
         
@@ -260,8 +327,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 18px;
             flex-wrap: wrap;
+            margin-bottom: 25px;
         }
         
         .commission-primary-btn {
@@ -269,14 +337,13 @@
             border: 1px solid var(--nz-gold);
             background: transparent;
             color: var(--nz-gold);
-            padding: 18px 38px;
+            padding: 16px 36px;
             font-size: 0.75rem;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             text-decoration: none;
-            font-family: inherit;
             font-weight: 600;
-            transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            transition: 0.3s ease;
         }
         
         .commission-primary-btn:hover {
@@ -288,26 +355,39 @@
         .commission-secondary-btn {
             display: inline-block;
             border: 1px solid #222;
-            background: #0a0a0a;
-            color: #777;
-            padding: 18px 30px;
+            background: #080808;
+            color: #888;
+            padding: 16px 32px;
             font-size: 0.72rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             text-decoration: none;
-            font-family: inherit;
-            transition: border-color 0.3s ease, color 0.3s ease;
+            transition: 0.3s ease;
         }
         
         .commission-secondary-btn:hover {
             border-color: #444;
             color: #fff;
         }
-        
-        @media (max-width: 768px) {
-            .commission-banner { padding: 80px 20px; }
-            .commission-btn-group { width: 100%; flex-direction: column; }
-            .commission-primary-btn, .commission-secondary-btn { width: 100%; text-align: center; }
+
+        .commitment-indicator {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .sensory-row              { grid-template-columns: 1fr; }
+            .sensory-box              { border-right: none; border-bottom: 1px solid #1a1a1a; padding: 60px 8%; }
+            .sensory-box:last-child   { border-bottom: none; }
+            .tactile-content h1       { letter-spacing: 8px; }
+            .rhythm-grid              { grid-template-columns: 1fr; }
+            .rhythm-item              { aspect-ratio: 4 / 3; }
+            .commission-btn-group     { width: 100%; flex-direction: column; }
+            .commission-primary-btn, 
+            .commission-secondary-btn { width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -342,14 +422,13 @@
                     <a href="architectural.html">Architectural Cinema</a>
                     <a href="tactile.html">Tactile Narratives</a>
                     <a href="westchester.html">Westchester &amp; Hudson Valley</a>
-                    <!-- Add this link -->
                     <a href="production-terms.html">FAQ &amp; Terms</a>
                 </div>
             </div>
             <a href="about.html" role="menuitem">Lens</a>
             <a href="crewlist.html" role="menuitem">Network</a>
             <a href="journal.html" role="menuitem">Journal</a>
-            <a href="contact.html" role="menuitem" style="border: 1px solid var(--nz-gold); padding: 10px 20px; color: var(--nz-gold) !important;">Start Project</a>
+            <a href="contact.html?service=Tactile+Narratives" role="menuitem" style="border: 1px solid var(--nz-gold); padding: 10px 20px; color: var(--nz-gold) !important;">Start Project</a>
         </div>
     </nav>
 
@@ -364,23 +443,42 @@
                 <source src="your-texture-video.mp4" type="video/mp4">
             </video>
             <div class="tactile-content">
-                <span class="eyebrow">The Art of the Close-Up</span>
+                <span class="eyebrow">Macro-Cinematography &amp; Material Craft</span>
                 <h1>Tactile Narratives</h1>
             </div>
         </section>
 
         <section class="sensory-row" aria-label="Core sensory pillars">
             <div class="sensory-box">
-                <h2>Texture</h2>
-                <p>Capturing the grain, the weave, and the weight of luxury goods.</p>
+                <h2>Texture &amp; Weight</h2>
+                <p>Capturing the grain, weave, and density of luxury goods under controlled kinetic illumination.</p>
             </div>
             <div class="sensory-box">
-                <h2>Rhythm</h2>
-                <p>Editing to the heartbeat of the process. Visual ASMR.</p>
+                <h2>Cadence &amp; Rhythm</h2>
+                <p>Editing to the physiological heartbeat of physical craftsmanship. Measured, deliberate pacing.</p>
             </div>
             <div class="sensory-box">
-                <h2>Intimacy</h2>
-                <p>Bringing the viewer close enough to feel the craftsmanship.</p>
+                <h2>Optical Intimacy</h2>
+                <p>Specialized macro probe optics that bring audiences close enough to perceive the maker's hand.</p>
+            </div>
+        </section>
+
+        <section class="tactile-specs-section" aria-label="Tactile technical standards">
+            <h2>The Material Physics of Brand Cinema</h2>
+            <p class="lead">
+                Photography displays surface finish. Tactical cinema communicates physical substance, tactile friction, and structural integrity.
+            </p>
+
+            <div class="tactile-specs-card">
+                <h3>Production Optics &amp; Material Standards</h3>
+                <ul class="tactile-specs-grid">
+                    <li>Specialized 2:1 Macro &amp; Periscope Probe Optics</li>
+                    <li>Kinetic Motorized Micro-Lighting Rigs</li>
+                    <li>High-Frame-Rate Capture (60fps to 120fps Sub-Millimeter Motion)</li>
+                    <li>Calibrated Color Profiling for Natural Fibers &amp; Precious Metals</li>
+                    <li>32-bit Float Micro-Acoustic Foley &amp; Studio Sound Design</li>
+                    <li>Digital Master Deliverables Formatted for Campaign Distribution</li>
+                </ul>
             </div>
         </section>
 
@@ -390,53 +488,48 @@
                 <div class="rhythm-item">
                     <img
                         src="https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=800&q=80"
-                        alt="Close-up of textured leather surface"
+                        alt="Macro cinematography of leather grain and hand-stitching"
                         loading="lazy"
                     >
                 </div>
                 <div class="rhythm-item">
                     <img
                         src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
-                        alt="Macro shot of a precision watch face"
+                        alt="Macro optical study of luxury chronometer movement"
                         loading="lazy"
                     >
                 </div>
                 <div class="rhythm-item">
                     <img 
                         src="https://plus.unsplash.com/premium_photo-1763466939941-f19ac5f7d69d?w=500&auto=format&fit=crop&w=800&q=80"
-                        alt="Close-up of textured leather surface"
+                        alt="Macro study of bespoke tailored textile weave"
                         loading="lazy"
                     >
                 </div>
-                <div class="rhythim-underbottom">
-                    <h3>Cinematic Strategy</h3>
-                    <p>Utilizing high-end optics to document the structural permanence of every estate and product.</p>
+                <div class="rhythm-underbottom">
+                    <h4>Material Permanence</h4>
+                    <p>Documenting the craftsmanship of premium goods, artisanal ateliers, and physical products through cinema-grade optics.</p>
                 </div>
             </div>
         </section>
 
-        <section class="cta-section" aria-label="Start a project">
-            <p>Ready to Document the Legacy?</p>
-            <h2>Let's Discuss the Scope</h2>
-            <div class="btn-group">
-                <a href="contact.html" class="cta-btn">Initiate Full Audit</a>
-                <a href="https://calendly.com/northzeroproductions-info/30min" class="cta-btn booking" target="_blank" rel="noopener noreferrer" aria-label="Schedule a consultation — opens in new tab">Schedule a Consultation</a>
+        <!-- SINGLE HIGH-IMPACT CONVERSION BANNER -->
+        <section class="commission-banner" aria-label="Commission product cinema">
+            <div class="commission-inner">
+                <div class="commission-rule" aria-hidden="true"></div>
+                <span class="commission-tag">Physical Craftsmanship</span>
+                <h2>Frame the Material Soul</h2>
+                <p>Macro optics, controlled illumination, and deliberate tempo to elevate luxury products and physical processes into permanent visual assets.</p>
+                <div class="commission-btn-group">
+                    <a href="contact.html?service=Tactile+Narratives" class="commission-primary-btn">Commission a Production &rarr;</a>
+                    <a href="https://calendly.com/northzeroproductions-info/30min" class="commission-secondary-btn" target="_blank" rel="noopener noreferrer">Schedule Briefing Desk</a>
+                </div>
+                <div class="commitment-indicator">
+                    <span style="color: var(--nz-gold);">●</span> Briefs reviewed within 24 hours · Ossining &amp; New York Desks
+                </div>
             </div>
         </section>
     </main>
-
-    <section class="commission-banner" aria-label="Commission product cinema">
-        <div class="commission-inner">
-            <div class="commission-rule" aria-hidden="true"></div>
-            <span class="commission-tag">Physical Craftsmanship</span>
-            <h2>Frame the Material Soul</h2>
-            <p>Macro-optics, controlled illumination, and deliberate tempo to elevate luxury products and material processes into permanent visual assets.</p>
-            <div class="commission-btn-group">
-                <a href="contact.html?service=Tactile+Narratives" class="commission-primary-btn">Commission a Production →</a>
-                <a href="work.html" class="commission-secondary-btn">Explore Works</a>
-            </div>
-        </div>
-    </section>
 
     <footer style="padding: 60px 5%; text-align: center; border-top: 1px solid #111; background: #000;">
         <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 25px;">
@@ -448,7 +541,7 @@
                 Production Terms &amp; FAQ
             </a>
             <span style="color: #222;" aria-hidden="true">·</span>
-            <a href="contact.html" style="color: #666; text-decoration: none; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; transition: color 0.3s;" onmouseover="this.style.color='var(--nz-gold)'" onmouseout="this.style.color='#666'">
+            <a href="contact.html?service=Tactile+Narratives" style="color: #666; text-decoration: none; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; transition: color 0.3s;" onmouseover="this.style.color='var(--nz-gold)'" onmouseout="this.style.color='#666'">
                 Initiate Brief
             </a>
         </div>
@@ -457,7 +550,7 @@
         </p>
     </footer>
 
-    <!-- nav.js handles all hamburger toggle logic — no inline nav JS needed -->
+    <!-- nav.js handles all hamburger toggle logic -->
     <script src="nav.js?v=2.0"></script>
     <script>
         // --- Reduced-motion: pause background video ---
@@ -465,13 +558,6 @@
         if (vid && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             vid.pause();
         }
-
-        // --- Email obfuscation ---
-        const u = 'omar';
-        const d = 'northzeroproductions.com';
-        document.getElementById('email-link').href = `mailto:${u}@${d}`;
     </script>
 </body>
 </html>
-
-
