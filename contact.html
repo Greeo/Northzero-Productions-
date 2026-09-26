@@ -32,103 +32,108 @@
             overflow-x: hidden;
         }
 
-        /* --- CONTACT WRAPPER --- */
+        /* --- CONTACT EXPANDED WRAPPER --- */
         .contact-container {
-            padding: 140px 5% 100px;
-            max-width: 1240px;
+            padding: 140px 4% 100px;
+            max-width: 1440px;
             margin: 0 auto;
             min-height: 100vh;
         }
 
         .form-header { 
-            text-align: center; 
-            margin-bottom: 50px; 
+            text-align: left;
+            margin-bottom: 55px; 
+            border-bottom: 1px solid #161616;
+            padding-bottom: 30px;
         }
 
         .form-header .eyebrow {
             color: var(--nz-gold);
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             font-weight: 600;
         }
 
         .form-header h1 {
-            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
             letter-spacing: 8px;
             text-transform: uppercase;
-            line-height: 1.2;
-            font-weight: 800;
+            line-height: 1.15;
+            font-weight: 900;
         }
 
-        /* --- TWO-COLUMN DESK LAYOUT --- */
+        /* --- EXPANDED TWO-COLUMN DESK LAYOUT --- */
         .desk-layout {
             display: grid;
-            grid-template-columns: 1.8fr 1fr;
-            gap: 50px;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 60px;
             align-items: start;
         }
 
-        /* --- FORM GRID --- */
+        /* --- ROOMY FORM CANVAS --- */
         .nz-form {
             width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 32px 28px;
             transition: opacity 0.4s ease;
-            background: #070707;
-            border: 1px solid #1a1a1a;
-            padding: 40px;
+            background: #060606;
+            border: 1px solid #181818;
+            padding: 55px 50px;
         }
 
-        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group { display: flex; flex-direction: column; gap: 10px; }
         .full-width  { grid-column: span 2; }
 
         label {
-            color: #777;
+            color: #888;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.65rem;
-            font-weight: 600;
+            letter-spacing: 2.5px;
+            font-size: 0.68rem;
+            font-weight: 700;
         }
 
         input, select, textarea {
             background: #020202;
             border: 1px solid #222;
-            padding: 16px;
+            padding: 20px 22px;
             color: #fff;
-            font-size: 0.95rem;
+            font-size: 1rem;
             width: 100%;
             font-family: inherit;
             outline: none;
-            transition: border-color 0.3s;
+            transition: border-color 0.3s ease, background 0.3s ease;
             appearance: none;
             -webkit-appearance: none;
             border-radius: 0;
         }
 
-        input:focus, select:focus, textarea:focus { border-color: var(--nz-gold); }
+        input:focus, select:focus, textarea:focus { 
+            border-color: var(--nz-gold); 
+            background: #070705;
+        }
 
         .select-wrapper { position: relative; }
         .select-wrapper::after {
             content: '↓';
             position: absolute;
-            right: 18px; top: 50%;
+            right: 22px; top: 50%;
             transform: translateY(-50%);
             color: var(--nz-gold); 
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             pointer-events: none;
         }
-        .select-wrapper select { padding-right: 40px; cursor: pointer; }
+        .select-wrapper select { padding-right: 50px; cursor: pointer; }
         select option { background: #0a0a0a; color: #fff; }
 
         /* --- SERVICE CARDS --- */
         .service-cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            gap: 16px;
         }
 
         .service-card { position: relative; }
@@ -143,123 +148,126 @@
         .service-card label {
             display: flex;
             flex-direction: column;
-            gap: 6px;
-            padding: 18px 16px;
+            gap: 10px;
+            padding: 24px 20px;
             border: 1px solid #222;
-            background: #020202;
+            background: #030303;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.3s ease;
             color: #fff;
             height: 100%;
             text-transform: none;
             letter-spacing: normal;
         }
 
-        .service-card label:hover { border-color: #444; }
+        .service-card label:hover { border-color: #444; background: #080808; }
 
         .service-card input[type="radio"]:checked + label {
             border-color: var(--nz-gold);
             background: #0d0c07;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.08);
         }
 
         .service-card .card-title {
-            font-size: 0.72rem;
+            font-size: 0.78rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #fff;
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .service-card .card-desc {
-            font-size: 0.65rem;
-            color: #666;
-            line-height: 1.5;
+            font-size: 0.72rem;
+            color: #777;
+            line-height: 1.6;
         }
 
-        .service-card input[type="radio"]:checked + label .card-desc { color: #aaa; }
+        .service-card input[type="radio"]:checked + label .card-desc { color: #bbb; }
 
-        /* --- SUBMIT & NOTICE --- */
+        /* --- SUBMIT BUTTON --- */
         .submit-btn {
             grid-column: span 2;
             background: transparent;
             border: 1px solid var(--nz-gold);
             color: var(--nz-gold);
-            padding: 18px;
+            padding: 22px;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             cursor: pointer;
-            transition: 0.3s;
-            margin-top: 10px;
+            transition: 0.3s ease;
+            margin-top: 15px;
             font-family: inherit;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
         }
 
-        .submit-btn:hover    { background: var(--nz-gold); color: #000; }
+        .submit-btn:hover    { background: var(--nz-gold); color: #000; transform: translateY(-2px); }
         .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
         .review-guarantee {
             grid-column: span 2;
             text-align: center;
-            font-size: 0.68rem;
+            font-size: 0.72rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: #666;
-            margin-top: 8px;
+            margin-top: 10px;
         }
 
         #form-status {
             grid-column: span 2;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            min-height: 1.2em;
+            min-height: 1.4em;
         }
 
-        /* --- SIDEBAR: DIRECT DESK CARD --- */
+        /* --- STICKY PRODUCTION DESK SIDEBAR --- */
         .desk-sidebar {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 30px;
+            position: sticky;
+            top: 110px;
         }
 
         .desk-card {
-            background: #070707;
-            border: 1px solid #1a1a1a;
+            background: #060606;
+            border: 1px solid #181818;
             border-left: 3px solid var(--nz-gold);
-            padding: 32px 28px;
+            padding: 38px 32px;
         }
 
         .desk-card h3 {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             letter-spacing: 4px;
             text-transform: uppercase;
             color: #fff;
-            margin-bottom: 12px;
-            font-weight: 700;
+            margin-bottom: 14px;
+            font-weight: 800;
         }
 
         .desk-card p {
             color: #888;
-            font-size: 0.85rem;
-            line-height: 1.7;
-            margin-bottom: 20px;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
             font-weight: 300;
         }
 
         .desk-links {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
         }
 
         .desk-link-item {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 6px;
             border-bottom: 1px solid #141414;
-            padding-bottom: 12px;
+            padding-bottom: 15px;
         }
 
         .desk-link-item:last-child {
@@ -268,17 +276,17 @@
         }
 
         .desk-link-item .d-label {
-            font-size: 0.6rem;
+            font-size: 0.62rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: #555;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .desk-link-item a {
             color: var(--nz-gold);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.92rem;
             letter-spacing: 1px;
             transition: color 0.3s ease;
         }
@@ -287,12 +295,37 @@
             color: #fff;
         }
 
+        .protocol-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .protocol-list li {
+            font-size: 0.8rem;
+            color: #777;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .protocol-list li::before {
+            content: "■";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 0.55rem;
+            color: var(--nz-gold);
+        }
+
         /* --- SUCCESS CARD --- */
         .success-card {
             display: none;
             background: #080808;
             border: 1px solid var(--nz-gold);
-            padding: 60px 40px;
+            padding: 70px 40px;
             text-align: center;
             animation: fadeIn 0.6s ease forwards;
         }
@@ -301,25 +334,25 @@
             color: var(--nz-gold);
             letter-spacing: 4px;
             text-transform: uppercase;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             display: block;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
             font-weight: 700;
         }
 
         .success-card h2 {
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             letter-spacing: 5px;
             text-transform: uppercase;
             color: #fff;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
         .success-card p {
             color: #aaa;
-            font-size: 0.95rem;
-            line-height: 1.8;
-            margin-bottom: 28px;
+            font-size: 1rem;
+            line-height: 1.9;
+            margin-bottom: 32px;
             font-weight: 300;
         }
 
@@ -327,10 +360,10 @@
             display: inline-block;
             background: var(--nz-gold);
             color: #000;
-            padding: 16px 34px;
+            padding: 18px 38px;
             text-transform: uppercase;
             letter-spacing: 3px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-decoration: none;
             font-weight: 700;
             transition: opacity 0.3s;
@@ -340,10 +373,10 @@
 
         .success-card .redirect-notice {
             color: #555;
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-top: 22px;
+            margin-top: 25px;
         }
 
         @keyframes fadeIn {
@@ -353,31 +386,31 @@
 
         /* --- TESTIMONIAL CAROUSEL --- */
         .testimonial-section {
-            background: #050505;
+            background: #040404;
             border-top: 1px solid #111;
-            padding: 100px 5%;
+            padding: 110px 5%;
             overflow: hidden;
             width: 100%;
         }
 
-        .testimonial-header { text-align: center; margin-bottom: 50px; }
+        .testimonial-header { text-align: center; margin-bottom: 60px; }
         .testimonial-header .t-label {
             color: var(--nz-gold);
             letter-spacing: 5px;
             text-transform: uppercase;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             display: block;
-            margin-bottom: 12px;
-            font-weight: 600;
+            margin-bottom: 14px;
+            font-weight: 700;
         }
         .testimonial-header h2 {
-            font-size: clamp(1.4rem, 4vw, 2rem);
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
             text-transform: uppercase;
             letter-spacing: 6px;
             color: #fff;
         }
 
-        .t-carousel { position: relative; max-width: 900px; margin: 0 auto; }
+        .t-carousel { position: relative; max-width: 950px; margin: 0 auto; }
         .t-track    { position: relative; min-height: 260px; }
 
         .t-slide {
@@ -390,51 +423,51 @@
         .t-slide.active { opacity: 1; transform: translateX(0); pointer-events: auto; position: relative; }
         .t-slide.exit   { opacity: 0; transform: translateX(-30px); }
 
-        .t-quote        { border-left: 3px solid var(--nz-gold); padding: 5px 0 5px 35px; margin-bottom: 30px; }
-        .t-quote p      { font-size: clamp(1rem, 2.2vw, 1.25rem); color: #ccc; line-height: 1.8; font-weight: 300; font-style: italic; }
-        .t-attribution  { display: flex; align-items: center; gap: 18px; padding-left: 38px; }
+        .t-quote        { border-left: 3px solid var(--nz-gold); padding: 5px 0 5px 40px; margin-bottom: 35px; }
+        .t-quote p      { font-size: clamp(1.05rem, 2.2vw, 1.35rem); color: #ccc; line-height: 1.9; font-weight: 300; font-style: italic; }
+        .t-attribution  { display: flex; align-items: center; gap: 20px; padding-left: 42px; }
 
         .t-avatar {
-            width: 42px; height: 42px; border-radius: 50%; border: 1px solid #222;
+            width: 44px; height: 44px; border-radius: 50%; border: 1px solid #222;
             background: #0a0a0a; display: flex; align-items: center; justify-content: center;
-            font-size: 0.7rem; color: var(--nz-gold); text-transform: uppercase;
+            font-size: 0.72rem; color: var(--nz-gold); text-transform: uppercase; font-weight: 700;
         }
 
-        .t-meta    { display: flex; flex-direction: column; gap: 3px; }
-        .t-name    { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #fff; font-weight: 600; }
-        .t-role    { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: #666; }
-        .t-service { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 2px; color: var(--nz-gold); margin-top: 2px; font-weight: 600; }
+        .t-meta    { display: flex; flex-direction: column; gap: 4px; }
+        .t-name    { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #fff; font-weight: 700; }
+        .t-role    { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: #666; }
+        .t-service { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: var(--nz-gold); margin-top: 2px; font-weight: 700; }
 
-        .t-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 40px; padding-left: 38px; }
+        .t-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 45px; padding-left: 42px; }
         .t-dots     { display: flex; gap: 10px; }
 
         .t-dot {
-            width: 20px; height: 2px; background: #222;
+            width: 22px; height: 2px; background: #222;
             border: none; cursor: pointer; transition: background 0.3s, width 0.3s; padding: 0;
         }
-        .t-dot.active { background: var(--nz-gold); width: 34px; }
+        .t-dot.active { background: var(--nz-gold); width: 38px; }
 
         .t-arrows { display: flex; gap: 12px; }
         .t-arrow {
-            width: 40px; height: 40px; background: none; border: 1px solid #222;
-            color: #666; font-size: 0.9rem; cursor: pointer; transition: 0.3s;
+            width: 44px; height: 44px; background: none; border: 1px solid #222;
+            color: #666; font-size: 1rem; cursor: pointer; transition: 0.3s;
             display: flex; align-items: center; justify-content: center;
         }
         .t-arrow:hover { border-color: var(--nz-gold); color: var(--nz-gold); }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 980px) {
-            .desk-layout { grid-template-columns: 1fr; gap: 40px; }
-            .service-cards { grid-template-columns: 1fr; }
-            .nz-form { padding: 30px 20px; }
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        @media (max-width: 1100px) {
+            .desk-layout { grid-template-columns: 1fr; gap: 50px; }
+            .desk-sidebar { position: static; }
         }
 
-        @media (max-width: 768px) {
-            .nz-form { display: flex; flex-direction: column; }
-            .form-header h1 { font-size: 1.6rem; letter-spacing: 4px; }
+        @media (max-width: 800px) {
+            .service-cards { grid-template-columns: 1fr; }
+            .nz-form { display: flex; flex-direction: column; padding: 35px 22px; gap: 24px; }
+            .form-header h1 { font-size: 1.8rem; letter-spacing: 4px; }
             .t-quote { padding-left: 20px; }
             .t-attribution { padding-left: 20px; }
-            .t-controls { padding-left: 0; flex-direction: column; gap: 20px; align-items: flex-start; }
+            .t-controls { padding-left: 0; flex-direction: column; gap: 25px; align-items: flex-start; }
             input, select, textarea { font-size: 16px !important; }
         }
     </style>
@@ -637,7 +670,7 @@
                 </form>
             </div>
 
-            <!-- RIGHT: DIRECT DESK CREDENTIAL SIDEBAR -->
+            <!-- RIGHT: STICKY PRODUCTION DESK & PROTOCOL CARD -->
             <aside class="desk-sidebar" aria-label="Direct studio communications">
                 <div class="desk-card">
                     <h3>Principal Dispatch</h3>
@@ -655,16 +688,22 @@
                         </div>
                         <div class="desk-link-item">
                             <span class="d-label">Operational Territory</span>
-                            <span style="font-size:0.85rem; color:#ccc;">Ossining Studio · Westchester County &amp; NYC Metro</span>
+                            <span style="font-size:0.88rem; color:#ccc;">Ossining Studio &middot; Westchester County, Hudson Valley &amp; NYC Metro</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="desk-card" style="border-left-color: var(--nz-blue);">
-                    <h3 style="color:#8bb4f6;">Evidentiary Standing</h3>
-                    <p style="font-size:0.82rem; margin-bottom:0;">
-                        Direct institutional representation on the Village of Ossining Historic Preservation Commission ensures compliance briefs meet strict HABS/HAER standards.
+                    <h3 style="color:#8bb4f6;">Production Protocols</h3>
+                    <p style="font-size:0.85rem; margin-bottom: 0;">
+                        Every commercial engagement operates under formal milestone governance:
                     </p>
+                    <ul class="protocol-list">
+                        <li>Direct review by Principal DP within 24 hours</li>
+                        <li>FAA Part 107 flight authorization verification</li>
+                        <li>HPC / HABS-influenced archival compliance review</li>
+                        <li>Non-disclosure &amp; location embargo covenants</li>
+                    </ul>
                 </div>
             </aside>
         </div>
