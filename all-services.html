@@ -3,805 +3,519 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Production Capabilities &amp; Engagements | Northzero Productions</title>
-    <meta name="description" content="Cinematic capabilities for architectural estates, design-led luxury brands, and historic preservation documentation across Westchester, the Hudson Valley, and NYC.">
-    <link rel="canonical" href="https://northzeroproductions.com/all-services.html">
+    <title>Production Services | Luxury Brand Film &amp; Architectural Cinema · Northzero Productions</title>
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Production Capabilities &amp; Engagements | Northzero Productions">
-    <meta property="og:description" content="Principal-led cinematography for consequential architecture, tactile craft, and institutional heritage.">
-    <meta property="og:url" content="https://northzeroproductions.com/all-services.html">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80">
+    <meta name="description" content="Luxury brand film, product cinematography, architectural estate cinema, and preservation documentation. Northzero Productions serves Ossining, Westchester County, and the Hudson Valley.">
+
+    <meta property="og:type"         content="website">
+    <meta property="og:url"          content="https://northzeroproductions.com/all-services.html">
+    <meta property="og:title"        content="Production Services | Luxury Brand Film &amp; Architectural Cinema · Northzero Productions">
+    <meta property="og:description"  content="Luxury brand film, product cinematography, and architectural cinema serving Ossining, Westchester County, and the Hudson Valley.">
+    <meta property="og:image"        content="https://northzeroproductions.com/og-image.jpg">
+    <meta property="og:site_name"    content="Northzero Productions">
 
     <link rel="stylesheet" href="style.css?v=2.2">
 
     <style>
         :root {
             --nz-gold: #dfa837;
-            --nz-gold-glow: rgba(223, 168, 55, 0.22);
-            --bg-dark: #050608;
-            --card-dark: rgba(13, 16, 23, 0.75);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --card-border-gold: rgba(223, 168, 55, 0.45);
-            --text-main: #f0f2f5;
-            --text-dim: #949ca9;
-            --text-subtle: #5f6674;
+            --bg-dark: #07080a;
+            --card-dark: #0d0f14;
+            --border-subtle: #1c2028;
+            --text-dim: #888e9b;
         }
 
         html, body {
             background-color: var(--bg-dark) !important;
             margin: 0;
             padding: 0;
-            color: var(--text-main);
+            color: #e5e5e5;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* --- Ambient Lighting Elements --- */
-        .ambient-field {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-        .glow-orb-top {
-            position: absolute;
-            top: -150px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(223, 168, 55, 0.12) 0%, transparent 70%);
-            filter: blur(40px);
-        }
-        .glow-orb-side {
-            position: absolute;
-            top: 40%;
-            right: -200px;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
-            filter: blur(60px);
+        /* --- Page Header --- */
+        .page-header {
+            height: 40vh;
+            min-height: 260px;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 40px 20px 0;
         }
 
-        .cap-wrapper {
-            position: relative;
-            z-index: 1;
+        .page-header h1 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: #fff;
+            margin: 0;
+        }
+
+        .page-header p {
+            color: var(--nz-gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-top: 15px;
+        }
+
+        /* --- Pillars Container --- */
+        .pillars-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 130px 6% 120px;
+            padding: 80px 20px;
         }
 
-        /* --- Header Section --- */
-        .cap-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.72rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--nz-gold);
-            font-weight: 700;
-            margin-bottom: 18px;
-        }
-        .cap-eyebrow::before {
-            content: "";
-            width: 24px;
-            height: 1px;
-            background: var(--nz-gold);
+        .category-block {
+            margin-bottom: 70px;
         }
 
-        .cap-header h1 {
-            font-size: clamp(2.4rem, 6vw, 4.4rem);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 22px;
-            color: #ffffff;
-            background: linear-gradient(180deg, #ffffff 40%, #9ca3af 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .cap-header p {
-            font-size: clamp(1.05rem, 2vw, 1.25rem);
-            color: var(--text-dim);
-            max-width: 840px;
-            line-height: 1.8;
-            font-weight: 300;
-            margin-bottom: 50px;
-        }
-
-        /* --- Industry Credits Ribbon --- */
-        .credits-ticker {
+        .category-label {
             display: flex;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            background: rgba(18, 22, 31, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--card-border);
-            border-radius: 6px;
-            padding: 16px 24px;
-            margin-bottom: 75px;
+            margin-bottom: 30px;
         }
-        .ticker-label {
-            font-size: 0.65rem;
+
+        .category-label h2 {
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #fff;
+            margin-right: 20px;
+            white-space: nowrap;
+        }
+
+        .divider {
+            flex-grow: 1;
+            height: 1px;
+            background: #222;
+        }
+
+        .category-suite-link {
+            color: var(--nz-gold);
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--nz-gold);
-            font-weight: 800;
-        }
-        .ticker-items {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 24px;
-            font-size: 0.8rem;
-            color: #cfd5e2;
-        }
-        .ticker-items strong {
-            color: #fff;
-        }
-        .ticker-dot {
-            color: var(--nz-gold);
-            font-size: 0.6rem;
+            font-size: 0.68rem;
+            text-decoration: none;
+            margin-left: 20px;
+            white-space: nowrap;
+            transition: color 0.3s ease;
         }
 
-        /* --- Elevated Pillar Cards --- */
-        .pillars-container {
-            display: flex;
-            flex-direction: column;
-            gap: 60px;
-            margin-bottom: 100px;
+        .category-suite-link:hover {
+            color: #fff;
+        }
+
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
         }
 
         .pillar-card {
-            background: var(--card-dark);
-            backdrop-filter: blur(14px);
-            border: 1px solid var(--card-border);
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-        }
-
-        .pillar-card:hover {
-            border-color: var(--card-border-gold);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 35px var(--nz-gold-glow);
-            transform: translateY(-3px);
-        }
-
-        /* Top Visual Banner within card */
-        .pillar-visual-hero {
-            position: relative;
-            height: 240px;
-            width: 100%;
-            overflow: hidden;
-        }
-        .pillar-visual-hero img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            filter: brightness(0.65) contrast(1.1);
-            transition: transform 0.6s ease;
-        }
-        .pillar-card:hover .pillar-visual-hero img {
-            transform: scale(1.03);
-            filter: brightness(0.8) contrast(1.1);
-        }
-        .visual-gradient-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(13, 16, 23, 1) 0%, rgba(13, 16, 23, 0.4) 60%, transparent 100%);
-        }
-        .visual-badge {
-            position: absolute;
-            top: 20px;
-            right: 24px;
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(223, 168, 55, 0.4);
-            color: var(--nz-gold);
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 700;
-            padding: 6px 14px;
+            background: #0d0d0d;
+            padding: 35px;
+            border: 1px solid #1a1a1a;
             border-radius: 4px;
-        }
-
-        /* Card Content Layout */
-        .pillar-body {
-            padding: 36px 44px 44px;
-            display: grid;
-            grid-template-columns: 1fr 1.25fr;
-            gap: 48px;
-        }
-
-        .pillar-meta span {
-            font-size: 0.68rem;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--nz-gold);
-            font-weight: 700;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .pillar-meta h2 {
-            font-size: 1.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #ffffff;
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        .pillar-meta p {
-            font-size: 0.95rem;
-            color: var(--text-dim);
-            line-height: 1.8;
-            margin-bottom: 24px;
-            font-weight: 300;
-        }
-
-        .pillar-audiences {
-            font-size: 0.74rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--text-subtle);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 16px;
-            line-height: 1.5;
-        }
-
-        .pillar-audiences strong {
-            color: #cfd5e2;
-        }
-
-        /* Pillar Scope & Output */
-        .pillar-details {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .scope-block {
-            margin-bottom: 24px;
+        .pillar-card:hover {
+            border-color: var(--nz-gold);
+            transform: translateY(-4px);
         }
 
-        .scope-block h3 {
+        .pillar-card .step-num {
             font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #ffffff;
+            letter-spacing: 3px;
+            color: var(--nz-gold);
             margin-bottom: 12px;
+            display: block;
             font-weight: 600;
         }
 
-        .capability-tags {
+        .pillar-card h3 {
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+
+        .pillar-card p {
+            color: #888;
+            line-height: 1.7;
+            font-size: 0.88rem;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .card-action-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: var(--nz-gold);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .card-action-link:hover {
+            color: #fff;
+            transform: translateX(4px);
+        }
+
+        /* --- Commission Banner --- */
+        .commission-banner {
+            background: #050505;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .commission-inner {
+            max-width: 800px;
+            margin: 0 auto;
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .commission-rule {
+            width: 1px;
+            height: 45px;
+            background: var(--nz-gold);
             margin-bottom: 20px;
         }
 
-        .capability-tags span {
-            font-size: 0.76rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 6px 12px;
-            border-radius: 4px;
-            color: #cfd4df;
-            font-weight: 400;
-            transition: all 0.2s ease;
-        }
-
-        .pillar-card:hover .capability-tags span {
-            border-color: rgba(223, 168, 55, 0.25);
-        }
-
-        .deliverables-summary {
-            background: rgba(5, 7, 10, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 6px;
-            padding: 18px 22px;
-            margin-bottom: 24px;
-        }
-
-        .deliverables-summary h4 {
-            font-size: 0.66rem;
-            letter-spacing: 1.5px;
+        .commission-tag {
+            font-size: 0.65rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--nz-gold);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            display: block;
         }
 
-        .deliverables-summary ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .deliverables-summary li {
-            font-size: 0.78rem;
-            color: #a2a8b6;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .deliverables-summary li::before {
-            content: "■";
-            color: var(--nz-gold);
-            font-size: 0.5rem;
-        }
-
-        .pillar-actions {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .btn-inline-brief {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.72rem;
-            letter-spacing: 2px;
+        .commission-banner h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
             text-transform: uppercase;
+            letter-spacing: 6px;
+            color: #fff;
             font-weight: 700;
-            color: #000;
-            background: var(--nz-gold);
-            padding: 12px 24px;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: all 0.25s ease;
+            margin-bottom: 18px;
         }
 
-        .btn-inline-brief:hover {
-            box-shadow: 0 0 25px rgba(223, 168, 55, 0.45);
-            transform: translateY(-2px);
+        .commission-banner p {
+            font-size: 0.95rem;
+            color: #888;
+            line-height: 1.75;
+            max-width: 600px;
+            margin-bottom: 35px;
+            font-weight: 300;
         }
 
-        .case-study-link {
-            font-size: 0.72rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+        .commission-btn-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .commission-primary-btn {
+            border: 1px solid var(--nz-gold);
+            background: transparent;
             color: var(--nz-gold);
+            padding: 16px 34px;
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.2s ease;
-        }
-
-        .case-study-link:hover {
-            color: #fff;
-        }
-
-        /* --- Commission Standards Section --- */
-        .standards-section {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 80px;
-            margin-bottom: 90px;
-        }
-
-        .standards-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 50px;
-        }
-
-        .standards-header span {
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--nz-gold);
-            font-weight: 700;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .standards-header h2 {
-            font-size: 2.1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #ffffff;
-            margin-bottom: 16px;
-        }
-
-        .standards-header p {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-            font-weight: 300;
-        }
-
-        .standards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .standard-card {
-            background: linear-gradient(135deg, rgba(16, 20, 28, 0.6) 0%, rgba(9, 11, 16, 0.8) 100%);
-            border: 1px solid var(--card-border);
-            border-radius: 6px;
-            padding: 30px 26px;
-            position: relative;
-            transition: border-color 0.3s ease;
-        }
-
-        .standard-card:hover {
-            border-color: rgba(223, 168, 55, 0.3);
-        }
-
-        .standard-num {
-            font-size: 0.7rem;
-            font-weight: 800;
-            color: var(--nz-gold);
-            letter-spacing: 2px;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .standard-card h3 {
-            font-size: 1.05rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        .standard-card p {
-            font-size: 0.82rem;
-            color: var(--text-dim);
-            line-height: 1.65;
-            font-weight: 300;
-        }
-
-        /* --- Bottom Conversion Module --- */
-        .universal-cta {
-            text-align: center;
-            background: radial-gradient(circle at 50% 0%, rgba(223, 168, 55, 0.18), transparent 75%), var(--card-dark);
-            border: 1px solid rgba(223, 168, 55, 0.35);
-            border-radius: 10px;
-            padding: 70px 30px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 40px rgba(223, 168, 55, 0.08);
-        }
-
-        .universal-cta span {
-            font-size: 0.72rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--nz-gold);
-            font-weight: 700;
-            display: block;
-            margin-bottom: 14px;
-        }
-
-        .universal-cta h2 {
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #ffffff;
-            margin-bottom: 16px;
-        }
-
-        .universal-cta p {
-            color: var(--text-dim);
-            font-size: 1.05rem;
-            max-width: 650px;
-            margin: 0 auto 36px;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        .cta-btn-main {
-            display: inline-block;
-            background: var(--nz-gold);
-            color: #000;
-            padding: 18px 42px;
-            font-size: 0.78rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 4px;
             transition: all 0.3s ease;
         }
 
-        .cta-btn-main:hover {
-            box-shadow: 0 0 35px rgba(223, 168, 55, 0.55);
+        .commission-primary-btn:hover {
+            background: var(--nz-gold);
+            color: #000;
             transform: translateY(-2px);
         }
 
-        .cta-expectation {
-            display: block;
-            margin-top: 18px;
+        .commission-secondary-btn {
+            border: 1px solid #222;
+            background: #0a0a0a;
+            color: #777;
+            padding: 16px 28px;
             font-size: 0.72rem;
-            color: var(--text-subtle);
-            letter-spacing: 1.5px;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        @media (max-width: 900px) {
-            .pillar-body {
-                grid-template-columns: 1fr;
-                padding: 30px 24px;
-                gap: 32px;
-            }
-            .deliverables-summary ul {
-                grid-template-columns: 1fr;
-            }
-            .cap-wrapper {
-                padding-top: 100px;
-            }
-            .credits-ticker {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
+        .commission-secondary-btn:hover {
+            border-color: #444;
+            color: #fff;
+        }
+
+        /* --- Footer --- */
+        .site-footer {
+            padding: 50px 20px;
+            text-align: center;
+            background: #000;
+            border-top: 1px solid #111;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: var(--nz-gold);
+        }
+
+        @media (max-width: 768px) {
+            .pillar-grid { grid-template-columns: 1fr; }
+            .commission-btn-group { width: 100%; flex-direction: column; }
+            .commission-primary-btn, .commission-secondary-btn { width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Ambient Ambient Lighting Orbs -->
-    <div class="ambient-field">
-        <div class="glow-orb-top"></div>
-        <div class="glow-orb-side"></div>
-    </div>
+    <nav class="nz-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="logo-link" aria-label="Northzero Productions — home">
+            <div class="compass-box" aria-hidden="true"><div class="needle"></div></div>
+            <div class="logo-text">
+                <span class="main-title">NORTHZERO</span>
+                <span class="sub-title">PRODUCTIONS</span>
+            </div>
+        </a>
 
-    <div class="cap-wrapper">
-        
-        <!-- Header -->
-        <header class="cap-header">
-            <span class="cap-eyebrow">Studio Engagements</span>
-            <h1>Production Capabilities</h1>
-            <p>
-                Northzero Productions is an independent cinematic studio operating across the Hudson Valley, Westchester County, and New York City. We furnish specialized visual production for architectural developments, design-led tactile brands, and preservation-sensitive institutions.
-            </p>
+        <button
+            class="hamburger"
+            id="hamburger-menu"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="nav-links-container"
+        >
+            <span></span><span></span><span></span>
+        </button>
 
-            <!-- Production Affiliations Ticker -->
-            <div class="credits-ticker">
-                <span class="ticker-label">Production Track:</span>
-                <div class="ticker-items">
-                    <span><strong>Rocking Horse Star Entertainment LLC</strong> ("SCIVIAS" Feature Lighting)</span>
-                    <span class="ticker-dot">■</span>
-                    <span><strong>Hudson Valley Luxury Estates</strong> (4K Aerial &amp; Spatial Cinema)</span>
-                    <span class="ticker-dot">■</span>
-                    <span><strong>DMJ Sofrito</strong> (Culinary Macro Campaign)</span>
+        <div class="nav-links" id="nav-links-container" role="menubar">
+            <a href="index.html" role="menuitem">Agency</a>
+            <a href="work.html" role="menuitem">Works</a>
+            <div class="dropdown">
+                <a href="all-services.html" class="dropbtn" role="menuitem">Services</a>
+                <div class="dropdown-content">
+                    <a href="authority.html">Authority Suite</a>
+                    <a href="architectural.html">Architectural Cinema</a>
+                    <a href="tactile.html">Tactile Narratives</a>
+                    <a href="westchester.html">Westchester &amp; Hudson Valley</a>
+                    <a href="architectural.html#real-estate-packages">Estate Cinema Tiers</a>
+                    <a href="production-terms.html">FAQ &amp; Terms</a>
                 </div>
             </div>
+            <a href="about.html" role="menuitem">Lens</a>
+            <a href="crewlist.html" role="menuitem">Network</a>
+            <a href="journal.html" role="menuitem">Journal</a>
+            <a href="contact.html" role="menuitem" style="border: 1px solid var(--nz-gold); padding: 10px 20px; color: var(--nz-gold) !important;">Start Project</a>
+        </div>
+    </nav>
+
+    <main>
+        <header class="page-header">
+            <h1>Production Pillars</h1>
+            <p>Architectural Strategy &amp; Visual Excellence</p>
         </header>
 
-        <!-- The Three Elevated Pillars -->
-        <main class="pillars-container">
-
-            <!-- Pillar 1: Architectural Cinema -->
-            <article class="pillar-card">
-                <!-- Visual Header Banner -->
-                <div class="pillar-visual-hero">
-                    <img src="IMG_8686.jpg" alt="Architectural Marble Kitchen &amp; Spatial Lighting" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'">
-                    <div class="visual-gradient-overlay"></div>
-                    <span class="visual-badge">Pillar 01 · Spatial</span>
+        <div class="pillars-container">
+            <!-- OUR PROCESS -->
+            <div class="category-block">
+                <div class="category-label">
+                    <h2>00 / Studio Methodology</h2>
+                    <div class="divider" aria-hidden="true"></div>
                 </div>
-
-                <div class="pillar-body">
-                    <div class="pillar-meta">
-                        <span>Capability 01</span>
-                        <h2>Architectural &amp; Spatial Cinema</h2>
-                        <p>
-                            High-value architectural works cannot be adequately conveyed through wide-angle distortion or generic walk-through video. We calibrate camera movement to architectural circulation, mapping daylight across materials, interior volumes, and multi-acre topography.
-                        </p>
-                        <div class="pillar-audiences">
-                            <strong>Commissioned By:</strong> Architects, Prime Brokerages, Luxury Developers, Estate Representatives
+                <div class="pillar-grid">
+                    <div class="pillar-card">
+                        <div>
+                            <span class="step-num">01 / DISCOVERY</span>
+                            <h3>Brand &amp; Scope Audit</h3>
+                            <p>We analyze your structural objectives, target audience, and architectural heritage to outline a clear creative brief.</p>
                         </div>
                     </div>
-
-                    <div class="pillar-details">
-                        <div class="scope-block">
-                            <h3>Core Execution Scope</h3>
-                            <div class="capability-tags">
-                                <span>Spatial Dolly Cinematography</span>
-                                <span>FAA Part 107 Aerial Topography</span>
-                                <span>Daylight-to-Dusk Balance</span>
-                                <span>Acoustic Landscape Scoring</span>
-                                <span>Unbranded MLS Master Compliance</span>
-                            </div>
+                    <div class="pillar-card">
+                        <div>
+                            <span class="step-num">02 / DIRECTION</span>
+                            <h3>Visual Framework</h3>
+                            <p>We establish the lighting approach, spatial pacing, narrative sequence, and technical specifications.</p>
                         </div>
-
-                        <div class="deliverables-summary">
-                            <h4>Standard Delivery Framework</h4>
-                            <ul>
-                                <li>4K Master Horizon Acquisition Film</li>
-                                <li>Unbranded MLS &amp; Syndication Cuts</li>
-                                <li>3x 9:16 Mobile-First Vertical Cuts</li>
-                                <li>Archival High-Resolution Frame Stills</li>
-                            </ul>
+                    </div>
+                    <div class="pillar-card">
+                        <div>
+                            <span class="step-num">03 / PRODUCTION</span>
+                            <h3>Principal Capture</h3>
+                            <p>Execution with deliberate cinema optics, macro-detail framing, and professional on-location field direction.</p>
                         </div>
-
-                        <div class="pillar-actions">
-                            <a href="contact.html?service=Architectural+Cinema" class="btn-inline-brief">Initiate a Production Brief &rarr;</a>
-                            <a href="case-study-modern-estate.html" class="case-study-link">View Estate Case Study &rarr;</a>
+                    </div>
+                    <div class="pillar-card">
+                        <div>
+                            <span class="step-num">04 / DELIVERY</span>
+                            <h3>Finishing &amp; Archival</h3>
+                            <p>Calibrated color grading, precision sound design, master exports, and long-term asset packaging for web and broadcast.</p>
                         </div>
                     </div>
                 </div>
-            </article>
-
-            <!-- Pillar 2: Tactile Narrative -->
-            <article class="pillar-card">
-                <!-- Visual Header Banner -->
-                <div class="pillar-visual-hero">
-                    <img src="IMG_8691.jpg" alt="Tactile Stone Bar &amp; Ambient Lighting" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80'">
-                    <div class="visual-gradient-overlay"></div>
-                    <span class="visual-badge">Pillar 02 · Craft</span>
-                </div>
-
-                <div class="pillar-body">
-                    <div class="pillar-meta">
-                        <span>Capability 02</span>
-                        <h2>Tactile Narrative &amp; Material Craft</h2>
-                        <p>
-                            Focused visual storytelling for bespoke products, industrial design, culinary heritage, and physical craft. We deploy dedicated macro-cinematography and sculpted lighting to elevate surface texture, material density, and maker provenance into conversion-driving brand films.
-                        </p>
-                        <div class="pillar-audiences">
-                            <strong>Commissioned By:</strong> Luxury Product Designers, Culinary Brands, Fine Craftsmen, Design Agencies
-                        </div>
-                    </div>
-
-                    <div class="pillar-details">
-                        <div class="scope-block">
-                            <h3>Core Execution Scope</h3>
-                            <div class="capability-tags">
-                                <span>Precision Macro Optical Capture</span>
-                                <span>Sculpted Studio &amp; Practical Lighting</span>
-                                <span>Color Science &amp; Material Fidelity</span>
-                                <span>Sensory Sound Design &amp; Foley</span>
-                                <span>Commercial Master Grading</span>
-                            </div>
-                        </div>
-
-                        <div class="deliverables-summary">
-                            <h4>Standard Delivery Framework</h4>
-                            <ul>
-                                <li>60s Hero Brand Acquisition Film</li>
-                                <li>30s &amp; 15s High-Conversion Cutdowns</li>
-                                <li>Platform-Native 4:5 &amp; 9:16 Deliverables</li>
-                                <li>High-Fidelity Still Campaign Stills</li>
-                            </ul>
-                        </div>
-
-                        <div class="pillar-actions">
-                            <a href="contact.html?service=Tactile+Narrative" class="btn-inline-brief">Initiate a Production Brief &rarr;</a>
-                            <a href="case-study-sofrito.html" class="case-study-link">View Culinary Case Study &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Pillar 3: Authority Suite -->
-            <article class="pillar-card">
-                <!-- Visual Header Banner -->
-                <div class="pillar-visual-hero">
-                    <img src="IMG_8689.jpg" alt="Double Height Architectural Atrium &amp; Civic Volume" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80'">
-                    <div class="visual-gradient-overlay"></div>
-                    <span class="visual-badge">Pillar 03 · Heritage</span>
-                </div>
-
-                <div class="pillar-body">
-                    <div class="pillar-meta">
-                        <span>Capability 03</span>
-                        <h2>Authority Suite &amp; Preservation Documentation</h2>
-                        <p>
-                            Institutional visual assets designed to withstand regulatory, civic, and historical scrutiny. Grounded in direct municipal board fluency, we produce structured documentation packages for Historic Preservation Commission (HPC) hearings, grant submissions, and cultural archiving.
-                        </p>
-                        <div class="pillar-audiences">
-                            <strong>Commissioned By:</strong> Municipal Boards, Preservation Commissions, Cultural Non-Profits, Historic Trusts
-                        </div>
-                    </div>
-
-                    <div class="pillar-details">
-                        <div class="scope-block">
-                            <h3>Core Execution Scope</h3>
-                            <div class="capability-tags">
-                                <span>Regulatory &amp; Hearing Visual Evidence</span>
-                                <span>HPC / SHPO Compliance Documentation</span>
-                                <span>Historic Aerial &amp; Contextual Mapping</span>
-                                <span>Stakeholder &amp; Oral History Oral Capture</span>
-                                <span>Public Grant Video Testimonials</span>
-                            </div>
-                        </div>
-
-                        <div class="deliverables-summary">
-                            <h4>Standard Delivery Framework</h4>
-                            <ul>
-                                <li>Board Hearing &amp; Hearing Record Cut</li>
-                                <li>Public-Facing Heritage Archive Master</li>
-                                <li>Grant Application Visual Dossiers</li>
-                                <li>ProRes 422 HQ Preservation Masters</li>
-                            </ul>
-                        </div>
-
-                        <div class="pillar-actions">
-                            <a href="contact.html?service=Authority+Suite" class="btn-inline-brief">Initiate a Production Brief &rarr;</a>
-                            <a href="about.html" class="case-study-link">View Board Credibility &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-        </main>
-
-        <!-- Production Standards & Rigor -->
-        <section class="standards-section">
-            <div class="standards-header">
-                <span>Production Rigor</span>
-                <h2>Commission Standards</h2>
-                <p>Every Northzero production is executed with rigorous technical adherence and principal-led direction from initial site survey to master archival delivery.</p>
             </div>
 
-            <div class="standards-grid">
-                <div class="standard-card">
-                    <span class="standard-num">01 / AERIAL</span>
-                    <h3>FAA Part 107 Commercial Flight</h3>
-                    <p>Fully compliant commercial sUAS aerial operations with FAA airspace authorizations, site mapping, and regional airspace clearance.</p>
+            <!-- AUTHORITY & INSTITUTIONAL -->
+            <div class="category-block">
+                <div class="category-label">
+                    <h2>01 / Authority &amp; Institutional</h2>
+                    <div class="divider" aria-hidden="true"></div>
+                    <a href="authority.html" class="category-suite-link">View Suite &rarr;</a>
                 </div>
+                <div class="pillar-grid">
+                    <div class="pillar-card">
+                        <div>
+                            <h3>Compliance &amp; Board Cinema</h3>
+                            <p>High-stakes visual packages designed for Historic Preservation Commissions, planning boards, and municipal review.</p>
+                        </div>
+                        <a href="authority.html" class="card-action-link">Explore Authority Suite &rarr;</a>
+                    </div>
+                    <div class="pillar-card">
+                        <div>
+                            <h3>Capital Project Records</h3>
+                            <p>Systematic, archival progress documentation for infrastructure, public works, and adaptive reuse developments.</p>
+                        </div>
+                        <a href="contact.html?service=Authority+Suite" class="card-action-link">Scope Project Brief &rarr;</a>
+                    </div>
+                    <div class="pillar-card">
+                        <div>
+                            <h3>Civic &amp; DRI Submissions</h3>
+                            <p>Targeted visual reels engineered to support state economic development, NY Forward, and DRI grant initiatives.</p>
+                        </div>
+                        <a href="authority.html" class="card-action-link">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
 
-                <div class="standard-card">
-                    <span class="standard-num">02 / OPTICS</span>
-                    <h3>Calibrated Cinema Optics</h3>
-                    <p>Production captured on large-format cinema sensors with calibrated spherical glass, rendering accurate architectural geometry without distortion.</p>
+            <!-- ARCHITECTURAL & ESTATE -->
+            <div class="category-block">
+                <div class="category-label">
+                    <h2>02 / Architectural &amp; Estate</h2>
+                    <div class="divider" aria-hidden="true"></div>
+                    <a href="architectural.html" class="category-suite-link">View Suite &rarr;</a>
                 </div>
+                <div class="pillar-grid">
+                    <div class="pillar-card">
+                        <div>
+                            <h3>Hero Listing Cinema</h3>
+                            <p>High-fidelity motion narratives for luxury compounds and waterfront properties. Formatted for syndication and private acquisition.</p>
+                        </div>
+                        <a href="case-study-modern-estate.html" class="card-action-link">View Estate Case Study &rarr;</a>
+                    </div>
+                    <div class="pillar-card">
+                        <div>
+                            <h3>Design Documentaries</h3>
+                            <p>Showcasing the evolution of a build. Perfect for architects and interior designers documenting structural milestones.</p>
+                        </div>
+                        <a href="architectural.html" class="card-action-link">Explore Architectural Cinema &rarr;</a>
+                    </div>
+                    <div class="pillar-card">
+                        <div>
+                            <h3>Regional Historic Audits</h3>
+                            <p>Visual audits and archival filming for historic properties across Westchester and Hudson Valley enclaves.</p>
+                        </div>
+                        <a href="westchester.html" class="card-action-link">Explore Regional Hub &rarr;</a>
+                    </div>
+                </div>
+            </div>
 
-                <div class="standard-card">
-                    <span class="standard-num">03 / MASTERS</span>
-                    <h3>ProRes Archival Mastering</h3>
-                    <p>Final masters delivered in Apple ProRes 422 HQ alongside optimized 4K web profiles, ensuring permanent preservation quality.</p>
+            <!-- TACTILE NARRATIVES -->
+            <div class="category-block">
+                <div class="category-label">
+                    <h2>03 / Tactile Narratives</h2>
+                    <div class="divider" aria-hidden="true"></div>
+                    <a href="case-study-sofrito.html" class="category-suite-link">View Featured Work &rarr;</a>
                 </div>
+                <div class="pillar-grid">
+                    <div class="pillar-card">
+                        <div>
+                            <h3>Product Cinematography</h3>
+                            <p>Macro-optics and specialized lighting that reveal the texture, materiality, and physical soul of premium crafted goods.</p>
+                        </div>
+                        <a href="case-study-sofrito.html" class="card-action-link">Explore Culinary Case Study &rarr;</a>
+                    </div>
+                    <div class="pillar-card">
+                        <div>
+                            <h3>Brand Storytelling</h3>
+                            <p>Deep-dive narratives that connect your brand's heritage with modern consumers through cinematic framing.</p>
+                        </div>
+                        <a href="work.html" class="card-action-link">View Brand Narratives &rarr;</a>
+                    </div>
+                    <div class="pillar-card">
+                        <div>
+                            <h3>Process &amp; Atelier Cinema</h3>
+                            <p>Contextual films documenting artisanal ateliers, workshop technique, and culinary craft in high fidelity.</p>
+                        </div>
+                        <a href="contact.html?service=Tactile+Narratives" class="card-action-link">Inquire About Production &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                <div class="standard-card">
-                    <span class="standard-num">04 / DISCRETION</span>
-                    <h3>Private Listing Discretion</h3>
-                    <p>Strict non-disclosure compliance for off-market luxury estates, high-profile residences, and unreleased commercial industrial designs.</p>
+        <!-- COMMISSION A PRODUCTION BANNER -->
+        <section class="commission-banner" aria-label="Start a production inquiry">
+            <div class="commission-inner">
+                <div class="commission-rule" aria-hidden="true"></div>
+                <span class="commission-tag">Direct Engagement · Production Window Open</span>
+                <h2>Bring the Vision to Light</h2>
+                <p>Whether navigating complex landmark approvals, commissioning an estate film, or capturing artisanal craft, every engagement begins with a direct brief.</p>
+                <div class="commission-btn-group">
+                    <a href="contact.html" class="commission-primary-btn">Start Project Brief &rarr;</a>
+                    <a href="https://calendly.com/northzeroproductions-info/30min" class="commission-secondary-btn" target="_blank" rel="noopener noreferrer">Schedule a Consultation</a>
+                    <a href="production-terms.html" class="commission-secondary-btn">FAQ &amp; Terms</a>
                 </div>
+                <p style="margin-top: 25px; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: #555;">
+                    <span style="color: var(--nz-gold);">●</span> Briefs reviewed within 24 hours · Ossining &amp; New York Desks
+                </p>
             </div>
         </section>
 
-        <!-- Bottom Unified Conversion Card -->
-        <footer class="universal-cta">
-            <span>Commission Studio Work</span>
-            <h2>Initiate a Production Brief</h2>
-            <p>
-                Whether launching a landmark architectural property, documenting a historic municipal asset, or crafting a sensory brand film, our desk is available for qualified commissions.
-            </p>
-            <a href="contact.html" class="cta-btn-main">Start a Project Brief &rarr;</a>
-            <span class="cta-expectation">Briefs reviewed by the principal desk within one business day</span>
-        </footer>
-
-        
-        <footer style="padding: 60px 5%; text-align: center; border-top: 1px solid #111; background: #000;">
-            <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 25px;">
-                <a href="westchester.html" style="color: #666; text-decoration: none; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; transition: color 0.3s;" onmouseover="this.style.color='var(--nz-gold)'" onmouseout="this.style.color='#666'">
-                    Westchester &amp; Hudson Valley
-                </a>
+        <footer class="site-footer">
+            <div class="footer-nav">
+                <a href="westchester.html">Westchester &amp; Hudson Valley</a>
                 <span style="color: #222;" aria-hidden="true">·</span>
-                <a href="production-terms.html" style="color: #666; text-decoration: none; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; transition: color 0.3s;" onmouseover="this.style.color='var(--nz-gold)'" onmouseout="this.style.color='#666'">
-                    Production Terms &amp; FAQ
-                </a>
+                <a href="production-terms.html">Production Terms &amp; FAQ</a>
                 <span style="color: #222;" aria-hidden="true">·</span>
-                <a href="contact.html" style="color: #666; text-decoration: none; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; transition: color 0.3s;" onmouseover="this.style.color='var(--nz-gold)'" onmouseout="this.style.color='#666'">
-                    Initiate Brief
-                </a>
+                <a href="contact.html">Initiate Brief</a>
             </div>
             <p style="color: #333; letter-spacing: 4px; text-transform: uppercase; font-size: 0.65rem; margin: 0;">
                 &copy; 2026 Northzero Productions LLC | Ossining &amp; New York
