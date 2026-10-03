@@ -14,7 +14,7 @@
     <meta property="og:url" content="https://northzeroproductions.com/all-services.html">
     <meta property="og:image" content="https://northzeroproductions.com/og-image.jpg">
 
-    <link rel="stylesheet" href="style.css?v=6.0">
+    <link rel="stylesheet" href="style.css?v=7.0">
 
     <style>
         :root {
@@ -118,7 +118,7 @@
             margin: 0 0 35px 0;
         }
 
-        /* Hero Jump Anchor Pills */
+        /* Fast Jump Anchor Pills */
         .hero-jumps {
             display: flex;
             flex-wrap: wrap;
@@ -407,7 +407,54 @@
             color: #fff;
         }
 
-        /* 4-Stage Production Framework */
+        /* Testimonial Proof Module */
+        .proof-module {
+            background: linear-gradient(135deg, rgba(20, 24, 34, 0.8) 0%, rgba(10, 13, 18, 0.95) 100%);
+            border: 1px solid var(--card-border);
+            border-left: 3px solid var(--nz-gold);
+            border-radius: 6px;
+            padding: 34px 38px;
+            margin: 60px 0 90px;
+            position: relative;
+        }
+        .proof-module p {
+            color: #e2e8f0;
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin: 0 0 16px 0;
+            font-weight: 300;
+        }
+        .proof-attribution {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .proof-author {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--nz-gold);
+            font-weight: 700;
+        }
+        .proof-company {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #8f96a5;
+        }
+        .proof-company a {
+            color: #8f96a5;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+        .proof-company a:hover {
+            color: #ffffff;
+        }
+
+        /* 4-Stage Operating Framework */
         .framework-section {
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             padding: 80px 0;
@@ -625,6 +672,9 @@
             .services-wrapper {
                 padding-top: 100px;
             }
+            .proof-module {
+                padding: 26px 20px;
+            }
         }
     </style>
 </head>
@@ -699,6 +749,8 @@
             <div class="credits-ticker">
                 <span class="ticker-label">Production Track:</span>
                 <div class="ticker-items">
+                    <span><strong>In Style Decor &amp; More</strong> (Interior Architecture &amp; Spatial Staging Cinema)</span>
+                    <span class="ticker-dot">■</span>
                     <span><strong>Rocking Horse Star Entertainment LLC</strong> ("SCIVIAS" Feature Lighting)</span>
                     <span class="ticker-dot">■</span>
                     <span><strong>Hudson Valley Luxury Estates</strong> (4K Aerial &amp; Spatial Cinema)</span>
@@ -733,7 +785,7 @@
                                 Cinematic films for residences, hospitality, interiors, real estate, and built environments—focused on light, materiality, pacing, and sense of place. Moving beyond wide-angle distortion, camera motion is calibrated to structural circulation and daylight movement.
                             </p>
                             <div class="practice-clients">
-                                <strong>Primary Clients:</strong> Architects, Prime Brokerages, Luxury Estate Owners, Hospitality Developers
+                                <strong>Primary Clients:</strong> Architects, Prime Brokerages, Luxury Estate Owners, Interior Designers, Staging Principals
                             </div>
                         </div>
 
@@ -783,7 +835,7 @@
                                 Detail-rich product films for premium goods, design-led brands, and launches where craft, finish, function, and sensory character matter. Deployed through specialized macro optics and sculpted lighting to elevate micro-textures into human-centered proof of value.
                             </p>
                             <div class="practice-clients">
-                                <strong>Primary Clients:</strong> Luxury Brands, Product Designers, Culinary Brands, Fine Craftsmen
+                                <strong>Primary Clients:</strong> Luxury Brands, Product Designers, Culinary Brands, Fine Craftsmen, Interior Ateliers
                             </div>
                         </div>
 
@@ -869,6 +921,18 @@
 
             </div>
         </section>
+
+        <!-- Named Client Proof Module -->
+        <div class="proof-module">
+            <p>
+                “Northzero captured the weight, material finish, and spatial harmony of our interior staging with genuine cinematic restraint. The films gave our clients an immediate, visceral understanding of our design craft.”
+            </p>
+            <div class="proof-attribution">
+                <span class="proof-author">Janice Terry &amp; Robert Terry</span>
+                <span style="color: var(--card-border);">|</span>
+                <span class="proof-company">Founders, <a href="https://instyledecorandmore.com" target="_blank" rel="noopener noreferrer">In Style Decor &amp; More</a></span>
+            </div>
+        </div>
 
         <!-- 2. Integrated Operating Framework -->
         <section class="framework-section" id="production-method">
@@ -1043,6 +1107,22 @@
         </p>
     </footer>
 
+    <!-- nav.js handles the responsive hamburger overlay -->
     <script src="nav.js?v=2.0"></script>
+    <script>
+        // Smooth scrolling for fast-jump anchor pills
+        document.querySelectorAll('.hero-jump-btn').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
