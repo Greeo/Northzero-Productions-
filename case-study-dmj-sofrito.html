@@ -4,40 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Study: DMJ Sofrito | Tactile Culinary Cinema · Northzero Productions</title>
-    <meta name="description" content="In-depth case study of a commercial culinary cinematography campaign for DMJ Sofrito by Northzero Productions across Westchester County and New York.">
-    <link rel="canonical" href="https://northzeroproductions.com/case-study-dmj-sofrito.html">
+    <meta name="description" content="In-depth case study of commercial culinary cinematography for DMJ Sofrito and Dulce Jorge in New Rochelle, NY by Northzero Productions.">
+    <link rel="canonical" href="https://northzeroproductions.com/case-study-sofrito.html">
 
     <!-- Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:title" content="Case Study: DMJ Sofrito | Northzero Productions">
     <meta property="og:description" content="Capturing raw culinary textures, aromatic steam dynamics, and heritage brand identity for regional retail distribution.">
-    <meta property="og:url" content="https://northzeroproductions.com/case-study-dmj-sofrito.html">
+    <meta property="og:url" content="https://northzeroproductions.com/case-study-sofrito.html">
     <meta property="og:image" content="https://i.ytimg.com/vi/6s24MSYLMQA/hqdefault.jpg">
 
-    <link rel="stylesheet" href="style.css?v=2.2">
+    <link rel="stylesheet" href="style.css?v=7.0">
 
     <style>
         :root {
             --nz-gold: #dfa837;
-            --nz-gold-glow: rgba(223, 168, 55, 0.16);
+            --nz-gold-glow: rgba(223, 168, 55, 0.18);
             --bg-dark: #07080a;
             --card-dark: #0d0f14;
+            --card-border: rgba(255, 255, 255, 0.08);
             --border-subtle: #1c2028;
-            --text-dim: #888e9b;
+            --text-main: #f0f2f5;
+            --text-dim: #949ca9;
+            --text-subtle: #626978;
         }
 
         html, body {
             background-color: var(--bg-dark) !important;
             margin: 0; padding: 0;
-            color: #e5e5e5;
+            color: var(--text-main);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         .cs-wrapper {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 120px 5% 100px;
+            padding: 130px 5% 100px;
         }
 
         /* Breadcrumb Navigation */
@@ -57,20 +61,29 @@
         .cs-back:hover { transform: translateX(-4px); }
 
         /* Case Study Header */
+        .cs-eyebrow {
+            font-size: 0.68rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--nz-gold);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 12px;
+        }
         .cs-hero-title {
             font-size: clamp(2rem, 5vw, 3.4rem);
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: #fff;
-            font-weight: 800;
+            font-weight: 900;
             line-height: 1.15;
-            margin-bottom: 20px;
+            margin: 0 0 20px 0;
         }
         .cs-hero-sub {
             font-size: 1.1rem;
             color: var(--text-dim);
-            line-height: 1.7;
-            max-width: 800px;
+            line-height: 1.8;
+            max-width: 840px;
             margin-bottom: 45px;
             font-weight: 300;
         }
@@ -107,7 +120,7 @@
             border: 1px solid var(--border-subtle);
             border-left: 3px solid var(--nz-gold);
             border-radius: 6px;
-            margin-bottom: 80px;
+            margin-bottom: 70px;
         }
         .stat-item .stat-label {
             font-size: 0.65rem;
@@ -123,6 +136,43 @@
             color: #f0f0f0;
             font-weight: 500;
         }
+        .stat-item .stat-sub {
+            font-size: 0.75rem;
+            color: var(--text-subtle);
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* Endorsement Block */
+        .cs-quote-card {
+            background: linear-gradient(135deg, rgba(20, 24, 34, 0.8) 0%, rgba(10, 13, 18, 0.95) 100%);
+            border: 1px solid var(--card-border);
+            border-left: 3px solid var(--nz-gold);
+            border-radius: 6px;
+            padding: 34px 38px;
+            margin-bottom: 70px;
+        }
+        .cs-quote-card p {
+            color: #e2e8f0;
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin: 0 0 16px 0;
+            font-weight: 300;
+        }
+        .cs-quote-author {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--nz-gold);
+            font-weight: 700;
+        }
+        .cs-quote-role {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #8f96a5;
+        }
 
         /* Narrative Breakdown Sections */
         .cs-narrative-grid {
@@ -134,18 +184,19 @@
             padding-bottom: 70px;
         }
         .cs-section-heading h2 {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2.5px;
             color: #fff;
             margin-top: 0;
+            line-height: 1.3;
         }
         .cs-section-heading span {
             font-size: 0.68rem;
             letter-spacing: 2px;
             color: var(--nz-gold);
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
             display: block;
             margin-bottom: 8px;
         }
@@ -196,7 +247,7 @@
             padding: 0;
             margin: 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
         }
         .deliverables-list li {
@@ -217,25 +268,35 @@
         /* CTA Footer Card */
         .cs-cta-box {
             text-align: center;
-            background: radial-gradient(circle at 50% 0%, rgba(223, 168, 55, 0.12), transparent 70%), var(--card-dark);
-            border: 1px solid rgba(223, 168, 55, 0.3);
+            background: radial-gradient(circle at 50% 0%, rgba(223, 168, 55, 0.14), transparent 70%), var(--card-dark);
+            border: 1px solid rgba(223, 168, 55, 0.35);
             border-radius: 8px;
-            padding: 60px 30px;
+            padding: 65px 30px;
             margin-top: 90px;
         }
-        .cs-cta-box h3 {
-            font-size: 1.8rem;
+        .cs-cta-box span {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            color: var(--nz-gold);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .cs-cta-box h3 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-transform: uppercase;
+            letter-spacing: 3px;
             color: #fff;
-            margin-bottom: 15px;
+            margin: 0 0 16px 0;
         }
         .cs-cta-box p {
             color: var(--text-dim);
-            font-size: 0.95rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            line-height: 1.7;
+            font-size: 0.98rem;
+            max-width: 620px;
+            margin: 0 auto 32px;
+            line-height: 1.75;
+            font-weight: 300;
         }
         .cs-btn {
             display: inline-block;
@@ -243,7 +304,7 @@
             color: #000;
             padding: 16px 36px;
             font-size: 0.75rem;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 3px;
             text-transform: uppercase;
             text-decoration: none;
@@ -251,25 +312,68 @@
             transition: all 0.3s ease;
         }
         .cs-btn:hover {
-            box-shadow: 0 0 30px rgba(223, 168, 55, 0.4);
+            box-shadow: 0 0 30px rgba(223, 168, 55, 0.5);
             transform: translateY(-2px);
         }
 
         @media (max-width: 860px) {
             .cs-narrative-grid { grid-template-columns: 1fr; gap: 30px; }
             .cs-visual-strip { grid-template-columns: 1fr; }
-            .cs-wrapper { padding-top: 90px; }
+            .cs-wrapper { padding-top: 100px; }
+            .cs-quote-card { padding: 26px 20px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Main Studio Navigation -->
+    <nav class="nz-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="logo-link" aria-label="Northzero Productions — home">
+            <div class="compass-box" aria-hidden="true"><div class="needle"></div></div>
+            <div class="logo-text">
+                <span class="main-title">NORTHZERO</span>
+                <span class="sub-title">PRODUCTIONS</span>
+            </div>
+        </a>
+
+        <button
+            class="hamburger"
+            id="hamburger-menu"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="nav-links-container"
+        >
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="nav-links" id="nav-links-container" role="menubar">
+            <a href="index.html" role="menuitem">Agency</a>
+            <a href="work.html" role="menuitem">Works</a>
+            <div class="dropdown">
+                <a href="all-services.html" class="dropbtn" role="menuitem">Services</a>
+                <div class="dropdown-content">
+                    <a href="authority.html">Authority Suite</a>
+                    <a href="architectural.html">Architectural Cinema</a>
+                    <a href="tactile.html">Tactile Narratives</a>
+                    <a href="westchester.html">Westchester &amp; Hudson Valley</a>
+                    <a href="architectural.html#real-estate-packages">Estate Cinema Tiers</a>
+                    <a href="production-terms.html">FAQ &amp; Terms</a>
+                </div>
+            </div>
+            <a href="about.html" role="menuitem">Lens</a>
+            <a href="crewlist.html" role="menuitem">Network</a>
+            <a href="journal.html" role="menuitem">Journal</a>
+            <a href="contact.html" role="menuitem" style="border: 1px solid var(--nz-gold); padding: 10px 20px; color: var(--nz-gold) !important;">Start Project</a>
+        </div>
+    </nav>
+
     <div class="cs-wrapper">
         <a href="work.html" class="cs-back">&larr; Return to Selected Works</a>
 
-        <h1 class="cs-hero-title">DMJ Sofrito | Tactile Culinary Cinema</h1>
+        <span class="cs-eyebrow">Case Study · Tactile Product Narrative</span>
+        <h1 class="cs-hero-title">DMJ Sofrito | Sensory Culinary Cinema</h1>
         <p class="cs-hero-sub">
-            Capturing the kinetic sizzle, raw botanical textures, and artisanal heritage of DMJ Sofrito to drive e-commerce engagement and retail supermarket expansion.
+            Capturing the kinetic sizzle, raw botanical textures, and artisanal heritage of DMJ Sofrito to drive e-commerce engagement and retail supermarket expansion across Westchester and New York.
         </p>
 
         <!-- Main Video Showcase Player -->
@@ -287,21 +391,34 @@
         <!-- Key Metrics / Project Brief -->
         <div class="cs-stats-bar">
             <div class="stat-item">
-                <span class="stat-label">Client &amp; Brand</span>
-                <span class="stat-val">DMJ Sofrito LLC</span>
+                <span class="stat-label">Client &amp; Principal</span>
+                <span class="stat-val">Dulce Jorge, Founder &amp; CEO</span>
+                <span class="stat-sub">DMJ Sofrito / Fresco Sofrito by DMJ</span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">Production Format</span>
-                <span class="stat-val">High-Speed 4K Cinema / Macro Optics</span>
+                <span class="stat-label">Location</span>
+                <span class="stat-val">55 Webster Ave, Suite 410</span>
+                <span class="stat-sub">New Rochelle, NY</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Optical &amp; Sound Format</span>
+                <span class="stat-val">High-Speed 4K Cinema / Macro</span>
+                <span class="stat-sub">32-Bit Float Sensory Foley</span>
             </div>
             <div class="stat-item">
                 <span class="stat-label">Primary Objective</span>
-                <span class="stat-val">Digital Conversion &amp; Retail Syndication</span>
+                <span class="stat-val">Retail Buyer Syndication</span>
+                <span class="stat-sub">High-Conversion D2C Video Ads</span>
             </div>
-            <div class="stat-item">
-                <span class="stat-label">Delivery Timeline</span>
-                <span class="stat-val">3-Day Turnaround from Wrap</span>
-            </div>
+        </div>
+
+        <!-- Verified Client Endorsement -->
+        <div class="cs-quote-card">
+            <p>
+                “Northzero elevated our handcrafted seasoning process into visual art. The macro camera work and lighting captured the genuine freshness and culture behind DMJ Sofrito in a way that resonated immediately with our customers and retail partners.”
+            </p>
+            <div class="cs-quote-author">Dulce Jorge</div>
+            <div class="cs-quote-role">Founder &amp; CEO, DMJ Sofrito LLC · New Rochelle, NY</div>
         </div>
 
         <!-- Section 1: The Brand Assignment -->
@@ -312,10 +429,10 @@
             </div>
             <div class="cs-body-content">
                 <p>
-                    Artisanal culinary condiments cannot rely on conventional pack-shot photography. DMJ Sofrito is built on hand-chopped peppers, fresh culantro, garlic, and slow-cooked aromatics. The primary challenge was communicating fragrance, warmth, and visceral kitchen craft through digital screens.
+                    Artisanal culinary condiments cannot rely on conventional pack-shot photography. DMJ Sofrito is built on small-batch craftsmanship: hand-chopped peppers, freshly harvested culantro, garlic, and slow-simmered aromatics. The primary production challenge was translating fragrance, botanical freshness, and kitchen warmth through digital glass.
                 </p>
                 <p>
-                    <strong>The Objective:</strong> Create a sensory brand vignette that highlights the raw freshness of the ingredients, demonstrates effortless home culinary application, and establishes the brand as an authentic authority in regional specialty markets.
+                    <strong>The Objective:</strong> Create a sensory brand film that proves the uncompromising freshness of raw ingredients, demonstrates home culinary versatility, and establishes the brand as an authentic authority in regional specialty grocers and supermarket buyer presentations.
                 </p>
             </div>
         </div>
@@ -324,14 +441,14 @@
         <div class="cs-narrative-grid">
             <div class="cs-section-heading">
                 <span>Phase 02</span>
-                <h2>Macro Craft &amp; Lighting</h2>
+                <h2>Macro Optics &amp; Kinetic Lighting</h2>
             </div>
             <div class="cs-body-content">
                 <p>
-                    Northzero built a specialized tabletop kitchen lighting stage using directional key fixtures to mimic natural golden-hour window light. We utilized specialized macro cinema glass to capture micro-droplets of olive oil, steam convection, and the rich granular texture of the puréed base as it hit the pan.
+                    Northzero engineered a dedicated tabletop culinary lighting stage utilizing high-CRI cool LED key lights to preserve the natural crispness of raw herbs under intense illumination without heat wilting the produce. Specialized 100mm macro and probe optics captured micro-droplets of olive oil, steam convection, and the granular density of the blended seasoning paste as it engaged a hot pan.
                 </p>
                 <p>
-                    Capturing high frame rate motion (120fps) allowed us to slow down volatile culinary moments—the sizzle of aromatics, spoon swirls, and the physical pouring motion—giving the final film a tactile, sensory rhythm that photography cannot replicate.
+                    Capturing high-frame-rate passes at 120fps enabled us to decelerate rapid culinary actions—the acoustic sizzle of aromatics, wooden spoon swirls, and the physical pouring motion. Paired with 32-bit float audio capturing raw knife impacts and mortar-and-pestle foley, the film provides a visceral sensory rhythm that standard commercial photography cannot match.
                 </p>
 
                 <!-- Case Study Stills Strip -->
@@ -351,7 +468,7 @@
             </div>
             <div class="cs-body-content">
                 <p>
-                    Modern food and beverage distribution requires assets optimized across direct-to-consumer e-commerce, supermarket buyer presentations, and mobile social channels.
+                    Modern food and beverage distribution requires assets optimized across direct-to-consumer e-commerce funnels, wholesale buyer pitch decks, and high-retention social environments.
                 </p>
 
                 <div class="deliverables-box">
@@ -368,13 +485,35 @@
 
         <!-- Bottom Consultation Box -->
         <div class="cs-cta-box">
-            <h3>Commission Tactile Brand Cinema</h3>
+            <span>Direct Studio Commission</span>
+            <h3>Plan a Tactile Product Campaign</h3>
             <p>
-                Discuss your product launch, culinary campaign, or artisanal packaging narrative with our principal desk.
+                Discuss your culinary launch, artisanal packaging film, or tactile brand narrative directly with our principal desk.
             </p>
             <a href="contact.html?service=Tactile+Narratives" class="cs-btn">Start Project Brief &rarr;</a>
         </div>
     </div>
 
+    <!-- Site Footer -->
+    <footer style="padding: 60px 5%; text-align: center; border-top: 1px solid #111; background: #000; position: relative; z-index: 1;">
+        <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 25px;">
+            <a href="westchester.html" style="color: #666; text-decoration: none; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; transition: color 0.3s;" onmouseover="this.style.color='var(--nz-gold)'" onmouseout="this.style.color='#666'">
+                Westchester &amp; Hudson Valley
+            </a>
+            <span style="color: #222;" aria-hidden="true">·</span>
+            <a href="production-terms.html" style="color: #666; text-decoration: none; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; transition: color 0.3s;" onmouseover="this.style.color='var(--nz-gold)'" onmouseout="this.style.color='#666'">
+                Production Terms &amp; FAQ
+            </a>
+            <span style="color: #222;" aria-hidden="true">·</span>
+            <a href="contact.html" style="color: #666; text-decoration: none; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; transition: color 0.3s;" onmouseover="this.style.color='var(--nz-gold)'" onmouseout="this.style.color='#666'">
+                Initiate Brief
+            </a>
+        </div>
+        <p style="color: #333; letter-spacing: 4px; text-transform: uppercase; font-size: 0.65rem; margin: 0;">
+            &copy; 2026 Northzero Productions LLC | Ossining &amp; New York
+        </p>
+    </footer>
+
+    <script src="nav.js?v=2.0"></script>
 </body>
 </html>
