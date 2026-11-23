@@ -1,7 +1,8 @@
 /* ============================================================
-   NORTHZERO MASTER STYLES v5.1 | 2026
+   NORTHZERO MASTER STYLES v5.2 | 2026
    Target markup: .nz-nav / #hamburger-menu / #nav-links-container
-   v5.1: Mobile dropdown .open class support added
+   v5.2: Fixed-header scroll-padding-top, keyboard focus-visible,
+         desktop focus-within dropdown, reduced-motion support
    ============================================================ */
 
 /* --- 1. BRAND VARIABLES --- */
@@ -18,13 +19,21 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* --- 3. BASE --- */
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-height);
+}
 
 body {
     background-color: var(--nz-black);
     color: var(--nz-white);
     font-family: var(--font-main);
     overflow-x: hidden;
+}
+
+:focus-visible {
+    outline: 2px solid var(--nz-gold);
+    outline-offset: 3px;
 }
 
 /* --- 4. NAVIGATION --- */
@@ -131,7 +140,7 @@ nav.nz-nav {
 
 .hamburger span { width: 25px; height: 2px; background: var(--nz-white); transition: 0.3s; display: block; }
 
-/* --- DROPDOWN (desktop: hover, mobile: .open class) --- */
+/* --- DROPDOWN (desktop: hover + focus-within, mobile: .open class) --- */
 .dropdown { position: relative; height: var(--nav-height); display: flex; align-items: center; }
 
 .dropdown-content {
@@ -159,10 +168,12 @@ nav.nz-nav {
 }
 
 .dropdown-content a:last-child  { border-bottom: none; }
-.dropdown-content a:hover       { background: #080808; color: var(--nz-gold); }
+.dropdown-content a:hover,
+.dropdown-content a:focus-visible { background: #080808; color: var(--nz-gold); }
 
-/* Desktop hover trigger */
-.dropdown:hover .dropdown-content { display: block; }
+/* Desktop hover & keyboard focus triggers */
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content { display: block; }
 
 /* Mobile tap trigger — JS adds .open to .dropdown-content */
 .dropdown-content.open { display: block; }
@@ -360,6 +371,16 @@ footer {
     font-size: 0.65rem;
 }
 
+/* --- REDUCED MOTION --- */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
 /* --- 12. MOBILE (single authoritative block) --- */
 @media screen and (max-width: 900px) {
 
@@ -393,6 +414,7 @@ footer {
 
     /* Completely disable hover-based dropdown on mobile */
     .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content,
     .dropdown .dropdown-content { display: none !important; }
 
     /* Mobile dropdown open state — JS adds .open, must beat everything */
