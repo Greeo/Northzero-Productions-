@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start a Project | Northzero Productions · Westchester &amp; Hudson Valley</title>
 
-    <meta name="description" content="Initiate a luxury product film, estate cinema, or preservation documentation project with Northzero Productions — serving Ossining, Westchester County, and the Hudson Valley.">
+    <meta name="description" content="Initiate a brand film, product cinematography, architectural cinema, editing and post-production, live-stream, or preservation documentation project with Northzero Productions — based in Ossining, New York, serving Westchester County, the Hudson Valley, and New York City.">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://northzeroproductions.com/contact.html">
 
     <!-- Open Graph Metadata -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://northzeroproductions.com/contact.html">
     <meta property="og:title" content="Start a Project | Northzero Productions">
-    <meta property="og:description" content="Commission an architectural cinema, authority suite, or tactile product film project with Northzero Productions.">
+    <meta property="og:description" content="Commission a brand film, architectural cinema, authority suite, editing and post-production, or tactile product film project with Northzero Productions.">
     <meta property="og:image" content="https://northzeroproductions.com/og-image.jpg">
 
-    <link rel="stylesheet" href="style.css?v=2.2">
+    <link rel="stylesheet" href="style.css?v=5.2">
 
     <style>
         :root {
@@ -185,6 +186,11 @@
         }
 
         .service-card label:hover { border-color: #444; background: #080808; }
+
+        .service-card input[type="radio"]:focus-visible + label {
+            outline: 2px solid var(--nz-gold);
+            outline-offset: 2px;
+        }
 
         .service-card input[type="radio"]:checked + label {
             border-color: var(--nz-gold);
@@ -413,14 +419,6 @@
 
         .success-card .btn-schedule:hover { opacity: 0.85; }
 
-        .success-card .redirect-notice {
-            color: #555;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-top: 25px;
-        }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
             to   { opacity: 1; transform: translateY(0); }
@@ -491,8 +489,8 @@
 
         .t-arrows { display: flex; gap: 12px; }
         .t-arrow {
-            width: 44px; height: 44px; background: none; border: 1px solid #222;
-            color: #666; font-size: 1rem; cursor: pointer; transition: 0.3s;
+            min-width: 44px; height: 44px; padding: 0 12px; background: none; border: 1px solid #222;
+            color: #666; font-size: 0.85rem; cursor: pointer; transition: 0.3s;
             display: flex; align-items: center; justify-content: center;
         }
         .t-arrow:hover { border-color: var(--nz-gold); color: var(--nz-gold); }
@@ -525,11 +523,6 @@
             </div>
         </a>
 
-        <div class="nz-credential-badge" aria-label="Omar A. Greene — Ossining Historic Preservation Commission">
-            <span class="badge-dot" aria-hidden="true"></span>
-            <span class="badge-text">HPC Member · Ossining, NY</span>
-        </div>
-
         <button
             class="hamburger"
             id="hamburger-menu"
@@ -546,9 +539,12 @@
             <div class="dropdown">
                 <a href="all-services.html" class="dropbtn" role="menuitem">Services</a>
                 <div class="dropdown-content">
+                    <a href="all-services.html#brand-commercial">Brand &amp; Commercial Video</a>
+                    <a href="all-services.html#tactile">Product Cinematography</a>
+                    <a href="all-services.html#architectural">Architectural Cinema</a>
+                    <a href="all-services.html#post-production">Editing &amp; Post-Production</a>
+                    <a href="all-services.html#livestream">Livestream Production</a>
                     <a href="authority.html">Authority Suite</a>
-                    <a href="architectural.html">Architectural Cinema</a>
-                    <a href="tactile.html">Tactile Narratives</a>
                     <a href="westchester.html">Westchester &amp; Hudson Valley</a>
                     <a href="production-terms.html">FAQ &amp; Terms</a>
                 </div>
@@ -556,7 +552,7 @@
             <a href="about.html" role="menuitem">Lens</a>
             <a href="crewlist.html" role="menuitem">Network</a>
             <a href="journal.html" role="menuitem">Journal</a>
-            <a href="contact.html" role="menuitem" style="border: 1px solid var(--nz-gold); padding: 10px 20px; color: var(--nz-gold) !important;">Start Project</a>
+            <a href="contact.html" role="menuitem" style="border: 1px solid var(--nz-gold); padding: 10px 20px; color: var(--nz-gold) !important;">Discuss Your Project</a>
         </div>
     </nav>
 
@@ -571,12 +567,11 @@
             <div class="intake-column">
                 
                 <!-- SUCCESS CARD -->
-                <div class="success-card" id="success-card" role="region" aria-live="assertive">
-                    <span class="sc-tag">Direct Transmission Complete</span>
-                    <h2>Brief Routed to Desk</h2>
+                <div class="success-card" id="success-card" role="region" aria-live="assertive" tabindex="-1">
+                    <span class="sc-tag">Inquiry Submitted</span>
+                    <h2>Thank You</h2>
                     <p>
-                        Your production parameters have been logged. To discuss timeline alignment, 
-                        creative scope, or technical constraints without delay, lock in your introductory briefing below.
+                        Thank you—your project inquiry has been submitted. If you’d like to schedule an introductory conversation, choose a time below.
                     </p>
                     <a
                         href="https://calendly.com/northzeroproductions-info/30min"
@@ -585,11 +580,8 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Schedule Creative Briefing &rarr;
+                        Schedule Introductory Conversation &rarr;
                     </a>
-                    <p class="redirect-notice" id="redirect-counter">
-                        Redirecting to scheduling calendar in 6 seconds...
-                    </p>
                 </div>
 
                 <!-- FORM WITH ARCHITECTURAL COVE GRAZE -->
@@ -642,6 +634,20 @@
                         <label>Production Scope Required *</label>
                         <div class="service-cards" role="radiogroup" aria-label="Select a service">
                             <div class="service-card">
+                                <input type="radio" name="service" id="svc-brand" value="Brand & Commercial Video">
+                                <label for="svc-brand">
+                                    <span class="card-title">Brand &amp; Commercial</span>
+                                    <span class="card-desc">Story-driven brand films and commercial video for businesses and organizations.</span>
+                                </label>
+                            </div>
+                            <div class="service-card">
+                                <input type="radio" name="service" id="svc-tact" value="Tactile Narratives">
+                                <label for="svc-tact">
+                                    <span class="card-title">Product Cinematography</span>
+                                    <span class="card-desc">Product cinematography, atelier &amp; craft documentaries, luxury retail assets.</span>
+                                </label>
+                            </div>
+                            <div class="service-card">
                                 <input type="radio" name="service" id="svc-arch" value="Architectural Cinema">
                                 <label for="svc-arch">
                                     <span class="card-title">Architectural Cinema</span>
@@ -649,17 +655,24 @@
                                 </label>
                             </div>
                             <div class="service-card">
-                                <input type="radio" name="service" id="svc-auth" value="Authority Suite">
-                                <label for="svc-auth">
-                                    <span class="card-title">Authority Suite</span>
-                                    <span class="card-desc">HPC compliance films, municipal visual briefs, capital projects &amp; grant submissions.</span>
+                                <input type="radio" name="service" id="svc-post" value="Editing & Post-Production">
+                                <label for="svc-post">
+                                    <span class="card-title">Editing &amp; Post-Production</span>
+                                    <span class="card-desc">Standalone or integrated editing, audio cleanup, color matching, titles, and captions.</span>
                                 </label>
                             </div>
                             <div class="service-card">
-                                <input type="radio" name="service" id="svc-tact" value="Tactile Narratives">
-                                <label for="svc-tact">
-                                    <span class="card-title">Tactile Narratives</span>
-                                    <span class="card-desc">Product cinematography, atelier &amp; craft documentaries, luxury retail assets.</span>
+                                <input type="radio" name="service" id="svc-live" value="Livestream Production">
+                                <label for="svc-live">
+                                    <span class="card-title">Live-Stream Production</span>
+                                    <span class="card-desc">Live-stream production for presentations, conversations, and events.</span>
+                                </label>
+                            </div>
+                            <div class="service-card">
+                                <input type="radio" name="service" id="svc-auth" value="Authority Suite">
+                                <label for="svc-auth">
+                                    <span class="card-title">Authority Suite</span>
+                                    <span class="card-desc">Visual documentation prepared to support submissions, presentations, and stakeholder communications.</span>
                                 </label>
                             </div>
                         </div>
@@ -730,7 +743,7 @@
                         </div>
                         <div class="desk-link-item">
                             <span class="d-label">Operational Territory</span>
-                            <span style="font-size:0.88rem; color:#ccc;">Ossining Studio &middot; Westchester County, Hudson Valley &amp; NYC Metro</span>
+                            <span style="font-size:0.88rem; color:#ccc;">Based in Ossining, New York, serving Westchester County, the Hudson Valley, and New York City</span>
                         </div>
                     </div>
                 </div>
@@ -743,7 +756,7 @@
                     <ul class="protocol-list">
                         <li>Direct review by Principal DP within 24 hours</li>
                         <li>FAA Part 107 flight authorization verification</li>
-                        <li>HPC / HABS-influenced archival compliance review</li>
+                        <li>HPC / HABS-influenced archival documentation review</li>
                         <li>Non-disclosure &amp; location embargo covenants</li>
                     </ul>
                 </div>
@@ -808,6 +821,7 @@
             <div class="t-controls">
                 <div class="t-dots" id="t-dots-contact" role="tablist" aria-label="Testimonial navigation"></div>
                 <div class="t-arrows">
+                    <button class="t-arrow" id="t-pause-contact" type="button" aria-label="Pause testimonial rotation">Pause</button>
                     <button class="t-arrow" id="t-prev-contact" aria-label="Previous testimonial">&#8592;</button>
                     <button class="t-arrow" id="t-next-contact" aria-label="Next testimonial">&#8594;</button>
                 </div>
@@ -834,55 +848,62 @@
         </p>
     </footer>
 
-    <script src="nav.js?v=2.1" defer></script>
+    <script src="nav.js?v=2.4" defer></script>
     <script>
-        const ENDPOINT     = 'https://formspree.io/f/xeaazjpz';
+        const ENDPOINT     = 'https://formspree.io/f/xykedrkb';
         const CALENDLY_URL = 'https://calendly.com/northzeroproductions-info/30min';
         
         const form        = document.getElementById('nz-contact-form');
         const status      = document.getElementById('form-status');
         const btn         = document.getElementById('submit-btn');
         const successCard = document.getElementById('success-card');
-        const counterEl   = document.getElementById('redirect-counter');
-        const calendlyBtn = document.getElementById('calendly-direct-btn');
-        let countdown     = null;
+        let isSubmitting  = false;
 
-        /* Dynamic Heading & Radio Pre-selection from Query Params */
+        /* Stable & Backward-Compatible Service Pre-selection from Query Params */
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
-            const serviceParam = params.get('service');
+            const rawParam = params.get('service');
             
-            if (serviceParam) {
-                const targetRadio = document.querySelector(`input[name="service"][value="${serviceParam}"]`);
-                if (targetRadio) {
-                    targetRadio.checked = true;
-                }
+            if (rawParam) {
+                const key = rawParam.trim().toLowerCase();
+                const serviceMap = {
+                    'brand':                     { radioId: 'svc-brand', eyebrow: 'Brand & Commercial Desk',               heading: 'Brand & Commercial Intake' },
+                    'brand & commercial':        { radioId: 'svc-brand', eyebrow: 'Brand & Commercial Desk',               heading: 'Brand & Commercial Intake' },
+                    'brand & commercial video':  { radioId: 'svc-brand', eyebrow: 'Brand & Commercial Desk',               heading: 'Brand & Commercial Intake' },
+                    'product':                   { radioId: 'svc-tact',  eyebrow: 'Luxury Product & Atelier Cinema',       heading: 'Tactile Narratives Intake' },
+                    'tactile':                   { radioId: 'svc-tact',  eyebrow: 'Luxury Product & Atelier Cinema',       heading: 'Tactile Narratives Intake' },
+                    'tactile narratives':        { radioId: 'svc-tact',  eyebrow: 'Luxury Product & Atelier Cinema',       heading: 'Tactile Narratives Intake' },
+                    'architecture':              { radioId: 'svc-arch',  eyebrow: 'Residential Estates & Built Environment', heading: 'Architectural Cinema Intake' },
+                    'architectural':             { radioId: 'svc-arch',  eyebrow: 'Residential Estates & Built Environment', heading: 'Architectural Cinema Intake' },
+                    'architectural cinema':      { radioId: 'svc-arch',  eyebrow: 'Residential Estates & Built Environment', heading: 'Architectural Cinema Intake' },
+                    'post-production':           { radioId: 'svc-post',  eyebrow: 'Editorial & Finishing Desk',            heading: 'Editing & Post-Production Intake' },
+                    'editing':                   { radioId: 'svc-post',  eyebrow: 'Editorial & Finishing Desk',            heading: 'Editing & Post-Production Intake' },
+                    'editing & post-production': { radioId: 'svc-post',  eyebrow: 'Editorial & Finishing Desk',            heading: 'Editing & Post-Production Intake' },
+                    'livestream':                { radioId: 'svc-live',  eyebrow: 'Live Event Production Desk',            heading: 'Live-Stream Production Intake' },
+                    'livestream production':     { radioId: 'svc-live',  eyebrow: 'Live Event Production Desk',            heading: 'Live-Stream Production Intake' },
+                    'documentation':             { radioId: 'svc-auth',  eyebrow: 'Municipal & Landmark Compliance Desk',  heading: 'Authority Suite Intake' },
+                    'authority':                 { radioId: 'svc-auth',  eyebrow: 'Municipal & Landmark Compliance Desk',  heading: 'Authority Suite Intake' },
+                    'authority suite':           { radioId: 'svc-auth',  eyebrow: 'Municipal & Landmark Compliance Desk',  heading: 'Authority Suite Intake' }
+                };
 
-                const heading = document.getElementById('discipline-heading');
-                const eyebrow = document.getElementById('discipline-eyebrow');
+                const matched = serviceMap[key];
+                if (matched) {
+                    const targetRadio = document.getElementById(matched.radioId);
+                    if (targetRadio) {
+                        targetRadio.checked = true;
+                    }
 
-                if (serviceParam.includes('Authority')) {
-                    eyebrow.textContent = 'Municipal & Landmark Compliance Desk';
-                    heading.textContent = 'Authority Suite Intake';
-                } else if (serviceParam.includes('Tactile')) {
-                    eyebrow.textContent = 'Luxury Product & Atelier Cinema';
-                    heading.textContent = 'Tactile Narratives Intake';
-                } else if (serviceParam.includes('Architectural')) {
-                    eyebrow.textContent = 'Residential Estates & Built Environment';
-                    heading.textContent = 'Architectural Cinema Intake';
+                    const heading = document.getElementById('discipline-heading');
+                    const eyebrow = document.getElementById('discipline-eyebrow');
+                    if (eyebrow) eyebrow.textContent = matched.eyebrow;
+                    if (heading) heading.textContent = matched.heading;
                 }
             }
         });
 
-        if (calendlyBtn) {
-            calendlyBtn.addEventListener('click', () => {
-                if (countdown) clearInterval(countdown);
-                if (counterEl) counterEl.textContent = 'Opening scheduling calendar...';
-            });
-        }
-
         async function handleSubmit(e) {
             e.preventDefault();
+            if (isSubmitting) return;
         
             const nameInput    = document.getElementById('field-name');
             const emailInput   = document.getElementById('field-email');
@@ -908,10 +929,13 @@
             if (!checkedRadio || !checkedRadio.value) {
                 status.textContent = 'Please select a production scope.';
                 status.style.color = '#e05555';
+                const firstRadio = document.getElementById('svc-brand');
+                if (firstRadio) firstRadio.focus();
                 document.querySelector('.service-cards').scrollIntoView({ behavior: 'smooth', block: 'center' });
                 return;
             }
         
+            isSubmitting       = true;
             btn.disabled       = true;
             status.textContent = 'Transmitting brief...';
             status.style.color = 'var(--nz-gold)';
@@ -928,29 +952,20 @@
                     setTimeout(() => {
                         form.style.display = 'none';
                         successCard.style.display = 'block';
+                        successCard.focus();
                         successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }, 400);
-
-                    let timeLeft = 6;
-                    countdown = setInterval(() => {
-                        timeLeft -= 1;
-                        if (timeLeft > 0) {
-                            counterEl.textContent = `Redirecting to scheduling calendar in ${timeLeft} seconds...`;
-                        } else {
-                            clearInterval(countdown);
-                            window.location.href = CALENDLY_URL;
-                        }
-                    }, 1000);
-
                 } else {
-                    status.innerHTML = 'Transmission issue. <a href="' + CALENDLY_URL + '" target="_blank" style="color:var(--nz-gold);text-decoration:underline;">Click here to book a call directly via Calendly &rarr;</a>';
+                    status.innerHTML = 'Transmission issue. Your details are still saved above — retry or <a href="' + CALENDLY_URL + '" target="_blank" rel="noopener noreferrer" style="color:var(--nz-gold);text-decoration:underline;">book a call directly via Calendly &rarr;</a>';
                     status.style.color = '#e05555';
                     btn.disabled = false;
+                    isSubmitting = false;
                 }
             } catch (err) {
-                status.innerHTML = 'Network interrupted. <a href="' + CALENDLY_URL + '" target="_blank" style="color:var(--nz-gold);text-decoration:underline;">Click here to book a call directly via Calendly &rarr;</a>';
+                status.innerHTML = 'Network interrupted. Your details are still saved above — retry or <a href="' + CALENDLY_URL + '" target="_blank" rel="noopener noreferrer" style="color:var(--nz-gold);text-decoration:underline;">book a call directly via Calendly &rarr;</a>';
                 status.style.color = '#e05555';
                 btn.disabled = false;
+                isSubmitting = false;
             }
         }
 
@@ -961,23 +976,27 @@
             initCarousel('contact');
 
             function initCarousel(id) {
-                const track   = document.getElementById('t-track-' + id);
-                const dotsEl  = document.getElementById('t-dots-' + id);
-                const prevBtn = document.getElementById('t-prev-' + id);
-                const nextBtn = document.getElementById('t-next-' + id);
+                const track    = document.getElementById('t-track-' + id);
+                const dotsEl   = document.getElementById('t-dots-' + id);
+                const prevBtn  = document.getElementById('t-prev-' + id);
+                const nextBtn  = document.getElementById('t-next-' + id);
+                const pauseBtn = document.getElementById('t-pause-' + id);
                 if (!track) return;
 
                 const slides = Array.from(track.querySelectorAll('.t-slide'));
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                 let current  = 0;
-                let autoTimer;
+                let autoTimer = null;
+                let isPaused = prefersReducedMotion;
 
                 slides.forEach((_, i) => {
                     const dot = document.createElement('button');
+                    dot.type = 'button';
                     dot.className = 't-dot' + (i === 0 ? ' active' : '');
                     dot.setAttribute('role', 'tab');
                     dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
                     dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
-                    dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
+                    dot.addEventListener('click', () => { stopAuto(); goTo(i); if (!isPaused) startAuto(); });
                     dotsEl.appendChild(dot);
                 });
 
@@ -1000,23 +1019,40 @@
                 function next() { goTo(current + 1); }
                 function prev() { goTo(current - 1); }
 
-                nextBtn.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
-                prevBtn.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
+                nextBtn.addEventListener('click', () => { stopAuto(); next(); if (!isPaused) startAuto(); });
+                prevBtn.addEventListener('click', () => { stopAuto(); prev(); if (!isPaused) startAuto(); });
 
-                function startAuto() { autoTimer = setInterval(next, 6000); }
-                function stopAuto()  { clearInterval(autoTimer); }
+                function startAuto() {
+                    if (isPaused || autoTimer) return;
+                    autoTimer = setInterval(next, 6000);
+                }
+                function stopAuto() {
+                    clearInterval(autoTimer);
+                    autoTimer = null;
+                }
+
+                if (pauseBtn) {
+                    pauseBtn.textContent = isPaused ? 'Play' : 'Pause';
+                    pauseBtn.setAttribute('aria-pressed', String(isPaused));
+                    pauseBtn.addEventListener('click', () => {
+                        isPaused = !isPaused;
+                        pauseBtn.textContent = isPaused ? 'Play' : 'Pause';
+                        pauseBtn.setAttribute('aria-pressed', String(isPaused));
+                        if (isPaused) stopAuto(); else startAuto();
+                    });
+                }
 
                 const section = track.closest('.testimonial-section');
                 section.addEventListener('mouseenter', stopAuto);
-                section.addEventListener('mouseleave', startAuto);
+                section.addEventListener('mouseleave', () => { if (!isPaused) startAuto(); });
                 section.addEventListener('focusin',    stopAuto);
-                section.addEventListener('focusout',   startAuto);
+                section.addEventListener('focusout',   () => { if (!isPaused) startAuto(); });
                 section.addEventListener('keydown', e => {
-                    if (e.key === 'ArrowRight') { stopAuto(); next(); startAuto(); }
-                    if (e.key === 'ArrowLeft')  { stopAuto(); prev(); startAuto(); }
+                    if (e.key === 'ArrowRight') { stopAuto(); next(); if (!isPaused) startAuto(); }
+                    if (e.key === 'ArrowLeft')  { stopAuto(); prev(); if (!isPaused) startAuto(); }
                 });
 
-                startAuto();
+                if (!isPaused) startAuto();
             }
         }());
     </script>
