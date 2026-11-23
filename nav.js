@@ -1,7 +1,7 @@
 /* ============================================================
-   NORTHZERO NAV ENGINE v2.3 | 2026
+   NORTHZERO NAV ENGINE v2.4 | 2026
    Targets: #hamburger-menu / #nav-links-container / .active
-   v2.3: Reliable cross-browser mobile dropdown + active page highlight
+   v2.4: Defensive DOM checks, keyboard dropdown sync & Escape
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,7 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     allLinks.forEach(link => {
         const href = link.getAttribute('href');
-        if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+        if (!href) return;
+        const cleanHref = href.split('#')[0];
+        if (cleanHref === currentPath || (currentPath === '' && cleanHref === 'index.html')) {
             link.style.color = 'var(--nz-gold)';
             link.style.fontWeight = '700';
         }
@@ -53,8 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', closeMenu);
     });
 
-    // ── 5. Mobile Dropdown Toggle ───────────────────────────
+    // ── 5. Mobile & Keyboard Dropdown Toggle ─────────────────
     document.querySelectorAll('.dropbtn').forEach(btn => {
+        const dropdown = btn.nextElementSibling;
+        if (!dropdown) return;
+
         btn.setAttribute('aria-haspopup', 'true');
         btn.setAttribute('aria-expanded', 'false');
 
@@ -62,9 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isMobile()) return;
             e.preventDefault();
             e.stopPropagation();
-
-            const dropdown = btn.nextElementSibling;
-            if (!dropdown) return;
 
             const isOpen = dropdown.classList.contains('open');
             closeAllDropdowns();
@@ -74,13 +76,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.setAttribute('aria-expanded', 'true');
             }
         });
+
+        btn.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                dropdown.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                const firstLink = dropdown.querySelector('a');
+                if (firstLink) firstLink.focus();
+            }
+        });
+
+        const parentDropdown = btn.closest('.dropdown');
+        if (parentDropdown) {
+            parentDropdown.addEventListener('focusout', function (e) {
+                if (!parentDropdown.contains(e.relatedTarget)) {
+                    dropdown.classList.remove('open');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
     });
 
     // ── 6. Keyboard Escape Key ───────────────────────────────
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
+            const wasMobileOpen = navLinks.classList.contains('active');
+            const openDropBtn = document.querySelector('.dropbtn[aria-expanded="true"]');
             closeMenu();
-            hamburger.focus();
+            if (wasMobileOpen) {
+                hamburger.focus();
+            } else if (openDropBtn) {
+                openDropBtn.focus();
+            }
         }
     });
 
