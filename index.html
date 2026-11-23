@@ -1,4 +1,199 @@
-.cta-btn.secondary {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="Sqfzacs-7dfaaZ522cXHL7N90Y1WCdaIp9MbTK8nFAE" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northzero Productions | Luxury Cinematography &amp; Brand Narrative · Hudson Valley, NY</title>
+
+    <meta name="description" content="Northzero Productions creates brand films, product content, and architectural films, with editing and post-production available as standalone services or part of a complete production. Based in Ossining, New York, serving Westchester County, the Hudson Valley, and New York City.">
+    <link rel="canonical" href="https://northzeroproductions.com/">
+
+    <meta property="og:type"         content="website">
+    <meta property="og:url"          content="https://northzeroproductions.com/">
+    <meta property="og:title"        content="Northzero Productions | Luxury Cinematography &amp; Brand Narrative · Hudson Valley, NY">
+    <meta property="og:description"  content="Northzero Productions creates brand films, product content, and architectural films, with editing and post-production available as standalone services or part of a complete production.">
+    <meta property="og:image"        content="https://northzeroproductions.com/og-image.jpg">
+    <meta property="og:image:width"  content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt"    content="Northzero Productions — Luxury Cinematography Hudson Valley">
+    <meta property="og:site_name"    content="Northzero Productions">
+
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="Northzero Productions | Luxury Cinematography · Hudson Valley, NY">
+    <meta name="twitter:description" content="Northzero Productions creates brand films, product content, and architectural films, with editing and post-production available as standalone services or part of a complete production.">
+    <meta name="twitter:image"       content="https://northzeroproductions.com/og-image.jpg">
+
+    <link rel="preload" as="image" href="regan-estates.jpg">
+    <link rel="stylesheet" href="style.css?v=5.2">
+
+    <!-- Schema Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Northzero Productions LLC",
+      "image": "https://northzeroproductions.com/assets/images/logo.png",
+      "@id": "https://northzeroproductions.com",
+      "url": "https://northzeroproductions.com",
+      "telephone": "+1-914-458-3705",
+      "email": "omarg@northzeroproductions.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ossining",
+        "addressRegion": "NY",
+        "postalCode": "10562",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.1626,
+        "longitude": -73.8601
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Westchester County" },
+        { "@type": "AdministrativeArea", "name": "Hudson Valley" },
+        { "@type": "AdministrativeArea", "name": "Rockland County" },
+        { "@type": "AdministrativeArea", "name": "New York City" }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/northzeroproductions",
+        "https://vimeo.com/northzeroproductions"
+      ],
+      "knowsAbout": [
+        "Cinematography",
+        "Commercial Video Production",
+        "Brand Storytelling",
+        "Documentary Filmmaking",
+        "Corporate Video",
+        "Real Estate Cinema",
+        "Video Editing and Post-Production",
+        "Live-Stream Production"
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-black:   #000;
+            --bg-soft:    #050505;
+            --nz-gold:    #d4af37;
+            --nz-blue:    #0047ab;
+            --nz-white:   #ffffff;
+            --font-main:  'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --nav-height: 80px;
+        }
+
+        /* --- GLOBAL RESETS --- */
+        html, body {
+            background-color: var(--bg-black) !important;
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            color: var(--nz-white);
+            font-family: var(--font-main);
+        }
+
+        /* --- HERO SLIDER --- */
+        .slider-container {
+            position: relative;
+            height: 100vh;
+            min-height: 620px;
+            width: 100%;
+            overflow: hidden;
+            background: #000;
+            z-index: 10;
+        }
+
+        .slide {
+            position: absolute; width: 100%; height: 100%; opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; z-index: 2;
+            pointer-events: none;
+        }
+
+        .slide.active { opacity: 1; z-index: 5; pointer-events: auto; }
+
+        .slide-kicker {
+            display: inline-block;
+            color: var(--nz-gold);
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .slide-content p {
+            max-width: 740px;
+            margin: 12px auto 28px;
+            color: #ccc;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .slide-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .slide-1 { background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920') center/cover; }
+        .slide-2 { background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=1920') center/cover; }
+        .slide-3 { background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1920') center/cover; }
+
+        .slide-content { padding: 0 24px; width: 100%; max-width: 1140px; z-index: 10; }
+
+        .slide-content h1,
+        .slide-content .slide-heading {
+            font-size: clamp(1.65rem, 4.4vw, 3.1rem);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+            color: var(--nz-white);
+            position: relative;
+            line-height: 1.22;
+            font-weight: 900;
+            animation: glitch 15s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch {
+            0%, 18%, 38%, 58%, 68%, 88%, 100% {
+                text-shadow: none;
+            }
+            10%, 50%, 80% {
+                text-shadow: 2px 0 rgba(0, 71, 171, 0.75), -2px 0 rgba(212, 175, 55, 0.75);
+            }
+            30% {
+                text-shadow: -2px 0 rgba(0, 71, 171, 0.75), 2px 0 rgba(212, 175, 55, 0.75);
+            }
+        }
+
+        .cta-btn {
+            display: inline-block; padding: 16px 34px;
+            border: 1px solid var(--nz-gold); color: var(--nz-gold);
+            text-decoration: none; text-transform: uppercase;
+            letter-spacing: 3px; font-size: 0.75rem; transition: 0.3s ease;
+            font-weight: 600;
+        }
+        .cta-btn:hover { background: var(--nz-gold); color: #000; transform: translateY(-2px); }
+
+        .cta-btn.primary {
+            background: var(--nz-gold);
+            color: #000;
+        }
+        .cta-btn.primary:hover {
+            background: transparent;
+            color: var(--nz-gold);
+        }
+
+        .cta-btn.secondary {
             border-color: #333;
             color: #bbb;
             background: rgba(0,0,0,0.6);
@@ -283,48 +478,7 @@
         }
         .lm-card ul li::before { content: '—'; position: absolute; left: 0; color: var(--nz-gold); }
 
-        /* --- HPC STRIP --- */
-        .hpc-strip { background: #000; border-top: 1px solid #111; border-bottom: 1px solid #111; }
-
-        .hpc-strip-inner {
-            max-width: 1300px; margin: 0 auto; padding: 110px 5%;
-            display: flex; align-items: center; gap: 80px; flex-wrap: wrap;
-        }
-
-        .hpc-copy           { flex: 1; min-width: 280px; max-width: 560px; }
-        .hpc-label {
-            color: var(--nz-blue); letter-spacing: 6px; text-transform: uppercase;
-            font-size: 0.65rem; margin-bottom: 20px; display: block; font-weight: 600;
-        }
-        .hpc-copy h2 {
-            font-size: clamp(1.6rem, 4vw, 2.2rem); text-transform: uppercase;
-            letter-spacing: 8px; color: #fff; margin-bottom: 25px; line-height: 1.2; font-weight: 800;
-        }
-        .hpc-copy p { color: #888; font-size: 0.95rem; line-height: 2; font-weight: 300; }
-
-        .hpc-badge-card {
-            flex-shrink: 0; width: 280px; border: 1px solid var(--nz-blue);
-            padding: 3px; background: #000; position: relative;
-        }
-        .hpc-badge-card::before {
-            content: ''; position: absolute;
-            top: -1px; left: -1px; right: -1px; bottom: -1px;
-            border: 1px solid var(--nz-blue); opacity: 0.3; pointer-events: none;
-        }
-        .hpc-badge-inner {
-            border: 1px solid #0a1a3a; padding: 40px 30px;
-            display: flex; flex-direction: column; align-items: center;
-            text-align: center; gap: 8px; background: #020810;
-        }
-        .hpc-badge-abbr   { font-size: 2.5rem; letter-spacing: 8px; color: var(--nz-blue); font-weight: 900; margin-bottom: 4px; }
-        .hpc-badge-title  { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #fff; line-height: 1.6; }
-        .hpc-badge-sub    { font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; color: #668; }
-        .hpc-badge-divider { width: 30px; height: 1px; background: var(--nz-blue); opacity: 0.4; margin: 8px 0; }
-        .hpc-badge-role   { font-size: 0.55rem; letter-spacing: 3px; text-transform: uppercase; color: #8bb4f6; }
-        .hpc-badge-name   { font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: #fff; font-weight: 700; }
-        .hpc-badge-studio { font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; color: #555; }
-
-        /* --- WHAT EVERY ENGAGEMENT INCLUDES STRIP --- */
+        /* --- WHAT EVERY ENGAGEMENT INCLUDES & SERVICES STRIP --- */
         .engagements-strip {
             padding: 100px 5%;
             background: #050505;
@@ -514,8 +668,6 @@
             .lm-fields         { flex-direction: column; }
             .lm-fields input   { border-right: 1px solid #222; }
             .lm-fields button  { padding: 14px; }
-            .hpc-strip-inner   { flex-direction: column; padding: 80px 5%; gap: 50px; }
-            .hpc-badge-card    { width: 100%; }
             .eng-grid,
             .supporting-notes-row { grid-template-columns: 1fr; gap: 30px; }
             .slide-actions, .commission-btn-group { width: 100%; flex-direction: column; }
@@ -576,7 +728,7 @@
             <div class="slide slide-1 active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3" aria-hidden="false">
                 <div class="slide-content">
                     <span class="slide-kicker">NEW YORK–AREA VIDEO PRODUCTION &amp; POST-PRODUCTION</span>
-                    <h1 data-text="CINEMATIC VISUAL SYSTEMS, PRODUCTS AND CONSEQUENTIAL PROJECTS." aria-label="Cinematic visual systems, products and consequential projects.">CINEMATIC VISUAL SYSTEMS, PRODUCTS AND CONSEQUENTIAL PROJECTS.</h1>
+                    <h1>CINEMATIC VISUAL SYSTEMS, PRODUCTS AND CONSEQUENTIAL PROJECTS.</h1>
                     <p>Northzero Productions creates brand films, product content, and architectural films, with editing and post-production available as standalone services or part of a complete production. Based in Ossining, New York, serving Westchester County, the Hudson Valley, and New York City.</p>
                     <div class="slide-actions">
                         <a href="work.html" class="cta-btn primary">View Selected Work &rarr;</a>
@@ -589,7 +741,7 @@
             <div class="slide slide-2" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3" aria-hidden="true">
                 <div class="slide-content">
                     <span class="slide-kicker">Standalone or Integrated Finishing</span>
-                    <h2 class="slide-heading" data-text="Editing &amp; Post-Production" aria-label="Editing &amp; Post-Production">Editing &amp; Post-Production</h2>
+                    <h2 class="slide-heading">Editing &amp; Post-Production</h2>
                     <p>Story-driven editing, multi-camera assembly, audio cleanup, color correction, and tailored final exports.</p>
                     <div class="slide-actions">
                         <a href="all-services.html#post-production" class="cta-btn primary">Explore Post-Production &rarr;</a>
@@ -602,7 +754,7 @@
             <div class="slide slide-3" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3" aria-hidden="true">
                 <div class="slide-content">
                     <span class="slide-kicker">Architecture, Product &amp; Documentation</span>
-                    <h2 class="slide-heading" data-text="Production &amp; Documentation" aria-label="Production &amp; Documentation">Production &amp; Documentation</h2>
+                    <h2 class="slide-heading">Production &amp; Documentation</h2>
                     <p>Architectural and property films, product cinematography, live-stream production, and institutional documentation.</p>
                     <div class="slide-actions">
                         <a href="work.html" class="cta-btn primary">View Selected Work &rarr;</a>
@@ -895,7 +1047,6 @@
         const playBtn = document.getElementById('showreel-toggle-btn');
         const playIcon = document.getElementById('play-icon');
         const pauseIcon = document.getElementById('pause-icon');
-        const bumper = document.getElementById('showreel-bumper-img');
         const container = document.getElementById('regan-showreel');
         const soundBtn = document.getElementById('showreel-sound-btn');
         const soundText = document.getElementById('sound-text');
