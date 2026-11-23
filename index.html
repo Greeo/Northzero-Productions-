@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Northzero Productions | Luxury Cinematography &amp; Brand Narrative · Hudson Valley, NY</title>
 
-    <meta name="description" content="Northzero Productions — luxury product cinematography and architectural cinema studio serving Westchester County, Hudson Valley, and the Tri-State Area. Founded by an Ossining HPC member.">
+    <meta name="description" content="Northzero Productions creates brand films, product content, and architectural films, with editing and post-production available as standalone services or part of a complete production. Based in Ossining, New York, serving Westchester County, the Hudson Valley, and New York City.">
+    <link rel="canonical" href="https://northzeroproductions.com/">
 
     <meta property="og:type"         content="website">
     <meta property="og:url"          content="https://northzeroproductions.com/">
     <meta property="og:title"        content="Northzero Productions | Luxury Cinematography &amp; Brand Narrative · Hudson Valley, NY">
-    <meta property="og:description"  content="Luxury product cinematography and architectural cinema studio serving Westchester County, Hudson Valley, and the Tri-State Area.">
+    <meta property="og:description"  content="Northzero Productions creates brand films, product content, and architectural films, with editing and post-production available as standalone services or part of a complete production.">
     <meta property="og:image"        content="https://northzeroproductions.com/og-image.jpg">
     <meta property="og:image:width"  content="1200">
     <meta property="og:image:height" content="630">
@@ -20,11 +21,11 @@
 
     <meta name="twitter:card"        content="summary_large_image">
     <meta name="twitter:title"       content="Northzero Productions | Luxury Cinematography · Hudson Valley, NY">
-    <meta name="twitter:description" content="Luxury product cinematography and architectural cinema studio serving Westchester County, Hudson Valley, and the Tri-State Area.">
+    <meta name="twitter:description" content="Northzero Productions creates brand films, product content, and architectural films, with editing and post-production available as standalone services or part of a complete production.">
     <meta name="twitter:image"       content="https://northzeroproductions.com/og-image.jpg">
 
     <link rel="preload" as="image" href="regan-estates.jpg">
-    <link rel="stylesheet" href="style.css?v=2.2">
+    <link rel="stylesheet" href="style.css?v=5.2">
 
     <!-- Schema Structured Data -->
     <script type="application/ld+json">
@@ -37,10 +38,8 @@
       "url": "https://northzeroproductions.com",
       "telephone": "+1-914-458-3705",
       "email": "omarg@northzeroproductions.com",
-      "priceRange": "$7,000 - $15,000",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "All Of Westchester County",
         "addressLocality": "Ossining",
         "addressRegion": "NY",
         "postalCode": "10562",
@@ -68,7 +67,8 @@
         "Documentary Filmmaking",
         "Corporate Video",
         "Real Estate Cinema",
-        "Historic Preservation Compliance"
+        "Video Editing and Post-Production",
+        "Live-Stream Production"
       ]
     }
     </script>
@@ -125,7 +125,7 @@
         }
         
         .slide-content p {
-            max-width: 680px;
+            max-width: 720px;
             margin: 12px auto 28px;
             color: #ccc;
             font-size: 1rem;
@@ -147,7 +147,7 @@
             font-size: 0.68rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #888;
+            color: #999;
             font-weight: 400;
         }
 
@@ -157,7 +157,8 @@
 
         .slide-content { padding: 0 20px; width: 100%; max-width: 1100px; z-index: 10; }
 
-        .slide-content h1 {
+        .slide-content h1,
+        .slide-content .slide-heading {
             font-size: clamp(2rem, 8vw, 3.8rem);
             text-transform: uppercase;
             letter-spacing: 12px;
@@ -168,14 +169,16 @@
             font-weight: 900;
         }
 
-        .slide-content h1::after {
+        .slide-content h1::after,
+        .slide-content .slide-heading::after {
             content: attr(data-text); position: absolute;
             top: 0; left: 2px; width: 100%; height: 100%;
             opacity: 0.6; color: var(--nz-blue);
             animation: glitch 15s infinite linear alternate-reverse;
             pointer-events: none;
         }
-        .slide-content h1::before {
+        .slide-content h1::before,
+        .slide-content .slide-heading::before {
             content: attr(data-text); position: absolute;
             top: 0; left: -2px; width: 100%; height: 100%;
             opacity: 0.6; color: var(--nz-gold);
@@ -596,6 +599,45 @@
             line-height: 1.8;
             font-weight: 300;
         }
+
+        .eng-link {
+            display: inline-block;
+            margin-top: 14px;
+            font-size: 0.68rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--nz-gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .eng-link:hover { color: #fff; }
+
+        .supporting-notes-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #161616;
+        }
+        .supporting-note-item {
+            border-left: 2px solid var(--nz-gold);
+            padding-left: 18px;
+        }
+        .supporting-note-item.blue { border-left-color: var(--nz-blue); }
+        .supporting-note-item h5 {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .supporting-note-item p {
+            font-size: 0.78rem;
+            color: #888;
+            line-height: 1.7;
+            font-weight: 300;
+        }
         
         /* --- COMMISSION BANNER --- */
         .commission-banner {
@@ -668,7 +710,8 @@
 
         /* --- MOBILE --- */
         @media screen and (max-width: 900px) {
-            .slide-content h1 {
+            .slide-content h1,
+            .slide-content .slide-heading {
                 font-size: 2rem !important; letter-spacing: 4px !important;
                 line-height: 1.2 !important;
             }
@@ -684,7 +727,8 @@
             .lm-fields button  { padding: 14px; }
             .hpc-strip-inner   { flex-direction: column; padding: 80px 5%; gap: 50px; }
             .hpc-badge-card    { width: 100%; }
-            .eng-grid          { grid-template-columns: 1fr; gap: 30px; }
+            .eng-grid,
+            .supporting-notes-row { grid-template-columns: 1fr; gap: 30px; }
             .slide-actions, .commission-btn-group { width: 100%; flex-direction: column; }
             .slide-actions .cta-btn, .commission-btn-group .cta-btn { width: 100%; text-align: center; }
         }
@@ -700,11 +744,6 @@
                 <span class="sub-title">PRODUCTIONS</span>
             </div>
         </a>
-
-        <div class="nz-credential-badge" aria-label="Omar A. Greene — Ossining Historic Preservation Commission">
-            <span class="badge-dot" aria-hidden="true"></span>
-            <span class="badge-text">HPC Member · Ossining, NY</span>
-        </div>
 
         <button
             class="hamburger"
@@ -722,9 +761,12 @@
             <div class="dropdown">
                 <a href="all-services.html" class="dropbtn" role="menuitem">Services</a>
                 <div class="dropdown-content">
+                    <a href="all-services.html#brand-commercial">Brand &amp; Commercial Video</a>
+                    <a href="all-services.html#tactile">Product Cinematography</a>
+                    <a href="all-services.html#architectural">Architectural Cinema</a>
+                    <a href="all-services.html#post-production">Editing &amp; Post-Production</a>
+                    <a href="all-services.html#livestream">Livestream Production</a>
                     <a href="authority.html">Authority Suite</a>
-                    <a href="architectural.html">Architectural Cinema</a>
-                    <a href="tactile.html">Tactile Narratives</a>
                     <a href="westchester.html">Westchester &amp; Hudson Valley</a>
                     <a href="architectural.html#real-estate-packages">Estate Cinema Tiers</a>
                     <a href="production-terms.html">FAQ &amp; Terms</a>
@@ -733,7 +775,7 @@
             <a href="about.html" role="menuitem">Lens</a>
             <a href="crewlist.html" role="menuitem">Network</a> 
             <a href="journal.html" role="menuitem">Journal</a>
-            <a href="contact.html" role="menuitem" style="border: 1px solid var(--nz-gold); padding: 10px 20px; color: var(--nz-gold) !important;">Start Project</a>
+            <a href="contact.html" role="menuitem" style="border: 1px solid var(--nz-gold); padding: 10px 20px; color: var(--nz-gold) !important;">Discuss Your Project</a>
         </div>
     </nav>
 
@@ -741,50 +783,44 @@
         <!-- Hero Slider -->
         <div class="slider-container" id="hero-slider">
 
-            <!-- Slide 1: Architectural Cinema -->
+            <!-- Slide 1: Primary Positioning -->
             <div class="slide slide-1 active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3">
                 <div class="slide-content">
-                    <span class="slide-kicker">For Architects, Developers &amp; Estates</span>
-                    <h1 data-text="Architectural Cinema" aria-label="Architectural Cinema">Architectural Cinema</h1>
-                    <p>Estate documentation, historic registry narratives, and luxury residential motion assets.</p>
+                    <span class="slide-kicker">NEW YORK–AREA VIDEO PRODUCTION &amp; POST-PRODUCTION</span>
+                    <h1 data-text="Cinematic films for brands, products, and exceptional spaces." aria-label="Cinematic films for brands, products, and exceptional spaces.">Cinematic films for brands, products, and exceptional spaces.</h1>
+                    <p>Northzero Productions creates brand films, product content, and architectural films, with editing and post-production available as standalone services or part of a complete production.</p>
                     <div class="slide-actions">
-                        <a href="contact.html?service=Architectural+Cinema" class="cta-btn primary">Initiate Project Brief &rarr;</a>
-                        <a href="architectural.html" class="cta-btn secondary">Explore Architectural Films</a>
+                        <a href="work.html" class="cta-btn primary">View Selected Work &rarr;</a>
+                        <a href="contact.html" class="cta-btn secondary">Discuss Your Project</a>
                     </div>
                     <div class="hero-promise">
-                        <span style="color: var(--nz-gold);">●</span> Briefs reviewed within 24 hours · Ossining &amp; NYC Desks
+                        <span style="color: var(--nz-gold);">●</span> Based in Ossining, New York, serving Westchester County, the Hudson Valley, and New York City.
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 2: Tactile Narrative -->
+            <!-- Slide 2: Editing & Post-Production -->
             <div class="slide slide-2" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3">
                 <div class="slide-content">
-                    <span class="slide-kicker">For Design-Led Brands &amp; Artisans</span>
-                    <h1 data-text="Tactile Narrative" aria-label="Tactile Narrative">Tactile Narrative</h1>
-                    <p>Macro product cinematography, material craft, and physical-world commercial narratives.</p>
+                    <span class="slide-kicker">Standalone or Integrated Finishing</span>
+                    <h2 class="slide-heading" data-text="Editing &amp; Post-Production" aria-label="Editing &amp; Post-Production">Editing &amp; Post-Production</h2>
+                    <p>Story-driven editing, multi-camera assembly, audio cleanup, color correction, and tailored final exports.</p>
                     <div class="slide-actions">
-                        <a href="contact.html?service=Tactile+Narratives" class="cta-btn primary">Initiate Project Brief &rarr;</a>
-                        <a href="tactile.html" class="cta-btn secondary">View Product Films</a>
-                    </div>
-                    <div class="hero-promise">
-                        <span style="color: var(--nz-gold);">●</span> Briefs reviewed within 24 hours · Ossining &amp; NYC Desks
+                        <a href="all-services.html#post-production" class="cta-btn primary">Explore Post-Production &rarr;</a>
+                        <a href="contact.html?service=post-production" class="cta-btn secondary">Discuss Your Project</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 3: Authority Suite -->
+            <!-- Slide 3: Architectural, Product & Live-Stream Production -->
             <div class="slide slide-3" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3">
                 <div class="slide-content">
-                    <span class="slide-kicker">For Preservation Trusts &amp; Municipalities</span>
-                    <h1 data-text="Authority Suite" aria-label="Authority Suite">Authority Suite</h1>
-                    <p>HPC compliance visual packages, archival documentation, and public-facing heritage films.</p>
+                    <span class="slide-kicker">Architecture, Product &amp; Documentation</span>
+                    <h2 class="slide-heading" data-text="Production &amp; Documentation" aria-label="Production &amp; Documentation">Production &amp; Documentation</h2>
+                    <p>Architectural and property films, product cinematography, live-stream production, and institutional documentation.</p>
                     <div class="slide-actions">
-                        <a href="contact.html?service=Authority+Suite" class="cta-btn primary">Initiate Project Brief &rarr;</a>
-                        <a href="authority.html" class="cta-btn secondary">Explore Authority Suite</a>
-                    </div>
-                    <div class="hero-promise">
-                        <span style="color: var(--nz-gold);">●</span> Briefs reviewed within 24 hours · Ossining &amp; NYC Desks
+                        <a href="work.html" class="cta-btn primary">View Selected Work &rarr;</a>
+                        <a href="contact.html" class="cta-btn secondary">Discuss Your Project</a>
                     </div>
                 </div>
             </div>
@@ -889,6 +925,52 @@
             </div>
         </section>
 
+        <!-- Four-Service Overview (Added directly after Selected Work using existing 4-column layout) -->
+        <section class="engagements-strip" id="services-overview" aria-label="Core Services Overview" style="background: #000;">
+            <div class="engagements-inner">
+                <span class="eng-tag">Core Capabilities</span>
+                <h2>Production &amp; Post-Production Services</h2>
+                <div class="eng-grid">
+                    <div class="eng-col">
+                        <span class="eng-num">01</span>
+                        <h4>Brand &amp; Commercial Video</h4>
+                        <p>Story-driven brand films and commercial video designed to communicate what your company does, how you work, and why it matters.</p>
+                        <a href="all-services.html#brand-commercial" class="eng-link">Explore Services &rarr;</a>
+                    </div>
+                    <div class="eng-col">
+                        <span class="eng-num">02</span>
+                        <h4>Product Cinematography</h4>
+                        <p>Detail-focused product content highlighting materials, craftsmanship, and physical character for launches and brand campaigns.</p>
+                        <a href="all-services.html#tactile" class="eng-link">Explore Product Work &rarr;</a>
+                    </div>
+                    <div class="eng-col">
+                        <span class="eng-num">03</span>
+                        <h4>Architectural &amp; Property Films</h4>
+                        <p>Interior and exterior cinematography focused on light, materiality, pacing, and sense of place for architects, builders, and property teams.</p>
+                        <a href="all-services.html#architectural" class="eng-link">Explore Architectural Films &rarr;</a>
+                    </div>
+                    <div class="eng-col">
+                        <span class="eng-num">04</span>
+                        <h4>Editing &amp; Post-Production</h4>
+                        <p>Standalone or integrated post-production—from footage organization and multi-camera editing to audio cleanup, color correction, and final exports.</p>
+                        <a href="all-services.html#post-production" class="eng-link">Explore Post-Production &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Compact Livestream & Preservation Notes -->
+                <div class="supporting-notes-row">
+                    <div class="supporting-note-item">
+                        <h5>Live-Stream Production</h5>
+                        <p>Live-stream production for presentations, conversations, and events, with the production approach and technical requirements scoped to each project. <a href="all-services.html#livestream" class="eng-link" style="margin-top: 6px;">Learn More &rarr;</a></p>
+                    </div>
+                    <div class="supporting-note-item blue">
+                        <h5>Preservation &amp; Institutional Documentation</h5>
+                        <p>Visual documentation prepared to support the project team’s submission and communication needs for historic properties and public presentations. <a href="authority.html" class="eng-link" style="margin-top: 6px;">Explore Authority Suite &rarr;</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Lead Magnet Strip -->
         <section class="lead-magnet-strip" aria-label="Free industry resource">
             <div class="lm-inner">
@@ -949,7 +1031,7 @@
             </div>
         </section>
         
-        <!-- What Every Engagement Includes Strip -->
+        <!-- What Every Engagement Includes Strip (Preserved unchanged) -->
         <section class="engagements-strip" aria-label="Production standards and deliverables">
             <div class="engagements-inner">
                 <span class="eng-tag">Commission Standards</span>
@@ -987,7 +1069,7 @@
                 <h2>Commission a Production Brief</h2>
                 <p>Discuss your architectural timeline, municipal compliance hurdles, or tactile campaign with our principal desk.</p>
                 <div class="commission-btn-group">
-                    <a href="contact.html" class="cta-btn primary">Start Project Brief &rarr;</a>
+                    <a href="contact.html" class="cta-btn primary">Discuss Your Project &rarr;</a>
                     <a href="https://calendly.com/northzeroproductions-info/30min" class="cta-btn secondary" target="_blank" rel="noopener noreferrer">Schedule Consultation</a>
                 </div>
                 <div class="commitment-indicator">
@@ -1017,7 +1099,7 @@
     </footer>
 
     <!-- nav.js handles all hamburger toggle logic -->
-    <script src="nav.js?v=2.1" defer></script>
+    <script src="nav.js?v=2.4" defer></script>
 
     <!-- Page Interaction Controller -->
     <script>
